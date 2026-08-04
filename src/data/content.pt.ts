@@ -1,5 +1,5 @@
 import { Database, Palette, Presentation, Server, Smartphone, Trophy, Users } from 'lucide-react';
-import { Achievement, Content, Project, TechCategory, Testimonial, Timeline } from './types';
+import { Achievement, Content, Project, TechCategory, Testimonial, Timeline, Talk } from './types';
 
 export const projects: Project[] = [
     {
@@ -829,11 +829,131 @@ export const timeline: Timeline = {
     ],
 };
 
+// Conteúdo inicial baseado nas palestras, workshops e cursos já mencionados no site.
+// Datas, locais e links foram preenchidos com as informações disponíveis — revise e
+// complete com os dados exatos de cada evento. As imagens marcadas como "placeholder"
+// devem ser substituídas por fotos reais dos eventos (uma `gallery: [...]` opcional
+// pode ser adicionada a qualquer item para exibir múltiplas fotos na página de detalhes).
+export const talks: Talk[] = [
+    {
+        id: 'escola-ferias-puc-minas',
+        type: 'workshop',
+        title: 'Workshop de React com Studio Ghibli API',
+        event: 'Escola de Férias de Ciência da Computação — PUC Minas',
+        location: 'PUC Minas, Belo Horizonte, MG',
+        date: '2025',
+        description:
+            'Workshop prático de React para alunos iniciantes, construindo uma aplicação real que consome a Studio Ghibli API.',
+        fullDescription: `Ministrei um workshop prático de React durante a Escola de Férias de Ciência da Computação da PUC Minas, voltado para alunos iniciantes que desejavam aprender os fundamentos do desenvolvimento front-end moderno.
+
+Ao longo do workshop, os participantes construíram, passo a passo, uma aplicação completa em React que consome a Studio Ghibli API para exibir uma coleção de filmes — unindo teoria e prática em um exemplo real e envolvente.
+
+Principais tópicos abordados:
+- Fundamentos de React e componentização
+- Consumo de APIs externas com Axios
+- Roteamento com React Router DOM
+- Boas práticas de organização de projetos para iniciantes`,
+        topics: ['React', 'TypeScript', 'APIs', 'Front-end'],
+        image: 'https://github.com/user-attachments/assets/208932f4-4060-49f7-9bb7-f4d3247f0d78',
+        url: 'https://studio-ghibli-react.vercel.app/',
+    },
+    {
+        id: 'formacoes-webtech-network',
+        type: 'talk',
+        title: 'Formações, Workshops e Mentorias Técnicas',
+        event: 'WebTech Network',
+        location: 'Online',
+        date: '2024 - o momento',
+        description:
+            'Condução de encontros, workshops e mentorias técnicas como Chapter Lead, formando novos desenvolvedores em back-end, front-end e boas práticas.',
+        fullDescription: `Como Chapter Lead do WebTech Network, conduzo regularmente encontros, workshops e mentorias técnicas voltados à formação de novos desenvolvedores dentro da comunidade.
+
+Esses encontros abrangem desde fundamentos de programação até tópicos mais avançados de back-end, front-end, bancos de dados e versionamento, sempre com foco em conteúdo prático e aplicável.
+
+Principais tópicos abordados:
+- Fundamentos de Back-end e Front-end
+- Bancos de dados e versionamento com Git
+- Boas práticas de desenvolvimento e arquitetura de software
+- Orientação técnica em projetos como DevFest, ASSPROM e Jornada Back-end`,
+        topics: ['Mentoria', 'Back-end', 'Front-end', 'Boas Práticas'],
+        // Placeholder — substituir pela imagem oficial do evento.
+        image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80',
+    },
+    {
+        id: 'jornada-backend-webtech-levty',
+        type: 'course',
+        title: 'Jornada Back-end',
+        event: 'WebTech Network x LEVTY',
+        location: 'Online',
+        date: '2024',
+        description:
+            'Formação intensiva sobre desenvolvimento back-end, organizada em parceria entre o WebTech Network e a LEVTY, reunindo mais de 500 inscritos.',
+        fullDescription: `A Jornada Back-end foi uma iniciativa de formação promovida pelo WebTech Network em parceria com a LEVTY, com o objetivo de introduzir e aprofundar conceitos essenciais de desenvolvimento back-end para uma audiência de mais de 500 inscritos.
+
+Como Chapter Lead do WebTech Network, atuei na condução técnica do conteúdo, apresentando conceitos, boas práticas e exemplos práticos ao longo do evento.
+
+Principais tópicos abordados:
+- Fundamentos de APIs REST e arquitetura back-end
+- Boas práticas de organização e estruturação de código
+- Autenticação, segurança e tratamento de erros
+- Integração entre back-end e banco de dados
+- Dicas de carreira e próximos passos para quem está começando`,
+        topics: ['Back-end', 'APIs REST', 'Node.js', 'Boas Práticas', 'Carreira'],
+        // Placeholder — substituir pela imagem oficial do evento.
+        image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80',
+    },
+    {
+        id: 'workshops-devfest-bh',
+        type: 'workshop',
+        title: 'Workshops de React',
+        event: 'DevFest BH — Google Developers Group Belo Horizonte',
+        location: 'Belo Horizonte, MG',
+        date: '2023 - 2024',
+        description:
+            'Workshops práticos de React ministrados por dois anos consecutivos no maior evento de tecnologia de Belo Horizonte, promovido pelo Google Developers Group.',
+        fullDescription: `Durante dois anos consecutivos, tive a oportunidade de ministrar workshops práticos de React no DevFest BH, o maior evento de tecnologia de Belo Horizonte, promovido pelo Google Developers Group (GDG BH).
+
+Os workshops foram pensados para desenvolvedores de diferentes níveis de experiência, com foco em consolidar conceitos fundamentais de React através da construção de aplicações reais durante o próprio evento.
+
+Principais tópicos abordados:
+- Fundamentos de componentes, props e estado em React
+- Hooks essenciais (useState, useEffect, entre outros)
+- Boas práticas de organização de projetos front-end
+- Construção de uma aplicação prática do início ao fim`,
+        topics: ['React', 'JavaScript', 'TypeScript', 'Front-end'],
+        image: 'https://github.com/user-attachments/assets/1b43e564-ae07-4bdf-a6ec-92f5884e2b12',
+        url: 'https://gdgbh.com.br/',
+    },
+    {
+        id: 'code-club-voluntariado',
+        type: 'course',
+        title: 'Professor Voluntário',
+        event: 'Code Club',
+        location: 'Belo Horizonte, MG',
+        date: 'Atividade contínua',
+        description:
+            'Aulas voluntárias de HTML, CSS, Python e Scratch para crianças e jovens, incentivando os primeiros passos no mundo da programação.',
+        fullDescription: `Como professor voluntário do projeto Code Club, ministro aulas introdutórias de programação para crianças e jovens, com o objetivo de despertar o interesse pela tecnologia desde cedo e tornar o aprendizado acessível e divertido.
+
+As aulas abordam desde lógica de programação com Scratch até fundamentos de desenvolvimento web com HTML e CSS, além de uma introdução ao Python, sempre com uma abordagem lúdica e prática.
+
+Principais tópicos abordados:
+- Lógica de programação com Scratch
+- Fundamentos de HTML e CSS
+- Introdução à programação com Python
+- Estímulo à criatividade e ao pensamento computacional`,
+        topics: ['Scratch', 'HTML', 'CSS', 'Python', 'Educação'],
+        // Placeholder — substituir pela imagem oficial do evento.
+        image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80',
+    },
+];
+
 export const ui = {
     nav: {
         home: 'Início',
         about: 'Sobre',
         projects: 'Projetos',
+        talks: 'Palestras',
         content: 'Conteúdos',
         contact: 'Contato',
         logo: 'Portfólio',
@@ -866,6 +986,30 @@ export const ui = {
         viewCode: 'Ver Código',
         aboutTitle: 'Sobre o Projeto',
         techTitle: 'Tecnologias Utilizadas',
+    },
+    talks: {
+        title: 'Palestras & Cursos',
+        description:
+            'Ao longo da minha trajetória, tive a oportunidade de compartilhar conhecimento em palestras, workshops e cursos para comunidades e instituições de ensino.',
+        all: 'Todos',
+        talk: 'Palestras',
+        workshop: 'Workshops',
+        course: 'Cursos',
+        learnMore: 'Saiba mais',
+    },
+    talkDetails: {
+        backButton: 'Voltar para Palestras & Cursos',
+        aboutTitle: 'Sobre o evento',
+        topicsTitle: 'Temas abordados',
+        galleryTitle: 'Fotos',
+        visitLink: 'Acessar link do evento',
+        notFoundTitle: 'Evento não encontrado',
+        notFoundMessage: 'O evento que você está procurando não existe ou foi removido.',
+    },
+    talkBadges: {
+        talk: 'Palestra',
+        workshop: 'Workshop',
+        course: 'Curso',
     },
     content: {
         title: 'Conteúdos',

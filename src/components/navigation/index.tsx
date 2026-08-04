@@ -14,6 +14,7 @@ export function Navigation() {
         { name: t.nav.home, path: '/' },
         { name: t.nav.about, path: '/about' },
         { name: t.nav.projects, path: '/projects' },
+        { name: t.nav.talks, path: '/talks' },
         { name: t.nav.content, path: '/contents' },
         { name: t.nav.contact, path: '/contact' },
     ];

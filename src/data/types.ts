@@ -65,3 +65,22 @@ export interface Content {
 }
 
 export type ContentType = 'all' | 'videos' | 'articles' | 'newsletters';
+
+export type TalkType = 'talk' | 'workshop' | 'course';
+
+export interface Talk {
+    id: string;
+    type: TalkType;
+    title: string;
+    event: string;
+    location: string;
+    date: string;
+    description: string;
+    fullDescription: string;
+    topics: string[];
+    image: string;
+    gallery?: string[];
+    url?: string;
+}
+
+export type TalkFilter = 'all' | TalkType;

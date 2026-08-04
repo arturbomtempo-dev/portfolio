@@ -1,5 +1,5 @@
 import { Database, Palette, Presentation, Server, Smartphone, Trophy, Users } from 'lucide-react';
-import { Achievement, Content, Project, TechCategory, Testimonial, Timeline } from './types';
+import { Achievement, Content, Project, TechCategory, Testimonial, Timeline, Talk } from './types';
 
 export const projects: Project[] = [
     {
@@ -807,11 +807,131 @@ export const timeline: Timeline = {
     ],
 };
 
+// Seed content based on the talks, workshops, and courses already referenced across the
+// site. Dates, locations, and links were filled in with the information available —
+// review and complete with the exact details of each event. Images marked as
+// "placeholder" should be replaced with real event photos (an optional `gallery: [...]`
+// array can be added to any item to show multiple photos on the details page).
+export const talks: Talk[] = [
+    {
+        id: 'escola-ferias-puc-minas',
+        type: 'workshop',
+        title: 'React Workshop with the Studio Ghibli API',
+        event: 'PUC Minas Computer Science Summer School',
+        location: 'PUC Minas, Belo Horizonte, MG',
+        date: '2025',
+        description:
+            'Hands-on React workshop for beginner students, building a real application that consumes the Studio Ghibli API.',
+        fullDescription: `I taught a hands-on React workshop during the PUC Minas Computer Science Summer School, aimed at beginner students who wanted to learn the fundamentals of modern frontend development.
+
+Throughout the workshop, participants built a complete React application step by step, consuming the Studio Ghibli API to display a movie collection — combining theory and practice in a real, engaging example.
+
+Main topics covered:
+- React fundamentals and componentization
+- Consuming external APIs with Axios
+- Routing with React Router DOM
+- Best practices for organizing projects for beginners`,
+        topics: ['React', 'TypeScript', 'APIs', 'Frontend'],
+        image: 'https://github.com/user-attachments/assets/208932f4-4060-49f7-9bb7-f4d3247f0d78',
+        url: 'https://studio-ghibli-react.vercel.app/',
+    },
+    {
+        id: 'formacoes-webtech-network',
+        type: 'talk',
+        title: 'Technical Training, Workshops, and Mentoring',
+        event: 'WebTech Network',
+        location: 'Online',
+        date: '2024 - present',
+        description:
+            'Leading meetings, workshops, and technical mentoring as Chapter Lead, training new developers in backend, frontend, and best practices.',
+        fullDescription: `As Chapter Lead at WebTech Network, I regularly lead meetings, workshops, and technical mentoring sessions aimed at training new developers within the community.
+
+These sessions range from programming fundamentals to more advanced backend, frontend, database, and version control topics, always focused on practical, applicable content.
+
+Main topics covered:
+- Backend and Frontend fundamentals
+- Databases and version control with Git
+- Software development and architecture best practices
+- Technical guidance on projects such as DevFest, ASSPROM, and the Backend Journey`,
+        topics: ['Mentoring', 'Backend', 'Frontend', 'Best Practices'],
+        // Placeholder — replace with the official event photo.
+        image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80',
+    },
+    {
+        id: 'jornada-backend-webtech-levty',
+        type: 'course',
+        title: 'Backend Journey',
+        event: 'WebTech Network x LEVTY',
+        location: 'Online',
+        date: '2024',
+        description:
+            'Intensive backend development training organized in partnership between WebTech Network and LEVTY, gathering over 500 registered participants.',
+        fullDescription: `The Backend Journey was a training initiative promoted by WebTech Network in partnership with LEVTY, aimed at introducing and deepening essential backend development concepts for an audience of over 500 registered participants.
+
+As Chapter Lead at WebTech Network, I led the technical delivery of the content, presenting concepts, best practices, and practical examples throughout the event.
+
+Main topics covered:
+- REST API fundamentals and backend architecture
+- Best practices for code organization and structure
+- Authentication, security, and error handling
+- Integration between backend and database
+- Career tips and next steps for beginners`,
+        topics: ['Backend', 'REST APIs', 'Node.js', 'Best Practices', 'Career'],
+        // Placeholder — replace with the official event photo.
+        image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80',
+    },
+    {
+        id: 'workshops-devfest-bh',
+        type: 'workshop',
+        title: 'React Workshops',
+        event: 'DevFest BH — Google Developers Group Belo Horizonte',
+        location: 'Belo Horizonte, MG',
+        date: '2023 - 2024',
+        description:
+            "Hands-on React workshops taught for two consecutive years at the city's largest technology event, promoted by Google Developers Group.",
+        fullDescription: `For two consecutive years, I had the opportunity to teach hands-on React workshops at DevFest BH, the largest technology event in Belo Horizonte, promoted by Google Developers Group (GDG BH).
+
+The workshops were designed for developers of different experience levels, focused on consolidating fundamental React concepts by building real applications during the event itself.
+
+Main topics covered:
+- Fundamentals of components, props, and state in React
+- Essential hooks (useState, useEffect, among others)
+- Best practices for organizing frontend projects
+- Building a practical application from start to finish`,
+        topics: ['React', 'JavaScript', 'TypeScript', 'Frontend'],
+        image: 'https://github.com/user-attachments/assets/1b43e564-ae07-4bdf-a6ec-92f5884e2b12',
+        url: 'https://gdgbh.com.br/',
+    },
+    {
+        id: 'code-club-voluntariado',
+        type: 'course',
+        title: 'Volunteer Teacher',
+        event: 'Code Club',
+        location: 'Belo Horizonte, MG',
+        date: 'Ongoing',
+        description:
+            'Volunteer classes in HTML, CSS, Python, and Scratch for children and teenagers, encouraging their first steps into the world of programming.',
+        fullDescription: `As a volunteer teacher for the Code Club project, I teach introductory programming classes for children and teenagers, aiming to spark an early interest in technology and make learning accessible and fun.
+
+The classes range from programming logic with Scratch to web development fundamentals with HTML and CSS, plus an introduction to Python, always with a playful and practical approach.
+
+Main topics covered:
+- Programming logic with Scratch
+- HTML and CSS fundamentals
+- Introduction to programming with Python
+- Encouraging creativity and computational thinking`,
+        topics: ['Scratch', 'HTML', 'CSS', 'Python', 'Education'],
+        // Placeholder — replace with the official event photo.
+        image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80',
+    },
+];
+
 export const ui = {
     nav: {
         home: 'Home',
         about: 'About',
         projects: 'Projects',
+        talks: 'Talks',
         content: 'Content',
         contact: 'Contact',
         logo: 'Portfolio',
@@ -844,6 +964,30 @@ export const ui = {
         viewCode: 'View Code',
         aboutTitle: 'About the Project',
         techTitle: 'Technologies Used',
+    },
+    talks: {
+        title: 'Talks & Courses',
+        description:
+            'Throughout my journey, I have had the opportunity to share knowledge through talks, workshops, and courses for communities and educational institutions.',
+        all: 'All',
+        talk: 'Talks',
+        workshop: 'Workshops',
+        course: 'Courses',
+        learnMore: 'Learn more',
+    },
+    talkDetails: {
+        backButton: 'Back to Talks & Courses',
+        aboutTitle: 'About the event',
+        topicsTitle: 'Topics covered',
+        galleryTitle: 'Photos',
+        visitLink: 'Visit event link',
+        notFoundTitle: 'Event not found',
+        notFoundMessage: 'The event you are looking for does not exist or has been removed.',
+    },
+    talkBadges: {
+        talk: 'Talk',
+        workshop: 'Workshop',
+        course: 'Course',
     },
     content: {
         title: 'Content',
