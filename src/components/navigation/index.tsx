@@ -66,17 +66,17 @@ export function Navigation() {
 
                 {isMenuOpen && (
                     <div className="md:hidden py-4 animate-fade-in border-t border-border/50 max-w-xs mx-auto">
-                        <div className="flex flex-col gap-4 items-center">
+                        <div className="flex flex-col gap-1">
                             {navItems.map((item) => (
                                 <NavLink
                                     key={item.path}
                                     to={item.path}
-                                    className="nav-link text-sm font-medium py-2"
-                                    activeClassName="nav-link-active"
+                                    className="nav-link-mobile text-sm font-medium"
+                                    activeClassName="nav-link-mobile-active"
                                     onClick={() => setIsMenuOpen(false)}
                                     end={item.path === '/'}
                                 >
-                                    {item.name}
+                                    <span className="nav-link-mobile-label">{item.name}</span>
                                 </NavLink>
                             ))}
                         </div>

@@ -251,6 +251,34 @@
         @apply w-full;
     }
 
+    .nav-link-mobile {
+        @apply block w-full text-center py-3 px-4 text-muted-foreground transition-colors duration-200;
+    }
+
+    .nav-link-mobile:hover,
+    .nav-link-mobile:focus-visible {
+        @apply text-foreground;
+    }
+
+    .nav-link-mobile-active {
+        @apply text-foreground;
+    }
+
+    .nav-link-mobile-label {
+        @apply relative inline-block;
+    }
+
+    .nav-link-mobile-label::after {
+        content: '';
+        @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+    }
+
+    .nav-link-mobile:hover .nav-link-mobile-label::after,
+    .nav-link-mobile:focus-visible .nav-link-mobile-label::after,
+    .nav-link-mobile-active .nav-link-mobile-label::after {
+        @apply w-full;
+    }
+
     .back-link {
         @apply text-muted-foreground hover:text-foreground transition-colors duration-200 relative inline-flex items-center gap-2;
     }
