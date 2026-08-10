@@ -5,8 +5,8 @@ import { Contents } from './pages/contents';
 import { Home } from './pages/home';
 import { NotFound } from './pages/not-found';
 import { Projects } from './pages/projects';
-import { TalkDetails } from './pages/talk-details';
-import { Talks } from './pages/talks';
+// import { TalkDetails } from './pages/talk-details'; // TODO: reativar quando a página de palestras estiver pronta
+// import { Talks } from './pages/talks'; // TODO: reativar quando a página de palestras estiver pronta
 
 export function AppRoutes() {
     return (
@@ -14,8 +14,8 @@ export function AppRoutes() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/talks" element={<Talks />} />
-            <Route path="/talks/:id" element={<TalkDetails />} />
+            {/* <Route path="/talks" element={<Talks />} /> TODO: reativar quando a página de palestras estiver pronta */}
+            {/* <Route path="/talks/:id" element={<TalkDetails />} /> TODO: reativar quando a página de palestras estiver pronta */}
             <Route path="/contents" element={<Contents />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
