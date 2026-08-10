@@ -135,7 +135,7 @@ export function Contact() {
                     ))}
                 </div>
 
-                <Card className="project-card p-6 sm:p-8 animate-fade-in max-w-full sm:max-w-4xl mx-auto">
+                <Card className="project-card static-card p-6 sm:p-8 animate-fade-in max-w-full sm:max-w-4xl mx-auto">
                     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6">
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium mb-2">

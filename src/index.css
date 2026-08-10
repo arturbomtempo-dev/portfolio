@@ -230,6 +230,17 @@
         box-shadow: 0 10px 40px hsl(0 0% 0% / 0.08);
     }
 
+    .project-card.static-card:hover {
+        border-color: hsl(var(--border) / 0.5);
+        box-shadow: none;
+        transform: none;
+    }
+
+    .light .project-card.static-card:hover {
+        border-color: hsl(var(--border) / 0.5);
+        box-shadow: none;
+    }
+
     .nav-link {
         @apply text-muted-foreground hover:text-foreground transition-colors duration-200 relative inline-block;
     }

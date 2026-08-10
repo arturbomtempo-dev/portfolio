@@ -15,7 +15,7 @@ export function NotFound() {
     return (
         <div className="min-h-screen flex items-center justify-center px-6 py-20">
             <div className="container mx-auto max-w-2xl">
-                <Card className="project-card p-8 sm:p-12 text-center animate-fade-in">
+                <Card className="project-card static-card p-8 sm:p-12 text-center animate-fade-in">
                     <div className="mb-8">
                         <div className="mb-2">
                             <span className="text-8xl sm:text-9xl font-heading font-bold glow-text opacity-50">
