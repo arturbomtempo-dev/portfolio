@@ -1,10 +1,10 @@
 import { Database, Palette, Presentation, Server, Smartphone, Trophy, Users } from 'lucide-react';
-import { Achievement, Content, Project, TechCategory, Testimonial, Timeline, Talk } from './types';
+import { Achievement, Content, Project, Talk, TechCategory, Testimonial, Timeline } from './types';
 
 export const projects: Project[] = [
     {
         id: 'portfolio',
-        title: 'Personal Portfolio — Artur Bomtempo',
+        title: 'Personal Portfolio by Artur Bomtempo',
         description:
             'Personal website developed to showcase my trajectory, skills, and main projects.',
         image: 'https://github.com/user-attachments/assets/bb40b211-79a4-45ea-8ba9-5f1bac978299',
@@ -55,7 +55,7 @@ A project developed in collaboration to strengthen the digital presence of one o
             'Educational project developed to teach basic concepts of React, TypeScript, and Styled Components.',
         image: 'https://github.com/user-attachments/assets/30e30fe2-0958-41e6-b6d9-71e385d66316',
         cardTechs: ['React', 'TypeScript'],
-        fullDescription: `This project was created as part of a YouTube tutorial with the goal of teaching, in a practical and accessible way, the fundamentals of React, TypeScript, and Styled Components. The application demonstrates the complete process of building a Link in Bio — a page that centralizes important links such as social networks, portfolio, and contact information.
+        fullDescription: `This project was created as part of a YouTube tutorial with the goal of teaching, in a practical and accessible way, the fundamentals of React, TypeScript, and Styled Components. The application demonstrates the complete process of building a Link in Bio, a page that centralizes important links such as social networks, portfolio, and contact information.
 
 Key features:
 - Profile display with name, photo, and brief description
@@ -105,7 +105,7 @@ A project with an educational purpose, created to facilitate learning modern web
             'Official website developed for the largest technology event in Belo Horizonte, promoted by Google Developers Group.',
         image: 'https://github.com/user-attachments/assets/1b43e564-ae07-4bdf-a6ec-92f5884e2b12',
         cardTechs: ['Next.js', 'TypeScript'],
-        fullDescription: `Platform developed by me and part of the WebTech Network team for Google Developers Group Belo Horizonte, serving as the official website for DevFest BH 2024 — the city's largest technology event. The goal was to create a complete experience for participants, with information, schedule, location, partners, and registration link.
+        fullDescription: `Platform developed by me and part of the WebTech Network team for Google Developers Group Belo Horizonte, serving as the official website for DevFest BH 2024, the city's largest technology event. The goal was to create a complete experience for participants, with information, schedule, location, partners, and registration link.
 
 Key features:
 - Official event page with its own visual identity and updated content
@@ -491,8 +491,8 @@ export const achievements: Achievement[] = [
             '7x awarded "The Best of the Class" at Colégio Cotemig, for highest overall GPA of the semester',
             '1st place in the Cotemig Startups program with the QuickFood Technologies team',
             'Level 1, 2, and 3 Member Certification from WebTech Network',
-            'Best Interdisciplinary Project of the 1st semester in Computer Science – PUC Minas',
-            'Best Interdisciplinary Project of the 2nd semester in Software Engineering – PUC Minas',
+            'Best Interdisciplinary Project of the 1st semester in Computer Science at PUC Minas',
+            'Best Interdisciplinary Project of the 2nd semester in Software Engineering at PUC Minas',
             '1st place in internal learning competition at White Wall',
             '2x recognized as Outstanding Communication Volunteer at Central Baptist Church',
         ],
@@ -605,7 +605,7 @@ export const testimonials: Testimonial[] = [
         name: 'Lucas Sena',
         role: 'Software Developer at Samsung',
         image: 'https://arturbomtempo-dev.github.io/arturbomtempo-cdn/assets/images/projects/portfolio/testimonials/lucas-sena.png',
-        text: 'From my experience with Artur, I can confidently say that he is an excellent professional and student. Very hardworking and dedicated, he seeks to learn and evolve daily — requirements of great importance for the technology field. In addition, he has a solid logical foundation and well-consolidated software development skills.',
+        text: 'From my experience with Artur, I can confidently say that he is an excellent professional and student. Very hardworking and dedicated, he seeks to learn and evolve daily, requirements of great importance for the technology field. In addition, he has a solid logical foundation and well-consolidated software development skills.',
     },
     {
         name: 'Letícia França',
@@ -635,7 +635,7 @@ export const testimonials: Testimonial[] = [
         name: 'Aquila Faria',
         role: 'Designer & Videomaker at Vidas Vividas',
         image: 'https://arturbomtempo-dev.github.io/arturbomtempo-cdn/assets/images/projects/portfolio/testimonials/aquila.jpg',
-        text: 'Artur was quite coherent and responsible with his work during the period he was at Vidas. He really is — and will continue to become — a great professional!',
+        text: 'Artur was quite coherent and responsible with his work during the period he was at Vidas. He really is, and will continue to become, a great professional!',
     },
     {
         name: 'Paulo Henrique',
@@ -808,7 +808,7 @@ export const timeline: Timeline = {
 };
 
 // Seed content based on the talks, workshops, and courses already referenced across the
-// site. Dates, locations, and links were filled in with the information available —
+// site. Dates, locations, and links were filled in with the information available;
 // review and complete with the exact details of each event. Images marked as
 // "placeholder" should be replaced with real event photos (an optional `gallery: [...]`
 // array can be added to any item to show multiple photos on the details page).
@@ -824,7 +824,7 @@ export const talks: Talk[] = [
             'Hands-on React workshop for beginner students, building a real application that consumes the Studio Ghibli API.',
         fullDescription: `I taught a hands-on React workshop during the PUC Minas Computer Science Summer School, aimed at beginner students who wanted to learn the fundamentals of modern frontend development.
 
-Throughout the workshop, participants built a complete React application step by step, consuming the Studio Ghibli API to display a movie collection — combining theory and practice in a real, engaging example.
+Throughout the workshop, participants built a complete React application step by step, consuming the Studio Ghibli API to display a movie collection, combining theory and practice in a real, engaging example.
 
 Main topics covered:
 - React fundamentals and componentization
@@ -854,7 +854,7 @@ Main topics covered:
 - Software development and architecture best practices
 - Technical guidance on projects such as DevFest, ASSPROM, and the Backend Journey`,
         topics: ['Mentoring', 'Backend', 'Frontend', 'Best Practices'],
-        // Placeholder — replace with the official event photo.
+        // Placeholder: replace with the official event photo.
         image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80',
     },
     {
@@ -877,14 +877,14 @@ Main topics covered:
 - Integration between backend and database
 - Career tips and next steps for beginners`,
         topics: ['Backend', 'REST APIs', 'Node.js', 'Best Practices', 'Career'],
-        // Placeholder — replace with the official event photo.
+        // Placeholder: replace with the official event photo.
         image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80',
     },
     {
         id: 'workshops-devfest-bh',
         type: 'workshop',
         title: 'React Workshops',
-        event: 'DevFest BH — Google Developers Group Belo Horizonte',
+        event: 'DevFest BH, Google Developers Group Belo Horizonte',
         location: 'Belo Horizonte, MG',
         date: '2023 - 2024',
         description:
@@ -921,7 +921,7 @@ Main topics covered:
 - Introduction to programming with Python
 - Encouraging creativity and computational thinking`,
         topics: ['Scratch', 'HTML', 'CSS', 'Python', 'Education'],
-        // Placeholder — replace with the official event photo.
+        // Placeholder: replace with the official event photo.
         image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80',
     },
 ];
@@ -940,7 +940,7 @@ export const ui = {
         greeting: 'I am',
         role: 'Software Developer',
         description:
-            "I have always had the desire to make an impact on people's lives — and I found in software development a way to turn that into reality.",
+            "I have always had the desire to make an impact on people's lives, and I found in software development a way to turn that into reality.",
         aboutButton: 'About me',
         contactButton: 'Get in Touch',
     },

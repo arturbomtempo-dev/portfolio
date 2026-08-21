@@ -1,10 +1,10 @@
 import { Database, Palette, Presentation, Server, Smartphone, Trophy, Users } from 'lucide-react';
-import { Achievement, Content, Project, TechCategory, Testimonial, Timeline, Talk } from './types';
+import { Achievement, Content, Project, Talk, TechCategory, Testimonial, Timeline } from './types';
 
 export const projects: Project[] = [
     {
         id: 'portfolio',
-        title: 'Portafolio Personal — Artur Bomtempo',
+        title: 'Portafolio Personal de Artur Bomtempo',
         description:
             'Sitio personal desarrollado para presentar mi trayectoria, habilidades y principales proyectos.',
         image: 'https://github.com/user-attachments/assets/bb40b211-79a4-45ea-8ba9-5f1bac978299',
@@ -55,7 +55,7 @@ Un proyecto desarrollado en colaboración para fortalecer la presencia digital d
             'Proyecto didáctico desarrollado para enseñar conceptos básicos de React, TypeScript y Styled Components.',
         image: 'https://github.com/user-attachments/assets/30e30fe2-0958-41e6-b6d9-71e385d66316',
         cardTechs: ['React', 'TypeScript'],
-        fullDescription: `Este proyecto fue creado como parte de un tutorial en YouTube con el objetivo de enseñar, de forma práctica y accesible, los fundamentos de React, TypeScript y Styled Components. La aplicación demuestra el proceso completo de construcción de un Link in Bio — una página que centraliza enlaces importantes, como redes sociales, portafolio e informaciones de contacto.
+        fullDescription: `Este proyecto fue creado como parte de un tutorial en YouTube con el objetivo de enseñar, de forma práctica y accesible, los fundamentos de React, TypeScript y Styled Components. La aplicación demuestra el proceso completo de construcción de un Link in Bio, una página que centraliza enlaces importantes, como redes sociales, portafolio e informaciones de contacto.
 
 Características principales:
 - Exhibición de perfil con nombre, foto y breve descripción
@@ -105,7 +105,7 @@ Un proyecto con propósito educacional, creado para facilitar el aprendizaje de 
             'Sitio oficial desarrollado para el mayor evento de tecnología de Belo Horizonte, promovido por el Google Developers Group.',
         image: 'https://github.com/user-attachments/assets/1b43e564-ae07-4bdf-a6ec-92f5884e2b12',
         cardTechs: ['Next.js', 'TypeScript'],
-        fullDescription: `Plataforma desarrollada por mí y parte del equipo WebTech Network para el Google Developers Group Belo Horizonte, sirviendo como el sitio oficial del DevFest BH 2024 — el mayor evento de tecnología de la ciudad. El objetivo fue crear una experiencia completa para participantes, con informaciones, agenda, ubicación, socios y enlace de inscripción.
+        fullDescription: `Plataforma desarrollada por mí y parte del equipo WebTech Network para el Google Developers Group Belo Horizonte, sirviendo como el sitio oficial del DevFest BH 2024, el mayor evento de tecnología de la ciudad. El objetivo fue crear una experiencia completa para participantes, con informaciones, agenda, ubicación, socios y enlace de inscripción.
 
 Características principales:
 - Página oficial del evento con identidad visual propia y contenido actualizado
@@ -493,8 +493,8 @@ export const achievements: Achievement[] = [
             '7x premiado como "The Best of the Class" en Colégio Cotemig, por mayor promedio global del semestre',
             '1º lugar en el programa Cotemig Startups con el equipo QuickFood Technologies',
             'Certificación de Miembro Niveles 1, 2 y 3 del WebTech Network',
-            'Mejor Trabajo Interdisciplinario del 1º período en Ciencias de la Computación – PUC Minas',
-            'Mejor Trabajo Interdisciplinario del 2º período en Ingeniería de Software – PUC Minas',
+            'Mejor Trabajo Interdisciplinario del 1º período en Ciencias de la Computación en la PUC Minas',
+            'Mejor Trabajo Interdisciplinario del 2º período en Ingeniería de Software en la PUC Minas',
             '1º lugar en la competición interna de aprendizaje en White Wall',
             '2x reconocido como Voluntario Destacado de Comunicación en la Iglesia Bautista Central',
         ],
@@ -607,7 +607,7 @@ export const testimonials: Testimonial[] = [
         name: 'Lucas Sena',
         role: 'Desarrollador de Software en Samsung',
         image: 'https://arturbomtempo-dev.github.io/arturbomtempo-cdn/assets/images/projects/portfolio/testimonials/lucas-sena.png',
-        text: 'Por la experiencia que tengo con Artur, puedo afirmar con seguridad que es un excelente profesional y estudiante. Muy esforzado y dedicado, busca aprender y evolucionar diariamente — requisitos de gran importancia para el área de tecnología. Además, posee una base lógica sólida y habilidades de desarrollo de software bien consolidadas.',
+        text: 'Por la experiencia que tengo con Artur, puedo afirmar con seguridad que es un excelente profesional y estudiante. Muy esforzado y dedicado, busca aprender y evolucionar diariamente, requisitos de gran importancia para el área de tecnología. Además, posee una base lógica sólida y habilidades de desarrollo de software bien consolidadas.',
     },
     {
         name: 'Letícia França',
@@ -637,7 +637,7 @@ export const testimonials: Testimonial[] = [
         name: 'Aquila Faria',
         role: 'Diseñador & Videomaker en Vidas Vividas',
         image: 'https://arturbomtempo-dev.github.io/arturbomtempo-cdn/assets/images/projects/portfolio/testimonials/aquila.jpg',
-        text: 'Artur se mostró bastante coherente y responsable con su trabajo durante el período en que estuvo en Vidas. ¡Realmente es — y continuará siendo — un gran profesional!',
+        text: 'Artur se mostró bastante coherente y responsable con su trabajo durante el período en que estuvo en Vidas. ¡Realmente es, y continuará siendo, un gran profesional!',
     },
     {
         name: 'Paulo Henrique',
@@ -810,7 +810,7 @@ export const timeline: Timeline = {
 };
 
 // Contenido inicial basado en las charlas, talleres y cursos ya mencionados en el sitio.
-// Las fechas, ubicaciones y enlaces se completaron con la información disponible —
+// Las fechas, ubicaciones y enlaces se completaron con la información disponible;
 // revisa y completa con los datos exactos de cada evento. Las imágenes marcadas como
 // "placeholder" deben reemplazarse por fotos reales de los eventos (se puede agregar
 // una `gallery: [...]` opcional a cualquier elemento para mostrar varias fotos en la
@@ -820,14 +820,14 @@ export const talks: Talk[] = [
         id: 'escola-ferias-puc-minas',
         type: 'workshop',
         title: 'Taller de React con la API de Studio Ghibli',
-        event: 'Escuela de Verano de Ciencias de la Computación — PUC Minas',
+        event: 'Escuela de Verano de Ciencias de la Computación de PUC Minas',
         location: 'PUC Minas, Belo Horizonte, MG',
         date: '2025',
         description:
             'Taller práctico de React para estudiantes principiantes, construyendo una aplicación real que consume la API de Studio Ghibli.',
         fullDescription: `Impartí un taller práctico de React durante la Escuela de Verano de Ciencias de la Computación de PUC Minas, dirigido a estudiantes principiantes que deseaban aprender los fundamentos del desarrollo front-end moderno.
 
-A lo largo del taller, los participantes construyeron, paso a paso, una aplicación completa en React que consume la API de Studio Ghibli para mostrar una colección de películas — combinando teoría y práctica en un ejemplo real y atractivo.
+A lo largo del taller, los participantes construyeron, paso a paso, una aplicación completa en React que consume la API de Studio Ghibli para mostrar una colección de películas, combinando teoría y práctica en un ejemplo real y atractivo.
 
 Principales temas abordados:
 - Fundamentos de React y componentización
@@ -857,7 +857,7 @@ Principales temas abordados:
 - Buenas prácticas de desarrollo y arquitectura de software
 - Orientación técnica en proyectos como DevFest, ASSPROM y la Jornada Back-end`,
         topics: ['Mentoría', 'Back-end', 'Front-end', 'Buenas Prácticas'],
-        // Placeholder — reemplazar por la imagen oficial del evento.
+        // Placeholder: reemplazar por la imagen oficial del evento.
         image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80',
     },
     {
@@ -880,14 +880,14 @@ Principales temas abordados:
 - Integración entre back-end y base de datos
 - Consejos de carrera y próximos pasos para quienes están comenzando`,
         topics: ['Back-end', 'APIs REST', 'Node.js', 'Buenas Prácticas', 'Carrera'],
-        // Placeholder — reemplazar por la imagen oficial del evento.
+        // Placeholder: reemplazar por la imagen oficial del evento.
         image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80',
     },
     {
         id: 'workshops-devfest-bh',
         type: 'workshop',
         title: 'Talleres de React',
-        event: 'DevFest BH — Google Developers Group Belo Horizonte',
+        event: 'DevFest BH, Google Developers Group Belo Horizonte',
         location: 'Belo Horizonte, MG',
         date: '2023 - 2024',
         description:
@@ -924,7 +924,7 @@ Principales temas abordados:
 - Introducción a la programación con Python
 - Estímulo a la creatividad y al pensamiento computacional`,
         topics: ['Scratch', 'HTML', 'CSS', 'Python', 'Educación'],
-        // Placeholder — reemplazar por la imagen oficial del evento.
+        // Placeholder: reemplazar por la imagen oficial del evento.
         image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80',
     },
 ];
@@ -943,7 +943,7 @@ export const ui = {
         greeting: 'Soy',
         role: 'Desarrollador de Software',
         description:
-            'Siempre he tenido el deseo de generar impacto en la vida de las personas — y encontré en el desarrollo de software una forma de convertir eso en realidad.',
+            'Siempre he tenido el deseo de generar impacto en la vida de las personas, y encontré en el desarrollo de software una forma de convertir eso en realidad.',
         aboutButton: 'Acerca de mí',
         contactButton: 'Contáctame',
     },
