@@ -4,6 +4,7 @@ const MOBILE_MENU_ID = 'mobile-menu';
 const { t } = useI18n();
 const localePath = useLocalePath();
 const route = useRoute();
+const getRouteKey = useLocaleAgnosticRouteKey();
 const { items } = useNavigation();
 
 const isMobileMenuOpen = ref(false);
@@ -17,7 +18,7 @@ function toggleMobileMenu() {
 }
 
 watch(
-    () => route.fullPath,
+    () => getRouteKey(route),
     () => {
         isMobileMenuOpen.value = false;
     }
@@ -26,7 +27,7 @@ watch(
 
 <template>
     <header class="glass-card fixed inset-x-0 top-0 z-50 border-b">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 2xl:max-w-[1400px]">
+        <div class="mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <NuxtLink
                     :to="localePath('/')"
@@ -40,7 +41,7 @@ watch(
                 <div class="flex items-center gap-6">
                     <nav :aria-label="t('header.mainNavigation')" class="hidden md:block">
                         <ul class="flex items-center gap-6">
-                            <li v-for="item in items" :key="item.to">
+                            <li v-for="item in items" :key="item.to" class="flex">
                                 <NuxtLink
                                     :to="item.to"
                                     class="link-underline text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground [&.router-link-active]:text-foreground"
@@ -63,7 +64,7 @@ watch(
                             :aria-controls="MOBILE_MENU_ID"
                             @click="toggleMobileMenu"
                         >
-                            <Icon :name="isMobileMenuOpen ? 'lucide:x' : 'lucide:menu'" size="24" />
+                            <Icon :name="isMobileMenuOpen ? 'portfolio:x' : 'portfolio:menu'" />
                         </UiBaseButton>
                     </div>
                 </div>

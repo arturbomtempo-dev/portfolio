@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const localeHead = useLocaleHead();
+const getPageKey = useLocaleAgnosticRouteKey();
 
 useHead(() => ({
     htmlAttrs: localeHead.value.htmlAttrs,
@@ -10,6 +11,6 @@ useHead(() => ({
 
 <template>
     <NuxtLayout>
-        <NuxtPage />
+        <NuxtPage :page-key="getPageKey" />
     </NuxtLayout>
 </template>

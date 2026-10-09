@@ -18,6 +18,7 @@ export default defineNuxtConfig({
         plugins: [tailwindcss()],
     },
     i18n: {
+        baseUrl: 'https://www.arturbomtempo.dev',
         strategy: 'prefix_except_default',
         defaultLocale: 'pt',
         detectBrowserLanguage: false,
@@ -34,9 +35,13 @@ export default defineNuxtConfig({
         storageKey: 'theme',
     },
     icon: {
-        serverBundle: {
-            collections: ['lucide'],
-        },
+        mode: 'svg',
+        customCollections: [
+            {
+                prefix: 'portfolio',
+                dir: './app/assets/icons',
+            },
+        ],
     },
     fonts: {
         families: [

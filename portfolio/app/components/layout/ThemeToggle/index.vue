@@ -11,17 +11,17 @@ function toggleTheme() {
     <UiBaseButton
         variant="ghost"
         size="icon"
-        class="relative"
+        class="relative h-9 w-9 rounded-lg text-foreground transition-all duration-300 hover:bg-black/5 dark:hover:bg-white/10"
         :aria-label="t('header.toggleTheme')"
         @click="toggleTheme"
     >
         <Icon
-            name="lucide:sun"
-            class="size-[1.2rem] scale-100 rotate-0 transition-all duration-300 dark:scale-0 dark:-rotate-90"
+            name="portfolio:sun"
+            class="[transform:rotate(0)_scale(1)] text-foreground transition-all duration-300 dark:[transform:rotate(-90deg)_scale(0)]"
         />
         <Icon
-            name="lucide:moon"
-            class="absolute size-[1.2rem] scale-0 rotate-90 transition-all duration-300 dark:scale-100 dark:rotate-0"
+            name="portfolio:moon"
+            class="absolute [transform:rotate(90deg)_scale(0)] text-foreground transition-all duration-300 dark:[transform:rotate(0)_scale(1)]"
         />
     </UiBaseButton>
 </template>

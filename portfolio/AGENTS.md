@@ -16,21 +16,23 @@ Main goals of the Nuxt version:
 
 ## Tech stack
 
-| Concern         | Choice                                                       |
-| --------------- | ------------------------------------------------------------ |
-| Framework       | Nuxt 4 (`app/` directory structure)                          |
-| UI              | Vue 3 Single File Components with `<script setup lang="ts">` |
-| Language        | TypeScript everywhere                                        |
-| Styling         | Tailwind CSS v4 via the official `@tailwindcss/vite` plugin  |
-| Routing         | Nuxt file-based routing (`app/pages`)                        |
-| i18n            | `@nuxtjs/i18n` (pt-BR default, en, es)                       |
-| Theme           | `@nuxtjs/color-mode` (dark/light, follows system by default) |
-| Icons           | `@nuxt/icon` with the Lucide collection (`lucide:*`)         |
-| Fonts           | `@nuxt/fonts` (Inter and Geist, self-hosted at build time)   |
-| Headless UI     | `reka-ui` for accessible primitives (select, dialog, etc.)   |
-| Formatting      | Prettier (`npm run format`)                                  |
-| Type checking   | `vue-tsc` via `npm run typecheck`                            |
-| Package manager | npm (lockfile committed)                                     |
+| Concern         | Choice                                                          |
+| --------------- | --------------------------------------------------------------- |
+| Framework       | Nuxt 4 (`app/` directory structure)                             |
+| UI              | Vue 3 Single File Components with `<script setup lang="ts">`    |
+| Language        | TypeScript everywhere                                           |
+| Styling         | Tailwind CSS v4 via the official `@tailwindcss/vite` plugin     |
+| Routing         | Nuxt file-based routing (`app/pages`)                           |
+| i18n            | `@nuxtjs/i18n` (pt-BR default, en, es)                          |
+| Theme           | `@nuxtjs/color-mode` (dark/light, follows system by default)    |
+| Icons           | `@nuxt/icon` (SVG mode) with a local collection (`portfolio:*`) |
+| Fonts           | `@nuxt/fonts` (Inter and Geist, self-hosted at build time)      |
+| Headless UI     | `reka-ui` for accessible primitives (select, dialog, etc.)      |
+| Animations      | `tw-animate-css` (`animate-in`, `fade-in-0`, `zoom-in-95`…)     |
+| Class merging   | `cn()` (`clsx` + `tailwind-merge`) in `app/utils/cn.ts`         |
+| Formatting      | Prettier (`npm run format`)                                     |
+| Type checking   | `vue-tsc` via `npm run typecheck`                               |
+| Package manager | npm (lockfile committed)                                        |
 
 ## Commands
 
@@ -46,13 +48,9 @@ npm run format
 
 Run `npm run typecheck` and `npm run format` before considering any task done.
 
-## Environment variables
+## Site URL
 
-| Variable                    | Purpose                                                                     |
-| --------------------------- | --------------------------------------------------------------------------- |
-| `NUXT_PUBLIC_I18N_BASE_URL` | Public site URL, used to build absolute `hreflang` and canonical SEO links. |
-
-Copy `.env.example` to `.env` for local development. Never commit `.env`.
+The production site is served at **https://www.arturbomtempo.dev**. It is configured as `i18n.baseUrl` in `nuxt.config.ts` and used to build absolute `canonical`, `hreflang` and `og:url` links. For a different environment (such as a preview deployment), override it with the `NUXT_PUBLIC_I18N_BASE_URL` environment variable instead of editing the config. Never commit `.env` files.
 
 ## Architecture
 
@@ -63,8 +61,9 @@ portfolio/
 ├── app/
 │   ├── app.vue
 │   ├── assets/
-│   │   └── css/
-│   │       └── main.css
+│   │   ├── css/
+│   │   │   └── main.css
+│   │   └── icons/
 │   ├── components/
 │   │   ├── layout/
 │   │   │   ├── TheHeader/
@@ -89,6 +88,7 @@ portfolio/
 │   ├── data/
 │   ├── layouts/
 │   │   └── default.vue
+│   ├── middleware/
 │   ├── pages/
 │   │   ├── index.vue
 │   │   ├── about.vue
@@ -103,6 +103,7 @@ portfolio/
 │       ├── pt.json
 │       ├── en.json
 │       └── es.json
+├── modules/
 ├── public/
 ├── nuxt.config.ts
 └── package.json
@@ -123,8 +124,10 @@ The tree above is the target shape. Create folders only when they are actually n
 | `app/utils`               | Pure, stateless helper functions. Auto-imported.                                                                                                       |
 | `app/data`                | Static content of the portfolio (projects, experience, education, contents).                                                                           |
 | `app/types`               | Shared TypeScript types and interfaces.                                                                                                                |
-| `app/assets`              | Files processed by the build (CSS, fonts, images imported from code).                                                                                  |
+| `app/assets`              | Files processed by the build (CSS, icons, images imported from code).                                                                                  |
+| `app/middleware`          | Route middleware. Global ones end with `.global.ts` and run on every navigation.                                                                       |
 | `i18n/locales`            | Translation messages, one JSON file per locale. The only place where user-facing text is written.                                                      |
+| `modules`                 | Local Nuxt modules, registered automatically. Only for build-level integration (Vite plugins, hooks), never for app logic.                             |
 | `public`                  | Files served as-is from the site root (favicon, `robots.txt`, OG images).                                                                              |
 
 ### Where does a new component go?
@@ -198,6 +201,26 @@ const emit = defineEmits<{
 - Keep components small and focused. If a template grows past what fits comfortably on screen, extract subcomponents.
 - Components receive data through props; they do not reach into global data files on their own unless they are the module's top-level section.
 
+### Reusable UI components and class overrides
+
+Components in `components/ui` follow the shadcn-vue pattern: they accept a `class` prop and merge it with their own classes through `cn()`, so a caller can override any default class predictably (for example `hover:bg-primary/10` replacing the variant's `hover:bg-accent`):
+
+```vue
+<script setup lang="ts">
+import type { HTMLAttributes } from 'vue';
+
+interface Props {
+    class?: HTMLAttributes['class'];
+}
+
+const props = defineProps<Props>();
+
+const classes = computed(() => cn('rounded-md px-4', props.class));
+</script>
+```
+
+Never rely on plain class concatenation to override a Tailwind class; without `cn()` the winning class depends on stylesheet order.
+
 ## Pages, routing and SEO
 
 - Routes are defined only by files in `app/pages`. Never create a manual router.
@@ -232,6 +255,22 @@ useSeoMeta({
 - Mobile first: write base classes for small screens and add `sm:`, `md:`, `lg:` for larger ones.
 - Shared custom utilities (`glass-card`, `glow-text`, `link-underline`) are declared with `@utility` in `main.css` and used like any Tailwind class.
 
+### Visual parity with the React version
+
+The Nuxt version must look **exactly** like the React version. After migrating anything visual, compare both side by side (dark and light themes, desktop and mobile, hover and open states). The React project uses Tailwind v3 and the Nuxt project uses Tailwind v4, so watch for these differences:
+
+- `container` behaves differently. Use `mx-auto w-full max-w-[1400px]` plus explicit horizontal padding.
+- `rotate-*` and `scale-*` use the individual `rotate`/`scale` CSS properties in v4, which rasterize slightly differently from v3's `transform`. When an element has a resting transform that must match the React version (such as the theme toggle icons), use `[transform:rotate(0)_scale(1)]`.
+- shadcn's `[&_svg]:size-4` in buttons overrides the icon's own size classes. `UiBaseButton` keeps this rule, so icons inside buttons are always 16px.
+- Links rendered inside `<li>` must be blockified (`li` with `flex`) to keep the same vertical alignment as the React flex children.
+
+## Interactivity
+
+- **Every clickable element must show `cursor: pointer`.** Tailwind v4 removed the pointer cursor from buttons, so `main.css` restores it for `button`, `[role='button']` and `[role='option']`. Links get it from the browser.
+- Any other element that becomes clickable (a `div` with a click handler, a custom card, a headless UI primitive with a different role) must add `cursor-pointer` explicitly. Prefer a real `<button>` or `<NuxtLink>` instead of a clickable `div`.
+- Disabled controls keep the default cursor.
+- Every interactive element must be reachable by keyboard and show a visible focus state (`focus-visible:ring-*`).
+
 ## Theme
 
 - Dark and light themes are handled by `@nuxtjs/color-mode`, which adds a `dark` or `light` class to `<html>` before the page paints (no theme flash).
@@ -249,11 +288,18 @@ useSeoMeta({
 - Interpolate dynamic values with named parameters: `t('footer.rights', { year })`.
 - `|` is the pluralization separator in vue-i18n. To show a literal pipe, escape it as `{'|'}`.
 - Switch locales with `setLocale(code)`; list them with `locales` from `useI18n()`.
+- Switching the locale must feel like the React version: only the texts change, without remounting the page, replaying enter animations or scrolling. This is done by two pieces that must be kept:
+    - `app.vue` passes `useLocaleAgnosticRouteKey()` as the `NuxtPage` `page-key`, so `/` and `/en` share the same component instance.
+    - `app/middleware/preserve-scroll-on-locale-switch.global.ts` disables scroll-to-top when only the locale changed.
+- UI state that should survive a locale switch (such as the mobile menu) must watch `useLocaleAgnosticRouteKey()` instead of `route.fullPath`.
 - Content that is not UI copy but data (projects, experience, contents) stays in `app/data` and is localized there when migrated.
 
 ## Icons
 
-- Use `<Icon name="lucide:<icon-name>" />`. Icon names are the kebab-case Lucide names (`lucide:user`, `lucide:chevron-down`).
+- Icons come from a local `@nuxt/icon` collection: SVG files in `app/assets/icons`, used as `<Icon name="portfolio:<file-name>" />` (`portfolio:user`, `portfolio:chevron-down`).
+- The SVGs are copies of **Lucide 0.462**, the exact version used by the React version. Newer Lucide releases redrew some icons (such as `menu` and `moon`), and Iconify's optimized paths also render slightly differently, so the local copies are what guarantees visual parity.
+- To add an icon, copy its SVG from Lucide 0.462 (`lucide-static@0.462.0/icons/<name>.svg`, or `../node_modules/lucide-react/dist/esm/icons/<name>.js`) into `app/assets/icons/<name>.svg`, keeping the original markup (one element per stroke, `stroke-width="2"`).
+- `@nuxt/icon` runs in `svg` mode, rendering inline SVGs like `lucide-react` did. Size icons with Tailwind classes (`h-4 w-4`); inside `UiBaseButton` they are forced to 16px.
 - Icons are bundled at build time; do not load icons from external CDNs.
 - Decorative icons inside a labelled control need no extra label; icon-only buttons must have a translated `aria-label`.
 
@@ -317,7 +363,13 @@ Prettier is the single source of truth (`.prettierrc`): 4 spaces, single quotes,
 - `package.json` contains:
     - `allowScripts`: packages explicitly approved to run install scripts (npm blocks them by default). Approve new ones with `npm install-scripts approve <pkg> --no-allow-scripts-pin` after reviewing what the script does.
     - `overrides`: forced transitive versions that fix security advisories or deprecations in the dependency tree (`@simple-git/argv-parser`, `glob`, and `esbuild` scoped to `fontless`). Remove an override as soon as the upstream package ships the fix on its own.
-- Run `npm audit` when updating dependencies and review the result.
+- `.npmrc` disables the automatic audit and funding messages during install, because the remaining advisories (`braces`, `node-forge` and `simple-git` through `@nuxt/devtools` 3) have no stable fix published and only affect build and development tooling. Run `npm audit` manually whenever dependencies are updated, and remove `audit=false` once the report is clean.
+- Do not install beta or prerelease versions of dependencies.
+- Packages imported directly in our code must be declared in `package.json`, even if they already come as a transitive dependency (for example `@nuxt/kit` used in `modules/`).
+
+## Local modules
+
+`modules/components-alias-dep-scan.ts` fixes an incompatibility between Vite 8's dependency scan and `@nuxtjs/i18n`: the scan cannot resolve Nuxt's `#components` alias inside packages that declare their own `imports` field. The module marks `#components` as external **only during the scan**, so pre-bundling works and the real resolution is still done by Nuxt. Remove it once Nuxt or `@nuxtjs/i18n` fixes the issue upstream (check by deleting it and running `npm run dev` with an empty `node_modules/.cache`).
 
 ## Migration from React
 
@@ -342,7 +394,9 @@ When migrating a feature from the React version (`../src`):
 | `className`                 | `class`                                                     |
 | Conditional JSX             | `v-if` / `v-else`                                           |
 | `array.map` in JSX          | `v-for` with `:key`                                         |
-| `lucide-react`              | `<Icon name="lucide:..." />` from `@nuxt/icon`              |
+| `lucide-react`              | `<Icon name="portfolio:..." />` (see [Icons](#icons))       |
+| `cn()` from `@/lib/utils`   | `cn()` from `app/utils/cn.ts` (auto-imported)               |
+| `tailwindcss-animate`       | `tw-animate-css` (same class names)                         |
 | shadcn/ui (`components/ui`) | Own components in `components/ui`, created only when needed |
 
 5. Bring over only what is used. The React project contains many unused shadcn components; do not port them.

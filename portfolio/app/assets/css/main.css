@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -96,14 +97,22 @@
     }
 
     html {
-        overflow-y: scroll;
+        overflow-y: scroll !important;
     }
 
     body {
         @apply bg-background font-sans text-foreground;
+        overflow-y: scroll !important;
+        padding-right: 0 !important;
         transition:
             background-color 0.3s ease,
             color 0.3s ease;
+    }
+
+    button:not(:disabled),
+    [role='button']:not(:disabled),
+    [role='option']:not([data-disabled]) {
+        cursor: pointer;
     }
 
     h1,
@@ -158,7 +167,8 @@
 
     &::after {
         content: '';
-        @apply absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300;
+        @apply absolute left-0 h-0.5 w-0 bg-primary transition-all duration-300;
+        bottom: var(--link-underline-offset, 0);
     }
 
     &:hover::after,

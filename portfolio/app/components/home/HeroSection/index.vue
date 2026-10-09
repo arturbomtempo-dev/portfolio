@@ -43,19 +43,19 @@ const localePath = useLocalePath();
                 <UiBaseButton
                     :to="localePath('/about')"
                     size="lg"
-                    class="group mx-auto w-1/2 sm:mx-0 sm:w-auto"
+                    class="group mx-auto w-1/2 bg-primary hover:bg-primary-glow sm:mx-0 sm:w-auto"
                 >
                     {{ t('home.aboutButton') }}
                     <Icon
-                        name="lucide:user"
-                        class="size-5 transition-transform group-hover:translate-x-1"
+                        name="portfolio:user"
+                        class="ml-2 transition-transform group-hover:translate-x-1"
                     />
                 </UiBaseButton>
                 <UiBaseButton
                     :to="localePath('/contact')"
                     variant="outline"
                     size="lg"
-                    class="mx-auto w-1/2 sm:mx-0 sm:w-auto"
+                    class="mx-auto w-1/2 border-primary/50 hover:bg-primary/10 sm:mx-0 sm:w-auto"
                 >
                     {{ t('home.contactButton') }}
                 </UiBaseButton>

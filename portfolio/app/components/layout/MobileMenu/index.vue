@@ -21,7 +21,9 @@ const { t } = useI18n();
                     :to="item.to"
                     class="block w-full px-4 py-3 text-center text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:text-foreground [&.router-link-active]:text-foreground"
                 >
-                    <span class="link-underline">{{ item.label }}</span>
+                    <span class="link-underline [--link-underline-offset:-0.25rem]">
+                        {{ item.label }}
+                    </span>
                 </NuxtLink>
             </li>
         </ul>
