@@ -8,17 +8,26 @@
         "generate": "nuxt generate",
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare",
-        "format": "prettier --write ."
+        "format": "prettier --write .",
+        "typecheck": "nuxt typecheck"
     },
     "dependencies": {
+        "@iconify-json/lucide": "^1.2.142",
+        "@nuxt/fonts": "^0.14.0",
+        "@nuxt/icon": "^2.5.1",
+        "@nuxtjs/color-mode": "^4.0.1",
+        "@nuxtjs/i18n": "^10.6.0",
         "nuxt": "^4.6.0",
+        "reka-ui": "^2.11.0",
         "vue": "^3.5.43",
         "vue-router": "^5.3.1"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.3.3",
         "prettier": "^3.9.9",
-        "tailwindcss": "^4.3.3"
+        "tailwindcss": "^4.3.3",
+        "typescript": "^6.0.3",
+        "vue-tsc": "^3.3.12"
     },
     "allowScripts": {
         "esbuild": true,
@@ -26,6 +35,9 @@
     },
     "overrides": {
         "@simple-git/argv-parser": "^2.0.1",
-        "glob": "^13.0.6"
+        "glob": "^13.0.6",
+        "fontless": {
+            "esbuild": "^0.28.2"
+        }
     }
 }

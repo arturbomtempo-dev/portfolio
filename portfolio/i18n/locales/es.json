@@ -1,0 +1,34 @@
+{
+    "header": {
+        "logo": "Portafolio",
+        "toggleTheme": "Cambiar tema",
+        "openMenu": "Abrir menú",
+        "closeMenu": "Cerrar menú",
+        "selectLanguage": "Seleccionar idioma",
+        "mainNavigation": "Navegación principal"
+    },
+    "nav": {
+        "home": "Inicio",
+        "about": "Acerca de",
+        "projects": "Proyectos",
+        "contents": "Contenidos",
+        "contact": "Contacto"
+    },
+    "footer": {
+        "rights": "© {year} Artur Bomtempo. Todos los derechos reservados."
+    },
+    "home": {
+        "seo": {
+            "title": "Artur Bomtempo {'|'} Portafolio",
+            "description": "Desarrollador de Software apasionado por crear soluciones innovadoras y eficientes. Portafolio con proyectos, contenidos educativos y experiencias profesionales.",
+            "ogTitle": "Artur Bomtempo {'|'} Portafolio - Desarrollador Full Stack",
+            "ogDescription": "Desarrollador de Software con más de 4 años de experiencia. Especializado en desarrollo web moderno con React, Node.js, Java y Spring Boot."
+        },
+        "avatarAlt": "Foto de perfil de Artur Bomtempo Colen",
+        "greeting": "Soy",
+        "role": "Desarrollador de Software",
+        "description": "Siempre he tenido el deseo de generar impacto en la vida de las personas, y encontré en el desarrollo de software una forma de convertir eso en realidad.",
+        "aboutButton": "Acerca de mí",
+        "contactButton": "Contáctame"
+    }
+}

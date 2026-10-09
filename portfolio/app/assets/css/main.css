@@ -1,1 +1,170 @@
 @import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+    --background: hsl(0 0% 5%);
+    --foreground: hsl(0 0% 95%);
+    --card: hsl(0 0% 8%);
+    --card-foreground: hsl(0 0% 95%);
+    --card-glass: hsl(0 0% 10%);
+    --popover: hsl(0 0% 8%);
+    --popover-foreground: hsl(0 0% 95%);
+    --primary: hsl(145 63% 43%);
+    --primary-foreground: hsl(0 0% 98%);
+    --primary-glow: hsl(145 63% 43%);
+    --secondary: hsl(0 0% 15%);
+    --secondary-foreground: hsl(0 0% 95%);
+    --muted: hsl(0 0% 12%);
+    --muted-foreground: hsl(0 0% 60%);
+    --accent: hsl(145 63% 43%);
+    --accent-foreground: hsl(0 0% 98%);
+    --accent-glow: hsl(145 63% 53%);
+    --border: hsl(0 0% 18%);
+    --input: hsl(0 0% 18%);
+    --ring: hsl(145 63% 43%);
+    --radius: 0.75rem;
+}
+
+.light {
+    --background: hsl(0 0% 98%);
+    --foreground: hsl(0 0% 10%);
+    --card: hsl(0 0% 100%);
+    --card-foreground: hsl(0 0% 10%);
+    --card-glass: hsl(0 0% 96%);
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: hsl(0 0% 10%);
+    --secondary: hsl(0 0% 92%);
+    --secondary-foreground: hsl(0 0% 10%);
+    --muted: hsl(0 0% 94%);
+    --muted-foreground: hsl(0 0% 45%);
+    --accent-glow: hsl(145 63% 38%);
+    --border: hsl(0 0% 88%);
+    --input: hsl(0 0% 88%);
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-card-glass: var(--card-glass);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary-glow: var(--primary-glow);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent-glow: var(--accent-glow);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-heading: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    --shadow-glow: 0 0 40px color-mix(in oklab, var(--accent-glow) 30%, transparent);
+
+    --animate-fade-in: fade-in 0.6s ease-out forwards;
+
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary) var(--background);
+    }
+
+    html {
+        overflow-y: scroll;
+    }
+
+    body {
+        @apply bg-background font-sans text-foreground;
+        transition:
+            background-color 0.3s ease,
+            color 0.3s ease;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-heading font-semibold;
+    }
+
+    ::selection {
+        background-color: var(--primary);
+        color: hsl(0 0% 0%);
+    }
+
+    *::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: var(--background);
+        border-radius: 4px;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 4px;
+    }
+
+    *::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-glow);
+    }
+}
+
+@utility glass-card {
+    @apply border border-border/50 backdrop-blur-xl;
+    background: linear-gradient(
+        135deg,
+        color-mix(in oklab, var(--card-glass) 80%, transparent) 0%,
+        color-mix(in oklab, var(--card) 60%, transparent) 100%
+    );
+}
+
+@utility glow-text {
+    text-shadow: 0 0 30px color-mix(in oklab, var(--accent-glow) 50%, transparent);
+}
+
+@utility link-underline {
+    @apply relative inline-block;
+
+    &::after {
+        content: '';
+        @apply absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300;
+    }
+
+    &:hover::after,
+    &:focus-visible::after,
+    &.router-link-active::after,
+    :is(a:hover, a:focus-visible, a.router-link-active) > &::after {
+        @apply w-full;
+    }
+}

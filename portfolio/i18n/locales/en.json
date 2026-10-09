@@ -1,0 +1,34 @@
+{
+    "header": {
+        "logo": "Portfolio",
+        "toggleTheme": "Toggle theme",
+        "openMenu": "Open menu",
+        "closeMenu": "Close menu",
+        "selectLanguage": "Select language",
+        "mainNavigation": "Main navigation"
+    },
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "projects": "Projects",
+        "contents": "Content",
+        "contact": "Contact"
+    },
+    "footer": {
+        "rights": "© {year} Artur Bomtempo. All rights reserved."
+    },
+    "home": {
+        "seo": {
+            "title": "Artur Bomtempo {'|'} Portfolio",
+            "description": "Software Developer passionate about building innovative and efficient solutions. Portfolio with projects, educational content and professional experience.",
+            "ogTitle": "Artur Bomtempo {'|'} Portfolio - Full Stack Developer",
+            "ogDescription": "Software Developer with over 4 years of experience. Specialized in modern web development with React, Node.js, Java and Spring Boot."
+        },
+        "avatarAlt": "Profile photo of Artur Bomtempo Colen",
+        "greeting": "I am",
+        "role": "Software Developer",
+        "description": "I have always had the desire to make an impact on people's lives, and I found in software development a way to turn that into reality.",
+        "aboutButton": "About me",
+        "contactButton": "Get in Touch"
+    }
+}
