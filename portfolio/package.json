@@ -1,17 +1,21 @@
 {
-  "name": "portfolio",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "dependencies": {
-    "nuxt": "^4.6.0",
-    "vue": "^3.5.43",
-    "vue-router": "^5.3.1"
-  }
+    "name": "portfolio",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare",
+        "format": "prettier --write ."
+    },
+    "dependencies": {
+        "nuxt": "^4.6.0",
+        "vue": "^3.5.43",
+        "vue-router": "^5.3.1"
+    },
+    "devDependencies": {
+        "prettier": "^3.9.9"
+    }
 }
