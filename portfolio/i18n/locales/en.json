@@ -1,4 +1,7 @@
 {
+    "common": {
+        "close": "Close"
+    },
     "header": {
         "logo": "Portfolio",
         "toggleTheme": "Toggle theme",
@@ -17,6 +20,10 @@
     "footer": {
         "rights": "© {year} Artur Bomtempo. All rights reserved."
     },
+    "carousel": {
+        "previous": "Previous slide",
+        "next": "Next slide"
+    },
     "home": {
         "seo": {
             "title": "Artur Bomtempo {'|'} Portfolio",
@@ -30,5 +37,22 @@
         "description": "I have always had the desire to make an impact on people's lives, and I found in software development a way to turn that into reality.",
         "aboutButton": "About me",
         "contactButton": "Get in Touch"
+    },
+    "about": {
+        "seo": {
+            "title": "About Me {'|'} Artur Bomtempo",
+            "description": "I am a developer passionate about creating innovative and efficient solutions. With over 4 years of experience, I have been dedicated to building web and mobile applications that make a difference in people's lives. My focus is always on delivering clean, scalable code that meets users' real needs.",
+            "ogTitle": "About Me {'|'} Artur Bomtempo",
+            "ogDescription": "I am a developer passionate about creating innovative and efficient solutions. With over 4 years of experience, I have been dedicated to building web and mobile applications that make a difference in people's lives. My focus is always on delivering clean, scalable code that meets users' real needs."
+        },
+        "title": "About Me",
+        "description": "I am a developer passionate about creating innovative and efficient solutions. With over 4 years of experience, I have been dedicated to building web and mobile applications that make a difference in people's lives. My focus is always on delivering clean, scalable code that meets users' real needs.",
+        "technologiesTitle": "Technologies",
+        "testimonialsTitle": "Testimonials",
+        "educationTitle": "Education",
+        "experienceTitle": "Professional Experience",
+        "educationDetailsTitle": "What I learned:",
+        "experienceDetailsTitle": "Activities and responsibilities:",
+        "achievementDetailsTitle": "Highlights:"
     }
 }

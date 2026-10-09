@@ -1,4 +1,7 @@
 {
+    "common": {
+        "close": "Cerrar"
+    },
     "header": {
         "logo": "Portafolio",
         "toggleTheme": "Cambiar tema",
@@ -17,6 +20,10 @@
     "footer": {
         "rights": "© {year} Artur Bomtempo. Todos los derechos reservados."
     },
+    "carousel": {
+        "previous": "Diapositiva anterior",
+        "next": "Diapositiva siguiente"
+    },
     "home": {
         "seo": {
             "title": "Artur Bomtempo {'|'} Portafolio",
@@ -30,5 +37,22 @@
         "description": "Siempre he tenido el deseo de generar impacto en la vida de las personas, y encontré en el desarrollo de software una forma de convertir eso en realidad.",
         "aboutButton": "Acerca de mí",
         "contactButton": "Contáctame"
+    },
+    "about": {
+        "seo": {
+            "title": "Acerca de Mí {'|'} Artur Bomtempo",
+            "description": "Soy un desarrollador apasionado por crear soluciones innovadoras y eficientes. Con más de 4 años de experiencia, me he dedicado a construir aplicaciones web y móviles que marcan la diferencia en la vida de las personas. Mi enfoque es siempre entregar código limpio, escalable y que satisfaga las necesidades reales de los usuarios.",
+            "ogTitle": "Acerca de Mí {'|'} Artur Bomtempo",
+            "ogDescription": "Soy un desarrollador apasionado por crear soluciones innovadoras y eficientes. Con más de 4 años de experiencia, me he dedicado a construir aplicaciones web y móviles que marcan la diferencia en la vida de las personas. Mi enfoque es siempre entregar código limpio, escalable y que satisfaga las necesidades reales de los usuarios."
+        },
+        "title": "Acerca de Mí",
+        "description": "Soy un desarrollador apasionado por crear soluciones innovadoras y eficientes. Con más de 4 años de experiencia, me he dedicado a construir aplicaciones web y móviles que marcan la diferencia en la vida de las personas. Mi enfoque es siempre entregar código limpio, escalable y que satisfaga las necesidades reales de los usuarios.",
+        "technologiesTitle": "Tecnologías",
+        "testimonialsTitle": "Testimonios",
+        "educationTitle": "Educación",
+        "experienceTitle": "Experiencia Profesional",
+        "educationDetailsTitle": "Lo que aprendí:",
+        "experienceDetailsTitle": "Actividades y responsabilidades:",
+        "achievementDetailsTitle": "Destacados:"
     }
 }

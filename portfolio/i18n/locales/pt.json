@@ -1,4 +1,7 @@
 {
+    "common": {
+        "close": "Fechar"
+    },
     "header": {
         "logo": "Portfólio",
         "toggleTheme": "Alternar tema",
@@ -17,6 +20,10 @@
     "footer": {
         "rights": "© {year} Artur Bomtempo. Todos os direitos reservados."
     },
+    "carousel": {
+        "previous": "Slide anterior",
+        "next": "Próximo slide"
+    },
     "home": {
         "seo": {
             "title": "Artur Bomtempo {'|'} Portfólio",
@@ -30,5 +37,22 @@
         "description": "Sempre tive o desejo de gerar impacto na vida das pessoas, e encontrei no desenvolvimento de software uma forma de transformar isso em realidade.",
         "aboutButton": "Sobre mim",
         "contactButton": "Entre em Contato"
+    },
+    "about": {
+        "seo": {
+            "title": "Sobre Mim {'|'} Artur Bomtempo",
+            "description": "Sou um desenvolvedor apaixonado por criar soluções inovadoras e eficientes. Com mais de 4 anos de experiência, tenho me dedicado a construir aplicações web e mobile que fazem a diferença na vida das pessoas. Meu foco é sempre entregar código limpo, escalável e que atenda às necessidades reais dos usuários.",
+            "ogTitle": "Sobre Mim {'|'} Artur Bomtempo",
+            "ogDescription": "Sou um desenvolvedor apaixonado por criar soluções inovadoras e eficientes. Com mais de 4 anos de experiência, tenho me dedicado a construir aplicações web e mobile que fazem a diferença na vida das pessoas. Meu foco é sempre entregar código limpo, escalável e que atenda às necessidades reais dos usuários."
+        },
+        "title": "Sobre Mim",
+        "description": "Sou um desenvolvedor apaixonado por criar soluções inovadoras e eficientes. Com mais de 4 anos de experiência, tenho me dedicado a construir aplicações web e mobile que fazem a diferença na vida das pessoas. Meu foco é sempre entregar código limpo, escalável e que atenda às necessidades reais dos usuários.",
+        "technologiesTitle": "Tecnologias",
+        "testimonialsTitle": "Depoimentos",
+        "educationTitle": "Educação",
+        "experienceTitle": "Experiência Profissional",
+        "educationDetailsTitle": "O que aprendi:",
+        "experienceDetailsTitle": "Atividades e responsabilidades:",
+        "achievementDetailsTitle": "Destaques:"
     }
 }

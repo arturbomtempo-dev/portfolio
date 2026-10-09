@@ -86,6 +86,11 @@ portfolio/
 │   │   └── contact/
 │   ├── composables/
 │   ├── data/
+│   │   ├── profile.ts
+│   │   └── about/
+│   │       ├── pt.ts
+│   │       ├── en.ts
+│   │       └── es.ts
 │   ├── layouts/
 │   │   └── default.vue
 │   ├── middleware/
@@ -221,6 +226,21 @@ const classes = computed(() => cn('rounded-md px-4', props.class));
 
 Never rely on plain class concatenation to override a Tailwind class; without `cn()` the winning class depends on stylesheet order.
 
+Available UI components (check them before creating a new one):
+
+| Component        | Purpose                                                                                                            |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `UiBaseButton`   | Button or link (`to`) with `primary`, `outline` and `ghost` variants and `md`, `lg`, `icon` sizes.                 |
+| `UiBaseCard`     | Glass card (`surface-card`) with the hover lift. Renders any tag through `as`.                                     |
+| `UiTechBadge`    | Rounded technology pill (`tech-badge`).                                                                            |
+| `UiBaseDialog`   | Accessible modal (`reka-ui`) with overlay, animations and a translated close button. Controlled by `v-model:open`. |
+| `UiBaseCarousel` | Embla carousel with keyboard support, previous/next buttons and optional adaptive height. Slides via scoped slot.  |
+
+### Dialogs
+
+- Keep the dialog's data while it closes: store the selection (preferably an index into the localized content) separately from the `open` state, so the closing animation still shows the content and a locale switch updates an open dialog.
+- Every dialog needs a `DialogTitle` (and a `DialogDescription` when there is a subtitle) from `reka-ui`, for screen readers.
+
 ## Pages, routing and SEO
 
 - Routes are defined only by files in `app/pages`. Never create a manual router.
@@ -263,11 +283,15 @@ The Nuxt version must look **exactly** like the React version. After migrating a
 - `rotate-*` and `scale-*` use the individual `rotate`/`scale` CSS properties in v4, which rasterize slightly differently from v3's `transform`. When an element has a resting transform that must match the React version (such as the theme toggle icons), use `[transform:rotate(0)_scale(1)]`.
 - shadcn's `[&_svg]:size-4` in buttons overrides the icon's own size classes. `UiBaseButton` keeps this rule, so icons inside buttons are always 16px.
 - Links rendered inside `<li>` must be blockified (`li` with `flex`) to keep the same vertical alignment as the React flex children.
+- `space-y-*` changed: v3 adds `margin-top` to the following siblings, v4 adds `margin-bottom` to the previous ones, and a child's own `mb-*` class wins over it. Inside **flex** containers (where margins do not collapse) this changes the spacing; use explicit margins (`mt-1.5`) to reproduce the React result.
+- In v3, `@layer components` classes such as React's `project-card` lose to utilities only by source order and specificity; in v4 cascade layers make utilities always win. Recreate such classes as a single `@utility` (`surface-card`, `tech-badge`) that encodes the **final** computed result of the React cascade, including the `.light` overrides.
+- The React version loaded Inter and Geist only in the `normal` style, so italic text is synthesized by the browser. `@nuxt/fonts` is configured with `styles: ['normal']` to keep the same rendering; do not add italic font files.
 
 ## Interactivity
 
 - **Every clickable element must show `cursor: pointer`.** Tailwind v4 removed the pointer cursor from buttons, so `main.css` restores it for `button`, `[role='button']` and `[role='option']`. Links get it from the browser.
 - Any other element that becomes clickable (a `div` with a click handler, a custom card, a headless UI primitive with a different role) must add `cursor-pointer` explicitly. Prefer a real `<button>` or `<NuxtLink>` instead of a clickable `div`.
+- **Clickable cards** use the stretched button pattern, because headings are not allowed inside a `<button>`: the card is `relative cursor-pointer`, and the button lives inside the heading and covers the whole card with `after:absolute after:inset-0`. Keyboard focus is shown on that pseudo-element (`focus-visible:after:ring-2`). See `AboutAchievementCard` and `AboutTimelineItem`.
 - Disabled controls keep the default cursor.
 - Every interactive element must be reachable by keyboard and show a visible focus state (`focus-visible:ring-*`).
 
@@ -292,7 +316,24 @@ The Nuxt version must look **exactly** like the React version. After migrating a
     - `app.vue` passes `useLocaleAgnosticRouteKey()` as the `NuxtPage` `page-key`, so `/` and `/en` share the same component instance.
     - `app/middleware/preserve-scroll-on-locale-switch.global.ts` disables scroll-to-top when only the locale changed.
 - UI state that should survive a locale switch (such as the mobile menu) must watch `useLocaleAgnosticRouteKey()` instead of `route.fullPath`.
-- Content that is not UI copy but data (projects, experience, contents) stays in `app/data` and is localized there when migrated.
+- Content that is not UI copy but data (projects, experience, testimonials, contents) is not stored in the locale JSON files. It lives in typed per-locale files, `app/data/<module>/<locale>.ts` (one complete object per locale, so each translation can be edited independently), and is read through a composable that picks the current locale:
+
+```ts
+const ABOUT_CONTENT_BY_LOCALE: Record<LocaleCode, AboutContent> = {
+    pt: ABOUT_CONTENT_PT,
+    en: ABOUT_CONTENT_EN,
+    es: ABOUT_CONTENT_ES,
+};
+
+export function useAboutContent() {
+    const { locale } = useI18n();
+
+    return computed(() => ABOUT_CONTENT_BY_LOCALE[locale.value]);
+}
+```
+
+- The `LocaleCode` type comes from `app/types/locale.ts`; never redeclare the locale union by hand.
+- The three locale files of a module must keep the same structure and the same number of items. Icons are referenced by name (`'portfolio:trophy'`), typed as `IconName`.
 
 ## Icons
 
@@ -376,7 +417,7 @@ Prettier is the single source of truth (`.prettierrc`): 4 spaces, single quotes,
 When migrating a feature from the React version (`../src`):
 
 1. Find the React page in `../src/pages/<name>` and its components in `../src/components`.
-2. Create the route in `app/pages`, with `useSeoMeta`. Move the page's texts from `../src/data/content.{pt,en,es}.ts` (the `ui` object) into the three locale files.
+2. Create the route in `app/pages`, with `useSeoMeta`. Move the page's texts from `../src/data/content.{pt,en,es}.ts` (the `ui` object) into the three locale files, and its data arrays into `app/data/<module>/<locale>.ts`. Generate these files from the React sources instead of retyping them, so no content is lost or altered.
 3. Split the page into module components under `app/components/<module>/<ComponentName>/index.vue`.
 4. Translate React patterns to Vue/Nuxt equivalents:
 

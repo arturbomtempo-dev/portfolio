@@ -9,8 +9,7 @@ import {
     SelectTrigger,
     SelectViewport,
 } from 'reka-ui';
-
-type LocaleCode = ReturnType<typeof useI18n>['locale']['value'];
+import type { LocaleCode } from '~/types/locale';
 
 const { t, locale, locales, setLocale } = useI18n();
 
