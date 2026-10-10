@@ -145,5 +145,27 @@
             "errorTitle": "Erro ao enviar mensagem",
             "errorDescription": "Por favor, tente novamente mais tarde."
         }
+    },
+    "errors": {
+        "notFound": {
+            "seo": {
+                "title": "Página não encontrada {'|'} Artur Bomtempo"
+            },
+            "title": "Página não encontrada",
+            "description": "A página que você está procurando não existe ou foi movida."
+        },
+        "unexpected": {
+            "seo": {
+                "title": "Algo deu errado {'|'} Artur Bomtempo"
+            },
+            "title": "Algo deu errado",
+            "description": "Ocorreu um erro inesperado. Tente novamente em alguns instantes."
+        },
+        "requestedPath": "Endereço solicitado",
+        "actions": {
+            "backHome": "Voltar para Home",
+            "viewProjects": "Ver projetos",
+            "tryAgain": "Tentar novamente"
+        }
     }
 }

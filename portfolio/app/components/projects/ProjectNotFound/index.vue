@@ -1,24 +1,36 @@
 <script setup lang="ts">
-import { ArrowLeft } from '@lucide/vue';
+import { ArrowLeft, House } from '@lucide/vue';
+
+const NOT_FOUND_STATUS_CODE = 404;
 
 const { t } = useI18n();
 const localePath = useLocalePath();
+const route = useRoute();
 </script>
 
 <template>
-    <section class="animate-fade-in p-8 text-center sm:p-12">
-        <h1 class="mb-4 text-2xl font-bold sm:text-3xl">
-            {{ t('projectDetails.notFound.title') }}
-        </h1>
-        <p class="mx-auto mb-8 max-w-md text-lg text-muted-foreground">
-            {{ t('projectDetails.notFound.message') }}
-        </p>
-        <NuxtLink
-            :to="localePath('/projects')"
-            class="group inline-flex items-center gap-2 font-medium text-primary transition-colors hover:text-primary/80"
-        >
-            <ArrowLeft class="size-4 transition-transform group-hover:-translate-x-1" />
-            {{ t('projectDetails.backButton') }}
-        </NuxtLink>
-    </section>
+    <UiErrorState
+        :status-code="NOT_FOUND_STATUS_CODE"
+        :title="t('projectDetails.notFound.title')"
+        :description="t('projectDetails.notFound.message')"
+        :requested-path="route.path"
+    >
+        <template #actions>
+            <UiBaseButton
+                :to="localePath('/projects')"
+                class="group bg-primary hover:bg-primary-glow"
+            >
+                <ArrowLeft class="transition-transform group-hover:-translate-x-1" />
+                {{ t('projectDetails.backButton') }}
+            </UiBaseButton>
+            <UiBaseButton
+                :to="localePath('/')"
+                variant="outline"
+                class="border-primary/50 hover:bg-primary/10"
+            >
+                <House />
+                {{ t('errors.actions.backHome') }}
+            </UiBaseButton>
+        </template>
+    </UiErrorState>
 </template>

@@ -145,5 +145,27 @@
             "errorTitle": "Error sending message",
             "errorDescription": "Please try again later."
         }
+    },
+    "errors": {
+        "notFound": {
+            "seo": {
+                "title": "Page not found {'|'} Artur Bomtempo"
+            },
+            "title": "Page not found",
+            "description": "The page you are looking for does not exist or has been moved."
+        },
+        "unexpected": {
+            "seo": {
+                "title": "Something went wrong {'|'} Artur Bomtempo"
+            },
+            "title": "Something went wrong",
+            "description": "An unexpected error occurred. Please try again in a moment."
+        },
+        "requestedPath": "Requested address",
+        "actions": {
+            "backHome": "Back to Home",
+            "viewProjects": "View projects",
+            "tryAgain": "Try again"
+        }
     }
 }

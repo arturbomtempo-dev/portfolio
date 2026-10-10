@@ -38,7 +38,7 @@ useSeoMeta({
         </div>
     </div>
     <div v-else class="flex min-h-screen items-center justify-center px-6 py-20">
-        <div class="mx-auto w-full max-w-2xl px-8">
+        <div class="mx-auto w-full max-w-2xl sm:px-8">
             <ProjectsProjectNotFound />
         </div>
     </div>

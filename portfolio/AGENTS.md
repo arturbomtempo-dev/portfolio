@@ -60,6 +60,7 @@ The project follows the standard **Nuxt 4 directory structure**, with components
 portfolio/
 ├── app/
 │   ├── app.vue
+│   ├── error.vue
 │   ├── assets/
 │   │   └── css/
 │   │       └── main.css
@@ -246,6 +247,7 @@ Available UI components (check them before creating a new one):
 | `UiBaseCarousel`             | Embla carousel with keyboard support, previous/next buttons and optional adaptive height. Slides via scoped slot.                                                                                                                            |
 | `UiPageHeader`               | Page title (`h1`) and introduction paragraph at the top of every page. `description-class` adjusts the paragraph width (`max-w-3xl` by default) and `class` the spacing below it (`mb-16` by default).                                       |
 | `UiFilterTabs`               | Group of toggle buttons (`aria-pressed`) used to filter a listing, bound with `v-model`. Option icons come from the `icon` scoped slot.                                                                                                      |
+| `UiErrorState`               | Error card (big glowing status code, title, description, requested path and an `actions` slot) used by `error.vue` and by "not found" states of detail pages.                                                                                |
 | `UiFormField`                | Label, field slot and translated error message (`role="alert"`), wired with `aria-describedby`. The slot exposes `fieldId`, `errorId` and `isInvalid`.                                                                                       |
 | `UiTextInput` / `UiTextArea` | shadcn-style text fields bound with `v-model`; `is-invalid` switches to the error border (`FIELD_INVALID_CLASSES`).                                                                                                                          |
 | `UiBackLink`                 | "Back to …" link with arrow and animated underline (`back-link`), used at the top of detail pages.                                                                                                                                           |
@@ -289,7 +291,7 @@ useSeoMeta({
 
 - Detail data comes from the same content composable as the listing (`useProjectsContent()`), looked up by the route `id`. Ids are identical in every locale, so `/projects/portfolio`, `/en/projects/portfolio` and `/es/projects/portfolio` show the same item, and switching the locale keeps the user on it.
 - Set complete SEO meta for each item: title with the item name, `description`, `ogImage` (the item image), `ogType: 'article'` and `twitterCard: 'summary_large_image'`, so shared links show a rich preview.
-- When the `id` does not exist, render a translated not-found state (`ProjectsProjectNotFound`) with a link back to the listing, return a real **404** status with `setResponseStatus(404)` and set `robots: 'noindex, nofollow'`.
+- When the `id` does not exist, render a translated not-found state built with `UiErrorState` (`ProjectsProjectNotFound`), with the listing as the primary action and the home page as the secondary one. Return a real **404** status with `setResponseStatus(404)` and set `robots: 'noindex, nofollow'`.
 - Opening a detail page scrolls to the top; the browser back button restores the listing's scroll position (default Nuxt behavior, do not override it).
 
 ### Forms
@@ -328,7 +330,9 @@ useSeoMeta({
 - Always pass internal paths through `useLocalePath()` (`:to="localePath('/about')"`) so the current locale prefix is kept.
 - Use semantic HTML (`header`, `nav`, `main`, `section`, `article`, `footer`) and a single `h1` per page.
 - Every image needs a meaningful `alt` text.
-- The 404 page is handled by `app/pages/[...slug].vue` (or `app/error.vue` for real errors).
+- Errors are rendered by **`app/error.vue`**, inside the default layout (header and footer stay available). It handles every status: 404 shows "page not found" with the requested path and actions to the home page and the projects; any other status shows "something went wrong" with "try again" (`reloadNuxtApp`) and "back to home". It sets a translated title and `robots: 'noindex, nofollow'`.
+- Leave the error page with buttons that call `clearError({ redirect: localePath(path) })`; links of the header and the language switcher also work, because navigating clears the error.
+- Unknown URLs are caught by **`app/pages/[...slug].vue`**, which throws `createError({ statusCode: 404, fatal: true })` in `<script setup>` and has an empty `<template>`. Because the catch-all exists for every locale (`/en/...`, `/es/...`), the 404 page is rendered in the language of the URL and the router does not warn about unmatched paths. Do not replace it with `definePageMeta({ validate })` or a route middleware with `abortNavigation`: both make Nuxt log `NUXT_E1005` on every direct visit to a missing page.
 - Routes temporarily disabled (such as `talks`) are simply not created as pages until they are ready. Do not leave commented-out routes.
 
 ## Styling
