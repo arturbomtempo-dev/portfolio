@@ -57,6 +57,7 @@ const submitMessage = handleSubmit(async (message) => {
             {
                 method: 'POST',
                 headers: { Accept: 'application/json' },
+                responseType: 'json',
                 body: { ...message, ...FORM_SUBMIT_OPTIONS, _honey: honeypot.value },
             }
         );

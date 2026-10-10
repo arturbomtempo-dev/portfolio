@@ -305,7 +305,8 @@ useSeoMeta({
 - Messages are sent from the browser to FormSubmit's AJAX endpoint, configured in `runtimeConfig.public.contactFormEndpoint` (override with `NUXT_PUBLIC_CONTACT_FORM_ENDPOINT`). This works on any hosting, including static output.
 - The payload includes FormSubmit options (`_captcha`, `_template`, `_subject`) and the `_honey` honeypot field, a hidden input that bots fill and FormSubmit discards.
 - A submission is only successful when FormSubmit answers `success: "true"`; it can answer HTTP 200 with `success: "false"` (for example when the form is not activated).
-- Never send real messages while testing. Intercept requests to `formsubmit.co` (Playwright `page.route`) and fake the responses.
+- FormSubmit answers with a JSON body but a **`Content-Type: text/html`** header. `$fetch` picks the parser from that header, so the request must set `responseType: 'json'`; without it the response is a raw string, `success` is `undefined` and a delivered message is reported as an error.
+- Never send real messages while testing. Intercept requests to `formsubmit.co` (Playwright `page.route`) and fake the responses **exactly as FormSubmit sends them** (status 200, `text/html; charset=UTF-8`, JSON body with `success` as the string `"true"` or `"false"`). To check the real service without e-mailing the owner, point `NUXT_PUBLIC_CONTACT_FORM_ENDPOINT` to an address on the reserved `example.com` domain: FormSubmit answers `success: "false"` (activation needed) and nothing is delivered.
 
 ### Listings with filters
 
