@@ -18,7 +18,7 @@ const emit = defineEmits<{
 <template>
     <div>
         <div class="mb-6 flex items-center gap-3">
-            <component :is="props.icon" class="h-8 w-8 text-primary" />
+            <component :is="props.icon" class="size-8 text-primary" />
             <h2 class="text-2xl font-bold">{{ props.title }}</h2>
         </div>
         <ul class="space-y-6">

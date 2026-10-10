@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { CircleCheck, type LucideIcon } from '@lucide/vue';
 import { DialogDescription, DialogTitle } from 'reka-ui';
-import { defineModel, defineProps, withDefaults, } from 'vue';
 
 interface Props {
     icon: LucideIcon;
@@ -25,18 +24,18 @@ const TITLE_CLASSES = 'font-heading text-2xl font-semibold tracking-tight';
 <template>
     <UiBaseDialog
         v-model:open="isOpen"
-        class="border-border/50 bg-card-glass backdrop-blur-xl sm:max-w-[600px]"
+        class="border-border/50 bg-card-glass backdrop-blur-xl sm:max-w-150"
     >
         <div class="flex flex-col text-center sm:text-left">
             <template v-if="props.eyebrow">
                 <div class="mb-2 flex items-center gap-3">
-                    <component :is="props.icon" class="h-6 w-6 text-primary" />
+                    <component :is="props.icon" class="size-6 text-primary" />
                     <span class="text-sm font-medium text-primary">{{ props.eyebrow }}</span>
                 </div>
                 <DialogTitle :class="cn(TITLE_CLASSES, 'mt-1.5')">{{ props.title }}</DialogTitle>
             </template>
             <div v-else class="mb-2 flex items-center gap-3">
-                <component :is="props.icon" class="h-6 w-6 text-primary" />
+                <component :is="props.icon" class="size-6 text-primary" />
                 <DialogTitle :class="TITLE_CLASSES">{{ props.title }}</DialogTitle>
             </div>
             <DialogDescription class="mt-1.5 text-base text-muted-foreground">
@@ -54,7 +53,7 @@ const TITLE_CLASSES = 'font-heading text-2xl font-semibold tracking-tight';
                         :key="item"
                         class="flex items-start gap-2 text-foreground/80"
                     >
-                        <CircleCheck class="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                        <CircleCheck class="mt-0.5 size-5 shrink-0 text-primary" />
                         <span>{{ item }}</span>
                     </li>
                 </ul>

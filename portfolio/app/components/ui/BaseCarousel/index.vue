@@ -129,21 +129,21 @@ onBeforeUnmount(() => {
         <UiBaseButton
             variant="outline"
             size="icon"
-            class="absolute top-1/2 -left-12 hidden h-8 w-8 -translate-y-1/2 rounded-full sm:flex"
+            class="absolute top-1/2 -left-12 hidden size-8 -translate-y-1/2 rounded-full sm:flex"
             :disabled="!canScrollPrevious"
             @click="scrollPrevious"
         >
-            <ArrowLeft class="h-4 w-4" />
+            <ArrowLeft class="size-4" />
             <span class="sr-only">{{ t('carousel.previous') }}</span>
         </UiBaseButton>
         <UiBaseButton
             variant="outline"
             size="icon"
-            class="absolute top-1/2 -right-12 hidden h-8 w-8 -translate-y-1/2 rounded-full sm:flex"
+            class="absolute top-1/2 -right-12 hidden size-8 -translate-y-1/2 rounded-full sm:flex"
             :disabled="!canScrollNext"
             @click="scrollNext"
         >
-            <ArrowRight class="h-4 w-4" />
+            <ArrowRight class="size-4" />
             <span class="sr-only">{{ t('carousel.next') }}</span>
         </UiBaseButton>
     </div>

@@ -16,7 +16,7 @@ const emit = defineEmits<{
     <UiBaseCard class="surface-card-glow group relative flex cursor-pointer flex-col text-center">
         <component
             :is="props.achievement.icon"
-            class="mx-auto mb-4 h-12 w-12 text-primary transition-transform duration-300 group-hover:scale-110"
+            class="mx-auto mb-4 size-12 text-primary transition-transform duration-300 group-hover:scale-110"
         />
         <h3 class="mb-2 text-xl font-semibold transition-colors group-hover:text-primary">
             <button

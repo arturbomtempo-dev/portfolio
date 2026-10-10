@@ -27,8 +27,8 @@ watch(
 </script>
 
 <template>
-    <header class="glass-card fixed inset-x-0 top-0 z-50 border-b">
-        <div class="mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-8">
+    <header class="glass-card fixed inset-x-0 top-0 z-50">
+        <div class="mx-auto w-full max-w-350 px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <NuxtLink
                     :to="localePath('/')"
