@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from 'vue';
 
 type ButtonVariant = 'primary' | 'outline' | 'ghost';
-type ButtonSize = 'md' | 'lg' | 'icon';
+type ButtonSize = 'sm' | 'md' | 'lg' | 'icon';
 
 interface Props {
     variant?: ButtonVariant;
@@ -30,6 +30,7 @@ const VARIANT_CLASSES: Record<ButtonVariant, string> = {
 };
 
 const SIZE_CLASSES: Record<ButtonSize, string> = {
+    sm: 'h-9 rounded-md px-3',
     md: 'h-10 px-4 py-2',
     lg: 'h-11 rounded-md px-8',
     icon: 'size-10',

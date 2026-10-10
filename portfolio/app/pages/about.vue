@@ -13,7 +13,7 @@ useSeoMeta({
 <template>
     <div class="min-h-screen px-4 py-20">
         <div class="mx-auto w-full max-w-6xl px-8">
-            <AboutIntroSection />
+            <UiPageHeader :title="t('about.title')" :description="t('about.description')" />
             <AboutAchievementsSection />
             <AboutTechnologiesSection />
             <AboutTestimonialsSection />

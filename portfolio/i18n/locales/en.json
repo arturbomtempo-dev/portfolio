@@ -54,5 +54,19 @@
         "educationDetailsTitle": "What I learned:",
         "experienceDetailsTitle": "Activities and responsibilities:",
         "achievementDetailsTitle": "Highlights:"
+    },
+    "projects": {
+        "seo": {
+            "title": "Projects {'|'} Artur Bomtempo",
+            "description": "Some of the projects I have developed throughout my career. Each one represents a unique challenge and continuous learning.",
+            "ogTitle": "Projects {'|'} Artur Bomtempo",
+            "ogDescription": "Some of the projects I have developed throughout my career. Each one represents a unique challenge and continuous learning."
+        },
+        "title": "Projects",
+        "description": "Some of the projects I have developed throughout my career. Each one represents a unique challenge and continuous learning.",
+        "viewProject": "View Project",
+        "viewCode": "View Code",
+        "aboutTitle": "About the project:",
+        "technologiesTitle": "Technologies used:"
     }
 }

@@ -54,5 +54,19 @@
         "educationDetailsTitle": "Lo que aprendí:",
         "experienceDetailsTitle": "Actividades y responsabilidades:",
         "achievementDetailsTitle": "Destacados:"
+    },
+    "projects": {
+        "seo": {
+            "title": "Proyectos {'|'} Artur Bomtempo",
+            "description": "Algunos de los proyectos que he desarrollado a lo largo de mi carrera. Cada uno representa un desafío único y aprendizaje continuo.",
+            "ogTitle": "Proyectos {'|'} Artur Bomtempo",
+            "ogDescription": "Algunos de los proyectos que he desarrollado a lo largo de mi carrera. Cada uno representa un desafío único y aprendizaje continuo."
+        },
+        "title": "Proyectos",
+        "description": "Algunos de los proyectos que he desarrollado a lo largo de mi carrera. Cada uno representa un desafío único y aprendizaje continuo.",
+        "viewProject": "Ver Proyecto",
+        "viewCode": "Ver Código",
+        "aboutTitle": "Acerca del proyecto:",
+        "technologiesTitle": "Tecnologías utilizadas:"
     }
 }

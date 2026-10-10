@@ -16,23 +16,23 @@ Main goals of the Nuxt version:
 
 ## Tech stack
 
-| Concern         | Choice                                                       |
-| --------------- | ------------------------------------------------------------ |
-| Framework       | Nuxt 4 (`app/` directory structure)                          |
-| UI              | Vue 3 Single File Components with `<script setup lang="ts">` |
-| Language        | TypeScript everywhere                                        |
-| Styling         | Tailwind CSS v4 via the official `@tailwindcss/vite` plugin  |
-| Routing         | Nuxt file-based routing (`app/pages`)                        |
-| i18n            | `@nuxtjs/i18n` (pt-BR default, en, es)                       |
-| Theme           | `@nuxtjs/color-mode` (dark/light, follows system by default) |
-| Icons           | `@lucide/vue` (official Lucide components for Vue 3)         |
-| Fonts           | `@nuxt/fonts` (Inter and Geist, self-hosted at build time)   |
-| Headless UI     | `reka-ui` for accessible primitives (select, dialog, etc.)   |
-| Animations      | `tw-animate-css` (`animate-in`, `fade-in-0`, `zoom-in-95`…)  |
-| Class merging   | `cn()` (`clsx` + `tailwind-merge`) in `app/utils/cn.ts`      |
-| Formatting      | Prettier (`npm run format`)                                  |
-| Type checking   | `vue-tsc` via `npm run typecheck`                            |
-| Package manager | npm (lockfile committed)                                     |
+| Concern         | Choice                                                                                  |
+| --------------- | --------------------------------------------------------------------------------------- |
+| Framework       | Nuxt 4 (`app/` directory structure)                                                     |
+| UI              | Vue 3 Single File Components with `<script setup lang="ts">`                            |
+| Language        | TypeScript everywhere                                                                   |
+| Styling         | Tailwind CSS v4 via the official `@tailwindcss/vite` plugin                             |
+| Routing         | Nuxt file-based routing (`app/pages`)                                                   |
+| i18n            | `@nuxtjs/i18n` (pt-BR default, en, es)                                                  |
+| Theme           | `@nuxtjs/color-mode` (dark/light, follows system by default)                            |
+| Icons           | `@lucide/vue` (official Lucide components for Vue 3) and `simple-icons` for brand logos |
+| Fonts           | `@nuxt/fonts` (Inter and Geist, self-hosted at build time)                              |
+| Headless UI     | `reka-ui` for accessible primitives (select, dialog, etc.)                              |
+| Animations      | `tw-animate-css` (`animate-in`, `fade-in-0`, `zoom-in-95`…)                             |
+| Class merging   | `cn()` (`clsx` + `tailwind-merge`) in `app/utils/cn.ts`                                 |
+| Formatting      | Prettier (`npm run format`)                                                             |
+| Type checking   | `vue-tsc` via `npm run typecheck`                                                       |
+| Package manager | npm (lockfile committed)                                                                |
 
 ## Commands
 
@@ -86,7 +86,11 @@ portfolio/
 │   ├── composables/
 │   ├── data/
 │   │   ├── profile.ts
-│   │   └── about/
+│   │   ├── about/
+│   │   │   ├── pt.ts
+│   │   │   ├── en.ts
+│   │   │   └── es.ts
+│   │   └── projects/
 │   │       ├── pt.ts
 │   │       ├── en.ts
 │   │       └── es.ts
@@ -229,11 +233,13 @@ Available UI components (check them before creating a new one):
 
 | Component        | Purpose                                                                                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `UiBaseButton`   | Button or link (`to`) with `primary`, `outline` and `ghost` variants and `md`, `lg`, `icon` sizes.                                                                                      |
+| `UiBaseButton`   | Button or link (`to`, internal or external) with `primary`, `outline` and `ghost` variants and `sm`, `md`, `lg`, `icon` sizes.                                                          |
 | `UiBaseCard`     | Glass card (`surface-card`). Renders any tag through `as`. The hover lift (`surface-card-hoverable`) is on by default; pass `:is-hoverable="false"` for cards that are not interactive. |
-| `UiTechBadge`    | Rounded technology pill (`tech-badge`).                                                                                                                                                 |
+| `UiTechBadge`    | Rounded technology pill (`tech-badge`), `text-sm` by default; pass `class="text-xs"` for the compact version used in cards.                                                             |
 | `UiBaseDialog`   | Accessible modal (`reka-ui`) with overlay, animations and a translated close button. Controlled by `v-model:open`.                                                                      |
 | `UiBaseCarousel` | Embla carousel with keyboard support, previous/next buttons and optional adaptive height. Slides via scoped slot.                                                                       |
+| `UiPageHeader`   | Page title (`h1`) and introduction paragraph at the top of every page. `description-class` adjusts the paragraph width (`max-w-3xl` by default).                                        |
+| `UiBrandIcon`    | Renders a brand logo from `simple-icons` (`:icon="siGithub"`) with the same sizing classes as Lucide icons.                                                                             |
 
 ### Dialogs
 
@@ -260,6 +266,8 @@ useSeoMeta({
 
 - Global defaults (favicon, author) belong in `app.head` inside `nuxt.config.ts`. The `lang` attribute, `hreflang` alternates and `og:locale` are generated by `useLocaleHead` in `app.vue`; do not set them by hand.
 - Use `<NuxtLink>` for every internal link, never `<a href>`.
+- External links (live demos, repositories) are real links, not buttons that call `window.open`: use `UiBaseButton` (or `NuxtLink`) with the full URL in `to` and `target="_blank"`. `NuxtLink` detects external URLs and adds `rel="noopener noreferrer"` automatically.
+- Every page starts with `UiPageHeader` for its `h1` and introduction.
 - Always pass internal paths through `useLocalePath()` (`:to="localePath('/about')"`) so the current locale prefix is kept.
 - Use semantic HTML (`header`, `nav`, `main`, `section`, `article`, `footer`) and a single `h1` per page.
 - Every image needs a meaningful `alt` text.
@@ -372,6 +380,7 @@ export function useAboutContent() {
 ```
 
 - The `LocaleCode` type comes from `app/types/locale.ts`; never redeclare the locale union by hand.
+- Optional fields are omitted when there is no value. Never use placeholders such as `'#'` or empty strings (the React version used `liveUrl: '#'`); the type marks them as optional (`liveUrl?: string`) and the component renders the related UI only when the value exists.
 - The three locale files of a module must keep the same structure and the same number of items. Icons are stored as Lucide components imported from `@lucide/vue` (`icon: Trophy`), typed as `LucideIcon`, exactly like the React version did with `lucide-react`.
 
 ## Icons
@@ -392,6 +401,18 @@ import { ArrowRight } from '@lucide/vue';
 - Use the canonical icon names (`CircleCheck`), not the legacy aliases (`CheckCircle2`).
 - When an icon is data (an achievement, a tech category), store the component itself and type it as `LucideIcon`; render it with `<component :is="item.icon" />`.
 - Size icons with Tailwind classes (`h-4 w-4`). Inside `UiBaseButton` they are forced to 16px by `[&_svg]:size-4`, as in shadcn.
+- Lucide 1.x no longer ships brand icons (GitHub, LinkedIn…). Brand logos come from `simple-icons`, the source recommended by Lucide, rendered with `UiBrandIcon`:
+
+```vue
+<script setup lang="ts">
+import { siGithub } from 'simple-icons';
+</script>
+
+<template>
+    <UiBrandIcon :icon="siGithub" class="size-4" />
+</template>
+```
+
 - Decorative icons inside a labelled control need no extra label; icon-only buttons must have a translated `aria-label` or an `sr-only` text.
 
 ## Code conventions
