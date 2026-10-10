@@ -81,5 +81,27 @@
             "title": "Project not found",
             "message": "The project you are looking for does not exist or has been removed."
         }
+    },
+    "contents": {
+        "seo": {
+            "title": "Content {'|'} Artur Bomtempo",
+            "description": "I share knowledge for free about web development, best practices, and modern technologies.",
+            "ogTitle": "Content {'|'} Artur Bomtempo",
+            "ogDescription": "I share knowledge for free about web development, best practices, and modern technologies."
+        },
+        "title": "Content",
+        "description": "I share knowledge for free about web development, best practices, and modern technologies.",
+        "filtersLabel": "Filter content by type",
+        "filters": {
+            "all": "All",
+            "video": "Videos",
+            "article": "Articles",
+            "newsletter": "Newsletters"
+        },
+        "types": {
+            "video": "Video",
+            "article": "Article",
+            "newsletter": "Newsletter"
+        }
     }
 }

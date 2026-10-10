@@ -233,16 +233,17 @@ Never rely on plain class concatenation to override a Tailwind class; without `c
 
 Available UI components (check them before creating a new one):
 
-| Component        | Purpose                                                                                                                                                                                 |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `UiBaseButton`   | Button or link (`to`, internal or external) with `primary`, `outline` and `ghost` variants and `sm`, `md`, `lg`, `icon` sizes.                                                          |
-| `UiBaseCard`     | Glass card (`surface-card`). Renders any tag through `as`. The hover lift (`surface-card-hoverable`) is on by default; pass `:is-hoverable="false"` for cards that are not interactive. |
-| `UiTechBadge`    | Rounded technology pill (`tech-badge`), `text-sm` by default; pass `class="text-xs"` for the compact version used in cards.                                                             |
-| `UiBaseDialog`   | Accessible modal (`reka-ui`) with overlay, animations and a translated close button. Controlled by `v-model:open`.                                                                      |
-| `UiBaseCarousel` | Embla carousel with keyboard support, previous/next buttons and optional adaptive height. Slides via scoped slot.                                                                       |
-| `UiPageHeader`   | Page title (`h1`) and introduction paragraph at the top of every page. `description-class` adjusts the paragraph width (`max-w-3xl` by default).                                        |
-| `UiBrandIcon`    | Renders a brand logo from `simple-icons` (`:icon="siGithub"`) with the same sizing classes as Lucide icons.                                                                             |
-| `UiBackLink`     | "Back to …" link with arrow and animated underline (`back-link`), used at the top of detail pages.                                                                                      |
+| Component        | Purpose                                                                                                                                                                                                                                      |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `UiBaseButton`   | Button or link (`to`, internal or external) with `primary`, `outline` and `ghost` variants and `sm`, `md`, `lg`, `icon` sizes.                                                                                                               |
+| `UiBaseCard`     | Glass card (`surface-card`). Renders any tag or component through `as` (a `NuxtLink` for cards that are links). The hover lift (`surface-card-hoverable`) is on by default; pass `:is-hoverable="false"` for cards that are not interactive. |
+| `UiTechBadge`    | Rounded technology pill (`tech-badge`), `text-sm` by default; pass `class="text-xs"` for the compact version used in cards.                                                                                                                  |
+| `UiBaseDialog`   | Accessible modal (`reka-ui`) with overlay, animations and a translated close button. Controlled by `v-model:open`.                                                                                                                           |
+| `UiBaseCarousel` | Embla carousel with keyboard support, previous/next buttons and optional adaptive height. Slides via scoped slot.                                                                                                                            |
+| `UiPageHeader`   | Page title (`h1`) and introduction paragraph at the top of every page. `description-class` adjusts the paragraph width (`max-w-3xl` by default) and `class` the spacing below it (`mb-16` by default).                                       |
+| `UiFilterTabs`   | Group of toggle buttons (`aria-pressed`) used to filter a listing, bound with `v-model`. Option icons come from the `icon` scoped slot.                                                                                                      |
+| `UiBrandIcon`    | Renders a brand logo from `simple-icons` (`:icon="siGithub"`) with the same sizing classes as Lucide icons.                                                                                                                                  |
+| `UiBackLink`     | "Back to …" link with arrow and animated underline (`back-link`), used at the top of detail pages.                                                                                                                                           |
 
 ### Dialogs
 
@@ -282,6 +283,19 @@ useSeoMeta({
 - Set complete SEO meta for each item: title with the item name, `description`, `ogImage` (the item image), `ogType: 'article'` and `twitterCard: 'summary_large_image'`, so shared links show a rich preview.
 - When the `id` does not exist, render a translated not-found state (`ProjectsProjectNotFound`) with a link back to the listing, return a real **404** status with `setResponseStatus(404)` and set `robots: 'noindex, nofollow'`.
 - Opening a detail page scrolls to the top; the browser back button restores the listing's scroll position (default Nuxt behavior, do not override it).
+
+### Listings with filters
+
+- Filters live in the URL query (`/contents?type=video`), not only in component state, so a filtered view can be shared, survives a reload and is rendered on the server. The default filter is omitted from the URL.
+- Read the query through a `computed` with getter and setter; the setter calls `navigateTo({ query }, { replace: true })` so filtering does not pile up history entries. Invalid values fall back to the default filter.
+- Use `UiFilterTabs` for the buttons, so every filterable listing (contents, talks) looks and behaves the same.
+
+### External content cards
+
+- A card that points to an external page is a link as a whole: `UiBaseCard` with `:as="NuxtLink"`, the full URL in `to` and `target="_blank"`.
+- Remote images can disappear (expired signed URLs, deleted posts). Cards with remote thumbnails show a fallback (gradient with the content type icon) when the image fails, handling both the `error` event and images that already failed before hydration (`complete && naturalWidth === 0` on mount).
+- Dates are stored as ISO strings (`2025-11-18`) and displayed with `formatDate(date, localeProperties.language)` inside a `<time datetime>` element.
+- Icons next to text that can wrap (titles) use `shrink-0`, so a long title never squeezes the icon.
 
 ### Navigation active state
 

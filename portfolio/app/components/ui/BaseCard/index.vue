@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue';
+import type { Component, HTMLAttributes } from 'vue';
 
 interface Props {
-    as?: string;
+    as?: string | Component;
     isHoverable?: boolean;
     class?: HTMLAttributes['class'];
 }

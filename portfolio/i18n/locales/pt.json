@@ -81,5 +81,27 @@
             "title": "Projeto não encontrado",
             "message": "O projeto que você está procurando não existe ou foi removido."
         }
+    },
+    "contents": {
+        "seo": {
+            "title": "Conteúdos {'|'} Artur Bomtempo",
+            "description": "Compartilho conhecimento de forma gratuita sobre desenvolvimento web, boas práticas e tecnologias modernas.",
+            "ogTitle": "Conteúdos {'|'} Artur Bomtempo",
+            "ogDescription": "Compartilho conhecimento de forma gratuita sobre desenvolvimento web, boas práticas e tecnologias modernas."
+        },
+        "title": "Conteúdos",
+        "description": "Compartilho conhecimento de forma gratuita sobre desenvolvimento web, boas práticas e tecnologias modernas.",
+        "filtersLabel": "Filtrar conteúdos por tipo",
+        "filters": {
+            "all": "Todos",
+            "video": "Vídeos",
+            "article": "Artigos",
+            "newsletter": "Newsletters"
+        },
+        "types": {
+            "video": "Vídeo",
+            "article": "Artigo",
+            "newsletter": "Newsletter"
+        }
     }
 }
