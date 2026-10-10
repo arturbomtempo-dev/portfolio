@@ -99,12 +99,15 @@ portfolio/
 │   ├── middleware/
 │   ├── pages/
 │   │   ├── index.vue
-│   │   ├── about.vue
+│   │   ├── about/
+│   │   │   └── index.vue
 │   │   ├── projects/
 │   │   │   ├── index.vue
 │   │   │   └── [id].vue
-│   │   ├── contents.vue
-│   │   ├── contact.vue
+│   │   ├── contents/
+│   │   │   └── index.vue
+│   │   ├── contact/
+│   │   │   └── index.vue
 │   │   └── [...slug].vue
 │   ├── types/
 │   └── utils/
@@ -123,22 +126,22 @@ The tree above is the target shape. Create folders only when they are actually n
 
 ### Responsibilities of each folder
 
-| Folder                    | Responsibility                                                                                                                                         |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `app/pages`               | Routes. Each file is a route. Pages stay **thin**: they set SEO meta, fetch or select data and compose module components. No large markup blocks here. |
-| `app/layouts`             | Page shells (header, footer, main wrapper). `default.vue` is applied automatically.                                                                    |
-| `app/components/<module>` | Components that belong to a single page or domain (`home`, `about`, `projects`, `contents`, `contact`).                                                |
-| `app/components/ui`       | Generic, reusable building blocks with no business knowledge (buttons, cards, badges, inputs).                                                         |
-| `app/components/layout`   | Pieces used by layouts (header, footer, navigation, theme toggle).                                                                                     |
-| `app/composables`         | Reusable stateful logic, always named `useSomething` (`useTheme`, `useNavigation`). Auto-imported.                                                     |
-| `app/utils`               | Pure, stateless helper functions. Auto-imported.                                                                                                       |
-| `app/data`                | Static content of the portfolio (projects, experience, education, contents).                                                                           |
-| `app/types`               | Shared TypeScript types and interfaces.                                                                                                                |
-| `app/assets`              | Files processed by the build (CSS, fonts, images imported from code).                                                                                  |
-| `app/middleware`          | Route middleware. Global ones end with `.global.ts` and run on every navigation.                                                                       |
-| `i18n/locales`            | Translation messages, one JSON file per locale. The only place where user-facing text is written.                                                      |
-| `modules`                 | Local Nuxt modules, registered automatically. Only for build-level integration (Vite plugins, hooks), never for app logic.                             |
-| `public`                  | Files served as-is from the site root (favicon, `robots.txt`, OG images).                                                                              |
+| Folder                    | Responsibility                                                                                                                                                                                                                                           |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app/pages`               | Routes. Every route is a folder with an `index.vue` (`about/index.vue` → `/about`), plus dynamic files next to it (`projects/[id].vue`). Pages stay **thin**: they set SEO meta, select data and compose module components. No large markup blocks here. |
+| `app/layouts`             | Page shells (header, footer, main wrapper). `default.vue` is applied automatically.                                                                                                                                                                      |
+| `app/components/<module>` | Components that belong to a single page or domain (`home`, `about`, `projects`, `contents`, `contact`).                                                                                                                                                  |
+| `app/components/ui`       | Generic, reusable building blocks with no business knowledge (buttons, cards, badges, inputs).                                                                                                                                                           |
+| `app/components/layout`   | Pieces used by layouts (header, footer, navigation, theme toggle).                                                                                                                                                                                       |
+| `app/composables`         | Reusable stateful logic, always named `useSomething` (`useTheme`, `useNavigation`). Auto-imported.                                                                                                                                                       |
+| `app/utils`               | Pure, stateless helper functions. Auto-imported.                                                                                                                                                                                                         |
+| `app/data`                | Static content of the portfolio (projects, experience, education, contents).                                                                                                                                                                             |
+| `app/types`               | Shared TypeScript types and interfaces.                                                                                                                                                                                                                  |
+| `app/assets`              | Files processed by the build (CSS, fonts, images imported from code).                                                                                                                                                                                    |
+| `app/middleware`          | Route middleware. Global ones end with `.global.ts` and run on every navigation.                                                                                                                                                                         |
+| `i18n/locales`            | Translation messages, one JSON file per locale. The only place where user-facing text is written.                                                                                                                                                        |
+| `modules`                 | Local Nuxt modules, registered automatically. Only for build-level integration (Vite plugins, hooks), never for app logic.                                                                                                                               |
+| `public`                  | Files served as-is from the site root (favicon, `robots.txt`, OG images).                                                                                                                                                                                |
 
 ### Where does a new component go?
 
@@ -206,6 +209,7 @@ const emit = defineEmits<{
 ```
 
 - Always `<script setup lang="ts">`. No Options API.
+- Never import compiler macros (`defineProps`, `defineEmits`, `defineModel`, `defineSlots`, `withDefaults`) from `'vue'`; they are global in `<script setup>` and importing them makes the compiler warn on every `npm run dev`. Watch out for editor quick fixes that add these imports automatically.
 - Props and emits are typed with TypeScript generics (`defineProps<Props>()`, `defineEmits<{...}>()`).
 - `<script>` first, `<template>` second, `<style>` last and only if Tailwind is genuinely not enough.
 - Keep components small and focused. If a template grows past what fits comfortably on screen, extract subcomponents.
@@ -274,7 +278,10 @@ useSeoMeta({
 - Use `<NuxtLink>` for every internal link, never `<a href>`.
 - External links (live demos, repositories) are real links, not buttons that call `window.open`: use `UiBaseButton` (or `NuxtLink`) with the full URL in `to` and `target="_blank"`. `NuxtLink` detects external URLs and adds `rel="noopener noreferrer"` automatically.
 - Every page starts with `UiPageHeader` for its `h1` and introduction. Detail pages start with `UiBackLink` to their listing instead.
-- When a route has children (a listing and its detail pages), use a folder with `index.vue` and `[id].vue` (`pages/projects/index.vue`, `pages/projects/[id].vue`). Do not keep a `projects.vue` next to a `projects/` folder, because Nuxt would treat it as a parent route that must render `<NuxtPage>`.
+- **Every page is a folder with an `index.vue`**, just like components: `pages/about/index.vue`, `pages/contents/index.vue`. The only exceptions are the home page (`pages/index.vue`, which is already the root folder's `index.vue`) and the catch-all `pages/[...slug].vue`. The URL and the route name are the same as with a flat file (`/about`, route `about`).
+    - Why: consistency with the component structure, and a section can gain child routes later (`/contents/[slug]`) just by adding a file next to `index.vue`, without moving or renaming anything. This is what `projects/` already does with `index.vue` and `[id].vue`.
+    - Never create a flat file next to a folder with the same name (`projects.vue` + `projects/`): Nuxt would treat it as a parent route that must render `<NuxtPage>`.
+    - Every `.vue` file inside `pages/` becomes a route. Do not put helper components, composables or types inside page folders; they belong to `components/<module>`, `composables` and `types`.
 - Listing items link to their detail page with a real `<NuxtLink>` (stretched over the card), so the detail pages are crawlable and prerendered.
 
 ### Detail pages
@@ -486,17 +493,17 @@ If you feel a comment is necessary, rename or extract code until it is not. Pend
 
 ### Naming
 
-| Item                    | Convention        | Example                    |
-| ----------------------- | ----------------- | -------------------------- |
-| Component folders       | PascalCase        | `ProjectCard/`             |
-| Module folders          | lowercase         | `projects/`                |
-| Pages and layouts       | kebab-case        | `not-found.vue`            |
-| Composables             | camelCase + `use` | `useTheme.ts`              |
-| Utils and data files    | camelCase         | `formatDate.ts`            |
-| Variables and functions | camelCase         | `selectedFilter`           |
-| Constants               | UPPER_SNAKE_CASE  | `MAX_FEATURED_PROJECTS`    |
-| Types and interfaces    | PascalCase        | `Project`, `ContentType`   |
-| Booleans                | `is/has/should`   | `isActive`, `hasGithubUrl` |
+| Item                     | Convention        | Example                                |
+| ------------------------ | ----------------- | -------------------------------------- |
+| Component folders        | PascalCase        | `ProjectCard/`                         |
+| Module folders           | lowercase         | `projects/`                            |
+| Page folders and layouts | kebab-case        | `pages/about/index.vue`, `default.vue` |
+| Composables              | camelCase + `use` | `useTheme.ts`                          |
+| Utils and data files     | camelCase         | `formatDate.ts`                        |
+| Variables and functions  | camelCase         | `selectedFilter`                       |
+| Constants                | UPPER_SNAKE_CASE  | `MAX_FEATURED_PROJECTS`                |
+| Types and interfaces     | PascalCase        | `Project`, `ContentType`               |
+| Booleans                 | `is/has/should`   | `isActive`, `hasGithubUrl`             |
 
 ### Formatting
 

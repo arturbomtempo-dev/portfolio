@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ArrowUpRight } from '@lucide/vue';
-import { defineProps, withDefaults } from 'vue';
+import { defineProps, withDefaults, } from 'vue';
 import type { Project } from '~/types/project';
 
 interface Props {
