@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ExternalLink } from '@lucide/vue';
 import { siGithub } from 'simple-icons';
-import { defineProps, } from 'vue';
+import { defineProps } from 'vue';
 import type { Project } from '~/types/project';
 
 interface Props {
