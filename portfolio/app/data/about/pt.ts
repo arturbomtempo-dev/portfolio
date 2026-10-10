@@ -71,7 +71,7 @@ export const ABOUT_CONTENT_PT: AboutContent = {
             title: 'Back-end',
             techs: [
                 'Node.js',
-                'Express,js',
+                'Express.js',
                 'NestJS',
                 'Java',
                 'Spring Boot',
@@ -146,7 +146,7 @@ export const ABOUT_CONTENT_PT: AboutContent = {
             text: 'Ter o Artur no nosso time foi um grande prazer. Sempre disposto a aprender e a se dedicar às atividades! Desejo todo sucesso!',
         },
         {
-            name: 'Thiago porto',
+            name: 'Thiago Porto',
             role: 'Analista de Dados no Vidas Vividas',
             image: 'https://arturbomtempo-dev.github.io/arturbomtempo-cdn/assets/images/projects/portfolio/testimonials/thiago-porto.jpg',
             text: 'No período em que o Artur estagiou conosco no Vidas, foi perceptível sua eficiência, solucionando de maneira eficaz todas as demandas que lhe eram atribuídas. Sou grato por ter tido a oportunidade de tê-lo como companheiro de trabalho. Sua simpatia e empatia permitiram um ótimo convívio.',

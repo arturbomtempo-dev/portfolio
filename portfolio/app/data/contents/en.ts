@@ -131,4 +131,26 @@ export const CONTENTS_EN: ContentItem[] = [
         platform: 'Medium',
         date: '2025-03-15',
     },
+    {
+        type: 'video',
+        title: 'Link In Bio Project',
+        description:
+            'Hands-on class showing how to build a React application with Vite, step by step.',
+        thumbnail:
+            'https://i.ytimg.com/vi/f_1wsIr-hQw/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D&rs=AOn4CLCiDuxgWTMt3rV9bAK0Td_2VvHf7g',
+        url: 'https://youtube.com/playlist?list=PLeBlAOvjkM5jyuQ0c1w2e3CYH3HB4DBOd&si=Rmt2dfCMfwDdswUf',
+        platform: 'YouTube',
+        date: '2025-02-13',
+    },
+    {
+        type: 'article',
+        title: 'Developing APIs with TypeScript',
+        description:
+            'Practical guide to setting up Node.js APIs with TypeScript without generating a "dist" folder.',
+        thumbnail:
+            'https://miro.medium.com/v2/resize:fit:720/format:webp/1*GkZYXSAtTeO5cgWWdzD8oQ.jpeg',
+        url: 'https://medium.com/@arturbomtempo/developing-apis-with-typescript-simplify-your-workflow-without-distribution-directories-e5c03b03769a',
+        platform: 'Medium',
+        date: '2024-05-21',
+    },
 ];

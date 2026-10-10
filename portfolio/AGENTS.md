@@ -414,7 +414,9 @@ export function useAboutContent() {
 
 - The `LocaleCode` type comes from `app/types/locale.ts`; never redeclare the locale union by hand.
 - Optional fields are omitted when there is no value. Never use placeholders such as `'#'` or empty strings (the React version used `liveUrl: '#'`); the type marks them as optional (`liveUrl?: string`) and the component renders the related UI only when the value exists.
-- The three locale files of a module must keep the same structure and the same number of items. Icons are stored as Lucide components imported from `@lucide/vue` (`icon: Trophy`), typed as `LucideIcon`, exactly like the React version did with `lucide-react`.
+- **Every piece of content must exist in all three languages.** The three locale files of a module must keep the same structure, the same number of items **in the same order**, and the same number of entries in every inner list (details, activities, technologies). Adding, removing or reordering an item is always done in `pt`, `en` and `es` in the same change.
+- Fields that are not translated (`id`, images, URLs, dates, `type`, `platform`, people's names and technology names) must be identical in the three files; only the human-readable text changes. Keep proper names written the same way (`Express.js`, `Thiago Porto`).
+- When a source text already exists in another language (such as an article originally published in English), use its original title in that locale. Icons are stored as Lucide components imported from `@lucide/vue` (`icon: Trophy`), typed as `LucideIcon`, exactly like the React version did with `lucide-react`.
 
 ## Icons
 
