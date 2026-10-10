@@ -188,7 +188,9 @@
         color-mix(in oklab, var(--card) 60%, transparent) 100%
     );
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+@utility surface-card-hoverable {
     &:hover {
         border-color: color-mix(in oklab, var(--primary) 50%, transparent);
         box-shadow: 0 0 30px color-mix(in oklab, var(--accent-glow) 20%, transparent);

@@ -227,13 +227,13 @@ Never rely on plain class concatenation to override a Tailwind class; without `c
 
 Available UI components (check them before creating a new one):
 
-| Component        | Purpose                                                                                                            |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `UiBaseButton`   | Button or link (`to`) with `primary`, `outline` and `ghost` variants and `md`, `lg`, `icon` sizes.                 |
-| `UiBaseCard`     | Glass card (`surface-card`) with the hover lift. Renders any tag through `as`.                                     |
-| `UiTechBadge`    | Rounded technology pill (`tech-badge`).                                                                            |
-| `UiBaseDialog`   | Accessible modal (`reka-ui`) with overlay, animations and a translated close button. Controlled by `v-model:open`. |
-| `UiBaseCarousel` | Embla carousel with keyboard support, previous/next buttons and optional adaptive height. Slides via scoped slot.  |
+| Component        | Purpose                                                                                                                                                                                 |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `UiBaseButton`   | Button or link (`to`) with `primary`, `outline` and `ghost` variants and `md`, `lg`, `icon` sizes.                                                                                      |
+| `UiBaseCard`     | Glass card (`surface-card`). Renders any tag through `as`. The hover lift (`surface-card-hoverable`) is on by default; pass `:is-hoverable="false"` for cards that are not interactive. |
+| `UiTechBadge`    | Rounded technology pill (`tech-badge`).                                                                                                                                                 |
+| `UiBaseDialog`   | Accessible modal (`reka-ui`) with overlay, animations and a translated close button. Controlled by `v-model:open`.                                                                      |
+| `UiBaseCarousel` | Embla carousel with keyboard support, previous/next buttons and optional adaptive height. Slides via scoped slot.                                                                       |
 
 ### Dialogs
 
@@ -272,6 +272,11 @@ useSeoMeta({
 - Prefer Tailwind utility classes in templates. Create custom CSS classes only for patterns repeated across many components, and define them in `main.css`.
 - Design tokens (colors, shadows, gradients) are CSS variables in `main.css`. Do not hardcode hex/hsl colors in components.
 - Mobile first: write base classes for small screens and add `sm:`, `md:`, `lg:` for larger ones.
+- Always write the **canonical Tailwind v4 form** of a class, as suggested by the Tailwind CSS IntelliSense extension (`suggestCanonicalClasses`). The editor must show no Tailwind warnings:
+    - Prefer scale values over arbitrary ones whenever they exist: `max-w-350` instead of `max-w-[1400px]`, `w-21.25` instead of `w-[85px]`, `top-1/2` instead of `top-[50%]`. Arbitrary values (`[...]`) are only for values that have no scale equivalent (`max-h-[85vh]`, `w-[calc(100%-2rem)]`).
+    - Use `size-*` when width and height are equal (`size-4`, not `h-4 w-4`), and the line-height modifier for text (`text-lg/relaxed`).
+    - Use the v4 syntax for CSS variables (`h-(--reka-select-trigger-height)`), boolean data attributes (`data-highlighted:`, `data-disabled:`) and arbitrary properties (`transform-[rotate(0)_scale(1)]`).
+    - Do not repeat what a custom utility already sets (`glass-card` already includes the border, so no extra `border-b`), and never put two classes that set the same property under the same variant on one element.
 - Shared custom utilities (`glass-card`, `glow-text`, `link-underline`) are declared with `@utility` in `main.css` and used like any Tailwind class.
 
 ### Visual parity with the React version
@@ -292,6 +297,7 @@ The Nuxt version must look **exactly** like the React version. After migrating a
 - Any other element that becomes clickable (a `div` with a click handler, a custom card, a headless UI primitive with a different role) must add `cursor-pointer` explicitly. Prefer a real `<button>` or `<NuxtLink>` instead of a clickable `div`.
 - **Clickable cards** use the stretched button pattern, because headings are not allowed inside a `<button>`: the card is `relative cursor-pointer`, and the button lives inside the heading and covers the whole card with `after:absolute after:inset-0`. Keyboard focus is shown on that pseudo-element (`focus-visible:after:ring-2`). See `AboutAchievementCard` and `AboutTimelineItem`.
 - Disabled controls keep the default cursor.
+- Hover effects signal interactivity. Do not add hover effects (lift, border highlight, glow) to elements that do nothing when hovered or clicked, such as the testimonial cards inside the carousel.
 - Every interactive element must be reachable by keyboard and show a visible focus state (`focus-visible:ring-*`).
 
 ## Theme
@@ -305,17 +311,51 @@ The Nuxt version must look **exactly** like the React version. After migrating a
 ## Internationalization
 
 - Locales: `pt` (pt-BR, **default**, served without prefix), `en` (`/en`) and `es` (`/es`). The URL is the source of truth for the active locale, which is the most SEO-friendly strategy (`prefix_except_default`).
-- Every user-facing string lives in `i18n/locales/<locale>.json`. Templates and scripts never contain hardcoded visible text; they use `t('key')`.
+- Templates and scripts never contain hardcoded visible text.
+
+### UI messages (`i18n/`) vs content data (`app/data/`)
+
+Translated text lives in two places on purpose. They are two different layers, not duplicates:
+
+|              | `i18n/locales/<locale>.json`                                                                                                | `app/data/<module>/<locale>.ts`                                                                  |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| What         | **UI messages**: the interface copy (navigation, buttons, section titles, labels, `aria-label`s, SEO meta, dialog headings) | **Content**: the portfolio's own data (projects, achievements, testimonials, timeline, contents) |
+| Shape        | Short strings by key, with interpolation (`{year}`)                                                                         | Typed collections of objects (`Achievement[]`), with images, links and icon components           |
+| Read with    | `t('about.title')`                                                                                                          | A content composable (`useAboutContent()`)                                                       |
+| Loaded       | Lazily by `@nuxtjs/i18n`, only the active locale                                                                            | Bundled with the page that uses it                                                               |
+| Changes when | The interface changes                                                                                                       | The portfolio content changes                                                                    |
+
+Rule of thumb: if the text is part of the **interface** and would exist even with no content (a button, a heading, a label), it is a UI message. If it is an **item of a list** that describes the portfolio, it is content data.
+
+Why not merge them:
+
+- `i18n/locales/` is the convention of `@nuxtjs/i18n` v10: locale files are resolved from the root `i18n/` folder (`restructureDir`, which cannot be disabled from v11 on) and lazy-loaded per locale, served to both server and client. Do not move, rename or disable it.
+- vue-i18n compiles every message: characters such as `|`, `@`, `{` and `}` have special meaning, and arrays of objects, image URLs or icon components do not belong there. Long content would have to be escaped and read with `tm()`/`rt()`.
+- Content is typed by TypeScript interfaces, which catches a missing field in one translation at type-check time.
+
+The React version kept both layers in the same `content.<locale>.ts` file (the `ui` object next to the data arrays); the Nuxt version only separates them.
+
+If the content grows (for example many projects or articles with long text), the next step is to move `app/data` to Nuxt Content collections, not into the locale JSON files.
+
+### UI messages
+
+- Every UI message lives in `i18n/locales/<locale>.json` and is read with `t('key')`.
 - A new key must be added to **all three** locale files in the same change.
 - Keys are in English, camelCase, grouped by module and mirroring the component structure: `header.*`, `nav.*`, `footer.*`, `home.*`, `home.seo.*`.
 - Interpolate dynamic values with named parameters: `t('footer.rights', { year })`.
 - `|` is the pluralization separator in vue-i18n. To show a literal pipe, escape it as `{'|'}`.
+
+### Switching locales
+
 - Switch locales with `setLocale(code)`; list them with `locales` from `useI18n()`.
 - Switching the locale must feel like the React version: only the texts change, without remounting the page, replaying enter animations or scrolling. This is done by two pieces that must be kept:
     - `app.vue` passes `useLocaleAgnosticRouteKey()` as the `NuxtPage` `page-key`, so `/` and `/en` share the same component instance.
     - `app/middleware/preserve-scroll-on-locale-switch.global.ts` disables scroll-to-top when only the locale changed.
 - UI state that should survive a locale switch (such as the mobile menu) must watch `useLocaleAgnosticRouteKey()` instead of `route.fullPath`.
-- Content that is not UI copy but data (projects, experience, testimonials, contents) is not stored in the locale JSON files. It lives in typed per-locale files, `app/data/<module>/<locale>.ts` (one complete object per locale, so each translation can be edited independently), and is read through a composable that picks the current locale:
+
+### Content data
+
+- Content lives in typed per-locale files, `app/data/<module>/<locale>.ts` (one complete object per locale, so each translation can be edited independently), and is read through a composable that picks the current locale:
 
 ```ts
 const ABOUT_CONTENT_BY_LOCALE: Record<LocaleCode, AboutContent> = {
