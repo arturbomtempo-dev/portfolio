@@ -19,7 +19,8 @@ const { t } = useI18n();
             <li v-for="item in props.items" :key="item.to">
                 <NuxtLink
                     :to="item.to"
-                    class="block w-full px-4 py-3 text-center text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:text-foreground [&.router-link-active]:text-foreground"
+                    :data-active="item.isActive || undefined"
+                    class="block w-full px-4 py-3 text-center text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:text-foreground data-active:text-foreground"
                 >
                     <span class="link-underline [--link-underline-offset:-0.25rem]">
                         {{ item.label }}

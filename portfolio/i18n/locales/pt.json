@@ -63,10 +63,23 @@
             "ogDescription": "Alguns dos projetos que desenvolvi ao longo da minha carreira. Cada um representa um desafio único e aprendizado contínuo."
         },
         "title": "Projetos",
-        "description": "Alguns dos projetos que desenvolvi ao longo da minha carreira. Cada um representa um desafio único e aprendizado contínuo.",
+        "description": "Alguns dos projetos que desenvolvi ao longo da minha carreira. Cada um representa um desafio único e aprendizado contínuo."
+    },
+    "projectDetails": {
+        "seo": {
+            "title": "{title} {'|'} Artur Bomtempo"
+        },
+        "backButton": "Voltar para Projetos",
         "viewProject": "Ver Projeto",
         "viewCode": "Ver Código",
-        "aboutTitle": "Sobre o projeto:",
-        "technologiesTitle": "Tecnologias utilizadas:"
+        "aboutTitle": "Sobre o Projeto",
+        "technologiesTitle": "Tecnologias Utilizadas",
+        "notFound": {
+            "seo": {
+                "title": "Projeto não encontrado {'|'} Artur Bomtempo"
+            },
+            "title": "Projeto não encontrado",
+            "message": "O projeto que você está procurando não existe ou foi removido."
+        }
     }
 }

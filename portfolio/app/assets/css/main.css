@@ -174,8 +174,8 @@
 
     &:hover::after,
     &:focus-visible::after,
-    &.router-link-active::after,
-    :is(a:hover, a:focus-visible, a.router-link-active) > &::after {
+    &[data-active]::after,
+    :is(a:hover, a:focus-visible, a[data-active]) > &::after {
         @apply w-full;
     }
 }
@@ -233,5 +233,24 @@
         background: color-mix(in oklab, var(--primary) 15%, transparent);
         border-color: color-mix(in oklab, var(--primary) 40%, transparent);
         box-shadow: 0 0 15px color-mix(in oklab, var(--accent-glow) 20%, transparent);
+    }
+}
+
+@utility back-link {
+    @apply relative inline-flex items-center gap-2 text-muted-foreground transition-colors duration-200;
+
+    &::after {
+        content: '';
+        @apply absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300;
+    }
+
+    &:hover,
+    &:focus-visible {
+        color: var(--foreground);
+    }
+
+    &:hover::after,
+    &:focus-visible::after {
+        @apply w-full;
     }
 }

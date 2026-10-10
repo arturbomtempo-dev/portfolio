@@ -2,16 +2,7 @@
 const PROJECTS_IN_FIRST_ROW = 3;
 
 const projects = useProjectsContent();
-
-const selectedIndex = ref(0);
-const isDialogOpen = ref(false);
-
-const selectedProject = computed(() => projects.value[selectedIndex.value]);
-
-function openProject(index: number) {
-    selectedIndex.value = index;
-    isDialogOpen.value = true;
-}
+const localePath = useLocalePath();
 </script>
 
 <template>
@@ -20,14 +11,8 @@ function openProject(index: number) {
             v-for="(project, index) in projects"
             :key="project.id"
             :project="project"
+            :to="localePath(`/projects/${project.id}`)"
             :is-above-the-fold="index < PROJECTS_IN_FIRST_ROW"
-            @select="openProject(index)"
         />
     </section>
-
-    <ProjectsProjectDialog
-        v-if="selectedProject"
-        v-model:open="isDialogOpen"
-        :project="selectedProject"
-    />
 </template>

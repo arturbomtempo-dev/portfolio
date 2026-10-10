@@ -1,19 +1,17 @@
 <script setup lang="ts">
-import { ExternalLink } from '@lucide/vue';
+import { ArrowUpRight } from '@lucide/vue';
+import { defineProps, withDefaults, } from 'vue';
 import type { Project } from '~/types/project';
 
 interface Props {
     project: Project;
+    to: string;
     isAboveTheFold?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
     isAboveTheFold: false,
 });
-
-const emit = defineEmits<{
-    select: [];
-}>();
 </script>
 
 <template>
@@ -30,16 +28,15 @@ const emit = defineEmits<{
         <div class="py-3 sm:py-4">
             <div class="mb-2 flex items-start justify-between">
                 <h3 class="text-xl font-semibold transition-colors group-hover:text-primary">
-                    <button
-                        type="button"
+                    <NuxtLink
+                        :to="props.to"
                         class="block w-full text-left after:absolute after:inset-0 after:rounded-lg focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-ring"
-                        @click="emit('select')"
                     >
                         {{ props.project.title }}
-                    </button>
+                    </NuxtLink>
                 </h3>
-                <ExternalLink
-                    class="ml-2 size-5 text-primary transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                <ArrowUpRight
+                    class="ml-2 size-5 shrink-0 text-primary transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
                 />
             </div>
             <p class="mb-3 line-clamp-2 text-sm text-muted-foreground">

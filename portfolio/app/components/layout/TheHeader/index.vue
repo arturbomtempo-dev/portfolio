@@ -45,7 +45,8 @@ watch(
                             <li v-for="item in items" :key="item.to" class="flex">
                                 <NuxtLink
                                     :to="item.to"
-                                    class="link-underline text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground [&.router-link-active]:text-foreground"
+                                    :data-active="item.isActive || undefined"
+                                    class="link-underline text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground data-active:text-foreground"
                                 >
                                     {{ item.label }}
                                 </NuxtLink>
