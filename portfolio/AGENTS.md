@@ -16,23 +16,23 @@ Main goals of the Nuxt version:
 
 ## Tech stack
 
-| Concern         | Choice                                                          |
-| --------------- | --------------------------------------------------------------- |
-| Framework       | Nuxt 4 (`app/` directory structure)                             |
-| UI              | Vue 3 Single File Components with `<script setup lang="ts">`    |
-| Language        | TypeScript everywhere                                           |
-| Styling         | Tailwind CSS v4 via the official `@tailwindcss/vite` plugin     |
-| Routing         | Nuxt file-based routing (`app/pages`)                           |
-| i18n            | `@nuxtjs/i18n` (pt-BR default, en, es)                          |
-| Theme           | `@nuxtjs/color-mode` (dark/light, follows system by default)    |
-| Icons           | `@nuxt/icon` (SVG mode) with a local collection (`portfolio:*`) |
-| Fonts           | `@nuxt/fonts` (Inter and Geist, self-hosted at build time)      |
-| Headless UI     | `reka-ui` for accessible primitives (select, dialog, etc.)      |
-| Animations      | `tw-animate-css` (`animate-in`, `fade-in-0`, `zoom-in-95`…)     |
-| Class merging   | `cn()` (`clsx` + `tailwind-merge`) in `app/utils/cn.ts`         |
-| Formatting      | Prettier (`npm run format`)                                     |
-| Type checking   | `vue-tsc` via `npm run typecheck`                               |
-| Package manager | npm (lockfile committed)                                        |
+| Concern         | Choice                                                       |
+| --------------- | ------------------------------------------------------------ |
+| Framework       | Nuxt 4 (`app/` directory structure)                          |
+| UI              | Vue 3 Single File Components with `<script setup lang="ts">` |
+| Language        | TypeScript everywhere                                        |
+| Styling         | Tailwind CSS v4 via the official `@tailwindcss/vite` plugin  |
+| Routing         | Nuxt file-based routing (`app/pages`)                        |
+| i18n            | `@nuxtjs/i18n` (pt-BR default, en, es)                       |
+| Theme           | `@nuxtjs/color-mode` (dark/light, follows system by default) |
+| Icons           | `@lucide/vue` (official Lucide components for Vue 3)         |
+| Fonts           | `@nuxt/fonts` (Inter and Geist, self-hosted at build time)   |
+| Headless UI     | `reka-ui` for accessible primitives (select, dialog, etc.)   |
+| Animations      | `tw-animate-css` (`animate-in`, `fade-in-0`, `zoom-in-95`…)  |
+| Class merging   | `cn()` (`clsx` + `tailwind-merge`) in `app/utils/cn.ts`      |
+| Formatting      | Prettier (`npm run format`)                                  |
+| Type checking   | `vue-tsc` via `npm run typecheck`                            |
+| Package manager | npm (lockfile committed)                                     |
 
 ## Commands
 
@@ -61,9 +61,8 @@ portfolio/
 ├── app/
 │   ├── app.vue
 │   ├── assets/
-│   │   ├── css/
-│   │   │   └── main.css
-│   │   └── icons/
+│   │   └── css/
+│   │       └── main.css
 │   ├── components/
 │   │   ├── layout/
 │   │   │   ├── TheHeader/
@@ -129,7 +128,7 @@ The tree above is the target shape. Create folders only when they are actually n
 | `app/utils`               | Pure, stateless helper functions. Auto-imported.                                                                                                       |
 | `app/data`                | Static content of the portfolio (projects, experience, education, contents).                                                                           |
 | `app/types`               | Shared TypeScript types and interfaces.                                                                                                                |
-| `app/assets`              | Files processed by the build (CSS, icons, images imported from code).                                                                                  |
+| `app/assets`              | Files processed by the build (CSS, fonts, images imported from code).                                                                                  |
 | `app/middleware`          | Route middleware. Global ones end with `.global.ts` and run on every navigation.                                                                       |
 | `i18n/locales`            | Translation messages, one JSON file per locale. The only place where user-facing text is written.                                                      |
 | `modules`                 | Local Nuxt modules, registered automatically. Only for build-level integration (Vite plugins, hooks), never for app logic.                             |
@@ -333,16 +332,27 @@ export function useAboutContent() {
 ```
 
 - The `LocaleCode` type comes from `app/types/locale.ts`; never redeclare the locale union by hand.
-- The three locale files of a module must keep the same structure and the same number of items. Icons are referenced by name (`'portfolio:trophy'`), typed as `IconName`.
+- The three locale files of a module must keep the same structure and the same number of items. Icons are stored as Lucide components imported from `@lucide/vue` (`icon: Trophy`), typed as `LucideIcon`, exactly like the React version did with `lucide-react`.
 
 ## Icons
 
-- Icons come from a local `@nuxt/icon` collection: SVG files in `app/assets/icons`, used as `<Icon name="portfolio:<file-name>" />` (`portfolio:user`, `portfolio:chevron-down`).
-- The SVGs are copies of **Lucide 0.462**, the exact version used by the React version. Newer Lucide releases redrew some icons (such as `menu` and `moon`), and Iconify's optimized paths also render slightly differently, so the local copies are what guarantees visual parity.
-- To add an icon, copy its SVG from Lucide 0.462 (`lucide-static@0.462.0/icons/<name>.svg`, or `../node_modules/lucide-react/dist/esm/icons/<name>.js`) into `app/assets/icons/<name>.svg`, keeping the original markup (one element per stroke, `stroke-width="2"`).
-- `@nuxt/icon` runs in `svg` mode, rendering inline SVGs like `lucide-react` did. Size icons with Tailwind classes (`h-4 w-4`); inside `UiBaseButton` they are forced to 16px.
-- Icons are bundled at build time; do not load icons from external CDNs.
-- Decorative icons inside a labelled control need no extra label; icon-only buttons must have a translated `aria-label`.
+- Icons come from **`@lucide/vue`**, the official Lucide package for Vue 3 (the Vue counterpart of `lucide-react`, and the successor of the deprecated `lucide-vue-next`). Do not add SVG files to the project or use another icon library.
+- Import each icon by name from the package, as a component. Imports are tree-shaken, so only the icons used end up in the bundle:
+
+```vue
+<script setup lang="ts">
+import { ArrowRight } from '@lucide/vue';
+</script>
+
+<template>
+    <ArrowRight class="h-4 w-4" />
+</template>
+```
+
+- Use the canonical icon names (`CircleCheck`), not the legacy aliases (`CheckCircle2`).
+- When an icon is data (an achievement, a tech category), store the component itself and type it as `LucideIcon`; render it with `<component :is="item.icon" />`.
+- Size icons with Tailwind classes (`h-4 w-4`). Inside `UiBaseButton` they are forced to 16px by `[&_svg]:size-4`, as in shadcn.
+- Decorative icons inside a labelled control need no extra label; icon-only buttons must have a translated `aria-label` or an `sr-only` text.
 
 ## Code conventions
 
@@ -435,7 +445,7 @@ When migrating a feature from the React version (`../src`):
 | `className`                 | `class`                                                     |
 | Conditional JSX             | `v-if` / `v-else`                                           |
 | `array.map` in JSX          | `v-for` with `:key`                                         |
-| `lucide-react`              | `<Icon name="portfolio:..." />` (see [Icons](#icons))       |
+| `lucide-react`              | `@lucide/vue` (same component API, see [Icons](#icons))     |
 | `cn()` from `@/lib/utils`   | `cn()` from `app/utils/cn.ts` (auto-imported)               |
 | `tailwindcss-animate`       | `tw-animate-css` (same class names)                         |
 | shadcn/ui (`components/ui`) | Own components in `components/ui`, created only when needed |

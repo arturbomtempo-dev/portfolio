@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Quote } from '@lucide/vue';
 import type { Testimonial } from '~/types/about';
 
 interface Props {
@@ -12,7 +13,7 @@ const AUTHOR_PHOTO_SIZE_IN_PX = 48;
 
 <template>
     <UiBaseCard>
-        <Icon name="portfolio:quote" class="mb-4 h-10 w-10 text-primary/30" />
+        <Quote class="mb-4 h-10 w-10 text-primary/30" />
         <p class="mb-6 text-lg leading-relaxed text-foreground/90 italic">
             "{{ props.testimonial.text }}"
         </p>

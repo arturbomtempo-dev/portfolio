@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: true },
-    modules: ['@nuxtjs/i18n', '@nuxtjs/color-mode', '@nuxt/icon', '@nuxt/fonts'],
+    modules: ['@nuxtjs/i18n', '@nuxtjs/color-mode', '@nuxt/fonts'],
     css: ['~/assets/css/main.css'],
     app: {
         head: {
@@ -33,15 +33,6 @@ export default defineNuxtConfig({
         fallback: 'dark',
         classSuffix: '',
         storageKey: 'theme',
-    },
-    icon: {
-        mode: 'svg',
-        customCollections: [
-            {
-                prefix: 'portfolio',
-                dir: './app/assets/icons',
-            },
-        ],
     },
     fonts: {
         families: [

@@ -17,7 +17,7 @@ function openAchievement(index: number) {
     <section class="mb-16 grid animate-fade-in grid-cols-1 gap-6 md:grid-cols-3">
         <AboutAchievementCard
             v-for="(achievement, index) in content.achievements"
-            :key="achievement.icon"
+            :key="achievement.title"
             :achievement="achievement"
             @select="openAchievement(index)"
         />

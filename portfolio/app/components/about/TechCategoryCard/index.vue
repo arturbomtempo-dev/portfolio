@@ -11,7 +11,7 @@ const props = defineProps<Props>();
 <template>
     <UiBaseCard>
         <div class="mb-4 flex items-center gap-3">
-            <Icon :name="props.category.icon" class="h-6 w-6 text-primary" />
+            <component :is="props.category.icon" class="h-6 w-6 text-primary" />
             <h3 class="text-xl font-semibold">{{ props.category.title }}</h3>
         </div>
         <div class="flex flex-wrap gap-2">

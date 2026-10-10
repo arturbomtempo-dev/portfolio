@@ -1,4 +1,5 @@
 <script setup lang="ts" generic="TItem">
+import { ArrowLeft, ArrowRight } from '@lucide/vue';
 import emblaCarouselVue from 'embla-carousel-vue';
 import type { HTMLAttributes } from 'vue';
 
@@ -132,7 +133,7 @@ onBeforeUnmount(() => {
             :disabled="!canScrollPrevious"
             @click="scrollPrevious"
         >
-            <Icon name="portfolio:arrow-left" class="h-4 w-4" />
+            <ArrowLeft class="h-4 w-4" />
             <span class="sr-only">{{ t('carousel.previous') }}</span>
         </UiBaseButton>
         <UiBaseButton
@@ -142,7 +143,7 @@ onBeforeUnmount(() => {
             :disabled="!canScrollNext"
             @click="scrollNext"
         >
-            <Icon name="portfolio:arrow-right" class="h-4 w-4" />
+            <ArrowRight class="h-4 w-4" />
             <span class="sr-only">{{ t('carousel.next') }}</span>
         </UiBaseButton>
     </div>

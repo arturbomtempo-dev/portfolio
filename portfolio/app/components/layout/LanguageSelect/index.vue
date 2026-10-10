@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Check, ChevronDown, Globe } from '@lucide/vue';
 import {
     SelectContent,
     SelectItem,
@@ -25,9 +26,9 @@ const selectedLocale = computed({
             :aria-label="t('header.selectLanguage')"
             class="flex h-10 w-[85px] items-center justify-between gap-1.5 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-none"
         >
-            <Icon name="portfolio:globe" class="h-3.5 w-3.5" />
+            <Globe class="h-3.5 w-3.5" />
             <span class="line-clamp-1">{{ locale.toUpperCase() }}</span>
-            <Icon name="portfolio:chevron-down" class="h-4 w-4 opacity-50" />
+            <ChevronDown class="h-4 w-4 opacity-50" />
         </SelectTrigger>
 
         <SelectPortal>
@@ -46,7 +47,7 @@ const selectedLocale = computed({
                     >
                         <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
                             <SelectItemIndicator>
-                                <Icon name="portfolio:check" class="h-4 w-4" />
+                                <Check class="h-4 w-4" />
                             </SelectItemIndicator>
                         </span>
                         <SelectItemText>{{ option.code.toUpperCase() }}</SelectItemText>

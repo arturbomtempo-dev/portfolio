@@ -1,7 +1,7 @@
-export type IconName = `portfolio:${string}`;
+import type { LucideIcon } from '@lucide/vue';
 
 export interface Achievement {
-    icon: IconName;
+    icon: LucideIcon;
     title: string;
     description: string;
     fullDescription: string;
@@ -9,7 +9,7 @@ export interface Achievement {
 }
 
 export interface TechCategory {
-    icon: IconName;
+    icon: LucideIcon;
     title: string;
     techs: string[];
 }

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Menu, X } from '@lucide/vue';
 const MOBILE_MENU_ID = 'mobile-menu';
 
 const { t } = useI18n();
@@ -64,7 +65,8 @@ watch(
                             :aria-controls="MOBILE_MENU_ID"
                             @click="toggleMobileMenu"
                         >
-                            <Icon :name="isMobileMenuOpen ? 'portfolio:x' : 'portfolio:menu'" />
+                            <X v-if="isMobileMenuOpen" />
+                            <Menu v-else />
                         </UiBaseButton>
                     </div>
                 </div>

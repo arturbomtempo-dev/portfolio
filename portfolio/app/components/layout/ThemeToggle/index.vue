@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Moon, Sun } from '@lucide/vue';
 const { t } = useI18n();
 const colorMode = useColorMode();
 
@@ -15,12 +16,10 @@ function toggleTheme() {
         :aria-label="t('header.toggleTheme')"
         @click="toggleTheme"
     >
-        <Icon
-            name="portfolio:sun"
+        <Sun
             class="[transform:rotate(0)_scale(1)] text-foreground transition-all duration-300 dark:[transform:rotate(-90deg)_scale(0)]"
         />
-        <Icon
-            name="portfolio:moon"
+        <Moon
             class="absolute [transform:rotate(90deg)_scale(0)] text-foreground transition-all duration-300 dark:[transform:rotate(0)_scale(1)]"
         />
     </UiBaseButton>

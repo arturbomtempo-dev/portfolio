@@ -9,7 +9,7 @@ const content = useAboutContent();
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
             <AboutTechCategoryCard
                 v-for="category in content.techCategories"
-                :key="category.icon"
+                :key="category.title"
                 :category="category"
             />
         </div>

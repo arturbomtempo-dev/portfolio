@@ -1,9 +1,10 @@
+import { Database, Palette, Presentation, Server, Smartphone, Trophy, Users } from '@lucide/vue';
 import type { AboutContent } from '~/types/about';
 
 export const ABOUT_CONTENT_PT: AboutContent = {
     achievements: [
         {
-            icon: 'portfolio:trophy',
+            icon: Trophy,
             title: 'Prêmios e Reconhecimentos',
             description: 'Destaques acadêmicos e profissionais',
             fullDescription:
@@ -19,7 +20,7 @@ export const ABOUT_CONTENT_PT: AboutContent = {
             ],
         },
         {
-            icon: 'portfolio:users',
+            icon: Users,
             title: '4+ Anos',
             description: 'Anos de Experiência',
             fullDescription:
@@ -33,7 +34,7 @@ export const ABOUT_CONTENT_PT: AboutContent = {
             ],
         },
         {
-            icon: 'portfolio:presentation',
+            icon: Presentation,
             title: '7+ Palestras',
             description: 'Compartilhando conhecimento e formando novos talentos',
             fullDescription:
@@ -49,7 +50,7 @@ export const ABOUT_CONTENT_PT: AboutContent = {
     ],
     techCategories: [
         {
-            icon: 'portfolio:palette',
+            icon: Palette,
             title: 'Front-end',
             techs: [
                 'HTML',
@@ -66,7 +67,7 @@ export const ABOUT_CONTENT_PT: AboutContent = {
             ],
         },
         {
-            icon: 'portfolio:server',
+            icon: Server,
             title: 'Back-end',
             techs: [
                 'Node.js',
@@ -85,12 +86,12 @@ export const ABOUT_CONTENT_PT: AboutContent = {
             ],
         },
         {
-            icon: 'portfolio:database',
+            icon: Database,
             title: 'Banco de Dados',
             techs: ['MySQL', 'PostgreSQL', 'SQLite', 'MongoDB'],
         },
         {
-            icon: 'portfolio:smartphone',
+            icon: Smartphone,
             title: 'Mobile',
             techs: ['Swift', 'Kotlin'],
         },

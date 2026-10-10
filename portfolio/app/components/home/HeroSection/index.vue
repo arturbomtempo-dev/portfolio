@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { User } from '@lucide/vue';
 import { PROFILE } from '~/data/profile';
 
 const AVATAR_SIZE_IN_PX = 160;
@@ -46,10 +47,7 @@ const localePath = useLocalePath();
                     class="group mx-auto w-1/2 bg-primary hover:bg-primary-glow sm:mx-0 sm:w-auto"
                 >
                     {{ t('home.aboutButton') }}
-                    <Icon
-                        name="portfolio:user"
-                        class="ml-2 transition-transform group-hover:translate-x-1"
-                    />
+                    <User class="ml-2 transition-transform group-hover:translate-x-1" />
                 </UiBaseButton>
                 <UiBaseButton
                     :to="localePath('/contact')"

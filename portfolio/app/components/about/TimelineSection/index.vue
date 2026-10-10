@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import type { IconName, TimelineEntry } from '~/types/about';
+import { Briefcase, GraduationCap, type LucideIcon } from '@lucide/vue';
+import type { TimelineEntry } from '~/types/about';
 
 type TimelineKind = 'education' | 'experience';
 
@@ -8,9 +9,9 @@ interface TimelineSelection {
     index: number;
 }
 
-const ICON_BY_KIND: Record<TimelineKind, IconName> = {
-    education: 'portfolio:graduation-cap',
-    experience: 'portfolio:briefcase',
+const ICON_BY_KIND: Record<TimelineKind, LucideIcon> = {
+    education: GraduationCap,
+    experience: Briefcase,
 };
 
 const { t } = useI18n();
