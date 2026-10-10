@@ -5,5 +5,6 @@
             <slot />
         </main>
         <LayoutTheFooter />
+        <LayoutAppToaster />
     </div>
 </template>

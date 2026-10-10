@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { FileText, Mail } from '@lucide/vue';
-import { siYoutube } from 'simple-icons';
+import { IconBrandYoutube } from '@tabler/icons-vue';
 import type { ContentType } from '~/types/content';
 
 interface Props {
@@ -11,7 +11,7 @@ const props = defineProps<Props>();
 </script>
 
 <template>
-    <UiBrandIcon v-if="props.type === 'video'" :icon="siYoutube" />
+    <IconBrandYoutube v-if="props.type === 'video'" />
     <FileText v-else-if="props.type === 'article'" />
     <Mail v-else />
 </template>

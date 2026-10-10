@@ -103,5 +103,47 @@
             "article": "Artigo",
             "newsletter": "Newsletter"
         }
+    },
+    "social": {
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "email": "E-mail",
+        "instagram": "Instagram",
+        "youtube": "YouTube"
+    },
+    "contact": {
+        "seo": {
+            "title": "Contato {'|'} Artur Bomtempo",
+            "description": "Estou sempre aberto a novas oportunidades e colaborações. Entre em contato comigo através dos canais abaixo.",
+            "ogTitle": "Contato {'|'} Artur Bomtempo",
+            "ogDescription": "Estou sempre aberto a novas oportunidades e colaborações. Entre em contato comigo através dos canais abaixo."
+        },
+        "title": "Entre em Contato",
+        "description": "Estou sempre aberto a novas oportunidades e colaborações. Entre em contato comigo através dos canais abaixo.",
+        "socialLinksLabel": "Redes sociais",
+        "form": {
+            "name": "Nome",
+            "namePlaceholder": "Seu nome completo",
+            "email": "E-mail",
+            "emailPlaceholder": "seu{'@'}email.com",
+            "message": "Mensagem",
+            "messagePlaceholder": "Escreva sua mensagem aqui...",
+            "submit": "Enviar Mensagem",
+            "submitting": "Enviando..."
+        },
+        "validation": {
+            "nameRequired": "O nome é obrigatório",
+            "nameMinLength": "O nome deve ter no mínimo 5 caracteres",
+            "emailRequired": "O e-mail é obrigatório",
+            "emailInvalid": "Formato de e-mail inválido",
+            "messageRequired": "A mensagem é obrigatória",
+            "messageMinLength": "A mensagem deve ter no mínimo 50 caracteres"
+        },
+        "feedback": {
+            "successTitle": "Mensagem enviada com sucesso!",
+            "successDescription": "Obrigado pelo contato. Responderei em breve!",
+            "errorTitle": "Erro ao enviar mensagem",
+            "errorDescription": "Por favor, tente novamente mais tarde."
+        }
     }
 }

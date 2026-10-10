@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ExternalLink } from '@lucide/vue';
-import { defineProps, withDefaults, } from 'vue';
 import type { ContentItem } from '~/types/content';
 
 interface Props {

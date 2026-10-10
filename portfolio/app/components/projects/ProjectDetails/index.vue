@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ExternalLink } from '@lucide/vue';
-import { siGithub } from 'simple-icons';
-import { defineProps, } from 'vue';
+import { IconBrandGithub } from '@tabler/icons-vue';
 import type { Project } from '~/types/project';
 
 interface Props {
@@ -54,7 +53,7 @@ const hasLinks = computed(() => Boolean(props.project.liveUrl || props.project.g
                     variant="outline"
                     class="gap-2"
                 >
-                    <UiBrandIcon :icon="siGithub" class="size-4" />
+                    <IconBrandGithub class="size-4" />
                     {{ t('projectDetails.viewCode') }}
                 </UiBaseButton>
             </div>

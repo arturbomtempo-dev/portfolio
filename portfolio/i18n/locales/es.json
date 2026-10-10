@@ -103,5 +103,47 @@
             "article": "Artículo",
             "newsletter": "Newsletter"
         }
+    },
+    "social": {
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "email": "Correo electrónico",
+        "instagram": "Instagram",
+        "youtube": "YouTube"
+    },
+    "contact": {
+        "seo": {
+            "title": "Contacto {'|'} Artur Bomtempo",
+            "description": "Siempre estoy abierto a nuevas oportunidades y colaboraciones. Contáctame a través de los canales a continuación.",
+            "ogTitle": "Contacto {'|'} Artur Bomtempo",
+            "ogDescription": "Siempre estoy abierto a nuevas oportunidades y colaboraciones. Contáctame a través de los canales a continuación."
+        },
+        "title": "Contáctame",
+        "description": "Siempre estoy abierto a nuevas oportunidades y colaboraciones. Contáctame a través de los canales a continuación.",
+        "socialLinksLabel": "Redes sociales",
+        "form": {
+            "name": "Nombre",
+            "namePlaceholder": "Tu nombre completo",
+            "email": "Correo Electrónico",
+            "emailPlaceholder": "tu{'@'}email.com",
+            "message": "Mensaje",
+            "messagePlaceholder": "Escribe tu mensaje aquí...",
+            "submit": "Enviar Mensaje",
+            "submitting": "Enviando..."
+        },
+        "validation": {
+            "nameRequired": "El nombre es obligatorio",
+            "nameMinLength": "El nombre debe tener al menos 5 caracteres",
+            "emailRequired": "El correo electrónico es obligatorio",
+            "emailInvalid": "Formato de correo electrónico inválido",
+            "messageRequired": "El mensaje es obligatorio",
+            "messageMinLength": "El mensaje debe tener al menos 50 caracteres"
+        },
+        "feedback": {
+            "successTitle": "¡Mensaje enviado con éxito!",
+            "successDescription": "Gracias por contactar. ¡Responderé pronto!",
+            "errorTitle": "Error al enviar mensaje",
+            "errorDescription": "Por favor, intenta nuevamente más tarde."
+        }
     }
 }

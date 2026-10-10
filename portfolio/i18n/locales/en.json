@@ -103,5 +103,47 @@
             "article": "Article",
             "newsletter": "Newsletter"
         }
+    },
+    "social": {
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "email": "Email",
+        "instagram": "Instagram",
+        "youtube": "YouTube"
+    },
+    "contact": {
+        "seo": {
+            "title": "Contact {'|'} Artur Bomtempo",
+            "description": "I am always open to new opportunities and collaborations. Contact me through the channels below.",
+            "ogTitle": "Contact {'|'} Artur Bomtempo",
+            "ogDescription": "I am always open to new opportunities and collaborations. Contact me through the channels below."
+        },
+        "title": "Get in Touch",
+        "description": "I am always open to new opportunities and collaborations. Contact me through the channels below.",
+        "socialLinksLabel": "Social media",
+        "form": {
+            "name": "Name",
+            "namePlaceholder": "Your full name",
+            "email": "Email",
+            "emailPlaceholder": "your{'@'}email.com",
+            "message": "Message",
+            "messagePlaceholder": "Write your message here...",
+            "submit": "Send Message",
+            "submitting": "Sending..."
+        },
+        "validation": {
+            "nameRequired": "Name is required",
+            "nameMinLength": "Name must be at least 5 characters",
+            "emailRequired": "Email is required",
+            "emailInvalid": "Invalid email format",
+            "messageRequired": "Message is required",
+            "messageMinLength": "Message must be at least 50 characters"
+        },
+        "feedback": {
+            "successTitle": "Message sent successfully!",
+            "successDescription": "Thank you for contacting. I will reply soon!",
+            "errorTitle": "Error sending message",
+            "errorDescription": "Please try again later."
+        }
     }
 }

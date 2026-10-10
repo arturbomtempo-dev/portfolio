@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: false },
-    modules: ['@nuxtjs/i18n', '@nuxtjs/color-mode', '@nuxt/fonts'],
+    modules: ['@nuxtjs/i18n', '@nuxtjs/color-mode', '@nuxt/fonts', 'vue-sonner/nuxt'],
     css: ['~/assets/css/main.css'],
     app: {
         head: {
@@ -12,6 +12,11 @@ export default defineNuxtConfig({
                 { rel: 'apple-touch-icon', href: '/favicon.png' },
             ],
             meta: [{ name: 'author', content: 'Artur Bomtempo Colen' }],
+        },
+    },
+    runtimeConfig: {
+        public: {
+            contactFormEndpoint: 'https://formsubmit.co/ajax/arturbcolen@gmail.com',
         },
     },
     vite: {

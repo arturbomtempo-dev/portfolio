@@ -16,23 +16,23 @@ Main goals of the Nuxt version:
 
 ## Tech stack
 
-| Concern         | Choice                                                                                  |
-| --------------- | --------------------------------------------------------------------------------------- |
-| Framework       | Nuxt 4 (`app/` directory structure)                                                     |
-| UI              | Vue 3 Single File Components with `<script setup lang="ts">`                            |
-| Language        | TypeScript everywhere                                                                   |
-| Styling         | Tailwind CSS v4 via the official `@tailwindcss/vite` plugin                             |
-| Routing         | Nuxt file-based routing (`app/pages`)                                                   |
-| i18n            | `@nuxtjs/i18n` (pt-BR default, en, es)                                                  |
-| Theme           | `@nuxtjs/color-mode` (dark/light, follows system by default)                            |
-| Icons           | `@lucide/vue` (official Lucide components for Vue 3) and `simple-icons` for brand logos |
-| Fonts           | `@nuxt/fonts` (Inter and Geist, self-hosted at build time)                              |
-| Headless UI     | `reka-ui` for accessible primitives (select, dialog, etc.)                              |
-| Animations      | `tw-animate-css` (`animate-in`, `fade-in-0`, `zoom-in-95`…)                             |
-| Class merging   | `cn()` (`clsx` + `tailwind-merge`) in `app/utils/cn.ts`                                 |
-| Formatting      | Prettier (`npm run format`)                                                             |
-| Type checking   | `vue-tsc` via `npm run typecheck`                                                       |
-| Package manager | npm (lockfile committed)                                                                |
+| Concern         | Choice                                                                             |
+| --------------- | ---------------------------------------------------------------------------------- |
+| Framework       | Nuxt 4 (`app/` directory structure)                                                |
+| UI              | Vue 3 Single File Components with `<script setup lang="ts">`                       |
+| Language        | TypeScript everywhere                                                              |
+| Styling         | Tailwind CSS v4 via the official `@tailwindcss/vite` plugin                        |
+| Routing         | Nuxt file-based routing (`app/pages`)                                              |
+| i18n            | `@nuxtjs/i18n` (pt-BR default, en, es)                                             |
+| Theme           | `@nuxtjs/color-mode` (dark/light, follows system by default)                       |
+| Icons           | `@lucide/vue` (official Lucide components) and `@tabler/icons-vue` for brand logos |
+| Fonts           | `@nuxt/fonts` (Inter and Geist, self-hosted at build time)                         |
+| Headless UI     | `reka-ui` for accessible primitives (select, dialog, etc.)                         |
+| Animations      | `tw-animate-css` (`animate-in`, `fade-in-0`, `zoom-in-95`…)                        |
+| Class merging   | `cn()` (`clsx` + `tailwind-merge`) in `app/utils/cn.ts`                            |
+| Formatting      | Prettier (`npm run format`)                                                        |
+| Type checking   | `vue-tsc` via `npm run typecheck`                                                  |
+| Package manager | npm (lockfile committed)                                                           |
 
 ## Commands
 
@@ -237,17 +237,18 @@ Never rely on plain class concatenation to override a Tailwind class; without `c
 
 Available UI components (check them before creating a new one):
 
-| Component        | Purpose                                                                                                                                                                                                                                      |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `UiBaseButton`   | Button or link (`to`, internal or external) with `primary`, `outline` and `ghost` variants and `sm`, `md`, `lg`, `icon` sizes.                                                                                                               |
-| `UiBaseCard`     | Glass card (`surface-card`). Renders any tag or component through `as` (a `NuxtLink` for cards that are links). The hover lift (`surface-card-hoverable`) is on by default; pass `:is-hoverable="false"` for cards that are not interactive. |
-| `UiTechBadge`    | Rounded technology pill (`tech-badge`), `text-sm` by default; pass `class="text-xs"` for the compact version used in cards.                                                                                                                  |
-| `UiBaseDialog`   | Accessible modal (`reka-ui`) with overlay, animations and a translated close button. Controlled by `v-model:open`.                                                                                                                           |
-| `UiBaseCarousel` | Embla carousel with keyboard support, previous/next buttons and optional adaptive height. Slides via scoped slot.                                                                                                                            |
-| `UiPageHeader`   | Page title (`h1`) and introduction paragraph at the top of every page. `description-class` adjusts the paragraph width (`max-w-3xl` by default) and `class` the spacing below it (`mb-16` by default).                                       |
-| `UiFilterTabs`   | Group of toggle buttons (`aria-pressed`) used to filter a listing, bound with `v-model`. Option icons come from the `icon` scoped slot.                                                                                                      |
-| `UiBrandIcon`    | Renders a brand logo from `simple-icons` (`:icon="siGithub"`) with the same sizing classes as Lucide icons.                                                                                                                                  |
-| `UiBackLink`     | "Back to …" link with arrow and animated underline (`back-link`), used at the top of detail pages.                                                                                                                                           |
+| Component                    | Purpose                                                                                                                                                                                                                                      |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `UiBaseButton`               | Button or link (`to`, internal or external) with `primary`, `outline` and `ghost` variants and `sm`, `md`, `lg`, `icon` sizes.                                                                                                               |
+| `UiBaseCard`                 | Glass card (`surface-card`). Renders any tag or component through `as` (a `NuxtLink` for cards that are links). The hover lift (`surface-card-hoverable`) is on by default; pass `:is-hoverable="false"` for cards that are not interactive. |
+| `UiTechBadge`                | Rounded technology pill (`tech-badge`), `text-sm` by default; pass `class="text-xs"` for the compact version used in cards.                                                                                                                  |
+| `UiBaseDialog`               | Accessible modal (`reka-ui`) with overlay, animations and a translated close button. Controlled by `v-model:open`.                                                                                                                           |
+| `UiBaseCarousel`             | Embla carousel with keyboard support, previous/next buttons and optional adaptive height. Slides via scoped slot.                                                                                                                            |
+| `UiPageHeader`               | Page title (`h1`) and introduction paragraph at the top of every page. `description-class` adjusts the paragraph width (`max-w-3xl` by default) and `class` the spacing below it (`mb-16` by default).                                       |
+| `UiFilterTabs`               | Group of toggle buttons (`aria-pressed`) used to filter a listing, bound with `v-model`. Option icons come from the `icon` scoped slot.                                                                                                      |
+| `UiFormField`                | Label, field slot and translated error message (`role="alert"`), wired with `aria-describedby`. The slot exposes `fieldId`, `errorId` and `isInvalid`.                                                                                       |
+| `UiTextInput` / `UiTextArea` | shadcn-style text fields bound with `v-model`; `is-invalid` switches to the error border (`FIELD_INVALID_CLASSES`).                                                                                                                          |
+| `UiBackLink`                 | "Back to …" link with arrow and animated underline (`back-link`), used at the top of detail pages.                                                                                                                                           |
 
 ### Dialogs
 
@@ -290,6 +291,21 @@ useSeoMeta({
 - Set complete SEO meta for each item: title with the item name, `description`, `ogImage` (the item image), `ogType: 'article'` and `twitterCard: 'summary_large_image'`, so shared links show a rich preview.
 - When the `id` does not exist, render a translated not-found state (`ProjectsProjectNotFound`) with a link back to the listing, return a real **404** status with `setResponseStatus(404)` and set `robots: 'noindex, nofollow'`.
 - Opening a detail page scrolls to the top; the browser back button restores the listing's scroll position (default Nuxt behavior, do not override it).
+
+### Forms
+
+- Validation schemas are written with **Zod 4**, inside a `computed` so their messages come from `t()` and update when the locale changes.
+- Forms use the `useSchemaForm(schema, initialValues)` composable: it validates on submit and, after the first submit, revalidates on every change (the same behavior as `react-hook-form` in the React version). It returns `values`, `errors` (first message per field), `isSubmitting`, `handleSubmit` and `reset`.
+- Fields are built with `UiFormField` + `UiTextInput`/`UiTextArea`. Every field has an `id`, a `<label for>`, `name`, the right `autocomplete` and `aria-describedby` pointing to its error. Forms use `novalidate`, since validation and messages are ours.
+- While submitting, the submit button is disabled and shows a "sending" label. On success, show a success toast and reset the form; on any failure (HTTP error, network error or a negative response from the service), show an error toast and **keep** what the user typed.
+- User feedback for asynchronous actions uses toasts from `vue-sonner` (`import { toast } from 'vue-sonner'`). The `Toaster` is mounted once in the default layout (`LayoutAppToaster`), following the site theme.
+
+### Contact form (FormSubmit)
+
+- Messages are sent from the browser to FormSubmit's AJAX endpoint, configured in `runtimeConfig.public.contactFormEndpoint` (override with `NUXT_PUBLIC_CONTACT_FORM_ENDPOINT`). This works on any hosting, including static output.
+- The payload includes FormSubmit options (`_captcha`, `_template`, `_subject`) and the `_honey` honeypot field, a hidden input that bots fill and FormSubmit discards.
+- A submission is only successful when FormSubmit answers `success: "true"`; it can answer HTTP 200 with `success: "false"` (for example when the form is not activated).
+- Never send real messages while testing. Intercept requests to `formsubmit.co` (Playwright `page.route`) and fake the responses.
 
 ### Listings with filters
 
@@ -337,6 +353,8 @@ The Nuxt version must look **exactly** like the React version. After migrating a
 - Links rendered inside `<li>` must be blockified (`li` with `flex`) to keep the same vertical alignment as the React flex children.
 - `space-y-*` changed: v3 adds `margin-top` to the following siblings, v4 adds `margin-bottom` to the previous ones, and a child's own `mb-*` class wins over it. Inside **flex** containers (where margins do not collapse) this changes the spacing; use explicit margins (`mt-1.5`) to reproduce the React result.
 - In v3, `@layer components` classes such as React's `project-card` lose to utilities only by source order and specificity; in v4 cascade layers make utilities always win. Recreate such classes as a single `@utility` (`surface-card`, `tech-badge`) that encodes the **final** computed result of the React cascade, including the `.light` overrides.
+- Third-party CSS that is not in a cascade layer (such as `vue-sonner`) always wins over Tailwind v4 utilities, whatever their specificity. Style those components through their CSS variables first (`--normal-bg`, `--normal-text`, `--normal-border` on the toaster) and use the important modifier (`text-muted-foreground!`) only where no variable exists.
+- Tailwind v4 changed the default palette to OKLCH. The palette colors used by the React version (`red-500`, `red-600`, `blue-500`, `pink-500`) are redefined in `@theme` with their v3 values. Prefer semantic tokens (`destructive`) for new code.
 - The React version loaded Inter and Geist only in the `normal` style, so italic text is synthesized by the browser. `@nuxt/fonts` is configured with `styles: ['normal']` to keep the same rendering; do not add italic font files.
 
 ## Interactivity
@@ -392,6 +410,7 @@ If the content grows (for example many projects or articles with long text), the
 - Keys are in English, camelCase, grouped by module and mirroring the component structure: `header.*`, `nav.*`, `footer.*`, `home.*`, `home.seo.*`.
 - Interpolate dynamic values with named parameters: `t('footer.rights', { year })`.
 - `|` is the pluralization separator in vue-i18n. To show a literal pipe, escape it as `{'|'}`.
+- `@` starts a linked message in vue-i18n. To show a literal at sign (such as in an e-mail placeholder), escape it as `{'@'}`: `"seu{'@'}email.com"`.
 
 ### Switching locales
 
@@ -443,18 +462,19 @@ import { ArrowRight } from '@lucide/vue';
 - Use the canonical icon names (`CircleCheck`), not the legacy aliases (`CheckCircle2`).
 - When an icon is data (an achievement, a tech category), store the component itself and type it as `LucideIcon`; render it with `<component :is="item.icon" />`.
 - Size icons with Tailwind classes (`h-4 w-4`). Inside `UiBaseButton` they are forced to 16px by `[&_svg]:size-4`, as in shadcn.
-- Lucide 1.x no longer ships brand icons (GitHub, LinkedIn…). Brand logos come from `simple-icons`, the source recommended by Lucide, rendered with `UiBrandIcon`:
+- Lucide 1.x no longer ships brand icons (GitHub, LinkedIn…). Brand logos come from **`@tabler/icons-vue`** (MIT), whose outline style (2px stroke on a 24px grid) matches Lucide and the brand icons of the React version. Import them by name, like Lucide icons:
 
 ```vue
 <script setup lang="ts">
-import { siGithub } from 'simple-icons';
+import { IconBrandGithub } from '@tabler/icons-vue';
 </script>
 
 <template>
-    <UiBrandIcon :icon="siGithub" class="size-4" />
+    <IconBrandGithub class="size-4" />
 </template>
 ```
 
+- Do not use other icon libraries (`simple-icons` lacks LinkedIn and only has filled logos; Material Design Icons are filled too).
 - Decorative icons inside a labelled control need no extra label; icon-only buttons must have a translated `aria-label` or an `sr-only` text.
 
 ## Code conventions

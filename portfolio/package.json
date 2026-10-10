@@ -16,14 +16,16 @@
         "@nuxt/fonts": "^0.14.0",
         "@nuxtjs/color-mode": "^4.0.1",
         "@nuxtjs/i18n": "^10.6.0",
+        "@tabler/icons-vue": "^3.49.0",
         "clsx": "^2.1.1",
         "embla-carousel-vue": "^8.6.0",
         "nuxt": "^4.6.0",
         "reka-ui": "^2.11.0",
-        "simple-icons": "^16.34.0",
         "tailwind-merge": "^3.7.0",
         "vue": "^3.5.43",
-        "vue-router": "^5.3.1"
+        "vue-router": "^5.3.1",
+        "vue-sonner": "^2.0.9",
+        "zod": "^4.6.5"
     },
     "devDependencies": {
         "@nuxt/kit": "^4.6.0",
