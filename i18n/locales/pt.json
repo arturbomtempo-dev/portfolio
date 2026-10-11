@@ -14,6 +14,7 @@
         "home": "Início",
         "about": "Sobre",
         "projects": "Projetos",
+        "events": "Eventos",
         "contents": "Conteúdos",
         "contact": "Contato"
     },
@@ -80,6 +81,65 @@
             },
             "title": "Projeto não encontrado",
             "message": "O projeto que você está procurando não existe ou foi removido."
+        }
+    },
+    "events": {
+        "seo": {
+            "title": "Eventos {'|'} Artur Bomtempo",
+            "description": "Palestras, workshops e cursos em que compartilhei conhecimento com comunidades, empresas e instituições de ensino.",
+            "ogTitle": "Eventos {'|'} Artur Bomtempo",
+            "ogDescription": "Palestras, workshops e cursos em que compartilhei conhecimento com comunidades, empresas e instituições de ensino."
+        },
+        "title": "Eventos",
+        "description": "Palestras, workshops e cursos em que compartilhei conhecimento com comunidades, empresas e instituições de ensino.",
+        "filtersLabel": "Filtrar eventos por tipo",
+        "filters": {
+            "all": "Todos",
+            "talk": "Palestras",
+            "workshop": "Workshops",
+            "course": "Cursos"
+        },
+        "types": {
+            "talk": "Palestra",
+            "workshop": "Workshop",
+            "course": "Curso"
+        },
+        "viewDetails": "Ver detalhes",
+        "photos": "Sem fotos | 1 foto | {count} fotos",
+        "empty": "Nenhum evento encontrado para este filtro."
+    },
+    "eventDetails": {
+        "seo": {
+            "title": "{title} {'|'} Artur Bomtempo"
+        },
+        "backButton": "Voltar para Eventos",
+        "aboutTitle": "Sobre o evento",
+        "topicsTitle": "Temas abordados",
+        "galleryTitle": "Fotos",
+        "openPhoto": "Abrir foto {index} de {total}",
+        "links": {
+            "event": "Site do evento",
+            "slides": "Ver slides",
+            "recording": "Assistir gravação",
+            "repository": "Ver código"
+        },
+        "lightbox": {
+            "title": "Fotos de {event}",
+            "previous": "Foto anterior",
+            "next": "Próxima foto",
+            "counter": "{index} de {total}"
+        },
+        "pagination": {
+            "label": "Navegação entre eventos",
+            "newer": "Evento mais recente",
+            "older": "Evento anterior"
+        },
+        "notFound": {
+            "seo": {
+                "title": "Evento não encontrado {'|'} Artur Bomtempo"
+            },
+            "title": "Evento não encontrado",
+            "message": "O evento que você está procurando não existe ou foi removido."
         }
     },
     "contents": {

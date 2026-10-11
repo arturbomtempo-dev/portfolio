@@ -8,3 +8,7 @@ export function getLocaleOpenGraphImagePath(locale: string) {
 export function getProjectOpenGraphImagePath(projectId: string) {
     return `/og/projects/${projectId}.jpg`;
 }
+
+export function getEventOpenGraphImagePath(eventId: string) {
+    return `/og/events/${eventId}.jpg`;
+}

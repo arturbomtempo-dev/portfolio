@@ -40,7 +40,7 @@ watch(
                 </NuxtLink>
 
                 <div class="flex items-center gap-6">
-                    <nav :aria-label="t('header.mainNavigation')" class="hidden md:block">
+                    <nav :aria-label="t('header.mainNavigation')" class="hidden lg:block">
                         <ul class="flex items-center gap-6">
                             <li v-for="item in items" :key="item.to" class="flex">
                                 <NuxtLink
@@ -60,7 +60,7 @@ watch(
                         <UiBaseButton
                             variant="ghost"
                             size="icon"
-                            class="md:hidden"
+                            class="lg:hidden"
                             :aria-label="mobileMenuButtonLabel"
                             :aria-expanded="isMobileMenuOpen"
                             :aria-controls="MOBILE_MENU_ID"
@@ -77,7 +77,7 @@ watch(
                 v-if="isMobileMenuOpen"
                 :id="MOBILE_MENU_ID"
                 :items="items"
-                class="md:hidden"
+                class="lg:hidden"
             />
         </div>
     </header>
