@@ -1,19 +1,6 @@
 # Portfolio Website
 
-<table>
-  <tr>
-    <td width="800px">
-      <div align="justify">
-        The personal portfolio of <b>Artur Bomtempo</b>, a software developer. It presents his <i>background</i>, <i>projects</i>, <i>talks</i> and <i>published content</i>, and it gives recruiters, companies and the developer community a direct way to <b>get in touch</b>. Built with <b>Nuxt 4</b>, <b>Vue 3</b> and <b>Tailwind CSS v4</b>, the site is fully <b>prerendered</b>, available in <b>Portuguese, English and Spanish</b>, and designed for <i>performance</i>, <i>accessibility</i>, <i>SEO</i> and <i>security</i> from the start.
-      </div>
-    </td>
-    <td>
-      <div align="center">
-        <img src="public/icon-512.png" alt="Portfolio logo" width="120px"/>
-      </div>
-    </td>
-  </tr>
-</table>
+The personal portfolio of **Artur Bomtempo**, a software developer. It presents his _background_, _projects_, _talks_ and _published content_, and it gives recruiters, companies and the developer community a direct way to **get in touch**. Built with **Nuxt 4**, **Vue 3** and **Tailwind CSS v4**, the site is fully **prerendered**, available in **Portuguese, English and Spanish**, and designed for _performance_, _accessibility_, _SEO_ and _security_ from the start.
 
 ---
 
