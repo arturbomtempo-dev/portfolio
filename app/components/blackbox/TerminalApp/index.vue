@@ -352,7 +352,7 @@ onBeforeUnmount(() => {
         <button
             v-if="isMinimized"
             type="button"
-            class="absolute bottom-6 left-1/2 inline-flex -translate-x-1/2 items-center gap-3 rounded-full border border-terminal-border bg-terminal-chrome px-5 py-3 font-mono text-sm text-terminal-foreground shadow-2xl shadow-black/60 transition-colors hover:border-terminal-green/60 focus-visible:ring-2 focus-visible:ring-terminal-green focus-visible:outline-none motion-safe:animate-terminal-line"
+            class="absolute bottom-6 left-1/2 inline-flex -translate-x-1/2 items-center gap-3 rounded-full border border-terminal-border bg-terminal-chrome px-5 py-3 font-mono text-sm text-terminal-foreground shadow-2xl shadow-black/10 transition-colors dark:shadow-black/60 hover:border-terminal-green/60 focus-visible:ring-2 focus-visible:ring-terminal-green focus-visible:outline-none motion-safe:animate-terminal-line"
             @click="restoreWindow"
         >
             <SquareTerminal class="size-4 text-terminal-green" />

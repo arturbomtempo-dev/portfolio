@@ -37,7 +37,7 @@ const TITLE_BAR_BUTTON_CLASSES =
         :aria-label="`${props.title} · ${props.incidentId}`"
         :class="
             cn(
-                'relative flex flex-col overflow-hidden border border-terminal-border bg-terminal-background font-mono shadow-2xl shadow-black/60',
+                'relative flex flex-col overflow-hidden border border-terminal-border bg-terminal-background font-mono shadow-2xl shadow-black/15 dark:shadow-black/60',
                 props.isMaximized ? 'rounded-none border-0' : 'rounded-xl',
                 props.hasOpeningAnimation && 'motion-safe:animate-terminal-open',
                 props.class

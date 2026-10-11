@@ -67,6 +67,18 @@
     --border: hsl(0 0% 88%);
     --input: hsl(0 0% 88%);
     --signal: hsl(32 95% 44%);
+    --terminal-backdrop: hsl(220 16% 93%);
+    --terminal-background: hsl(0 0% 100%);
+    --terminal-chrome: hsl(220 14% 96%);
+    --terminal-border: hsl(220 13% 86%);
+    --terminal-foreground: hsl(222 22% 17%);
+    --terminal-muted: hsl(220 9% 40%);
+    --terminal-green: hsl(145 63% 27%);
+    --terminal-blue: hsl(212 80% 40%);
+    --terminal-amber: hsl(30 95% 31%);
+    --terminal-red: hsl(357 70% 42%);
+    --terminal-violet: hsl(276 55% 42%);
+    --terminal-cyan: hsl(190 85% 27%);
 }
 
 @theme inline {

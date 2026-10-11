@@ -83,7 +83,6 @@ defineExpose({ focus });
                 <span class="text-terminal-green">{{ t('blackbox.ui.environment') }}:</span>
                 <span class="text-terminal-blue">{{ props.promptPath }}</span>
                 <span class="text-terminal-muted">$</span>
-                <span class="sr-only">{{ t('blackbox.ui.command') }}</span>
             </label>
             <input
                 :id="INPUT_ID"
@@ -96,6 +95,7 @@ defineExpose({ focus });
                 autocorrect="off"
                 spellcheck="false"
                 enterkeyhint="send"
+                :aria-label="t('blackbox.ui.command')"
                 :aria-busy="props.isBusy"
                 class="h-10 min-w-32 flex-1 basis-40 rounded-md border border-terminal-border bg-terminal-background px-3 text-base text-terminal-foreground caret-terminal-green outline-none md:h-auto md:rounded-none md:border-0 md:bg-transparent md:px-0 md:py-1 md:text-sm"
                 @keydown="handleKeyDown"
