@@ -23,6 +23,7 @@
 ![Status](https://img.shields.io/badge/Status-Active-2ecc71?style=for-the-badge)
 ![Last commit](https://img.shields.io/github/last-commit/arturbomtempo-dev/portfolio?style=for-the-badge&color=2ecc71)
 ![Repo size](https://img.shields.io/github/repo-size/arturbomtempo-dev/portfolio?style=for-the-badge&color=2ecc71)
+[![License](https://img.shields.io/badge/License-MIT-2ecc71?style=for-the-badge)](LICENSE.md)
 
 ![Nuxt](https://img.shields.io/badge/Nuxt-4.6-00DC82?style=for-the-badge&logo=nuxt&logoColor=white)
 ![Vue.js](https://img.shields.io/badge/Vue.js-3.5-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white)
@@ -47,13 +48,14 @@
 - [References](#-references)
 - [Author](#-author)
 - [Contributing](#-contributing)
+- [License](#-license)
 
 ---
 
 ## 🔗 Useful Links
 
 - **Live website:** [arturbomtempo.dev](https://www.arturbomtempo.dev) (Portuguese), [English](https://www.arturbomtempo.dev/en) and [Spanish](https://www.arturbomtempo.dev/es) versions.
-- **Project conventions:** [AGENTS.md](AGENTS.md) documents the architecture, coding rules and decisions that every change must follow.
+- **Repository:** [github.com/arturbomtempo-dev/portfolio](https://github.com/arturbomtempo-dev/portfolio)
 
 ---
 
@@ -238,7 +240,7 @@ After each deploy, check one page in each language, a project page, a 404 page a
 │   ├── og/                      # Social preview images per language and per project
 │   └── ...                      # Favicons and web app manifest
 ├── resources/                   # Screenshots used in this README
-├── AGENTS.md                    # Project conventions and architecture decisions
+├── LICENSE.md                   # MIT license
 ├── nuxt.config.ts               # Nuxt, modules, security headers and rendering rules
 └── vercel.json                  # Vercel build settings
 ```
@@ -277,7 +279,7 @@ npx prettier --check .
 npm run build
 ```
 
-Before a release, the production build is also checked with Lighthouse (mobile and desktop) and axe in both themes, as described in [AGENTS.md](AGENTS.md).
+Before a release, the production build is also checked with Lighthouse (mobile and desktop) and with axe in both the dark and light themes.
 
 ---
 
@@ -309,6 +311,12 @@ This is a personal portfolio, but suggestions and bug reports are welcome.
 
 1. Open an [issue](https://github.com/arturbomtempo-dev/portfolio/issues) describing the bug or the suggestion.
 2. For code changes, fork the repository and create a branch (`git checkout -b fix/short-description`).
-3. Follow the conventions in [AGENTS.md](AGENTS.md) and run the [quality checks](#-quality-checks).
+3. Keep the existing structure and code style, and run the [quality checks](#-quality-checks).
 4. Commit using [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) (`git commit -m "fix: describe the change"`).
 5. Push the branch and open a pull request.
+
+---
+
+## 📄 License
+
+This project is distributed under the **[MIT License](LICENSE.md)**.
