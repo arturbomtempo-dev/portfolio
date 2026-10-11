@@ -16,7 +16,8 @@
         "projects": "Proyectos",
         "events": "Eventos",
         "contents": "Contenidos",
-        "contact": "Contacto"
+        "contact": "Contacto",
+        "blackbox": "BLACKBOX"
     },
     "footer": {
         "rights": "© {year} Artur Bomtempo. Todos los derechos reservados."
@@ -155,6 +156,165 @@
             },
             "title": "Evento no encontrado",
             "message": "El evento que buscas no existe o fue eliminado."
+        }
+    },
+    "blackbox": {
+        "usage": {
+            "help": "help",
+            "ls": "ls [-a] [ruta]",
+            "cd": "cd [ruta]",
+            "pwd": "pwd",
+            "cat": "cat ARCHIVO",
+            "grep": "grep [-i] [-r] [-n] TEXTO RUTA",
+            "find": "find [ruta] [-name TEXTO]",
+            "jwt": "jwt decode{'|'}verify ARCHIVO",
+            "status": "status",
+            "hint": "hint",
+            "submit": "submit RESPUESTA",
+            "clear": "clear",
+            "reset": "reset",
+            "exit": "exit"
+        },
+        "commands": {
+            "help": "Muestra los comandos disponibles",
+            "ls": "Lista archivos y directorios",
+            "cd": "Cambia de directorio",
+            "pwd": "Muestra el directorio actual",
+            "cat": "Lee un archivo",
+            "grep": "Busca un texto dentro de archivos",
+            "find": "Busca archivos por nombre",
+            "jwt": "Decodifica o verifica un token JWT",
+            "status": "Muestra el progreso de la investigación",
+            "hint": "Pide una pista para el objetivo actual",
+            "submit": "Envía una respuesta para un objetivo abierto",
+            "clear": "Limpia la pantalla (Ctrl/Cmd + L); el progreso se mantiene",
+            "reset": "Reinicia la investigación desde cero",
+            "exit": "Vuelve al portafolio"
+        },
+        "help": {
+            "title": "Comandos disponibles:",
+            "hiddenInPlainSight": "Hay información escondida a la vista de todos.",
+            "start": "Empieza inspeccionando el entorno en el que estás."
+        },
+        "errors": {
+            "notFound": "{command}: comando no encontrado. Escribe help para ver los comandos.",
+            "noSuchPath": "{command}: {path}: no existe el archivo o directorio",
+            "notDirectory": "{command}: {path}: no es un directorio",
+            "isDirectory": "{command}: {path}: es un directorio",
+            "grepDirectory": "{command}: {path}: es un directorio (usa -r para buscar dentro)",
+            "missingOperand": "{command}: faltan argumentos. Uso: {usage}",
+            "unknownOption": "{command}: opción inválida: {option}",
+            "inputTooLong": "Entrada demasiado larga (máximo de {max} caracteres)."
+        },
+        "grep": {
+            "noMatches": "(sin coincidencias)"
+        },
+        "find": {
+            "noMatches": "(sin resultados)"
+        },
+        "jwt": {
+            "invalid": "jwt: el contenido no es un JWT válido",
+            "header": "Cabecera",
+            "payload": "Contenido (payload)",
+            "signature": "Firma",
+            "decodeNote": "Decodificar solo lee el Base64URL. Eso no prueba que el token sea auténtico.",
+            "verifying": "Verificando firma HS256 con la clave {keyId}...",
+            "validSignature": "Firma VÁLIDA",
+            "invalidSignature": "Firma INVÁLIDA",
+            "validNote": "El contenido es exactamente lo que firmó auth-service.",
+            "invalidNote": "El contenido no corresponde a lo que se firmó: fue modificado después de la emisión.",
+            "unknownKey": "jwt: la clave {keyId} es desconocida en este entorno"
+        },
+        "status": {
+            "progress": "Progreso",
+            "evidence": "Evidencias",
+            "hints": "Pistas",
+            "time": "Tiempo",
+            "objectives": "Objetivos",
+            "collected": "Evidencias registradas",
+            "done": "completado",
+            "open": "abierto",
+            "locked": "Objetivo bloqueado"
+        },
+        "hint": {
+            "title": "Pista {level}/{total} · {title}",
+            "noMore": "Esta es la pista más directa disponible para este objetivo.",
+            "complete": "Investigación completada. No hay más pistas."
+        },
+        "submit": {
+            "usage": "Uso: submit RESPUESTA",
+            "openQuestions": "Preguntas abiertas:",
+            "nothingOpen": "No hay preguntas abiertas por ahora. Sigue explorando o usa status.",
+            "noEvidence": "Tu respuesta todavía no se puede confirmar: reúne las evidencias que la sustentan y envíala de nuevo.",
+            "incorrect": "Respuesta no confirmada por las evidencias. Revisa los archivos e inténtalo de nuevo.",
+            "partial": "Tu conclusión explica {found}, pero todavía no explica {missing}.",
+            "complete": "La investigación ya fue completada."
+        },
+        "progress": {
+            "evidence": "Evidencia registrada: {label}",
+            "solved": "Objetivo completado: {title}",
+            "unlocked": "Nuevo objetivo: {title}",
+            "bonus": "Buen detalle: también identificaste {concept}."
+        },
+        "reset": {
+            "confirm": "Esto borra todo el progreso. Escribe si para confirmar o cualquier otra cosa para cancelar.",
+            "done": "Progreso borrado. Comenzó una nueva investigación.",
+            "cancelled": "Reinicio cancelado. Tu progreso se mantuvo."
+        },
+        "exit": {
+            "message": "Cerrando la sesión..."
+        },
+        "session": {
+            "restored": "Sesión restaurada: {solved} de {total} objetivos completados. Escribe status para ver el progreso.",
+            "resolvedTitle": "Investigación completada"
+        },
+        "ui": {
+            "environment": "investigator{'@'}halcyon",
+            "incident": "Incidente",
+            "sessionActive": "en investigación",
+            "sessionResolved": "resuelto",
+            "close": "Salir y volver al portafolio",
+            "minimize": "Minimizar terminal",
+            "maximize": "Maximizar terminal",
+            "restoreSize": "Restaurar tamaño del terminal",
+            "restart": "Reiniciar",
+            "exit": "Salir",
+            "skip": "Saltar",
+            "skipHint": "Presiona cualquier tecla para saltar",
+            "command": "Comando",
+            "send": "Ejecutar comando",
+            "suggestions": "Comandos rápidos",
+            "output": "Salida del terminal",
+            "minimized": "Sesión en segundo plano",
+            "restoreWindow": "Restaurar terminal",
+            "report": "Ver informe"
+        },
+        "report": {
+            "eyebrow": "Informe de la investigación",
+            "resolved": "Caso resuelto",
+            "summary": "Resumen del incidente",
+            "cause": "Causa identificada",
+            "fix": "Corrección recomendada",
+            "evidence": "Evidencias relevantes",
+            "challenges": "Desafíos resueltos",
+            "skills": "Competencias ejercitadas en esta investigación",
+            "time": "Tiempo",
+            "hints": "Pistas usadas",
+            "commands": "Comandos ejecutados",
+            "extra": "También identificaste",
+            "restart": "Empezar de nuevo",
+            "restartConfirm": "¿Borrar el progreso y empezar de nuevo?",
+            "confirm": "Sí, empezar de nuevo",
+            "cancel": "Cancelar",
+            "back": "Volver al portafolio",
+            "close": "Cerrar informe",
+            "projectsCta": "¿Te gustó investigar? Conoce los proyectos reales detrás de este portafolio.",
+            "projectsLink": "Ver proyectos",
+            "difficulty": "Dificultad {level} de {total}"
+        },
+        "seo": {
+            "title": "BLACKBOX {'|'} Artur Bomtempo",
+            "description": "Algo pasó en un sistema. Abre el terminal, analiza las evidencias y descubre la causa."
         }
     },
     "contents": {

@@ -51,6 +51,10 @@ watch(
                                     {{ item.label }}
                                 </NuxtLink>
                             </li>
+                            <li class="flex items-center gap-6">
+                                <span aria-hidden="true" class="h-4 w-px bg-border" />
+                                <LayoutBlackboxLink />
+                            </li>
                         </ul>
                     </nav>
 

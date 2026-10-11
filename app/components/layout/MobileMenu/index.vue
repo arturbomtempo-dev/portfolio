@@ -27,6 +27,9 @@ const { t } = useI18n();
                     </span>
                 </NuxtLink>
             </li>
+            <li class="mt-2 flex justify-center border-t border-border/50 pt-4">
+                <LayoutBlackboxLink class="px-3 py-2" />
+            </li>
         </ul>
     </nav>
 </template>

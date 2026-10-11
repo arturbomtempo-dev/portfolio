@@ -8,5 +8,6 @@
         <ClientOnly>
             <LazyLayoutAppToaster />
         </ClientOnly>
+        <LayoutBlackboxCurtain />
     </div>
 </template>

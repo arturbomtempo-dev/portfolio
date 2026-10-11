@@ -47,10 +47,11 @@ npm run generate
 npm run preview
 npm run typecheck
 npm run format
+npm test
 npm run images:prepare
 ```
 
-Run `npm run typecheck` and `npm run format` before considering any task done.
+Run `npm run typecheck`, `npm test` and `npm run format` before considering any task done.
 
 ## Site URL
 
@@ -133,6 +134,7 @@ The project follows the standard **Nuxt 4 directory structure**, with components
 │   └── utils/
 ├── public/
 ├── resources/
+├── test/
 ├── scripts/
 ├── nuxt.config.ts
 ├── vercel.json
@@ -161,6 +163,7 @@ The tree above is the target shape. Create folders only when they are actually n
 | `scripts`                 | Node scripts run by hand through npm scripts (`images:prepare`). Never imported by the app.                                                                                                                                                              |
 | `server`                  | Nitro server routes (`server/api/**`). Only for what should not run in the browser, such as proxying and caching third-party APIs. The site itself stays prerendered.                                                                                    |
 | `shared`                  | Types (`shared/types`) and constants (`shared/utils`) used by both the app and the server. Utils are auto-imported in both; types are imported from `#shared/types/<file>`.                                                                              |
+| `test`                    | Unit tests (Vitest) for pure logic, such as the Blackbox engine. Tests import modules explicitly (`~` points to `app/`) and never depend on Nuxt auto-imports.                                                                                           |
 | `modules`                 | Local Nuxt modules, registered automatically. Only for build-level integration (Vite plugins, hooks), never for app logic.                                                                                                                               |
 | `public`                  | Files served as-is from the site root: favicons, `site.webmanifest`, images (`images/<folder>/`) and Open Graph images (`og/`).                                                                                                                          |
 
@@ -290,6 +293,38 @@ Available UI components (check them before creating a new one):
 - The graph is our own component on purpose: the maintained library (`react-github-calendar`) is React-only, and the Vue alternatives are unmaintained (`vue-github-calendar`, `vue3-calendar-heatmap`).
 - The username lives only in `GITHUB_USERNAME` (`shared/utils/github.ts`), also used by the social links.
 - Contribution colors come from the brand green in five levels (`getContributionLevelClass` in `app/utils/contributionLevel.ts`), shared by the graph and its legend.
+
+## Blackbox (interactive investigation)
+
+`/blackbox` is a CTF-style investigation played in a simulated terminal. It is discovered through the `BLACKBOX` item of the main navigation and must stay a complement to the portfolio, never replacing or slowing down the other pages.
+
+### Discovery and entry
+
+- `LayoutBlackboxLink` is the last item of the desktop navigation (after a thin divider) and of the mobile menu. It is a monospace pill with a static amber signal dot (`--signal`); only on hover/focus the dot pulses and a block caret blinks. No constant animation, no glitch effects. The label (`nav.blackbox`) is the same in every locale, like a system identifier.
+- A plain left click plays `LayoutBlackboxCurtain`: a dark circle that expands from the item (`animate-blackbox-curtain`) and then navigates. Modified clicks (new tab) and reduced motion skip the curtain and navigate directly.
+- The page uses its own layout (`layouts/blackbox.vue`, full screen, no header/footer, `<main data-blackbox-root>`). While it is mounted, `html`/`body` scrolling is disabled in `main.css`.
+
+### Terminal
+
+- Components live in `components/blackbox/` (`TerminalApp` orchestrates; `TerminalWindow`, `TerminalOutput`, `CommandPrompt`, `CompletionReport`, `ActionButton`). The window follows the macOS Terminal: working traffic lights (close = exit, minimize, maximize), centered title with the current path, session status, Restart and Exit buttons.
+- The terminal is always dark in both site themes (like a real terminal app). Its colors are tokens (`--terminal-*`, `--window-*`) in `main.css`; never hardcode colors in the components. Text uses JetBrains Mono (`font-mono`), self-hosted by `@nuxt/fonts`.
+- Opening: the window expands (`animate-terminal-open`), the title bar appears (`animate-terminal-chrome`) and boot lines are printed one by one. Any key, a tap or the Skip button finishes the boot immediately; `prefers-reduced-motion` skips every animation.
+- Output is rendered only as text interpolation (`{{ }}`), segment by segment with a tone (`TerminalTone`) mapped to a token class. Never use `v-html` for terminal output; user input is echoed as plain text.
+- Mobile: the root height follows `visualViewport` (`useVisualViewportHeight`) so the virtual keyboard never hides the prompt; the input has 16px text (no iOS zoom), a visible field, a send button and quick-command chips. Desktop has command history (↑/↓) and Tab completion.
+
+### Engine
+
+- The engine is pure TypeScript in `app/utils/` with explicit imports, so it is unit tested without Nuxt: `virtualFileSystem` (paths are normalized and can never leave the virtual root), `commandParser`, `blackboxCommands` (`runCommand(input, context)` returns output, the next state and effects, with no side effects), `missionProgress` (challenge graph, evidence, restore validation), `answerValidation`, `jwtInspector` and `commandCompletion`.
+- There is no real shell: commands are a closed list (`BLACKBOX_COMMANDS`), input is limited to 300 characters, nothing is evaluated and no request leaves the browser. `jwt verify` uses WebCrypto HMAC-SHA256 with a fictional key that only exists in the mission data.
+- `useBlackboxSession` wraps the engine for Vue: reactive state, terminal lines, command history, reset confirmation and persistence in `localStorage` (`blackbox-session`). A stored state is only restored after validation (`restoreGameState`), including the dependency chain of solved challenges; anything invalid starts a new session.
+
+### Mission content
+
+- The mission is declarative. `app/data/blackbox/mission.ts` holds what does not change with the language: directories, technical files (logs, configs, token), challenges with `dependencies`, `requiredEvidence` and an `answer` rule, evidence produced by `grep`, and answer concepts. `app/data/blackbox/<locale>.ts` holds the localized copy: boot and intro lines, human documents (README, notes, report), evidence labels, challenge texts with three progressive hints and the skills, and the final report.
+- Technical files stay in English, like real logs and configs; documents written by people are translated.
+- Challenges complete only through verifiable conditions: `auto` challenges complete when their evidence is collected; `exact` and `concepts` answers are accepted only if the challenge is unlocked **and** its required evidence was collected. `concepts` answers accept free text in any of the three languages, as long as the required concepts are present, and tell the player which concept is missing.
+- To create another mission, add new mission/copy files and point `useBlackboxSession` to them; the interpreter does not change. Keep the three copy files with the same structure; `test/blackbox/playthrough.test.ts` checks that every challenge, evidence and document exists in each locale.
+- The final report lists only the challenges actually solved and the skills attached to them, phrased as "skills exercised", never as mastery.
 
 ## Pages, routing and SEO
 

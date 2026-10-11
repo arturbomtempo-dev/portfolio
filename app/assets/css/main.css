@@ -27,6 +27,22 @@
     --input: hsl(0 0% 18%);
     --ring: hsl(145 63% 43%);
     --radius: 0.75rem;
+    --signal: hsl(38 92% 50%);
+    --terminal-backdrop: hsl(222 18% 5%);
+    --terminal-background: hsl(222 16% 9%);
+    --terminal-chrome: hsl(222 14% 13%);
+    --terminal-border: hsl(222 12% 21%);
+    --terminal-foreground: hsl(220 14% 87%);
+    --terminal-muted: hsl(220 9% 60%);
+    --terminal-green: hsl(145 63% 52%);
+    --terminal-blue: hsl(207 82% 70%);
+    --terminal-amber: hsl(38 92% 62%);
+    --terminal-red: hsl(357 80% 70%);
+    --terminal-violet: hsl(276 65% 78%);
+    --terminal-cyan: hsl(187 62% 64%);
+    --window-close: hsl(3 100% 67%);
+    --window-minimize: hsl(40 99% 59%);
+    --window-maximize: hsl(130 67% 47%);
 }
 
 .light {
@@ -50,6 +66,7 @@
     --ring: hsl(145 63% 43%);
     --border: hsl(0 0% 88%);
     --input: hsl(0 0% 88%);
+    --signal: hsl(32 95% 44%);
 }
 
 @theme inline {
@@ -75,6 +92,22 @@
     --color-border: var(--border);
     --color-input: var(--input);
     --color-ring: var(--ring);
+    --color-signal: var(--signal);
+    --color-terminal-backdrop: var(--terminal-backdrop);
+    --color-terminal-background: var(--terminal-background);
+    --color-terminal-chrome: var(--terminal-chrome);
+    --color-terminal-border: var(--terminal-border);
+    --color-terminal-foreground: var(--terminal-foreground);
+    --color-terminal-muted: var(--terminal-muted);
+    --color-terminal-green: var(--terminal-green);
+    --color-terminal-blue: var(--terminal-blue);
+    --color-terminal-amber: var(--terminal-amber);
+    --color-terminal-red: var(--terminal-red);
+    --color-terminal-violet: var(--terminal-violet);
+    --color-terminal-cyan: var(--terminal-cyan);
+    --color-window-close: var(--window-close);
+    --color-window-minimize: var(--window-minimize);
+    --color-window-maximize: var(--window-maximize);
 
     --color-red-500: #ef4444;
     --color-red-600: #dc2626;
@@ -87,11 +120,82 @@
 
     --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-heading: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
     --shadow-glow: 0 0 40px color-mix(in oklab, var(--accent-glow) 30%, transparent);
     --shadow-glow-sm: 0 0 10px color-mix(in oklab, var(--accent-glow) 50%, transparent);
 
     --animate-fade-in: fade-in 0.6s ease-out forwards;
+    --animate-terminal-open: terminal-open 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    --animate-terminal-chrome: terminal-chrome 0.4s ease-out 0.3s backwards;
+    --animate-terminal-line: terminal-line 0.2s ease-out backwards;
+    --animate-blackbox-curtain: blackbox-curtain 0.55s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+    --animate-caret-blink: caret-blink 1s steps(2, start) infinite;
+    --animate-report-in: report-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+
+    @keyframes terminal-open {
+        from {
+            opacity: 0;
+            transform: translateY(16px) scale(0.96);
+            clip-path: inset(46% 40% 46% 40% round 1rem);
+        }
+        35% {
+            opacity: 1;
+        }
+        to {
+            opacity: 1;
+            transform: none;
+            clip-path: inset(0 0 0 0 round 0.75rem);
+        }
+    }
+
+    @keyframes terminal-chrome {
+        from {
+            opacity: 0;
+            transform: translateY(-4px);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    @keyframes terminal-line {
+        from {
+            opacity: 0;
+            transform: translateY(3px);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    @keyframes blackbox-curtain {
+        from {
+            clip-path: circle(0 at var(--curtain-x, 50%) var(--curtain-y, 0));
+        }
+        to {
+            clip-path: circle(150% at var(--curtain-x, 50%) var(--curtain-y, 0));
+        }
+    }
+
+    @keyframes caret-blink {
+        to {
+            visibility: hidden;
+        }
+    }
+
+    @keyframes report-in {
+        from {
+            opacity: 0;
+            transform: translateY(12px) scale(0.98);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
 
     @keyframes fade-in {
         from {
@@ -114,6 +218,12 @@
 
     html {
         overflow-y: scroll !important;
+    }
+
+    html:has([data-blackbox-root]),
+    html:has([data-blackbox-root]) body {
+        overflow: hidden !important;
+        overscroll-behavior: none;
     }
 
     body {

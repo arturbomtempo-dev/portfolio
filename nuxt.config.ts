@@ -150,6 +150,13 @@ export default defineNuxtConfig({
                 subsets: ['latin'],
             },
             {
+                name: 'JetBrains Mono',
+                provider: 'google',
+                weights: [400, 500, 700],
+                styles: ['normal'],
+                subsets: ['latin'],
+            },
+            {
                 name: 'Geist',
                 provider: 'google',
                 weights: [400, 500, 600, 700],

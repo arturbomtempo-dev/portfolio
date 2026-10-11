@@ -64,6 +64,7 @@ It is also a professional reference in itself: a small but complete production c
 - **Events timeline:** talks, workshops and courses on a vertical timeline grouped by year, with filters in the URL and a detail page per event with links, topics and a photo gallery with a lightbox.
 - **Content hub:** articles, videos and newsletters with filters stored in the URL (`/contents?type=video`), so a filtered view can be shared.
 - **About page:** achievements, technologies, a live GitHub contribution graph, career timeline and a testimonials carousel.
+- **BLACKBOX:** a hidden item in the main navigation opens a CTF-style incident investigation in a realistic terminal: a virtual file system, logs to correlate, a tampered JWT to analyze, progressive hints, saved progress and a final skills report, in the three languages.
 - **Contact form:** validated with Zod in the visitor's language and delivered by e-mail through FormSubmit, with a honeypot field against spam.
 - **SEO:** prerendered HTML, canonical URLs, a sitemap per language, `robots.txt` and Open Graph images per language and per project.
 - **Performance:** AVIF and WebP images in the exact size each screen needs, self-hosted fonts and components loaded only when they are needed.
@@ -98,7 +99,7 @@ It is also a professional reference in itself: a small but complete production c
 
 - **Hosting:** [Vercel](https://vercel.com), with prerendered pages, image optimization and a São Paulo region function
 - **Contact form delivery:** [FormSubmit](https://formsubmit.co)
-- **Code quality:** Prettier and `vue-tsc`
+- **Code quality:** Prettier, `vue-tsc` and Vitest
 - **Package manager:** npm
 
 ---
@@ -160,6 +161,7 @@ The site will be available at **http://localhost:3000**.
 | `npm run preview`   | Serves the production build locally.           |
 | `npm run typecheck` | Checks the types of the whole project.         |
 | `npm run format`    | Formats every file with Prettier.              |
+| `npm test`          | Runs the unit tests (Vitest).                  |
 
 ### Environment Variables
 
@@ -207,6 +209,7 @@ After each deploy, check one page in each language, a project page, a 404 page a
 │   ├── error.vue                # Translated error and 404 page
 │   ├── assets/css/main.css      # Tailwind setup, design tokens and custom utilities
 │   ├── components/
+│   │   ├── blackbox/            # BLACKBOX terminal, prompt, output and final report
 │   │   ├── about/               # About page sections (achievements, timeline, testimonials)
 │   │   ├── contact/             # Contact form and social links
 │   │   ├── contents/            # Content cards and listing
@@ -231,6 +234,7 @@ After each deploy, check one page in each language, a project page, a 404 page a
 │   ├── og/                      # Social preview images per language and per project
 │   └── ...                      # Favicons and web app manifest
 ├── resources/                   # Screenshots used in this README
+├── test/                        # Unit tests (Vitest)
 ├── LICENSE.md                   # MIT license
 ├── nuxt.config.ts               # Nuxt, modules, security headers and rendering rules
 └── vercel.json                  # Vercel build settings
@@ -262,13 +266,16 @@ After each deploy, check one page in each language, a project page, a 404 page a
 
 ## ✅ Quality Checks
 
-The project has no automated test suite yet. Every change is validated with:
+Every change is validated with:
 
 ```bash
+npm test
 npm run typecheck
 npx prettier --check .
 npm run build
 ```
+
+The unit tests cover the BLACKBOX engine: the virtual file system, JWT decoding and verification, answer validation in the three languages, progress restoration and a complete playthrough, including the paths that must not complete a challenge.
 
 Before a release, the production build is also checked with Lighthouse (mobile and desktop) and with axe in both the dark and light themes.
 
