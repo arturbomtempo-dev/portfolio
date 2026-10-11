@@ -58,7 +58,7 @@ function showThumbnailFallback() {
             />
             <div class="absolute top-4 right-4">
                 <div
-                    class="flex items-center gap-2 rounded-full bg-primary/90 px-3 py-1 text-primary-foreground backdrop-blur-sm"
+                    class="flex items-center gap-2 rounded-full bg-primary/90 px-3 py-1 backdrop-blur-sm"
                 >
                     <ContentsContentTypeIcon :type="props.content.type" class="size-4" />
                     <span class="text-sm font-medium">

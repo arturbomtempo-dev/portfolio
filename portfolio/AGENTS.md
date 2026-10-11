@@ -364,7 +364,7 @@ The Nuxt version must look **exactly** like the React version. After migrating a
 - Links rendered inside `<li>` must be blockified (`li` with `flex`) to keep the same vertical alignment as the React flex children.
 - `space-y-*` changed: v3 adds `margin-top` to the following siblings, v4 adds `margin-bottom` to the previous ones, and a child's own `mb-*` class wins over it. Inside **flex** containers (where margins do not collapse) this changes the spacing; use explicit margins (`mt-1.5`) to reproduce the React result.
 - In v3, `@layer components` classes such as React's `project-card` lose to utilities only by source order and specificity; in v4 cascade layers make utilities always win. Recreate such classes as a single `@utility` (`surface-card`, `tech-badge`) that encodes the **final** computed result of the React cascade, including the `.light` overrides.
-- Intentional deviations, for WCAG AA contrast: the light theme uses a darker green (`hsl(145 63% 27%)`) for `primary`, `accent` and `ring`, and in the dark theme text on green backgrounds (`primary-foreground`, `accent-foreground`) is dark (`hsl(0 0% 5%)`). Card titles are `h2` (React used `h3` right after the page `h1`). Keep these when comparing with React.
+- Card titles are `h2` (React used `h3` right after the page `h1`, skipping a level). Keep this when comparing with React.
 - Third-party CSS that is not in a cascade layer (such as `vue-sonner`) always wins over Tailwind v4 utilities, whatever their specificity. Style those components through their CSS variables first (`--normal-bg`, `--normal-text`, `--normal-border` on the toaster) and use the important modifier (`text-muted-foreground!`) only where no variable exists.
 - Tailwind v4 changed the default palette to OKLCH. The palette colors used by the React version (`red-500`, `red-600`, `blue-500`, `pink-500`) are redefined in `@theme` with their v3 values. Prefer semantic tokens (`destructive`) for new code.
 - The React version loaded Inter and Geist only in the `normal` style, so italic text is synthesized by the browser. `@nuxt/fonts` is configured with `styles: ['normal']` to keep the same rendering; do not add italic font files.
@@ -396,9 +396,9 @@ The target is Lighthouse 100 on desktop and as close as possible on mobile, with
 
 ## Accessibility
 
-- Text and background colors must meet WCAG AA (4.5:1 for normal text) in both themes. When adding a color token, check the contrast of every combination it is used in, including `*-foreground` on its background.
+- New color combinations should meet WCAG AA contrast (4.5:1 for normal text) in both themes. The only accepted exception is the brand green (`hsl(145 63% 43%)` with white text on buttons, and as text on the light background), kept identical to the React version by the owner's choice; axe reports it as `color-contrast`. Do not darken it or change its foreground without asking.
 - Headings follow the document order with no skipped levels: one `h1` per page (`UiPageHeader`), then `h2` for sections and card titles, `h3` inside them.
-- axe must report 0 violations on every page in dark and light themes.
+- Apart from the brand green contrast above, axe must report 0 violations on every page in dark and light themes.
 
 ## SEO and Open Graph
 
