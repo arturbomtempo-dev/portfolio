@@ -123,6 +123,7 @@ The project follows the standard **Nuxt 4 directory structure**, with components
 │       └── es.json
 ├── modules/
 ├── public/
+├── resources/
 ├── scripts/
 ├── nuxt.config.ts
 ├── vercel.json
@@ -147,6 +148,7 @@ The tree above is the target shape. Create folders only when they are actually n
 | `app/assets`              | Files processed by the build (CSS, fonts, images imported from code).                                                                                                                                                                                    |
 | `app/middleware`          | Route middleware. Global ones end with `.global.ts` and run on every navigation.                                                                                                                                                                         |
 | `i18n/locales`            | Translation messages, one JSON file per locale. The only place where user-facing text is written.                                                                                                                                                        |
+| `resources`               | Screenshots used by `README.md`. Never referenced by the app; refresh them (WebP, English pages, 1440×900 desktop and 390×844 mobile) when a page changes visibly.                                                                                       |
 | `scripts`                 | Node scripts run by hand through npm scripts (`images:prepare`). Never imported by the app.                                                                                                                                                              |
 | `modules`                 | Local Nuxt modules, registered automatically. Only for build-level integration (Vite plugins, hooks), never for app logic.                                                                                                                               |
 | `public`                  | Files served as-is from the site root: favicons, `site.webmanifest`, images (`images/<folder>/`) and Open Graph images (`og/`).                                                                                                                          |
