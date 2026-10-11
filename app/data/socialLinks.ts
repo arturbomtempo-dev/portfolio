@@ -1,12 +1,8 @@
 import { Mail } from '@lucide/vue';
-import {
-    IconBrandGithub,
-    IconBrandInstagram,
-    IconBrandLinkedin,
-    IconBrandYoutube,
-} from '@tabler/icons-vue';
+import { IconBrandGithub, IconBrandInstagram, IconBrandYoutube } from '@tabler/icons-vue';
 import { PROFILE } from '~/data/profile';
 import type { SocialLink } from '~/types/social';
+import { IconBrandLinkedinLetters } from '~/utils/brandIcons';
 
 export const SOCIAL_LINKS: SocialLink[] = [
     {
@@ -18,7 +14,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
     {
         labelKey: 'social.linkedin',
         href: 'https://www.linkedin.com/in/artur-bomtempo/',
-        icon: IconBrandLinkedin,
+        icon: IconBrandLinkedinLetters,
         hoverClass: 'hover:text-blue-500',
     },
     {

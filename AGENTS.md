@@ -612,6 +612,7 @@ import { IconBrandGithub } from '@tabler/icons-vue';
 </template>
 ```
 
+- The LinkedIn link uses only the filled "in" letters of the official logo, without the square: `IconBrandLinkedinLetters` in `app/utils/brandIcons.ts` uses the letter shapes of the Simple Icons LinkedIn path (CC0) with a `viewBox` that centers them like the other icons. Add a brand icon there only when no Tabler variant fits.
 - Do not use other icon libraries (`simple-icons` lacks LinkedIn and only has filled logos; Material Design Icons are filled too).
 - Decorative icons inside a labelled control need no extra label; icon-only buttons must have a translated `aria-label` or an `sr-only` text.
 
