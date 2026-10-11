@@ -12,7 +12,7 @@ useSeoMeta({
 
 <template>
     <div class="min-h-screen px-4 py-20 sm:px-8">
-        <div class="mx-auto w-full max-w-6xl sm:px-8">
+        <div class="mx-auto w-full max-w-5xl sm:px-8">
             <UiPageHeader
                 :title="t('events.title')"
                 :description="t('events.description')"

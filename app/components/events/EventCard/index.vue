@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const THUMBNAIL_WIDTH_IN_PX = 640;
 const THUMBNAIL_HEIGHT_IN_PX = 360;
-const THUMBNAIL_SIZES = 'sm:90vw md:640px lg:480px';
+const THUMBNAIL_SIZES = 'md:90vw lg:288px';
 const VISIBLE_TOPICS_COUNT = 3;
 
 const { t } = useI18n();
@@ -29,12 +29,14 @@ const visibleTopics = computed(() => props.event.topics.slice(0, VISIBLE_TOPICS_
     <UiBaseCard
         :class="
             cn(
-                'surface-card-glow group relative h-full cursor-pointer overflow-hidden',
+                'surface-card-glow group relative flex cursor-pointer flex-col gap-5 overflow-hidden lg:flex-row lg:gap-6',
                 props.class
             )
         "
     >
-        <div class="relative aspect-video overflow-hidden rounded-md">
+        <div
+            class="relative aspect-video shrink-0 overflow-hidden rounded-md lg:aspect-auto lg:min-h-48 lg:w-72"
+        >
             <NuxtImg
                 :src="props.event.image"
                 :alt="props.event.title"
@@ -44,11 +46,11 @@ const visibleTopics = computed(() => props.event.topics.slice(0, VISIBLE_TOPICS_
                 :loading="props.isAboveTheFold ? 'eager' : 'lazy'"
                 :fetchpriority="props.isAboveTheFold ? 'high' : 'auto'"
                 decoding="async"
-                class="size-full object-cover transition-transform duration-300 group-hover:scale-110"
+                class="absolute inset-0 size-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
-            <EventsEventTypeBadge :type="props.event.type" class="absolute top-3 right-3" />
+            <EventsEventTypeBadge :type="props.event.type" class="absolute top-3 left-3" />
         </div>
-        <div class="pt-4">
+        <div class="flex min-w-0 flex-1 flex-col">
             <p class="mb-1 text-sm font-medium text-primary">{{ props.event.eventName }}</p>
             <div class="mb-2 flex items-start justify-between gap-2">
                 <h3 class="text-xl font-semibold transition-colors group-hover:text-primary">
@@ -72,7 +74,7 @@ const visibleTopics = computed(() => props.event.topics.slice(0, VISIBLE_TOPICS_
                 </UiTechBadge>
             </div>
             <div
-                class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-border/50 pt-4 text-sm text-muted-foreground"
+                class="mt-auto flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-border/50 pt-4 text-sm text-muted-foreground"
             >
                 <span class="flex items-center gap-1.5">
                     <MapPin class="size-4 shrink-0" />

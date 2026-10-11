@@ -13,7 +13,7 @@ export const EVENTS_EN: SpeakingEvent[] = [
         fullDescription:
             'At Google I/O Extended Belo Horizonte, I presented an overview of the main announcements Google made for web development, focusing on what can already be applied in the daily work of anyone building modern applications.\n\nThe talk combined context, live demos and practical recommendations so that every attendee left with clear next steps.\n\nMain topics covered:\n- New web platform APIs and their browser support\n- Performance tools and the Core Web Vitals metrics\n- Artificial intelligence features built into the browser\n- How to adopt the new features gradually and safely',
         topics: ['Web', 'Performance', 'Google I/O', 'Artificial Intelligence'],
-        image: '/images/projects/gdg-bh-2025.webp',
+        image: '/images/events/io-extended-bh-2025.webp',
         gallery: [
             {
                 src: '/images/events/placeholders/photo-1.webp',
@@ -46,7 +46,7 @@ export const EVENTS_EN: SpeakingEvent[] = [
         fullDescription:
             'I created a free JavaScript course for beginners, published on YouTube, to make the first contact with programming simpler, more practical and more welcoming.\n\nEach lesson combines conceptual explanations with guided exercises, so students practice from the very first moment.\n\nMain topics covered:\n- Variables, data types and operators\n- Conditionals and loops\n- Functions, arrays and objects\n- DOM manipulation with hands-on projects',
         topics: ['JavaScript', 'Programming Logic', 'Front-end', 'Beginners'],
-        image: '/images/contents/curso-de-javascript-para-iniciantes.webp',
+        image: '/images/events/curso-javascript-para-iniciantes.webp',
         gallery: [
             {
                 src: '/images/events/placeholders/photo-5.webp',
@@ -76,7 +76,7 @@ export const EVENTS_EN: SpeakingEvent[] = [
         fullDescription:
             'I led a series of live classes about Object-Oriented Programming, designed for students who were taking the course at university and wanted to reinforce the concepts through practice.\n\nThe live classes had open time for questions, which made it possible to adapt the examples to the main doubts of the group.\n\nMain topics covered:\n- Classes, objects and encapsulation\n- Inheritance and polymorphism\n- Interfaces and abstract classes\n- Good practices in object-oriented modeling',
         topics: ['Java', 'Object Orientation', 'Best Practices'],
-        image: '/images/contents/lives-de-programacao-orientada-a-objetos.webp',
+        image: '/images/events/lives-programacao-orientada-a-objetos.webp',
         gallery: [
             {
                 src: '/images/events/placeholders/photo-2.webp',
@@ -106,7 +106,7 @@ export const EVENTS_EN: SpeakingEvent[] = [
         fullDescription:
             'I taught a hands-on React workshop during the PUC Minas Computer Science Summer School, aimed at beginner students who wanted to learn the fundamentals of modern front-end development.\n\nThroughout the workshop, participants built, step by step, a complete React application that consumes the Studio Ghibli API to display a collection of films, combining theory and practice in a real and engaging example.\n\nMain topics covered:\n- React fundamentals and componentization\n- Consuming external APIs with Axios\n- Routing with React Router DOM\n- Good project organization practices for beginners',
         topics: ['React', 'TypeScript', 'APIs', 'Front-end'],
-        image: '/images/projects/studio-ghibli-api.webp',
+        image: '/images/events/escola-de-ferias-puc-minas-2025.webp',
         gallery: [
             {
                 src: '/images/events/placeholders/photo-3.webp',
@@ -147,7 +147,7 @@ export const EVENTS_EN: SpeakingEvent[] = [
         fullDescription:
             'At DevFest Belo Horizonte 2024, I showed how to bring accessibility into the development process of React interfaces, treating it as part of product quality rather than a final step.\n\nThe presentation included real component examples, common mistakes and tools that help validate accessibility continuously.\n\nMain topics covered:\n- Semantic HTML and ARIA roles\n- Keyboard navigation and focus management\n- Contrast, typography and visual states\n- Automated accessibility testing',
         topics: ['React', 'Accessibility', 'Front-end', 'UX'],
-        image: '/images/projects/devfest-bh-2024.webp',
+        image: '/images/events/devfest-bh-2024.webp',
         gallery: [
             {
                 src: '/images/events/placeholders/photo-6.webp',
@@ -181,7 +181,7 @@ export const EVENTS_EN: SpeakingEvent[] = [
         fullDescription:
             'As Chapter Lead at WebTech Network, I run meetings, workshops and technical mentoring sessions focused on training new developers within the community.\n\nThe sessions range from programming fundamentals to more advanced back-end, front-end, database and version control topics, always focused on practical and applicable content.\n\nMain topics covered:\n- Back-end and front-end fundamentals\n- Databases and version control with Git\n- Good development practices and software architecture\n- Technical guidance on community projects',
         topics: ['Mentoring', 'Back-end', 'Front-end', 'Best Practices'],
-        image: '/images/contents/design-patterns-e-boas-solucoes.webp',
+        image: '/images/events/webtech-network-formacoes.webp',
         gallery: [
             {
                 src: '/images/events/placeholders/photo-4.webp',

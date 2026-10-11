@@ -11,7 +11,7 @@ const props = defineProps<Props>();
 
 const PHOTO_WIDTH_IN_PX = 480;
 const PHOTO_HEIGHT_IN_PX = 360;
-const PHOTO_SIZES = 'sm:45vw md:30vw lg:272px';
+const PHOTO_SIZES = 'sm:50vw md:33vw lg:288px';
 
 const { t } = useI18n();
 

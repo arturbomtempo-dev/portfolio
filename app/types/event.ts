@@ -24,8 +24,3 @@ export interface SpeakingEvent {
     recordingUrl?: string;
     repositoryUrl?: string;
 }
-
-export interface EventYearGroup {
-    year: string;
-    events: SpeakingEvent[];
-}

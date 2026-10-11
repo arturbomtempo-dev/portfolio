@@ -2,7 +2,6 @@
 import { CalendarDays, CirclePlay, ExternalLink, MapPin, Presentation } from '@lucide/vue';
 import { IconBrandGithub } from '@tabler/icons-vue';
 import type { Component } from 'vue';
-import { defineProps, withDefaults, } from 'vue';
 import type { SpeakingEvent } from '~/types/event';
 
 type EventLinkKind = 'event' | 'recording' | 'slides' | 'repository';

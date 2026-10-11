@@ -86,6 +86,7 @@ The project follows the standard **Nuxt 4 directory structure**, with components
 │   │   │       └── index.vue
 │   │   ├── about/
 │   │   ├── projects/
+│   │   ├── events/
 │   │   ├── contents/
 │   │   └── contact/
 │   ├── composables/
@@ -107,6 +108,9 @@ The project follows the standard **Nuxt 4 directory structure**, with components
 │   │   ├── about/
 │   │   │   └── index.vue
 │   │   ├── projects/
+│   │   │   ├── index.vue
+│   │   │   └── [id].vue
+│   │   ├── events/
 │   │   │   ├── index.vue
 │   │   │   └── [id].vue
 │   │   ├── contents/
@@ -138,7 +142,7 @@ The tree above is the target shape. Create folders only when they are actually n
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `app/pages`               | Routes. Every route is a folder with an `index.vue` (`about/index.vue` → `/about`), plus dynamic files next to it (`projects/[id].vue`). Pages stay **thin**: they set SEO meta, select data and compose module components. No large markup blocks here. |
 | `app/layouts`             | Page shells (header, footer, main wrapper). `default.vue` is applied automatically.                                                                                                                                                                      |
-| `app/components/<module>` | Components that belong to a single page or domain (`home`, `about`, `projects`, `contents`, `contact`).                                                                                                                                                  |
+| `app/components/<module>` | Components that belong to a single page or domain (`home`, `about`, `projects`, `events`, `contents`, `contact`).                                                                                                                                        |
 | `app/components/ui`       | Generic, reusable building blocks with no business knowledge (buttons, cards, badges, inputs).                                                                                                                                                           |
 | `app/components/layout`   | Pieces used by layouts (header, footer, navigation, theme toggle).                                                                                                                                                                                       |
 | `app/composables`         | Reusable stateful logic, always named `useSomething` (`useTheme`, `useNavigation`). Auto-imported.                                                                                                                                                       |
@@ -301,7 +305,8 @@ useSeoMeta({
 
 - Detail data comes from the same content composable as the listing (`useProjectsContent()`), looked up by the route `id`. Ids are identical in every locale, so `/projects/portfolio`, `/en/projects/portfolio` and `/es/projects/portfolio` show the same item, and switching the locale keeps the user on it.
 - Set complete SEO meta for each item: title with the item name, `description`, `ogImage` (`getProjectOpenGraphImagePath(id)`, an absolute URL built with `useSiteConfig().url`) with `ogImageAlt`, `ogType: 'article'` and `twitterCard: 'summary_large_image'`, so shared links show a rich preview.
-- When the `id` does not exist, render a translated not-found state built with `UiErrorState` (`ProjectsProjectNotFound`), with the listing as the primary action and the home page as the secondary one. Return a real **404** status with `setResponseStatus(404)` and set `robots: 'noindex, nofollow'`.
+- When the `id` does not exist, render a translated not-found state built with `UiErrorState` (`ProjectsProjectNotFound`, `EventsEventNotFound`), with the listing as the primary action and the home page as the secondary one. Return a real **404** status with `setResponseStatus(404)` and set `robots: 'noindex, nofollow'`.
+- Event detail pages also link to the newer and older events (`EventsEventPagination`), using the same order as the listing.
 - Opening a detail page scrolls to the top; the browser back button restores the listing's scroll position (default Nuxt behavior, do not override it).
 
 ### Forms
@@ -324,14 +329,21 @@ useSeoMeta({
 
 - Filters live in the URL query (`/contents?type=video`), not only in component state, so a filtered view can be shared, survives a reload and is rendered on the server. The default filter is omitted from the URL.
 - Read the query through a `computed` with getter and setter; the setter calls `navigateTo({ query }, { replace: true })` so filtering does not pile up history entries. Invalid values fall back to the default filter.
-- Use `UiFilterTabs` for the buttons, so every filterable listing (contents, talks) looks and behaves the same.
+- Use `UiFilterTabs` for the buttons, so every filterable listing (contents, events) looks and behaves the same.
 
 ### External content cards
 
 - A card that points to an external page is a link as a whole: `UiBaseCard` with `:as="NuxtLink"`, the full URL in `to` and `target="_blank"`.
 - Thumbnails are stored locally in `public/images/contents/` (never hotlink third-party images such as LinkedIn's signed URLs, which expire). The card still shows a fallback (gradient with the content type icon) on the image `error` event.
-- Dates are stored as ISO strings (`2025-11-18`) and displayed with `formatDate(date, localeProperties.language)` inside a `<time datetime>` element.
+- Dates are stored as ISO strings (`2025-11-18`) and displayed with `formatDate(date, localeProperties.language)` (or `formatLongDate` for the long form, such as on the events timeline) inside a `<time datetime>` element.
 - Icons next to text that can wrap (titles) use `shrink-0`, so a long title never squeezes the icon.
+
+### Events timeline
+
+- `/events` lists talks, workshops and courses on a vertical timeline, newest first (sorted by `useEventsContent()`), grouped by year with the year (`h2`) on the line and card titles as `h3`.
+- The layout has a single side on every screen size: the line runs on the left, each item has a dot on the line with the long date (`formatLongDate`) next to it, and the card sits to the right of the line. Inside the card, the image is on the left and the text on the right from `lg` up (stacked, image on top, below it). Do not alternate cards between both sides of a central line; the owner prefers the single-side layout.
+- Each card is a stretched link to `/events/[id]`. The detail page shows type, date, location, cover, the available links (event website, recording, slides, repository; the first one is the primary button), description, topics and a photo gallery.
+- The gallery opens `LazyEventsPhotoLightbox` (a `UiBaseDialog`) on the first click, with previous/next buttons over the photo and arrow-key navigation.
 
 ### Navigation active state
 
@@ -343,7 +355,8 @@ useSeoMeta({
 - Errors are rendered by **`app/error.vue`**, inside the default layout (header and footer stay available). It handles every status: 404 shows "page not found" with the requested path and actions to the home page and the projects; any other status shows "something went wrong" with "try again" (`reloadNuxtApp`) and "back to home". It sets a translated title and `robots: 'noindex, nofollow'`.
 - Leave the error page with buttons that call `clearError({ redirect: localePath(path) })`; links of the header and the language switcher also work, because navigating clears the error.
 - Unknown URLs are caught by **`app/pages/[...slug].vue`**, which throws `createError({ statusCode: 404, fatal: true })` in `<script setup>` and has an empty `<template>`. Because the catch-all exists for every locale (`/en/...`, `/es/...`), the 404 page is rendered in the language of the URL and the router does not warn about unmatched paths. Do not replace it with `definePageMeta({ validate })` or a route middleware with `abortNavigation`: both make Nuxt log `NUXT_E1005` on every direct visit to a missing page.
-- Routes temporarily disabled (such as `talks`) are simply not created as pages until they are ready. Do not leave commented-out routes.
+- Routes temporarily disabled are simply not created as pages until they are ready. Do not leave commented-out routes.
+- The header shows the full navigation from `lg` (1024px) up; below it, the menu button opens `LayoutMobileMenu`. With six items, the inline navigation does not fit at `md` in every locale. Check the header at 1024px in the three locales whenever an item is added.
 
 ## Styling
 
@@ -374,7 +387,7 @@ The target is Lighthouse 100 on desktop and as close as possible on mobile, with
 
 ### Images
 
-- Every image is local: `public/images/<folder>/<slug>.webp` (`profile`, `testimonials`, `projects`, `contents`). Data files reference them by path (`/images/projects/portfolio.webp`). Never hotlink remote images.
+- Every image is local: `public/images/<folder>/<slug>.webp` (`profile`, `testimonials`, `projects`, `events`, `contents`). Event covers are `images/events/<id>.webp`; gallery photos go to `images/events/<id>/<number>.webp`, and `images/events/placeholders/` holds neutral placeholders used only while real photos are missing. Data files reference them by path (`/images/projects/portfolio.webp`). Never hotlink remote images.
 - Add new images in any format to the right folder and run `npm run images:prepare`: it converts them to WebP with a maximum width per folder, deletes the originals and creates the missing project Open Graph images (`public/og/projects/<id>.jpg`, 1200×630).
 - Render images with `NuxtImg`, always with `width`, `height` (no layout shift) and `alt`. It serves AVIF/WebP in the right size: with the IPX provider locally and Vercel Image Optimization on Vercel (detected automatically).
 - Responsive images use `sizes` with **breakpoint-prefixed** keys (`sizes="sm:90vw md:45vw lg:340px"`). An unprefixed value produces broken `1w`/`2w` candidates. Fixed-size images (avatars) use `densities="x1 x2"` instead.
@@ -403,7 +416,7 @@ The target is Lighthouse 100 on desktop and as close as possible on mobile, with
 
 - `@nuxtjs/sitemap` generates `sitemap_index.xml` with one sitemap per locale (`__sitemap__/pt.xml`…) from the prerendered routes, with `hreflang` alternates. `@nuxtjs/robots` generates `robots.txt` pointing to it. Do not add them to `public/` nor to `nitro.prerender.routes` (that would create a folder instead of the file).
 - Pages that must not be indexed (errors, unknown project) set `robots: 'noindex, nofollow'`; they are left out of the sitemap automatically.
-- Open Graph images are static 1200×630 JPEGs in `public/og/`: one per locale (`og/pt.jpg`, `og/en.jpg`, `og/es.jpg`, used by every page) and one per project (`og/projects/<id>.jpg`). Paths are built with the helpers in `app/utils/openGraphImage.ts`. A new project needs its OG image (`npm run images:prepare` creates it from the cover).
+- Open Graph images are static 1200×630 JPEGs in `public/og/`: one per locale (`og/pt.jpg`, `og/en.jpg`, `og/es.jpg`, used by every page) one per project (`og/projects/<id>.jpg`) and one per event (`og/events/<id>.jpg`, built from the cover with the same 1200×630 crop). Paths are built with the helpers in `app/utils/openGraphImage.ts`. A new project needs its OG image (`npm run images:prepare` creates it from the cover).
 
 ## Security
 

@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import type { EventFilter, EventYearGroup, SpeakingEvent } from '~/types/event';
+import type { EventFilter, SpeakingEvent } from '~/types/event';
+
+interface EventYearGroup {
+    year: string;
+    events: SpeakingEvent[];
+}
 
 const EVENT_FILTERS: EventFilter[] = ['all', 'talk', 'workshop', 'course'];
 const DEFAULT_FILTER: EventFilter = 'all';
@@ -60,13 +65,9 @@ const yearGroups = computed<EventYearGroup[]>(() =>
     }, [])
 );
 
-const positionById = computed(
-    () => new Map(filteredEvents.value.map((event, index) => [event.id, index]))
+const aboveTheFoldEventIds = computed(
+    () => new Set(filteredEvents.value.slice(0, EVENTS_ABOVE_THE_FOLD).map((event) => event.id))
 );
-
-function getPosition(event: SpeakingEvent) {
-    return positionById.value.get(event.id) ?? 0;
-}
 </script>
 
 <template>
@@ -84,7 +85,7 @@ function getPosition(event: SpeakingEvent) {
     <div v-if="yearGroups.length" class="relative animate-fade-in">
         <span
             aria-hidden="true"
-            class="absolute top-0 bottom-0 left-4 w-px -translate-x-1/2 bg-linear-to-b from-primary/60 via-primary/30 to-transparent lg:left-1/2"
+            class="absolute top-0 bottom-0 left-4 w-px -translate-x-1/2 bg-linear-to-b from-primary/60 via-primary/30 to-transparent"
         />
         <div class="space-y-16">
             <section
@@ -94,7 +95,7 @@ function getPosition(event: SpeakingEvent) {
             >
                 <h2
                     :id="`events-year-${group.year}`"
-                    class="relative z-10 mb-10 w-fit rounded-full border border-primary/40 bg-background px-4 py-1 text-base font-semibold text-primary shadow-glow-sm lg:mx-auto"
+                    class="relative z-10 mb-10 w-fit rounded-full border border-primary/40 bg-background px-4 py-1 text-base font-semibold text-primary shadow-glow-sm"
                 >
                     {{ group.year }}
                 </h2>
@@ -104,8 +105,7 @@ function getPosition(event: SpeakingEvent) {
                         :key="event.id"
                         :event="event"
                         :to="localePath(`/events/${event.id}`)"
-                        :is-on-left-side="getPosition(event) % 2 === 0"
-                        :is-above-the-fold="getPosition(event) < EVENTS_ABOVE_THE_FOLD"
+                        :is-above-the-fold="aboveTheFoldEventIds.has(event.id)"
                     />
                 </ol>
             </section>
