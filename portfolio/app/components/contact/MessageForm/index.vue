@@ -146,16 +146,11 @@ const submitMessage = handleSubmit(async (message) => {
                 class="hidden"
             />
 
-            <UiBaseButton
-                type="submit"
-                size="lg"
-                :disabled="isSubmitting"
-                class="group w-full bg-primary hover:bg-primary-glow"
-            >
+            <UiBaseButton type="submit" size="lg" :disabled="isSubmitting" class="w-full">
                 <template v-if="isSubmitting">{{ t('contact.form.submitting') }}</template>
                 <template v-else>
                     {{ t('contact.form.submit') }}
-                    <Send class="ml-2 transition-transform group-hover:translate-x-1" />
+                    <Send class="ml-2" />
                 </template>
             </UiBaseButton>
         </form>

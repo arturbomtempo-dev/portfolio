@@ -21,9 +21,6 @@ const selectedValue = defineModel<TValue>({ required: true });
 defineSlots<{
     icon?(slotProps: { value: TValue }): unknown;
 }>();
-
-const ACTIVE_CLASSES = 'bg-primary hover:bg-primary-glow';
-const INACTIVE_CLASSES = 'border-primary/50 hover:bg-primary/10';
 </script>
 
 <template>
@@ -35,8 +32,7 @@ const INACTIVE_CLASSES = 'border-primary/50 hover:bg-primary/10';
         <UiBaseButton
             v-for="option in props.options"
             :key="option.value"
-            :variant="option.value === selectedValue ? 'primary' : 'outline'"
-            :class="option.value === selectedValue ? ACTIVE_CLASSES : INACTIVE_CLASSES"
+            :variant="option.value === selectedValue ? 'primary' : 'outline-primary'"
             :aria-pressed="option.value === selectedValue"
             @click="selectedValue = option.value"
         >

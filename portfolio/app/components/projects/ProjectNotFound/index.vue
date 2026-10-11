@@ -16,18 +16,11 @@ const route = useRoute();
         :requested-path="route.path"
     >
         <template #actions>
-            <UiBaseButton
-                :to="localePath('/projects')"
-                class="group bg-primary hover:bg-primary-glow"
-            >
+            <UiBaseButton :to="localePath('/projects')" class="group">
                 <ArrowLeft class="transition-transform group-hover:-translate-x-1" />
                 {{ t('projectDetails.backButton') }}
             </UiBaseButton>
-            <UiBaseButton
-                :to="localePath('/')"
-                variant="outline"
-                class="border-primary/50 hover:bg-primary/10"
-            >
+            <UiBaseButton :to="localePath('/')" variant="outline-primary">
                 <House />
                 {{ t('errors.actions.backHome') }}
             </UiBaseButton>

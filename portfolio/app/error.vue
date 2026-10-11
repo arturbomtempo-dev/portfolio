@@ -10,8 +10,6 @@ const props = defineProps<Props>();
 
 const NOT_FOUND_STATUS_CODE = 404;
 const UNEXPECTED_STATUS_CODE = 500;
-const PRIMARY_ACTION_CLASSES = 'group bg-primary hover:bg-primary-glow';
-const SECONDARY_ACTION_CLASSES = 'border-primary/50 hover:bg-primary/10';
 
 const { t } = useI18n();
 const localePath = useLocalePath();
@@ -52,16 +50,12 @@ useSeoMeta({
                 >
                     <template #actions>
                         <template v-if="isNotFound">
-                            <UiBaseButton
-                                :class="PRIMARY_ACTION_CLASSES"
-                                @click="leaveErrorPage('/')"
-                            >
+                            <UiBaseButton class="group" @click="leaveErrorPage('/')">
                                 <House />
                                 {{ t('errors.actions.backHome') }}
                             </UiBaseButton>
                             <UiBaseButton
-                                variant="outline"
-                                :class="SECONDARY_ACTION_CLASSES"
+                                variant="outline-primary"
                                 @click="leaveErrorPage('/projects')"
                             >
                                 <FolderOpen />
@@ -69,15 +63,11 @@ useSeoMeta({
                             </UiBaseButton>
                         </template>
                         <template v-else>
-                            <UiBaseButton :class="PRIMARY_ACTION_CLASSES" @click="retryCurrentPage">
+                            <UiBaseButton class="group" @click="retryCurrentPage">
                                 <RotateCw class="transition-transform group-hover:rotate-90" />
                                 {{ t('errors.actions.tryAgain') }}
                             </UiBaseButton>
-                            <UiBaseButton
-                                variant="outline"
-                                :class="SECONDARY_ACTION_CLASSES"
-                                @click="leaveErrorPage('/')"
-                            >
+                            <UiBaseButton variant="outline-primary" @click="leaveErrorPage('/')">
                                 <House />
                                 {{ t('errors.actions.backHome') }}
                             </UiBaseButton>

@@ -46,16 +46,16 @@ const localePath = useLocalePath();
                 <UiBaseButton
                     :to="localePath('/about')"
                     size="lg"
-                    class="group mx-auto w-1/2 bg-primary hover:bg-primary-glow sm:mx-0 sm:w-auto"
+                    class="mx-auto w-1/2 sm:mx-0 sm:w-auto"
                 >
                     {{ t('home.aboutButton') }}
-                    <User class="ml-2 transition-transform group-hover:translate-x-1" />
+                    <User class="ml-2" />
                 </UiBaseButton>
                 <UiBaseButton
                     :to="localePath('/contact')"
-                    variant="outline"
+                    variant="outline-primary"
                     size="lg"
-                    class="mx-auto w-1/2 border-primary/50 hover:bg-primary/10 sm:mx-0 sm:w-auto"
+                    class="mx-auto w-1/2 sm:mx-0 sm:w-auto"
                 >
                     {{ t('home.contactButton') }}
                 </UiBaseButton>

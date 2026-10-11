@@ -49,7 +49,7 @@ const hasLinks = computed(() => Boolean(props.project.liveUrl || props.project.g
                     v-if="props.project.liveUrl"
                     :to="props.project.liveUrl"
                     target="_blank"
-                    class="gap-2 bg-primary text-primary-foreground hover:bg-foreground hover:text-background"
+                    class="gap-2"
                 >
                     <ExternalLink class="size-4" />
                     {{ t('projectDetails.viewProject') }}
@@ -58,7 +58,7 @@ const hasLinks = computed(() => Boolean(props.project.liveUrl || props.project.g
                     v-if="props.project.githubUrl"
                     :to="props.project.githubUrl"
                     target="_blank"
-                    variant="outline"
+                    variant="outline-primary"
                     class="gap-2"
                 >
                     <IconBrandGithub class="size-4" />

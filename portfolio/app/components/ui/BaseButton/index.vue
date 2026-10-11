@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue';
 
-type ButtonVariant = 'primary' | 'outline' | 'ghost';
+type ButtonVariant = 'primary' | 'outline-primary' | 'outline' | 'ghost';
 type ButtonSize = 'sm' | 'md' | 'lg' | 'icon';
 
 interface Props {
@@ -21,10 +21,13 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const BASE_CLASSES =
-    'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0';
+    'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0';
 
 const VARIANT_CLASSES: Record<ButtonVariant, string> = {
-    primary: 'bg-primary text-primary-foreground hover:bg-primary/90',
+    primary:
+        'bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:shadow-glow-sm',
+    'outline-primary':
+        'border border-primary/50 bg-background text-foreground hover:border-primary hover:bg-primary/10',
     outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
     ghost: 'hover:bg-accent hover:text-accent-foreground',
 };
