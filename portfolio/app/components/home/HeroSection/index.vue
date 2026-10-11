@@ -15,11 +15,13 @@ const localePath = useLocalePath();
                 <div
                     class="mx-auto mb-6 size-40 overflow-hidden rounded-full border-4 border-primary/30 shadow-glow"
                 >
-                    <img
+                    <NuxtImg
                         :src="PROFILE.avatarUrl"
                         :alt="t('home.avatarAlt')"
                         :width="AVATAR_SIZE_IN_PX"
                         :height="AVATAR_SIZE_IN_PX"
+                        densities="x1 x2"
+                        :preload="{ fetchPriority: 'high' }"
                         fetchpriority="high"
                         class="size-full object-cover"
                     />

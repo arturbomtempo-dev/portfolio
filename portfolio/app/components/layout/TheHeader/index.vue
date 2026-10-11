@@ -73,7 +73,7 @@ watch(
                 </div>
             </div>
 
-            <LayoutMobileMenu
+            <LazyLayoutMobileMenu
                 v-if="isMobileMenuOpen"
                 :id="MOBILE_MENU_ID"
                 :items="items"

@@ -3,6 +3,7 @@ const NOT_FOUND_STATUS_CODE = 404;
 
 const { t } = useI18n();
 const route = useRoute();
+const siteConfig = useSiteConfig();
 const projects = useProjectsContent();
 
 const project = computed(() =>
@@ -24,7 +25,11 @@ useSeoMeta({
             ? t('projectDetails.seo.title', { title: project.value.title })
             : t('projectDetails.notFound.seo.title'),
     ogDescription: () => project.value?.description,
-    ogImage: () => project.value?.image,
+    ogImage: () =>
+        project.value
+            ? `${siteConfig.url}${getProjectOpenGraphImagePath(project.value.id)}`
+            : undefined,
+    ogImageAlt: () => project.value?.title,
     ogType: 'article',
     twitterCard: 'summary_large_image',
     robots: () => (project.value ? undefined : 'noindex, nofollow'),

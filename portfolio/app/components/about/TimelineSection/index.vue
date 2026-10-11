@@ -19,6 +19,7 @@ const content = useAboutContent();
 
 const selection = ref<TimelineSelection>({ kind: 'education', index: 0 });
 const isDialogOpen = ref(false);
+const hasOpenedDialog = ref(false);
 
 const educationEntries = computed<TimelineEntry[]>(() =>
     content.value.timeline.education.map(({ year, title, institution }) => ({
@@ -64,6 +65,7 @@ const selectedDetails = computed(() => {
 
 function openEntry(kind: TimelineKind, index: number) {
     selection.value = { kind, index };
+    hasOpenedDialog.value = true;
     isDialogOpen.value = true;
 }
 </script>
@@ -84,8 +86,8 @@ function openEntry(kind: TimelineKind, index: number) {
         />
     </section>
 
-    <AboutDetailsDialog
-        v-if="selectedDetails"
+    <LazyAboutDetailsDialog
+        v-if="hasOpenedDialog && selectedDetails"
         v-model:open="isDialogOpen"
         :icon="ICON_BY_KIND[selection.kind]"
         :eyebrow="selectedDetails.year"

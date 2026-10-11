@@ -5,8 +5,7 @@ export const CONTENTS_PT: ContentItem[] = [
         type: 'newsletter',
         title: 'Automação de Processos',
         description: 'Como automatizar tarefas repetitivas para ganhar produtividade no dia a dia.',
-        thumbnail:
-            'https://media.licdn.com/dms/image/v2/D4D12AQGmY4FMbcE33g/article-cover_image-shrink_720_1280/B4DZqXh54pG8AM-/0/1763478846119?e=1766016000&v=beta&t=z2t8azcXmyaae8sHcp5H77cKNSDVRp_-flkgf_-waUs',
+        thumbnail: '/images/contents/automacao-de-processos.webp',
         url: 'https://www.linkedin.com/pulse/automa%C3%A7%C3%A3o-de-processos-o-poder-fazer-computador-por-voc%C3%AA-bomtempo-8qtgf/',
         platform: 'LinkedIn',
         date: '2025-11-18',
@@ -15,8 +14,7 @@ export const CONTENTS_PT: ContentItem[] = [
         type: 'newsletter',
         title: 'Além da Tecnologia',
         description: 'A importância de dominar fundamentos antes de escolher stacks e frameworks.',
-        thumbnail:
-            'https://media.licdn.com/dms/image/v2/D4D12AQH6c888A3glCg/article-cover_image-shrink_720_1280/B4DZqEJk36HwAI-/0/1763153701095?e=1766016000&v=beta&t=iZlgyCMBXZu6yj5y7oFuhBAMcIG-jts9OD4OUpVfons',
+        thumbnail: '/images/contents/alem-da-tecnologia.webp',
         url: 'https://www.linkedin.com/pulse/al%C3%A9m-da-tecnologia-por-que-dominar-fundamentos-vale-mais-bomtempo-8q0lf/',
         platform: 'LinkedIn',
         date: '2025-11-14',
@@ -26,8 +24,7 @@ export const CONTENTS_PT: ContentItem[] = [
         title: 'Segurança além do óbvio',
         description:
             'Como pequenas brechas de segurança podem gerar grandes riscos em aplicações reais.',
-        thumbnail:
-            'https://media.licdn.com/dms/image/v2/D4D12AQE1on-G0TWjOg/article-cover_image-shrink_720_1280/B4DZpZtHILGsAQ-/0/1762441595349?e=1766016000&v=beta&t=A4_zmBWQBwuZQhi5S_UubiiK5jOpldNt0B54cRy34QE',
+        thumbnail: '/images/contents/seguranca-alem-do-obvio.webp',
         url: 'https://www.linkedin.com/pulse/seguran%C3%A7a-al%C3%A9m-do-%C3%B3bvio-pequenas-brechas-grandes-artur-bomtempo-colen-glulf/',
         platform: 'LinkedIn',
         date: '2025-11-06',
@@ -37,8 +34,7 @@ export const CONTENTS_PT: ContentItem[] = [
         title: 'Design Patterns e Boas Soluções',
         description:
             'Reflexões sobre como padrões de projeto influenciam a escrita de códigos mais eficientes e sustentáveis.',
-        thumbnail:
-            'https://media.licdn.com/dms/image/v2/D4D12AQFPPGoftiRMIA/article-cover_image-shrink_720_1280/B4DZo104fBHsAI-/0/1761839654632?e=1766016000&v=beta&t=gEGmYMpz22XcB2vV4AgWytQFGStG1RCt-6TujhXHsSg',
+        thumbnail: '/images/contents/design-patterns-e-boas-solucoes.webp',
         url: 'https://www.linkedin.com/pulse/design-patterns-e-o-que-eles-nos-ensinam-sobre-boas-bomtempo-colen-ji2se/',
         platform: 'LinkedIn',
         date: '2025-10-30',
@@ -47,8 +43,7 @@ export const CONTENTS_PT: ContentItem[] = [
         type: 'article',
         title: 'Autenticação de APIs com JWT e Bcrypt',
         description: 'Guia completo de autenticação em Node.js e Express usando JWT e Bcrypt.',
-        thumbnail:
-            'https://miro.medium.com/v2/resize:fit:720/format:webp/1*I50MOlC9LSdL9nW_FRgh4g.png',
+        thumbnail: '/images/contents/autenticacao-de-apis-com-jwt-e-bcrypt.webp',
         url: 'https://medium.com/@arturbomtempo/autentica%C3%A7%C3%A3o-de-apis-em-node-js-com-jwt-e-bcrypt-2e1564d264d9',
         platform: 'Medium',
         date: '2025-08-19',
@@ -58,8 +53,7 @@ export const CONTENTS_PT: ContentItem[] = [
         title: 'Curso de Programação Modular em Java',
         description:
             'Fundamentos de modularidade, POO e boas práticas em Java com exercícios práticos.',
-        thumbnail:
-            'https://i.ytimg.com/vi/VYdPnCauekk/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D&rs=AOn4CLC9vXYZwgrhSPMAlxa9QvDYybppgQ',
+        thumbnail: '/images/contents/curso-de-programacao-modular-em-java.webp',
         url: 'https://youtube.com/playlist?list=PLeBlAOvjkM5hIR_G3m-DJjcDMNKMUypkH&si=DLFn9qAjuQFBW4Tj',
         platform: 'YouTube',
         date: '2025-08-14',
@@ -69,8 +63,7 @@ export const CONTENTS_PT: ContentItem[] = [
         title: 'Curso de JavaScript para Iniciantes',
         description:
             'Fundamentos de JavaScript explicados de forma prática, com exercícios e projetos.',
-        thumbnail:
-            'https://i.ytimg.com/vi/LrKqcRCD_zw/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D&rs=AOn4CLBrupGGUSBvDjFswW-slSpuWGFwUg',
+        thumbnail: '/images/contents/curso-de-javascript-para-iniciantes.webp',
         url: 'https://youtube.com/playlist?list=PLeBlAOvjkM5huodqseyXgkQanu_CEtsUq&si=e_nciQcHwoLUG_MY',
         platform: 'YouTube',
         date: '2025-07-11',
@@ -80,8 +73,7 @@ export const CONTENTS_PT: ContentItem[] = [
         title: 'Lives de Programação Orientada a Objetos',
         description:
             'Aulas ao vivo explicando os principais conceitos de POO com exemplos práticos.',
-        thumbnail:
-            'https://i.ytimg.com/vi/DvZatfx5X4w/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D&rs=AOn4CLCJQavzpa4l38nZ6EMpdnu_f6vPjQ',
+        thumbnail: '/images/contents/lives-de-programacao-orientada-a-objetos.webp',
         url: 'https://youtube.com/playlist?list=PLeBlAOvjkM5jhpxHFU0SFfYf_Z3UbpUbY&si=8Uljc9fsCvsT_cuL',
         platform: 'YouTube',
         date: '2025-06-29',
@@ -91,8 +83,7 @@ export const CONTENTS_PT: ContentItem[] = [
         title: 'Playlist de Árvore Binária de Busca',
         description:
             'Série de aulas sobre ABB com teoria e exercícios práticos implementados em Java.',
-        thumbnail:
-            'https://i.ytimg.com/vi/JUtUEIAO2O8/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D&rs=AOn4CLBUd-gMKr3bdpNW2Jcd20xBm6Oetw',
+        thumbnail: '/images/contents/playlist-de-arvore-binaria-de-busca.webp',
         url: 'https://youtube.com/playlist?list=PLeBlAOvjkM5gf5vwnGKIy9Jh2AUXds-rm&si=rfCvGVGFH1NStX9n',
         platform: 'YouTube',
         date: '2025-06-19',
@@ -102,8 +93,7 @@ export const CONTENTS_PT: ContentItem[] = [
         title: 'Árvore Binária de Busca em Java',
         description:
             'Explicação prática e didática sobre o funcionamento e implementação de ABB em Java.',
-        thumbnail:
-            'https://miro.medium.com/v2/resize:fit:720/format:webp/1*WtQFGUbk2zDZLP4S3SXrOw.png',
+        thumbnail: '/images/contents/arvore-binaria-de-busca-em-java.webp',
         url: 'https://medium.com/@arturbomtempo/entendendo-a-%C3%A1rvore-bin%C3%A1ria-de-busca-com-java-teoria-e-pr%C3%A1tica-9171bf57da07',
         platform: 'Medium',
         date: '2025-06-16',
@@ -113,8 +103,7 @@ export const CONTENTS_PT: ContentItem[] = [
         title: 'API REST com Spring Boot',
         description:
             'Guia introdutório para criar um CRUD completo usando Spring Boot e boas práticas.',
-        thumbnail:
-            'https://miro.medium.com/v2/resize:fit:720/format:webp/1*mIKsH2nx_9gFpMZhFY_c9w.png',
+        thumbnail: '/images/contents/api-rest-com-spring-boot.webp',
         url: 'https://medium.com/@arturbomtempo/construindo-uma-api-rest-com-spring-boot-a7e9b4e04380',
         platform: 'Medium',
         date: '2025-05-05',
@@ -124,8 +113,7 @@ export const CONTENTS_PT: ContentItem[] = [
         title: 'Noções de Complexidade',
         description:
             'Introdução clara à eficiência dos algoritmos, com exemplos práticos e explicação intuitiva.',
-        thumbnail:
-            'https://miro.medium.com/v2/resize:fit:720/format:webp/1*UhlQvYhXjY2agLv21SjO8g.png',
+        thumbnail: '/images/contents/nocoes-de-complexidade.webp',
         url: 'https://medium.com/@arturbomtempo/noções-de-complexidade-entendendo-a-eficiência-dos-algoritmos-50d515235765',
         platform: 'Medium',
         date: '2025-03-15',
@@ -135,8 +123,7 @@ export const CONTENTS_PT: ContentItem[] = [
         title: 'Projeto Link In Bio',
         description:
             'Aula prática mostrando como criar uma aplicação em React com Vite passo a passo.',
-        thumbnail:
-            'https://i.ytimg.com/vi/f_1wsIr-hQw/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D&rs=AOn4CLCiDuxgWTMt3rV9bAK0Td_2VvHf7g',
+        thumbnail: '/images/contents/projeto-link-in-bio.webp',
         url: 'https://youtube.com/playlist?list=PLeBlAOvjkM5jyuQ0c1w2e3CYH3HB4DBOd&si=Rmt2dfCMfwDdswUf',
         platform: 'YouTube',
         date: '2025-02-13',
@@ -146,8 +133,7 @@ export const CONTENTS_PT: ContentItem[] = [
         title: 'Desenvolvendo APIs com TypeScript',
         description:
             'Guia prático para configurar APIs em Node.js com TypeScript sem precisar gerar a pasta "dist".',
-        thumbnail:
-            'https://miro.medium.com/v2/resize:fit:720/format:webp/1*GkZYXSAtTeO5cgWWdzD8oQ.jpeg',
+        thumbnail: '/images/contents/desenvolvendo-apis-com-typescript.webp',
         url: 'https://medium.com/@arturbomtempo/developing-apis-with-typescript-simplify-your-workflow-without-distribution-directories-e5c03b03769a',
         platform: 'Medium',
         date: '2024-05-21',

@@ -14,7 +14,10 @@ const props = withDefaults(defineProps<Props>(), {
 const { t, localeProperties } = useI18n();
 const NuxtLink = resolveComponent('NuxtLink');
 
-const thumbnailRef = ref<HTMLImageElement>();
+const THUMBNAIL_WIDTH_IN_PX = 640;
+const THUMBNAIL_HEIGHT_IN_PX = 360;
+const THUMBNAIL_SIZES = 'sm:90vw md:45vw lg:340px';
+
 const hasThumbnailError = ref(false);
 
 const formattedDate = computed(() =>
@@ -24,14 +27,6 @@ const formattedDate = computed(() =>
 function showThumbnailFallback() {
     hasThumbnailError.value = true;
 }
-
-onMounted(() => {
-    const thumbnail = thumbnailRef.value;
-
-    if (thumbnail?.complete && thumbnail.naturalWidth === 0) {
-        showThumbnailFallback();
-    }
-});
 </script>
 
 <template>
@@ -48,19 +43,22 @@ onMounted(() => {
             >
                 <ContentsContentTypeIcon :type="props.content.type" class="size-12" />
             </div>
-            <img
+            <NuxtImg
                 v-else
-                ref="thumbnailRef"
                 :src="props.content.thumbnail"
                 :alt="props.content.title"
+                :width="THUMBNAIL_WIDTH_IN_PX"
+                :height="THUMBNAIL_HEIGHT_IN_PX"
+                :sizes="THUMBNAIL_SIZES"
                 :loading="props.isAboveTheFold ? 'eager' : 'lazy'"
+                :fetchpriority="props.isAboveTheFold ? 'high' : 'auto'"
                 decoding="async"
                 class="size-full object-cover transition-transform duration-300 hover:scale-110"
                 @error="showThumbnailFallback"
             />
             <div class="absolute top-4 right-4">
                 <div
-                    class="flex items-center gap-2 rounded-full bg-primary/90 px-3 py-1 backdrop-blur-sm"
+                    class="flex items-center gap-2 rounded-full bg-primary/90 px-3 py-1 text-primary-foreground backdrop-blur-sm"
                 >
                     <ContentsContentTypeIcon :type="props.content.type" class="size-4" />
                     <span class="text-sm font-medium">
@@ -71,7 +69,7 @@ onMounted(() => {
         </div>
         <div class="py-3 sm:py-4">
             <div class="mb-3 flex items-start justify-between">
-                <h3 class="line-clamp-2 text-xl font-semibold">{{ props.content.title }}</h3>
+                <h2 class="line-clamp-2 text-xl font-semibold">{{ props.content.title }}</h2>
                 <ExternalLink class="ml-2 size-5 shrink-0 text-primary" />
             </div>
             <p class="mb-4 line-clamp-2 text-muted-foreground">{{ props.content.description }}</p>

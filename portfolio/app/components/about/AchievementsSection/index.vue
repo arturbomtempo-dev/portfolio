@@ -4,11 +4,13 @@ const content = useAboutContent();
 
 const selectedIndex = ref(0);
 const isDialogOpen = ref(false);
+const hasOpenedDialog = ref(false);
 
 const selectedAchievement = computed(() => content.value.achievements[selectedIndex.value]);
 
 function openAchievement(index: number) {
     selectedIndex.value = index;
+    hasOpenedDialog.value = true;
     isDialogOpen.value = true;
 }
 </script>
@@ -23,8 +25,8 @@ function openAchievement(index: number) {
         />
     </section>
 
-    <AboutDetailsDialog
-        v-if="selectedAchievement"
+    <LazyAboutDetailsDialog
+        v-if="hasOpenedDialog && selectedAchievement"
         v-model:open="isDialogOpen"
         :icon="selectedAchievement.icon"
         :title="selectedAchievement.title"

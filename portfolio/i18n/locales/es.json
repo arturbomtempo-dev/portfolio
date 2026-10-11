@@ -167,5 +167,8 @@
             "viewProjects": "Ver proyectos",
             "tryAgain": "Intentar de nuevo"
         }
+    },
+    "seo": {
+        "ogImageAlt": "Artur Bomtempo, Desarrollador de Software"
     }
 }

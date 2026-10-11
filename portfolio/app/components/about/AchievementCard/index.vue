@@ -18,7 +18,7 @@ const emit = defineEmits<{
             :is="props.achievement.icon"
             class="mx-auto mb-4 size-12 text-primary transition-transform duration-300 group-hover:scale-110"
         />
-        <h3 class="mb-2 text-xl font-semibold transition-colors group-hover:text-primary">
+        <h2 class="mb-2 text-xl font-semibold transition-colors group-hover:text-primary">
             <button
                 type="button"
                 class="block w-full text-center after:absolute after:inset-0 after:rounded-lg focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-ring"
@@ -26,7 +26,7 @@ const emit = defineEmits<{
             >
                 {{ props.achievement.title }}
             </button>
-        </h3>
+        </h2>
         <p class="text-sm text-muted-foreground">{{ props.achievement.description }}</p>
     </UiBaseCard>
 </template>

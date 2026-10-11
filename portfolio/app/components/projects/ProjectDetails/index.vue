@@ -9,6 +9,10 @@ interface Props {
 
 const props = defineProps<Props>();
 
+const COVER_WIDTH_IN_PX = 1600;
+const COVER_HEIGHT_IN_PX = 900;
+const COVER_SIZES = 'sm:95vw lg:832px';
+
 const { t } = useI18n();
 const localePath = useLocalePath();
 
@@ -28,9 +32,13 @@ const hasLinks = computed(() => Boolean(props.project.liveUrl || props.project.g
             <div
                 class="relative mb-8 aspect-video overflow-hidden rounded-xl border border-border/50"
             >
-                <img
+                <NuxtImg
                     :src="props.project.image"
                     :alt="props.project.title"
+                    :width="COVER_WIDTH_IN_PX"
+                    :height="COVER_HEIGHT_IN_PX"
+                    :sizes="COVER_SIZES"
+                    :preload="{ fetchPriority: 'high' }"
                     fetchpriority="high"
                     class="size-full object-cover"
                 />

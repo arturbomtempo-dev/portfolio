@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { Toaster } from 'vue-sonner';
+import 'vue-sonner/style.css';
+
 const TOASTER_STYLE = {
     '--normal-bg': 'var(--background)',
     '--normal-text': 'var(--foreground)',

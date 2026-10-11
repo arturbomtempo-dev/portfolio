@@ -12,14 +12,14 @@
     --popover: hsl(0 0% 8%);
     --popover-foreground: hsl(0 0% 95%);
     --primary: hsl(145 63% 43%);
-    --primary-foreground: hsl(0 0% 98%);
+    --primary-foreground: hsl(0 0% 5%);
     --primary-glow: hsl(145 63% 43%);
     --secondary: hsl(0 0% 15%);
     --secondary-foreground: hsl(0 0% 95%);
     --muted: hsl(0 0% 12%);
     --muted-foreground: hsl(0 0% 60%);
     --accent: hsl(145 63% 43%);
-    --accent-foreground: hsl(0 0% 98%);
+    --accent-foreground: hsl(0 0% 5%);
     --accent-glow: hsl(145 63% 53%);
     --destructive: hsl(0 84.2% 60.2%);
     --destructive-foreground: hsl(0 0% 98%);
@@ -41,7 +41,13 @@
     --secondary-foreground: hsl(0 0% 10%);
     --muted: hsl(0 0% 94%);
     --muted-foreground: hsl(0 0% 45%);
+    --primary: hsl(145 63% 27%);
+    --primary-foreground: hsl(0 0% 98%);
+    --primary-glow: hsl(145 63% 27%);
+    --accent: hsl(145 63% 27%);
+    --accent-foreground: hsl(0 0% 98%);
     --accent-glow: hsl(145 63% 38%);
+    --ring: hsl(145 63% 27%);
     --border: hsl(0 0% 88%);
     --input: hsl(0 0% 88%);
 }
@@ -136,7 +142,7 @@
 
     ::selection {
         background-color: var(--primary);
-        color: hsl(0 0% 0%);
+        color: var(--primary-foreground);
     }
 
     *::-webkit-scrollbar {

@@ -8,6 +8,8 @@ interface FormSubmitResponse {
     message?: string;
 }
 
+z.config({ jitless: true });
+
 const NAME_MIN_LENGTH = 5;
 const MESSAGE_MIN_LENGTH = 50;
 const MESSAGE_ROWS = 6;

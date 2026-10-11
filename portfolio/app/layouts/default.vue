@@ -5,6 +5,8 @@
             <slot />
         </main>
         <LayoutTheFooter />
-        <LayoutAppToaster />
+        <ClientOnly>
+            <LazyLayoutAppToaster />
+        </ClientOnly>
     </div>
 </template>

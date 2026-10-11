@@ -27,7 +27,10 @@ Main goals of the Nuxt version:
 | Theme           | `@nuxtjs/color-mode` (dark/light, follows system by default)                       |
 | Icons           | `@lucide/vue` (official Lucide components) and `@tabler/icons-vue` for brand logos |
 | Fonts           | `@nuxt/fonts` (Inter and Geist, self-hosted at build time)                         |
-| Headless UI     | `reka-ui` for accessible primitives (select, dialog, etc.)                         |
+| Images          | `@nuxt/image` (`NuxtImg`: AVIF/WebP, responsive `srcset`)                          |
+| SEO             | `@nuxtjs/sitemap` and `@nuxtjs/robots` (driven by the `site` config)               |
+| Security        | `nuxt-security` (CSP, HSTS and other security headers)                             |
+| Headless UI     | `reka-ui` for accessible primitives (dialog)                                       |
 | Animations      | `tw-animate-css` (`animate-in`, `fade-in-0`, `zoom-in-95`…)                        |
 | Class merging   | `cn()` (`clsx` + `tailwind-merge`) in `app/utils/cn.ts`                            |
 | Formatting      | Prettier (`npm run format`)                                                        |
@@ -44,13 +47,14 @@ npm run generate
 npm run preview
 npm run typecheck
 npm run format
+npm run images:prepare
 ```
 
 Run `npm run typecheck` and `npm run format` before considering any task done.
 
 ## Site URL
 
-The production site is served at **https://www.arturbomtempo.dev**. It is configured as `i18n.baseUrl` in `nuxt.config.ts` and used to build absolute `canonical`, `hreflang` and `og:url` links. For a different environment (such as a preview deployment), override it with the `NUXT_PUBLIC_I18N_BASE_URL` environment variable instead of editing the config. Never commit `.env` files.
+The production site is served at **https://www.arturbomtempo.dev**. It is the `SITE_URL` constant in `nuxt.config.ts`, used both as `site.url` (sitemap, robots, absolute `og:image` URLs) and as `i18n.baseUrl`, and used to build absolute `canonical`, `hreflang` and `og:url` links. For a different environment (such as a preview deployment), override it with the `NUXT_PUBLIC_I18N_BASE_URL` and `NUXT_SITE_URL` environment variables instead of editing the config. Never commit `.env` files.
 
 ## Architecture
 
@@ -141,8 +145,9 @@ The tree above is the target shape. Create folders only when they are actually n
 | `app/assets`              | Files processed by the build (CSS, fonts, images imported from code).                                                                                                                                                                                    |
 | `app/middleware`          | Route middleware. Global ones end with `.global.ts` and run on every navigation.                                                                                                                                                                         |
 | `i18n/locales`            | Translation messages, one JSON file per locale. The only place where user-facing text is written.                                                                                                                                                        |
+| `scripts`                 | Node scripts run by hand through npm scripts (`images:prepare`). Never imported by the app.                                                                                                                                                              |
 | `modules`                 | Local Nuxt modules, registered automatically. Only for build-level integration (Vite plugins, hooks), never for app logic.                                                                                                                               |
-| `public`                  | Files served as-is from the site root (favicon, `robots.txt`, OG images).                                                                                                                                                                                |
+| `public`                  | Files served as-is from the site root: favicons, `site.webmanifest`, images (`images/<folder>/`) and Open Graph images (`og/`).                                                                                                                          |
 
 ### Where does a new component go?
 
@@ -258,6 +263,7 @@ Available UI components (check them before creating a new one):
 
 - Keep the dialog's data while it closes: store the selection (preferably an index into the localized content) separately from the `open` state, so the closing animation still shows the content and a locale switch updates an open dialog.
 - Every dialog needs a `DialogTitle` (and a `DialogDescription` when there is a subtitle) from `reka-ui`, for screen readers.
+- Dialogs are not part of the first render: render them as lazy components (`<LazyAboutDetailsDialog>`) behind a `hasOpenedDialog` flag that becomes `true` on the first open, so `reka-ui` and the dialog code are only downloaded when needed.
 
 ## Pages, routing and SEO
 
@@ -277,7 +283,7 @@ useSeoMeta({
 </script>
 ```
 
-- Global defaults (favicon, author) belong in `app.head` inside `nuxt.config.ts`. The `lang` attribute, `hreflang` alternates and `og:locale` are generated by `useLocaleHead` in `app.vue`; do not set them by hand.
+- Global defaults (favicons, manifest, author, `theme-color`) belong in `app.head` inside `nuxt.config.ts`. Site-wide Open Graph defaults (`og:site_name`, default `og:image` per locale with its size, type and translated alt, `twitter:card`) are set once in `app.vue`; pages only override what is specific to them. The `lang` attribute, `hreflang` alternates and `og:locale` are generated by `useLocaleHead` in `app.vue`; do not set them by hand.
 - Use `<NuxtLink>` for every internal link, never `<a href>`.
 - External links (live demos, repositories) are real links, not buttons that call `window.open`: use `UiBaseButton` (or `NuxtLink`) with the full URL in `to` and `target="_blank"`. `NuxtLink` detects external URLs and adds `rel="noopener noreferrer"` automatically.
 - Every page starts with `UiPageHeader` for its `h1` and introduction. Detail pages start with `UiBackLink` to their listing instead.
@@ -290,7 +296,7 @@ useSeoMeta({
 ### Detail pages
 
 - Detail data comes from the same content composable as the listing (`useProjectsContent()`), looked up by the route `id`. Ids are identical in every locale, so `/projects/portfolio`, `/en/projects/portfolio` and `/es/projects/portfolio` show the same item, and switching the locale keeps the user on it.
-- Set complete SEO meta for each item: title with the item name, `description`, `ogImage` (the item image), `ogType: 'article'` and `twitterCard: 'summary_large_image'`, so shared links show a rich preview.
+- Set complete SEO meta for each item: title with the item name, `description`, `ogImage` (`getProjectOpenGraphImagePath(id)`, an absolute URL built with `useSiteConfig().url`) with `ogImageAlt`, `ogType: 'article'` and `twitterCard: 'summary_large_image'`, so shared links show a rich preview.
 - When the `id` does not exist, render a translated not-found state built with `UiErrorState` (`ProjectsProjectNotFound`), with the listing as the primary action and the home page as the secondary one. Return a real **404** status with `setResponseStatus(404)` and set `robots: 'noindex, nofollow'`.
 - Opening a detail page scrolls to the top; the browser back button restores the listing's scroll position (default Nuxt behavior, do not override it).
 
@@ -319,7 +325,7 @@ useSeoMeta({
 ### External content cards
 
 - A card that points to an external page is a link as a whole: `UiBaseCard` with `:as="NuxtLink"`, the full URL in `to` and `target="_blank"`.
-- Remote images can disappear (expired signed URLs, deleted posts). Cards with remote thumbnails show a fallback (gradient with the content type icon) when the image fails, handling both the `error` event and images that already failed before hydration (`complete && naturalWidth === 0` on mount).
+- Thumbnails are stored locally in `public/images/contents/` (never hotlink third-party images such as LinkedIn's signed URLs, which expire). The card still shows a fallback (gradient with the content type icon) on the image `error` event.
 - Dates are stored as ISO strings (`2025-11-18`) and displayed with `formatDate(date, localeProperties.language)` inside a `<time datetime>` element.
 - Icons next to text that can wrap (titles) use `shrink-0`, so a long title never squeezes the icon.
 
@@ -358,9 +364,68 @@ The Nuxt version must look **exactly** like the React version. After migrating a
 - Links rendered inside `<li>` must be blockified (`li` with `flex`) to keep the same vertical alignment as the React flex children.
 - `space-y-*` changed: v3 adds `margin-top` to the following siblings, v4 adds `margin-bottom` to the previous ones, and a child's own `mb-*` class wins over it. Inside **flex** containers (where margins do not collapse) this changes the spacing; use explicit margins (`mt-1.5`) to reproduce the React result.
 - In v3, `@layer components` classes such as React's `project-card` lose to utilities only by source order and specificity; in v4 cascade layers make utilities always win. Recreate such classes as a single `@utility` (`surface-card`, `tech-badge`) that encodes the **final** computed result of the React cascade, including the `.light` overrides.
+- Intentional deviations, for WCAG AA contrast: the light theme uses a darker green (`hsl(145 63% 27%)`) for `primary`, `accent` and `ring`, and in the dark theme text on green backgrounds (`primary-foreground`, `accent-foreground`) is dark (`hsl(0 0% 5%)`). Card titles are `h2` (React used `h3` right after the page `h1`). Keep these when comparing with React.
 - Third-party CSS that is not in a cascade layer (such as `vue-sonner`) always wins over Tailwind v4 utilities, whatever their specificity. Style those components through their CSS variables first (`--normal-bg`, `--normal-text`, `--normal-border` on the toaster) and use the important modifier (`text-muted-foreground!`) only where no variable exists.
 - Tailwind v4 changed the default palette to OKLCH. The palette colors used by the React version (`red-500`, `red-600`, `blue-500`, `pink-500`) are redefined in `@theme` with their v3 values. Prefer semantic tokens (`destructive`) for new code.
 - The React version loaded Inter and Geist only in the `normal` style, so italic text is synthesized by the browser. `@nuxt/fonts` is configured with `styles: ['normal']` to keep the same rendering; do not add italic font files.
+
+## Performance
+
+The target is Lighthouse 100 on desktop and as close as possible on mobile, with accessibility, best practices and SEO at 100 on every page.
+
+### Images
+
+- Every image is local: `public/images/<folder>/<slug>.webp` (`profile`, `testimonials`, `projects`, `contents`). Data files reference them by path (`/images/projects/portfolio.webp`). Never hotlink remote images.
+- Add new images in any format to the right folder and run `npm run images:prepare`: it converts them to WebP with a maximum width per folder, deletes the originals and creates the missing project Open Graph images (`public/og/projects/<id>.jpg`, 1200×630).
+- Render images with `NuxtImg`, always with `width`, `height` (no layout shift) and `alt`. It serves AVIF/WebP in the right size: with the IPX provider locally and Vercel Image Optimization on Vercel (detected automatically).
+- Responsive images use `sizes` with **breakpoint-prefixed** keys (`sizes="sm:90vw md:45vw lg:340px"`). An unprefixed value produces broken `1w`/`2w` candidates. Fixed-size images (avatars) use `densities="x1 x2"` instead.
+- Only images visible in the first viewport (hero avatar, project cover, first row of cards) are `loading="eager"` with `fetchpriority="high"` (or `:preload="{ fetchPriority: 'high' }"` for the single LCP image). Everything else is `loading="lazy"`.
+- Generated widths come from `image.screens` in `nuxt.config.ts`; Vercel only serves widths listed there. When an image needs a new rendered size, add it to `screens` instead of accepting a much larger snapped width.
+
+### JavaScript and CSS
+
+- Keep the global layout light: everything in the header, footer and `app.vue` is downloaded on every page. Do not add heavy libraries there; `LayoutLanguageSelect` is a small custom disclosure menu instead of `reka-ui`'s select for this reason.
+- Components that are not needed for the first render are lazy: `LazyLayoutMobileMenu`, dialogs (see [Dialogs](#dialogs)) and the toaster (`<ClientOnly><LazyLayoutAppToaster /></ClientOnly>`, which also loads the `vue-sonner` CSS only then).
+- Fonts are self-hosted by `@nuxt/fonts` with the `latin` subset only. Only Geist (headings, LCP text) is preloaded.
+- Do not try `hydrate-on-*` lazy hydration or `features.inlineStyles` for small components: both were measured here and did not help.
+
+### Measuring
+
+- Measure against the production build (`npm run build` then `node .output/server/index.mjs`), never against `npm run dev`.
+- Run Lighthouse (mobile and desktop) for every page and axe in **both themes**. On localhost, the simulated mobile FCP (~1.8 s) is a Lantern floor, not a real problem.
+
+## Accessibility
+
+- Text and background colors must meet WCAG AA (4.5:1 for normal text) in both themes. When adding a color token, check the contrast of every combination it is used in, including `*-foreground` on its background.
+- Headings follow the document order with no skipped levels: one `h1` per page (`UiPageHeader`), then `h2` for sections and card titles, `h3` inside them.
+- axe must report 0 violations on every page in dark and light themes.
+
+## SEO and Open Graph
+
+- `@nuxtjs/sitemap` generates `sitemap_index.xml` with one sitemap per locale (`__sitemap__/pt.xml`…) from the prerendered routes, with `hreflang` alternates. `@nuxtjs/robots` generates `robots.txt` pointing to it. Do not add them to `public/` nor to `nitro.prerender.routes` (that would create a folder instead of the file).
+- Pages that must not be indexed (errors, unknown project) set `robots: 'noindex, nofollow'`; they are left out of the sitemap automatically.
+- Open Graph images are static 1200×630 JPEGs in `public/og/`: one per locale (`og/pt.jpg`, `og/en.jpg`, `og/es.jpg`, used by every page) and one per project (`og/projects/<id>.jpg`). Paths are built with the helpers in `app/utils/openGraphImage.ts`. A new project needs its OG image (`npm run images:prepare` creates it from the cover).
+
+## Security
+
+Security headers are set by `nuxt-security` and by `routeRules` in `nuxt.config.ts`, for both the Node server and Vercel.
+
+- **Content Security Policy**: `default-src 'self'`, scripts only from `'self'` plus hashes (prerendered pages) or a nonce (server responses), no inline event handlers, no objects, no framing, `connect-src` limited to `'self'` and `https://formsubmit.co`. `'unsafe-inline'` is allowed only for styles (Vue and color-mode set inline styles).
+- Using a new third-party service means adding its origin to the narrowest directive (`connect-src` for APIs, `img-src` for images, `frame-src` for embeds). Never relax `script-src` or `default-src`, and never add `'unsafe-eval'`.
+- `'strict-dynamic'` and SRI (`sri: false`) are disabled on purpose: SRI breaks the font preload (integrity mismatch) and, without it, `'strict-dynamic'` would block Nuxt's own chunks.
+- Code that compiles functions at runtime breaks the CSP. Zod is configured with `z.config({ jitless: true })` in the contact form for this reason.
+- Other headers: HSTS (2 years, subdomains, preload), `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, `Cross-Origin-Opener-Policy: same-origin`, `Cross-Origin-Embedder-Policy: credentialless` and a restrictive `Permissions-Policy`. `/og/**` sends `Cross-Origin-Resource-Policy: cross-origin` so social networks can fetch the previews.
+- Headers that must reach Vercel are declared in `routeRules` (global `'/**'`) so Nitro writes them to the Vercel output config.
+- The rate limiter is disabled (static site, no API routes) and `removeLoggers` is off (it triggers a build warning and there are no `console` calls to remove).
+- The site sets no cookies and stores only the theme in `localStorage`.
+
+## Deployment
+
+- The site is deployed on **Vercel** with zero configuration: create the project with **Root Directory** `portfolio`; framework, build command and output are detected by Nuxt.
+- Every page is prerendered (`crawlLinks` from `/`, `/en` and `/es`) and public assets are precompressed. Unknown URLs fall back to the server function, which renders the translated 404.
+- Images are optimized by Vercel Image Optimization (`/_vercel/image`), ignored by the prerender crawler.
+- `.vercel` (local build output) is git-ignored.
+- After every deploy, check one page in each locale, a project page, a 404, the security headers and send one real message through the contact form.
 
 ## Interactivity
 
@@ -549,6 +614,8 @@ Prettier is the single source of truth (`.prettierrc`): 4 spaces, single quotes,
 ## Local modules
 
 `modules/components-alias-dep-scan.ts` fixes an incompatibility between Vite 8's dependency scan and `@nuxtjs/i18n`: the scan cannot resolve Nuxt's `#components` alias inside packages that declare their own `imports` field. The module marks `#components` as external **only during the scan**, so pre-bundling works and the real resolution is still done by Nuxt. Remove it once Nuxt or `@nuxtjs/i18n` fixes the issue upstream (check by deleting it and running `npm run dev` with an empty `node_modules/.cache`).
+
+`modules/vercel-header-routes-continue.ts` runs only with the `vercel` preset. Nitro writes `routeRules` headers to `.vercel/output/config.json` as routes without `continue: true`, so a matched header route would stop routing before the static files and the 404 fallback function. The module adds `continue: true` to routes that only set headers. Remove it once Nitro does this itself (check the generated `config.json` after `NITRO_PRESET=vercel npm run build`).
 
 ## Migration from React
 
