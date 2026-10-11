@@ -1,0 +1,174 @@
+{
+    "common": {
+        "close": "Cerrar"
+    },
+    "header": {
+        "logo": "Portafolio",
+        "toggleTheme": "Cambiar tema",
+        "openMenu": "Abrir menú",
+        "closeMenu": "Cerrar menú",
+        "selectLanguage": "Seleccionar idioma",
+        "mainNavigation": "Navegación principal"
+    },
+    "nav": {
+        "home": "Inicio",
+        "about": "Acerca de",
+        "projects": "Proyectos",
+        "contents": "Contenidos",
+        "contact": "Contacto"
+    },
+    "footer": {
+        "rights": "© {year} Artur Bomtempo. Todos los derechos reservados."
+    },
+    "carousel": {
+        "previous": "Diapositiva anterior",
+        "next": "Diapositiva siguiente"
+    },
+    "home": {
+        "seo": {
+            "title": "Artur Bomtempo {'|'} Portafolio",
+            "description": "Desarrollador de Software apasionado por crear soluciones innovadoras y eficientes. Portafolio con proyectos, contenidos educativos y experiencias profesionales.",
+            "ogTitle": "Artur Bomtempo {'|'} Portafolio - Desarrollador Full Stack",
+            "ogDescription": "Desarrollador de Software con más de 4 años de experiencia. Especializado en desarrollo web moderno con React, Node.js, Java y Spring Boot."
+        },
+        "avatarAlt": "Foto de perfil de Artur Bomtempo Colen",
+        "greeting": "Soy",
+        "role": "Desarrollador de Software",
+        "description": "Siempre he tenido el deseo de generar impacto en la vida de las personas, y encontré en el desarrollo de software una forma de convertir eso en realidad.",
+        "aboutButton": "Acerca de mí",
+        "contactButton": "Contáctame"
+    },
+    "about": {
+        "seo": {
+            "title": "Acerca de Mí {'|'} Artur Bomtempo",
+            "description": "Soy un desarrollador apasionado por crear soluciones innovadoras y eficientes. Con más de 4 años de experiencia, me he dedicado a construir aplicaciones web y móviles que marcan la diferencia en la vida de las personas. Mi enfoque es siempre entregar código limpio, escalable y que satisfaga las necesidades reales de los usuarios.",
+            "ogTitle": "Acerca de Mí {'|'} Artur Bomtempo",
+            "ogDescription": "Soy un desarrollador apasionado por crear soluciones innovadoras y eficientes. Con más de 4 años de experiencia, me he dedicado a construir aplicaciones web y móviles que marcan la diferencia en la vida de las personas. Mi enfoque es siempre entregar código limpio, escalable y que satisfaga las necesidades reales de los usuarios."
+        },
+        "title": "Acerca de Mí",
+        "description": "Soy un desarrollador apasionado por crear soluciones innovadoras y eficientes. Con más de 4 años de experiencia, me he dedicado a construir aplicaciones web y móviles que marcan la diferencia en la vida de las personas. Mi enfoque es siempre entregar código limpio, escalable y que satisfaga las necesidades reales de los usuarios.",
+        "technologiesTitle": "Tecnologías",
+        "testimonialsTitle": "Testimonios",
+        "educationTitle": "Educación",
+        "experienceTitle": "Experiencia Profesional",
+        "educationDetailsTitle": "Lo que aprendí:",
+        "experienceDetailsTitle": "Actividades y responsabilidades:",
+        "achievementDetailsTitle": "Destacados:"
+    },
+    "projects": {
+        "seo": {
+            "title": "Proyectos {'|'} Artur Bomtempo",
+            "description": "Algunos de los proyectos que he desarrollado a lo largo de mi carrera. Cada uno representa un desafío único y aprendizaje continuo.",
+            "ogTitle": "Proyectos {'|'} Artur Bomtempo",
+            "ogDescription": "Algunos de los proyectos que he desarrollado a lo largo de mi carrera. Cada uno representa un desafío único y aprendizaje continuo."
+        },
+        "title": "Proyectos",
+        "description": "Algunos de los proyectos que he desarrollado a lo largo de mi carrera. Cada uno representa un desafío único y aprendizaje continuo."
+    },
+    "projectDetails": {
+        "seo": {
+            "title": "{title} {'|'} Artur Bomtempo"
+        },
+        "backButton": "Volver a Proyectos",
+        "viewProject": "Ver Proyecto",
+        "viewCode": "Ver Código",
+        "aboutTitle": "Acerca del Proyecto",
+        "technologiesTitle": "Tecnologías Utilizadas",
+        "notFound": {
+            "seo": {
+                "title": "Proyecto no encontrado {'|'} Artur Bomtempo"
+            },
+            "title": "Proyecto no encontrado",
+            "message": "El proyecto que buscas no existe o ha sido eliminado."
+        }
+    },
+    "contents": {
+        "seo": {
+            "title": "Contenidos {'|'} Artur Bomtempo",
+            "description": "Comparto conocimientos de forma gratuita sobre desarrollo web, buenas prácticas y tecnologías modernas.",
+            "ogTitle": "Contenidos {'|'} Artur Bomtempo",
+            "ogDescription": "Comparto conocimientos de forma gratuita sobre desarrollo web, buenas prácticas y tecnologías modernas."
+        },
+        "title": "Contenidos",
+        "description": "Comparto conocimientos de forma gratuita sobre desarrollo web, buenas prácticas y tecnologías modernas.",
+        "filtersLabel": "Filtrar contenidos por tipo",
+        "filters": {
+            "all": "Todos",
+            "video": "Videos",
+            "article": "Artículos",
+            "newsletter": "Newsletters"
+        },
+        "types": {
+            "video": "Video",
+            "article": "Artículo",
+            "newsletter": "Newsletter"
+        }
+    },
+    "social": {
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "email": "Correo electrónico",
+        "instagram": "Instagram",
+        "youtube": "YouTube"
+    },
+    "contact": {
+        "seo": {
+            "title": "Contacto {'|'} Artur Bomtempo",
+            "description": "Siempre estoy abierto a nuevas oportunidades y colaboraciones. Contáctame a través de los canales a continuación.",
+            "ogTitle": "Contacto {'|'} Artur Bomtempo",
+            "ogDescription": "Siempre estoy abierto a nuevas oportunidades y colaboraciones. Contáctame a través de los canales a continuación."
+        },
+        "title": "Contáctame",
+        "description": "Siempre estoy abierto a nuevas oportunidades y colaboraciones. Contáctame a través de los canales a continuación.",
+        "socialLinksLabel": "Redes sociales",
+        "form": {
+            "name": "Nombre",
+            "namePlaceholder": "Tu nombre completo",
+            "email": "Correo Electrónico",
+            "emailPlaceholder": "tu{'@'}email.com",
+            "message": "Mensaje",
+            "messagePlaceholder": "Escribe tu mensaje aquí...",
+            "submit": "Enviar Mensaje",
+            "submitting": "Enviando..."
+        },
+        "validation": {
+            "nameRequired": "El nombre es obligatorio",
+            "nameMinLength": "El nombre debe tener al menos 5 caracteres",
+            "emailRequired": "El correo electrónico es obligatorio",
+            "emailInvalid": "Formato de correo electrónico inválido",
+            "messageRequired": "El mensaje es obligatorio",
+            "messageMinLength": "El mensaje debe tener al menos 50 caracteres"
+        },
+        "feedback": {
+            "successTitle": "¡Mensaje enviado con éxito!",
+            "successDescription": "Gracias por contactar. ¡Responderé pronto!",
+            "errorTitle": "Error al enviar mensaje",
+            "errorDescription": "Por favor, intenta nuevamente más tarde."
+        }
+    },
+    "errors": {
+        "notFound": {
+            "seo": {
+                "title": "Página no encontrada {'|'} Artur Bomtempo"
+            },
+            "title": "Página no encontrada",
+            "description": "La página que buscas no existe o ha sido movida."
+        },
+        "unexpected": {
+            "seo": {
+                "title": "Algo salió mal {'|'} Artur Bomtempo"
+            },
+            "title": "Algo salió mal",
+            "description": "Ocurrió un error inesperado. Inténtalo de nuevo en unos instantes."
+        },
+        "requestedPath": "Dirección solicitada",
+        "actions": {
+            "backHome": "Volver al Inicio",
+            "viewProjects": "Ver proyectos",
+            "tryAgain": "Intentar de nuevo"
+        }
+    },
+    "seo": {
+        "ogImageAlt": "Artur Bomtempo, Desarrollador de Software"
+    }
+}
