@@ -1,8 +1,10 @@
 {
-    "rewrites": [
-        {
-            "source": "/(.*)",
-            "destination": "/index.html"
-        }
-    ]
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "framework": "nuxtjs",
+    "installCommand": "npm ci",
+    "buildCommand": "npm run build",
+    "regions": ["gru1"],
+    "github": {
+        "silent": true
+    }
 }

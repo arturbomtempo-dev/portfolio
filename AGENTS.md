@@ -6,9 +6,9 @@ Guidelines for anyone (human or AI agent) working on this codebase. Read this fi
 
 Personal portfolio of Artur Bomtempo, built with **Nuxt 4**, **Vue 3**, **TypeScript** and **Tailwind CSS v4**.
 
-The project is being migrated from a React + Vite version that still lives at the repository root (`../src`). That folder is the **reference for content, behavior and visual design** during the migration. Do not edit, move or delete anything outside this `portfolio/` folder unless explicitly asked.
+The site was rewritten from a React + Vite version, which is no longer in the working tree (it remains in the git history). The Nuxt project lives at the repository root.
 
-Main goals of the Nuxt version:
+Main goals:
 
 - **SEO**: server-rendered / prerendered HTML with proper meta tags on every page.
 - **Professionalism**: a conventional, predictable structure that any Nuxt developer recognizes.
@@ -61,7 +61,7 @@ The production site is served at **https://www.arturbomtempo.dev**. It is the `S
 The project follows the standard **Nuxt 4 directory structure**, with components grouped by **module** (the page or domain they belong to). This is the most common layout in production Nuxt projects: it relies on Nuxt conventions (auto-imports, file-based routing, layouts) instead of inventing a custom one, and it scales by adding folders, not by rewriting.
 
 ```
-portfolio/
+.
 ├── app/
 │   ├── app.vue
 │   ├── error.vue
@@ -123,7 +123,9 @@ portfolio/
 │       └── es.json
 ├── modules/
 ├── public/
+├── scripts/
 ├── nuxt.config.ts
+├── vercel.json
 └── package.json
 ```
 
@@ -303,7 +305,7 @@ useSeoMeta({
 ### Forms
 
 - Validation schemas are written with **Zod 4**, inside a `computed` so their messages come from `t()` and update when the locale changes.
-- Forms use the `useSchemaForm(schema, initialValues)` composable: it validates on submit and, after the first submit, revalidates on every change (the same behavior as `react-hook-form` in the React version). It returns `values`, `errors` (first message per field), `isSubmitting`, `handleSubmit` and `reset`.
+- Forms use the `useSchemaForm(schema, initialValues)` composable: it validates on submit and, after the first submit, revalidates on every change. It returns `values`, `errors` (first message per field), `isSubmitting`, `handleSubmit` and `reset`.
 - Fields are built with `UiFormField` + `UiTextInput`/`UiTextArea`. Every field has an `id`, a `<label for>`, `name`, the right `autocomplete` and `aria-describedby` pointing to its error. Forms use `novalidate`, since validation and messages are ours.
 - While submitting, the submit button is disabled and shows a "sending" label. On success, show a success toast and reset the form; on any failure (HTTP error, network error or a negative response from the service), show an error toast and **keep** what the user typed.
 - User feedback for asynchronous actions uses toasts from `vue-sonner` (`import { toast } from 'vue-sonner'`). The `Toaster` is mounted once in the default layout (`LayoutAppToaster`), following the site theme.
@@ -354,20 +356,15 @@ useSeoMeta({
     - Do not repeat what a custom utility already sets (`glass-card` already includes the border, so no extra `border-b`), and never put two classes that set the same property under the same variant on one element.
 - Shared custom utilities (`glass-card`, `glow-text`, `link-underline`) are declared with `@utility` in `main.css` and used like any Tailwind class.
 
-### Visual parity with the React version
+### Design decisions
 
-The Nuxt version must look **exactly** like the React version. After migrating anything visual, compare both side by side (dark and light themes, desktop and mobile, hover and open states). The React project uses Tailwind v3 and the Nuxt project uses Tailwind v4, so watch for these differences:
-
-- `container` behaves differently. Use `mx-auto w-full max-w-[1400px]` plus explicit horizontal padding.
-- `rotate-*` and `scale-*` use the individual `rotate`/`scale` CSS properties in v4, which rasterize slightly differently from v3's `transform`. When an element has a resting transform that must match the React version (such as the theme toggle icons), use `[transform:rotate(0)_scale(1)]`.
-- shadcn's `[&_svg]:size-4` in buttons overrides the icon's own size classes. `UiBaseButton` keeps this rule, so icons inside buttons are always 16px.
-- Links rendered inside `<li>` must be blockified (`li` with `flex`) to keep the same vertical alignment as the React flex children.
-- `space-y-*` changed: v3 adds `margin-top` to the following siblings, v4 adds `margin-bottom` to the previous ones, and a child's own `mb-*` class wins over it. Inside **flex** containers (where margins do not collapse) this changes the spacing; use explicit margins (`mt-1.5`) to reproduce the React result.
-- In v3, `@layer components` classes such as React's `project-card` lose to utilities only by source order and specificity; in v4 cascade layers make utilities always win. Recreate such classes as a single `@utility` (`surface-card`, `tech-badge`) that encodes the **final** computed result of the React cascade, including the `.light` overrides.
-- Card titles are `h2` (React used `h3` right after the page `h1`, skipping a level). Keep this when comparing with React.
+- The layout container is `mx-auto w-full max-w-350` plus explicit horizontal padding (Tailwind v4 `container` has no centering or padding).
+- `UiBaseButton` keeps shadcn's `[&_svg]:size-4`, so icons inside buttons are always 16px.
+- Card styles that combine many properties (`surface-card`, `tech-badge`) are single `@utility` classes in `main.css`, including their `.light` overrides. Utilities passed in templates always win over them (cascade layers).
 - Third-party CSS that is not in a cascade layer (such as `vue-sonner`) always wins over Tailwind v4 utilities, whatever their specificity. Style those components through their CSS variables first (`--normal-bg`, `--normal-text`, `--normal-border` on the toaster) and use the important modifier (`text-muted-foreground!`) only where no variable exists.
-- Tailwind v4 changed the default palette to OKLCH. The palette colors used by the React version (`red-500`, `red-600`, `blue-500`, `pink-500`) are redefined in `@theme` with their v3 values. Prefer semantic tokens (`destructive`) for new code.
-- The React version loaded Inter and Geist only in the `normal` style, so italic text is synthesized by the browser. `@nuxt/fonts` is configured with `styles: ['normal']` to keep the same rendering; do not add italic font files.
+- The palette colors `red-500`, `red-600`, `blue-500` and `pink-500` are redefined in `@theme` with their Tailwind v3 (hex) values. Prefer semantic tokens (`destructive`) for new code.
+- Inter and Geist are loaded only in the `normal` style; italic text is synthesized by the browser. Do not add italic font files.
+- After any visual change, check dark and light themes, desktop and mobile, and hover, focus and open states.
 
 ## Performance
 
@@ -396,7 +393,7 @@ The target is Lighthouse 100 on desktop and as close as possible on mobile, with
 
 ## Accessibility
 
-- New color combinations should meet WCAG AA contrast (4.5:1 for normal text) in both themes. The only accepted exception is the brand green (`hsl(145 63% 43%)` with white text on buttons, and as text on the light background), kept identical to the React version by the owner's choice; axe reports it as `color-contrast`. Do not darken it or change its foreground without asking.
+- New color combinations should meet WCAG AA contrast (4.5:1 for normal text) in both themes. The only accepted exception is the brand green (`hsl(145 63% 43%)` with white text on buttons, and as text on the light background), kept as the brand color by the owner's choice; axe reports it as `color-contrast`. Do not darken it or change its foreground without asking.
 - Headings follow the document order with no skipped levels: one `h1` per page (`UiPageHeader`), then `h2` for sections and card titles, `h3` inside them.
 - Apart from the brand green contrast above, axe must report 0 violations on every page in dark and light themes.
 
@@ -421,7 +418,12 @@ Security headers are set by `nuxt-security` and by `routeRules` in `nuxt.config.
 
 ## Deployment
 
-- The site is deployed on **Vercel** with zero configuration: create the project with **Root Directory** `portfolio`; framework, build command and output are detected by Nuxt.
+- The site is deployed on **Vercel**. Import the repository with the default settings (Root Directory is the repository root); `vercel.json` pins what would otherwise be detected:
+    - `framework: "nuxtjs"`, `installCommand: "npm ci"` (exact lockfile) and `buildCommand: "npm run build"`. Nitro detects Vercel and writes `.vercel/output` (Build Output API) by itself, so there is no `outputDirectory`.
+    - `regions: ["gru1"]` (São Paulo) for the server function, close to the main audience. It only serves non-prerendered URLs (the 404 fallback).
+    - `github.silent` avoids a bot comment on every commit and pull request.
+- Headers, redirects and rewrites are **never** written in `vercel.json`: they belong to `routeRules` / `security` in `nuxt.config.ts`, which Nitro turns into the Vercel routing config. Keeping them in one place avoids rules that conflict or silently override each other. Never add an SPA rewrite to `/index.html`; it would hide every 404.
+- Domains (`www.arturbomtempo.dev` as primary, the apex redirecting to it) are configured in the Vercel dashboard, not in code.
 - Every page is prerendered (`crawlLinks` from `/`, `/en` and `/es`) and public assets are precompressed. Unknown URLs fall back to the server function, which renders the translated 404.
 - Images are optimized by Vercel Image Optimization (`/_vercel/image`), ignored by the prerender crawler.
 - `.vercel` (local build output) is git-ignored.
@@ -469,8 +471,6 @@ Why not merge them:
 - vue-i18n compiles every message: characters such as `|`, `@`, `{` and `}` have special meaning, and arrays of objects, image URLs or icon components do not belong there. Long content would have to be escaped and read with `tm()`/`rt()`.
 - Content is typed by TypeScript interfaces, which catches a missing field in one translation at type-check time.
 
-The React version kept both layers in the same `content.<locale>.ts` file (the `ui` object next to the data arrays); the Nuxt version only separates them.
-
 If the content grows (for example many projects or articles with long text), the next step is to move `app/data` to Nuxt Content collections, not into the locale JSON files.
 
 ### UI messages
@@ -485,7 +485,7 @@ If the content grows (for example many projects or articles with long text), the
 ### Switching locales
 
 - Switch locales with `setLocale(code)`; list them with `locales` from `useI18n()`.
-- Switching the locale must feel like the React version: only the texts change, without remounting the page, replaying enter animations or scrolling. This is done by two pieces that must be kept:
+- Switching the locale must be seamless: only the texts change, without remounting the page, replaying enter animations or scrolling. This is done by two pieces that must be kept:
     - `app.vue` passes `useLocaleAgnosticRouteKey()` as the `NuxtPage` `page-key`, so `/` and `/en` share the same component instance.
     - `app/middleware/preserve-scroll-on-locale-switch.global.ts` disables scroll-to-top when only the locale changed.
 - UI state that should survive a locale switch (such as the mobile menu) must watch `useLocaleAgnosticRouteKey()` instead of `route.fullPath`.
@@ -509,10 +509,10 @@ export function useAboutContent() {
 ```
 
 - The `LocaleCode` type comes from `app/types/locale.ts`; never redeclare the locale union by hand.
-- Optional fields are omitted when there is no value. Never use placeholders such as `'#'` or empty strings (the React version used `liveUrl: '#'`); the type marks them as optional (`liveUrl?: string`) and the component renders the related UI only when the value exists.
+- Optional fields are omitted when there is no value. Never use placeholders such as `'#'` or empty strings; the type marks them as optional (`liveUrl?: string`) and the component renders the related UI only when the value exists.
 - **Every piece of content must exist in all three languages.** The three locale files of a module must keep the same structure, the same number of items **in the same order**, and the same number of entries in every inner list (details, activities, technologies). Adding, removing or reordering an item is always done in `pt`, `en` and `es` in the same change.
 - Fields that are not translated (`id`, images, URLs, dates, `type`, `platform`, people's names and technology names) must be identical in the three files; only the human-readable text changes. Keep proper names written the same way (`Express.js`, `Thiago Porto`).
-- When a source text already exists in another language (such as an article originally published in English), use its original title in that locale. Icons are stored as Lucide components imported from `@lucide/vue` (`icon: Trophy`), typed as `LucideIcon`, exactly like the React version did with `lucide-react`.
+- When a source text already exists in another language (such as an article originally published in English), use its original title in that locale. Icons are stored as Lucide components imported from `@lucide/vue` (`icon: Trophy`), typed as `LucideIcon`.
 
 ## Icons
 
@@ -532,7 +532,7 @@ import { ArrowRight } from '@lucide/vue';
 - Use the canonical icon names (`CircleCheck`), not the legacy aliases (`CheckCircle2`).
 - When an icon is data (an achievement, a tech category), store the component itself and type it as `LucideIcon`; render it with `<component :is="item.icon" />`.
 - Size icons with Tailwind classes (`h-4 w-4`). Inside `UiBaseButton` they are forced to 16px by `[&_svg]:size-4`, as in shadcn.
-- Lucide 1.x no longer ships brand icons (GitHub, LinkedIn…). Brand logos come from **`@tabler/icons-vue`** (MIT), whose outline style (2px stroke on a 24px grid) matches Lucide and the brand icons of the React version. Import them by name, like Lucide icons:
+- Lucide 1.x no longer ships brand icons (GitHub, LinkedIn…). Brand logos come from **`@tabler/icons-vue`** (MIT), whose outline style (2px stroke on a 24px grid) matches Lucide. Import them by name, like Lucide icons:
 
 ```vue
 <script setup lang="ts">
@@ -616,34 +616,3 @@ Prettier is the single source of truth (`.prettierrc`): 4 spaces, single quotes,
 `modules/components-alias-dep-scan.ts` fixes an incompatibility between Vite 8's dependency scan and `@nuxtjs/i18n`: the scan cannot resolve Nuxt's `#components` alias inside packages that declare their own `imports` field. The module marks `#components` as external **only during the scan**, so pre-bundling works and the real resolution is still done by Nuxt. Remove it once Nuxt or `@nuxtjs/i18n` fixes the issue upstream (check by deleting it and running `npm run dev` with an empty `node_modules/.cache`).
 
 `modules/vercel-header-routes-continue.ts` runs only with the `vercel` preset. Nitro writes `routeRules` headers to `.vercel/output/config.json` as routes without `continue: true`, so a matched header route would stop routing before the static files and the 404 fallback function. The module adds `continue: true` to routes that only set headers. Remove it once Nitro does this itself (check the generated `config.json` after `NITRO_PRESET=vercel npm run build`).
-
-## Migration from React
-
-When migrating a feature from the React version (`../src`):
-
-1. Find the React page in `../src/pages/<name>` and its components in `../src/components`.
-2. Create the route in `app/pages`, with `useSeoMeta`. Move the page's texts from `../src/data/content.{pt,en,es}.ts` (the `ui` object) into the three locale files, and its data arrays into `app/data/<module>/<locale>.ts`. Generate these files from the React sources instead of retyping them, so no content is lost or altered.
-3. Split the page into module components under `app/components/<module>/<ComponentName>/index.vue`.
-4. Translate React patterns to Vue/Nuxt equivalents:
-
-| React                       | Nuxt / Vue                                                  |
-| --------------------------- | ----------------------------------------------------------- |
-| `react-router-dom` routes   | Files in `app/pages`                                        |
-| `<Link to>`                 | `<NuxtLink to>`                                             |
-| `useState`                  | `ref` / `reactive`                                          |
-| `useMemo`                   | `computed`                                                  |
-| `useEffect`                 | `watch`, `watchEffect`, `onMounted`                         |
-| Context providers + hooks   | Composables (`useState` from Nuxt for shared state)         |
-| `useLanguage` / `t.home.x`  | `useI18n()` / `t('home.x')`                                 |
-| `useTheme`                  | `useColorMode()`                                            |
-| Radix UI                    | `reka-ui`                                                   |
-| `className`                 | `class`                                                     |
-| Conditional JSX             | `v-if` / `v-else`                                           |
-| `array.map` in JSX          | `v-for` with `:key`                                         |
-| `lucide-react`              | `@lucide/vue` (same component API, see [Icons](#icons))     |
-| `cn()` from `@/lib/utils`   | `cn()` from `app/utils/cn.ts` (auto-imported)               |
-| `tailwindcss-animate`       | `tw-animate-css` (same class names)                         |
-| shadcn/ui (`components/ui`) | Own components in `components/ui`, created only when needed |
-
-5. Bring over only what is used. The React project contains many unused shadcn components; do not port them.
-6. Remove comments and `TODO`s found in the React code; they must not reach the Nuxt version.
