@@ -49,6 +49,21 @@
         "title": "About Me",
         "description": "I am a developer passionate about creating innovative and efficient solutions. With over 4 years of experience, I have been dedicated to building web and mobile applications that make a difference in people's lives. My focus is always on delivering clean, scalable code that meets users' real needs.",
         "technologiesTitle": "Technologies",
+        "github": {
+            "title": "GitHub Activity",
+            "description": "My public GitHub contributions over the last 12 months.",
+            "stats": {
+                "contributions": "Contributions in the last year",
+                "activeDays": "Days with contributions",
+                "longestStreak": "Longest day streak"
+            },
+            "graphLabel": "GitHub contribution graph: {count} contributions in the last year",
+            "loading": "Loading GitHub activity",
+            "tooltip": "No contributions on {date} | 1 contribution on {date} | {count} contributions on {date}",
+            "less": "Less",
+            "more": "More",
+            "viewProfile": "View GitHub profile"
+        },
         "testimonialsTitle": "Testimonials",
         "educationTitle": "Education",
         "experienceTitle": "Professional Experience",

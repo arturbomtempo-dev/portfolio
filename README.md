@@ -63,7 +63,7 @@ It is also a professional reference in itself: a small but complete production c
 - **Projects with detail pages:** every project has its own route (`/projects/<id>`) with cover image, description, technologies, links and a dedicated social preview image.
 - **Events timeline:** talks, workshops and courses on a vertical timeline grouped by year, with filters in the URL and a detail page per event with links, topics and a photo gallery with a lightbox.
 - **Content hub:** articles, videos and newsletters with filters stored in the URL (`/contents?type=video`), so a filtered view can be shared.
-- **About page:** achievements, technologies, career timeline and a testimonials carousel.
+- **About page:** achievements, technologies, a live GitHub contribution graph, career timeline and a testimonials carousel.
 - **Contact form:** validated with Zod in the visitor's language and delivered by e-mail through FormSubmit, with a honeypot field against spam.
 - **SEO:** prerendered HTML, canonical URLs, a sitemap per language, `robots.txt` and Open Graph images per language and per project.
 - **Performance:** AVIF and WebP images in the exact size each screen needs, self-hosted fonts and components loaded only when they are needed.
@@ -224,6 +224,8 @@ After each deploy, check one page in each language, a project page, a 404 page a
 │   └── utils/                   # Pure helper functions
 ├── i18n/locales/                # Interface messages in pt, en and es
 ├── modules/                     # Local Nuxt modules for build-level fixes
+├── server/api/                  # Server route that proxies and caches the GitHub contribution graph
+├── shared/                      # Types and constants shared by the app and the server
 ├── public/
 │   ├── images/                  # Optimized WebP images used by the pages
 │   ├── og/                      # Social preview images per language and per project

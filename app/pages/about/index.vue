@@ -16,6 +16,7 @@ useSeoMeta({
             <UiPageHeader :title="t('about.title')" :description="t('about.description')" />
             <AboutAchievementsSection />
             <AboutTechnologiesSection />
+            <AboutGitHubActivitySection />
             <AboutTestimonialsSection />
             <AboutTimelineSection />
         </div>

@@ -49,6 +49,21 @@
         "title": "Sobre Mim",
         "description": "Sou um desenvolvedor apaixonado por criar soluções inovadoras e eficientes. Com mais de 4 anos de experiência, tenho me dedicado a construir aplicações web e mobile que fazem a diferença na vida das pessoas. Meu foco é sempre entregar código limpo, escalável e que atenda às necessidades reais dos usuários.",
         "technologiesTitle": "Tecnologias",
+        "github": {
+            "title": "Atividade no GitHub",
+            "description": "Minhas contribuições públicas no GitHub nos últimos 12 meses.",
+            "stats": {
+                "contributions": "Contribuições no último ano",
+                "activeDays": "Dias com contribuições",
+                "longestStreak": "Maior sequência de dias"
+            },
+            "graphLabel": "Gráfico de contribuições no GitHub: {count} contribuições no último ano",
+            "loading": "Carregando atividade do GitHub",
+            "tooltip": "Nenhuma contribuição em {date} | 1 contribuição em {date} | {count} contribuições em {date}",
+            "less": "Menos",
+            "more": "Mais",
+            "viewProfile": "Ver perfil no GitHub"
+        },
         "testimonialsTitle": "Depoimentos",
         "educationTitle": "Educação",
         "experienceTitle": "Experiência Profissional",

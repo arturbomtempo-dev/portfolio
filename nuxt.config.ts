@@ -1,6 +1,7 @@
 import tailwindcss from '@tailwindcss/vite';
 
 const SITE_URL = 'https://www.arturbomtempo.dev';
+const GITHUB_CONTRIBUTIONS_CACHE_IN_SECONDS = 60 * 60 * 6;
 
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
@@ -48,6 +49,9 @@ export default defineNuxtConfig({
         },
     },
     routeRules: {
+        '/api/github/contributions': {
+            swr: GITHUB_CONTRIBUTIONS_CACHE_IN_SECONDS,
+        },
         '/**': {
             headers: {
                 'Permissions-Policy':

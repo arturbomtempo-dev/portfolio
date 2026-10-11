@@ -126,6 +126,11 @@ The project follows the standard **Nuxt 4 directory structure**, with components
 │       ├── en.json
 │       └── es.json
 ├── modules/
+├── server/
+│   └── api/
+├── shared/
+│   ├── types/
+│   └── utils/
 ├── public/
 ├── resources/
 ├── scripts/
@@ -154,6 +159,8 @@ The tree above is the target shape. Create folders only when they are actually n
 | `i18n/locales`            | Translation messages, one JSON file per locale. The only place where user-facing text is written.                                                                                                                                                        |
 | `resources`               | Screenshots used by `README.md`. Never referenced by the app; refresh them (WebP, English pages, 1440×900 desktop and 390×844 mobile) when a page changes visibly.                                                                                       |
 | `scripts`                 | Node scripts run by hand through npm scripts (`images:prepare`). Never imported by the app.                                                                                                                                                              |
+| `server`                  | Nitro server routes (`server/api/**`). Only for what should not run in the browser, such as proxying and caching third-party APIs. The site itself stays prerendered.                                                                                    |
+| `shared`                  | Types (`shared/types`) and constants (`shared/utils`) used by both the app and the server. Utils are auto-imported in both; types are imported from `#shared/types/<file>`.                                                                              |
 | `modules`                 | Local Nuxt modules, registered automatically. Only for build-level integration (Vite plugins, hooks), never for app logic.                                                                                                                               |
 | `public`                  | Files served as-is from the site root: favicons, `site.webmanifest`, images (`images/<folder>/`) and Open Graph images (`og/`).                                                                                                                          |
 
@@ -272,6 +279,17 @@ Available UI components (check them before creating a new one):
 - Keep the dialog's data while it closes: store the selection (preferably an index into the localized content) separately from the `open` state, so the closing animation still shows the content and a locale switch updates an open dialog.
 - Every dialog needs a `DialogTitle` (and a `DialogDescription` when there is a subtitle) from `reka-ui`, for screen readers.
 - Dialogs are not part of the first render: render them as lazy components (`<LazyAboutDetailsDialog>`) behind a `hasOpenedDialog` flag that becomes `true` on the first open, so `reka-ui` and the dialog code are only downloaded when needed.
+
+## GitHub activity
+
+- The about page shows the public GitHub contribution graph (`AboutGitHubActivitySection` + `AboutContributionGraph`) with three stats computed from it: contributions in the last year, days with contributions and the longest streak.
+- GitHub's official REST API does not expose the contribution calendar, and its GraphQL API requires a token. The data comes from the public, token-free [GitHub Contributions API](https://github.com/grubersjoe/github-contributions-api) (`github-contributions-api.jogruber.de`), the same source used by `react-github-calendar`. It mirrors the graph shown on the GitHub profile.
+- The browser never calls that service directly: `server/api/github/contributions.get.ts` fetches it, groups the days into weeks starting on Sunday and returns a `ContributionCalendar` (`shared/types/github.ts`). This keeps the CSP limited to `'self'`, isolates the components from the third-party format and lets the cache absorb outages.
+- The route is cached with `swr` for 6 hours (`routeRules`), which becomes ISR on Vercel: the service is called at most a few times a day and the graph stays fresh without redeploys.
+- The component fetches the route with `useFetch(..., { server: false, lazy: true })`. While loading, the section renders a skeleton with the final dimensions (no layout shift). If the service fails, the route answers 502 and the section is hidden.
+- The graph is our own component on purpose: the maintained library (`react-github-calendar`) is React-only, and the Vue alternatives are unmaintained (`vue-github-calendar`, `vue3-calendar-heatmap`).
+- The username lives only in `GITHUB_USERNAME` (`shared/utils/github.ts`), also used by the social links.
+- Contribution colors come from the brand green in five levels (`getContributionLevelClass` in `app/utils/contributionLevel.ts`), shared by the graph and its legend.
 
 ## Pages, routing and SEO
 
@@ -439,7 +457,7 @@ Security headers are set by `nuxt-security` and by `routeRules` in `nuxt.config.
     - `github.silent` avoids a bot comment on every commit and pull request.
 - Headers, redirects and rewrites are **never** written in `vercel.json`: they belong to `routeRules` / `security` in `nuxt.config.ts`, which Nitro turns into the Vercel routing config. Keeping them in one place avoids rules that conflict or silently override each other. Never add an SPA rewrite to `/index.html`; it would hide every 404.
 - Domains (`www.arturbomtempo.dev` as primary, the apex redirecting to it) are configured in the Vercel dashboard, not in code.
-- Every page is prerendered (`crawlLinks` from `/`, `/en` and `/es`) and public assets are precompressed. Unknown URLs fall back to the server function, which renders the translated 404.
+- Every page is prerendered (`crawlLinks` from `/`, `/en` and `/es`) and public assets are precompressed. Unknown URLs fall back to the server function, which renders the translated 404. `/api/github/contributions` is the only other server route, deployed as an ISR function.
 - Images are optimized by Vercel Image Optimization (`/_vercel/image`), ignored by the prerender crawler.
 - `.vercel` (local build output) is git-ignored.
 - After every deploy, check one page in each locale, a project page, a 404, the security headers and send one real message through the contact form.

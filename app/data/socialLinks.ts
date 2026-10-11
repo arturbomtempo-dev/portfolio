@@ -11,7 +11,7 @@ import type { SocialLink } from '~/types/social';
 export const SOCIAL_LINKS: SocialLink[] = [
     {
         labelKey: 'social.github',
-        href: 'https://github.com/arturbomtempo-dev',
+        href: GITHUB_PROFILE_URL,
         icon: IconBrandGithub,
         hoverClass: 'hover:text-primary',
     },
