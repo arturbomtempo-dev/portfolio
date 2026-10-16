@@ -143,7 +143,12 @@
             "title": "Photos from {event}",
             "previous": "Previous photo",
             "next": "Next photo",
-            "counter": "{index} of {total}"
+            "counter": "{index} of {total}",
+            "close": "Close viewer",
+            "zoomIn": "Zoom in",
+            "zoomOut": "Zoom out",
+            "thumbnails": "Photo thumbnails",
+            "showPhoto": "Show photo {index}"
         },
         "pagination": {
             "label": "Talk navigation",
@@ -156,7 +161,8 @@
             },
             "title": "Talk not found",
             "message": "The talk you are looking for doesn't exist or has been removed."
-        }
+        },
+        "morePhotos": "View {count} more photos"
     },
     "blackbox": {
         "usage": {

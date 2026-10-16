@@ -397,7 +397,9 @@ useSeoMeta({
 - The layout has a single side on every screen size: the line runs on the left, each item has a dot on the line with the long date (`formatLongDate`) next to it, and the card sits to the right of the line. Inside the card, the image is on the left and the text on the right from `lg` up (stacked, image on top, below it). Do not alternate cards between both sides of a central line; the owner prefers the single-side layout.
 - Each card is a stretched link to `/talks/[id]`. The detail page shows type, date, location, cover, the available links (website of the event where the talk happened, recording, slides, repository; the first one is the primary button), description, topics and a photo gallery.
 - The section is about talks; "event" only names the conference where a talk happened (`eventName`, `eventUrl`, "Site do evento").
-- The gallery opens `LazyTalksPhotoLightbox` (a `UiBaseDialog`) on the first click, with previous/next buttons over the photo and arrow-key navigation.
+- The gallery is a mosaic (`TalksTalkGallery`): the first photo is the large tile and the others get square, tall (two rows) or wide (two columns) tiles. `createMosaicLayout` (`app/utils/photoMosaic.ts`) picks the shapes for the photo count and puts portrait photos in tall tiles and landscape photos in wide tiles, so the crop is minimal. The grid has 4 columns from `md` and 2 below, with `grid-flow-row-dense`; `test/talks/photoMosaic.test.ts` simulates both grids and proves there are no holes for 1 to 16 photos. At most 9 photos are shown; the last tile then shows `+N` and opens the viewer there.
+- Every photo declares its `width` and `height` (`TalkPhoto`), which the mosaic uses for the orientation and `NuxtImg` for the aspect ratio. Fill them from the real files when adding photos.
+- Clicking a tile opens `LazyTalksPhotoLightbox`, a full-screen viewer built on `reka-ui` dialog primitives (dark in both themes, like any media viewer): the whole photo without crop, counter, previous/next buttons, arrow keys, swipe on touch screens, a thumbnail strip that follows the current photo, and zoom (button or click on the photo, following the pointer; it resets when the photo changes). The viewer follows the mosaic order, then the hidden photos.
 
 ### Navigation active state
 
@@ -441,12 +443,11 @@ The target is Lighthouse 100 on desktop and as close as possible on mobile, with
 
 ### Images
 
-- Every image is local: `public/images/<folder>/<slug>.webp` (`profile`, `testimonials`, `projects`, `talks`, `contents`, `organizations`). Talk covers are `images/talks/<id>.webp`; gallery photos go to `images/talks/<id>/<number>.webp`, and `images/talks/placeholders/` holds neutral placeholders used only while real photos are missing. Data files reference them by path (`/images/projects/portfolio.webp`). Never hotlink remote images.
+- Every image is local: `public/images/<folder>/<slug>.webp` (`profile`, `testimonials`, `projects`, `talks`, `contents`). Talk covers are `images/talks/<id>.webp`; gallery photos go to `images/talks/<id>/<number>.webp`, and `images/talks/placeholders/` holds neutral placeholders used only while real photos are missing. Data files reference them by path (`/images/projects/portfolio.webp`). Never hotlink remote images.
 - Add new images in any format to the right folder and run `npm run images:prepare`: it converts them to WebP with a maximum width per folder, deletes the originals and creates the missing project Open Graph images (`public/og/projects/<id>.jpg`, 1200×630).
 - Render images with `NuxtImg`, always with `width`, `height` (no layout shift) and `alt`. It serves AVIF/WebP in the right size: with the IPX provider locally and Vercel Image Optimization on Vercel (detected automatically).
 - Responsive images use `sizes` with **breakpoint-prefixed** keys (`sizes="sm:90vw md:45vw lg:340px"`). An unprefixed value produces broken `1w`/`2w` candidates. Fixed-size images (avatars) use `densities="x1 x2"` instead.
 - Only images visible in the first viewport (hero avatar, project cover, first row of cards) are `loading="eager"` with `fetchpriority="high"` (or `:preload="{ fetchPriority: 'high' }"` for the single LCP image). Everything else is `loading="lazy"`.
-- Organization logos (education and experience timeline) are square images in `images/organizations/<slug>.webp`, 160×160, referenced by the `logo` field of each timeline item (identical in the three locales). They are rendered as 24px circles before the organization name, with an empty `alt` because the organization name is written next to them.
 - Generated widths come from `image.screens` in `nuxt.config.ts`; Vercel only serves widths listed there. When an image needs a new rendered size, add it to `screens` instead of accepting a much larger snapped width.
 
 ### JavaScript and CSS

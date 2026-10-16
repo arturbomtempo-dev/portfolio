@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Maximize2 } from '@lucide/vue';
 import type { TalkPhoto } from '~/types/talk';
+import type { MosaicShape } from '~/utils/photoMosaic';
 
 interface Props {
     photos: TalkPhoto[];
@@ -9,9 +10,23 @@ interface Props {
 
 const props = defineProps<Props>();
 
-const PHOTO_WIDTH_IN_PX = 480;
-const PHOTO_HEIGHT_IN_PX = 360;
-const PHOTO_SIZES = 'sm:50vw md:33vw lg:288px';
+const CLASS_BY_SHAPE: Record<MosaicShape, string> = {
+    full: 'col-span-2 row-span-2 md:col-span-4',
+    hero: 'col-span-2 row-span-2',
+    half: 'col-span-2 row-span-2',
+    tall: 'row-span-2',
+    wide: 'col-span-2',
+    square: '',
+};
+
+const SIZES_BY_SHAPE: Record<MosaicShape, string> = {
+    full: 'md:100vw lg:832px',
+    hero: 'md:100vw lg:416px',
+    half: 'md:100vw lg:416px',
+    tall: 'md:50vw lg:208px',
+    wide: 'md:100vw lg:416px',
+    square: 'md:50vw lg:208px',
+};
 
 const { t } = useI18n();
 
@@ -19,10 +34,44 @@ const selectedPhotoIndex = ref(0);
 const isLightboxOpen = ref(false);
 const hasOpenedLightbox = ref(false);
 
-function openPhoto(index: number) {
-    selectedPhotoIndex.value = index;
+const layout = computed(() => createMosaicLayout(props.photos));
+
+const orderedPhotos = computed(() => {
+    const visibleIndexes = layout.value.cells.map((cell) => cell.photoIndex);
+    const hiddenPhotos = props.photos.filter((_, index) => !visibleIndexes.includes(index));
+
+    return [...visibleIndexes.flatMap((index) => props.photos[index] ?? []), ...hiddenPhotos];
+});
+
+const tiles = computed(() =>
+    layout.value.cells.flatMap((cell, position) => {
+        const photo = props.photos[cell.photoIndex];
+
+        return photo
+            ? [
+                  {
+                      photo,
+                      position,
+                      shape: cell.shape,
+                      hasHiddenPhotosOverlay:
+                          layout.value.hiddenCount > 0 &&
+                          position === layout.value.cells.length - 1,
+                  },
+              ]
+            : [];
+    })
+);
+
+function openPhoto(position: number) {
+    selectedPhotoIndex.value = position;
     hasOpenedLightbox.value = true;
     isLightboxOpen.value = true;
+}
+
+function getTileLabel(position: number, hasHiddenPhotosOverlay: boolean) {
+    return hasHiddenPhotosOverlay
+        ? t('talkDetails.morePhotos', { count: layout.value.hiddenCount })
+        : t('talkDetails.openPhoto', { index: position + 1, total: props.photos.length });
 }
 </script>
 
@@ -34,34 +83,48 @@ function openPhoto(index: number) {
                 {{ t('talks.photos', props.photos.length) }}
             </span>
         </div>
-        <ul class="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
-            <li v-for="(photo, index) in props.photos" :key="`${photo.src}-${index}`">
+
+        <ul
+            class="grid grid-flow-row-dense auto-rows-28 grid-cols-2 gap-2 sm:auto-rows-36 sm:gap-3 md:auto-rows-40 md:grid-cols-4"
+        >
+            <li
+                v-for="tile in tiles"
+                :key="`${tile.photo.src}-${tile.position}`"
+                :class="CLASS_BY_SHAPE[tile.shape]"
+            >
                 <button
                     type="button"
-                    :aria-label="
-                        t('talkDetails.openPhoto', {
-                            index: index + 1,
-                            total: props.photos.length,
-                        })
-                    "
-                    class="group relative block aspect-4/3 w-full overflow-hidden rounded-lg border border-border/50 ring-offset-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
-                    @click="openPhoto(index)"
+                    :aria-label="getTileLabel(tile.position, tile.hasHiddenPhotosOverlay)"
+                    class="group relative block size-full overflow-hidden rounded-lg border border-border/50 bg-muted ring-offset-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
+                    @click="openPhoto(tile.position)"
                 >
                     <NuxtImg
-                        :src="photo.src"
-                        :alt="photo.alt"
-                        :width="PHOTO_WIDTH_IN_PX"
-                        :height="PHOTO_HEIGHT_IN_PX"
-                        :sizes="PHOTO_SIZES"
+                        :src="tile.photo.src"
+                        :alt="tile.photo.alt"
+                        :width="tile.photo.width"
+                        :height="tile.photo.height"
+                        :sizes="SIZES_BY_SHAPE[tile.shape]"
                         loading="lazy"
                         decoding="async"
-                        class="size-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        class="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                     />
                     <span
                         aria-hidden="true"
-                        class="absolute inset-0 flex items-center justify-center bg-background/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+                        class="absolute inset-0 bg-linear-to-t from-black/45 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+                    />
+                    <span
+                        v-if="!tile.hasHiddenPhotosOverlay"
+                        aria-hidden="true"
+                        class="absolute right-3 bottom-3 flex size-8 translate-y-1 items-center justify-center rounded-full bg-background/80 text-foreground opacity-0 backdrop-blur-sm transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
                     >
-                        <Maximize2 class="size-6 text-primary" />
+                        <Maximize2 class="size-4" />
+                    </span>
+                    <span
+                        v-else
+                        aria-hidden="true"
+                        class="absolute inset-0 flex items-center justify-center bg-background/70 font-heading text-3xl font-semibold text-foreground backdrop-blur-xs transition-colors group-hover:bg-background/60"
+                    >
+                        +{{ layout.hiddenCount }}
                     </span>
                 </button>
             </li>
@@ -71,7 +134,7 @@ function openPhoto(index: number) {
             v-if="hasOpenedLightbox"
             v-model:open="isLightboxOpen"
             v-model:index="selectedPhotoIndex"
-            :photos="props.photos"
+            :photos="orderedPhotos"
             :event-name="props.eventName"
         />
     </section>

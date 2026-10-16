@@ -5,6 +5,8 @@ export type TalkFilter = 'all' | TalkType;
 export interface TalkPhoto {
     src: string;
     alt: string;
+    width: number;
+    height: number;
 }
 
 export interface Talk {

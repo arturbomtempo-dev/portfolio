@@ -18,18 +18,32 @@ export const TALKS_ES: Talk[] = [
             {
                 src: '/images/talks/placeholders/photo-1.webp',
                 alt: 'Foto 1 de Google I/O Extended Belo Horizonte 2025',
+                width: 1600,
+                height: 1067,
             },
             {
                 src: '/images/talks/placeholders/photo-2.webp',
                 alt: 'Foto 2 de Google I/O Extended Belo Horizonte 2025',
+                width: 1067,
+                height: 1600,
             },
             {
                 src: '/images/talks/placeholders/photo-3.webp',
                 alt: 'Foto 3 de Google I/O Extended Belo Horizonte 2025',
+                width: 1400,
+                height: 1400,
             },
             {
                 src: '/images/talks/placeholders/photo-4.webp',
                 alt: 'Foto 4 de Google I/O Extended Belo Horizonte 2025',
+                width: 1600,
+                height: 900,
+            },
+            {
+                src: '/images/talks/placeholders/photo-5.webp',
+                alt: 'Foto 5 de Google I/O Extended Belo Horizonte 2025',
+                width: 1000,
+                height: 1500,
             },
         ],
         eventUrl: 'https://gdgbh.com.br/',
@@ -49,16 +63,22 @@ export const TALKS_ES: Talk[] = [
         image: '/images/talks/curso-javascript-para-iniciantes.webp',
         gallery: [
             {
-                src: '/images/talks/placeholders/photo-5.webp',
+                src: '/images/talks/placeholders/photo-4.webp',
                 alt: 'Foto 1 de Canal de Artur Bomtempo en YouTube',
+                width: 1600,
+                height: 900,
+            },
+            {
+                src: '/images/talks/placeholders/photo-2.webp',
+                alt: 'Foto 2 de Canal de Artur Bomtempo en YouTube',
+                width: 1067,
+                height: 1600,
             },
             {
                 src: '/images/talks/placeholders/photo-6.webp',
-                alt: 'Foto 2 de Canal de Artur Bomtempo en YouTube',
-            },
-            {
-                src: '/images/talks/placeholders/photo-1.webp',
                 alt: 'Foto 3 de Canal de Artur Bomtempo en YouTube',
+                width: 1200,
+                height: 1200,
             },
         ],
         recordingUrl:
@@ -79,16 +99,28 @@ export const TALKS_ES: Talk[] = [
         image: '/images/talks/lives-programacao-orientada-a-objetos.webp',
         gallery: [
             {
-                src: '/images/talks/placeholders/photo-2.webp',
+                src: '/images/talks/placeholders/photo-7.webp',
                 alt: 'Foto 1 de Canal de Artur Bomtempo en YouTube',
+                width: 1600,
+                height: 1067,
             },
             {
-                src: '/images/talks/placeholders/photo-4.webp',
+                src: '/images/talks/placeholders/photo-5.webp',
                 alt: 'Foto 2 de Canal de Artur Bomtempo en YouTube',
+                width: 1000,
+                height: 1500,
+            },
+            {
+                src: '/images/talks/placeholders/photo-3.webp',
+                alt: 'Foto 3 de Canal de Artur Bomtempo en YouTube',
+                width: 1400,
+                height: 1400,
             },
             {
                 src: '/images/talks/placeholders/photo-6.webp',
-                alt: 'Foto 3 de Canal de Artur Bomtempo en YouTube',
+                alt: 'Foto 4 de Canal de Artur Bomtempo en YouTube',
+                width: 1200,
+                height: 1200,
             },
         ],
         recordingUrl:
@@ -109,28 +141,70 @@ export const TALKS_ES: Talk[] = [
         image: '/images/talks/escola-de-ferias-puc-minas-2025.webp',
         gallery: [
             {
-                src: '/images/talks/placeholders/photo-3.webp',
-                alt: 'Foto 1 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
-            },
-            {
                 src: '/images/talks/placeholders/photo-1.webp',
-                alt: 'Foto 2 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
-            },
-            {
-                src: '/images/talks/placeholders/photo-5.webp',
-                alt: 'Foto 3 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
+                alt: 'Foto 1 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
+                width: 1600,
+                height: 1067,
             },
             {
                 src: '/images/talks/placeholders/photo-2.webp',
-                alt: 'Foto 4 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
-            },
-            {
-                src: '/images/talks/placeholders/photo-6.webp',
-                alt: 'Foto 5 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
+                alt: 'Foto 2 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
+                width: 1067,
+                height: 1600,
             },
             {
                 src: '/images/talks/placeholders/photo-4.webp',
+                alt: 'Foto 3 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
+                width: 1600,
+                height: 900,
+            },
+            {
+                src: '/images/talks/placeholders/photo-3.webp',
+                alt: 'Foto 4 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
+                width: 1400,
+                height: 1400,
+            },
+            {
+                src: '/images/talks/placeholders/photo-5.webp',
+                alt: 'Foto 5 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
+                width: 1000,
+                height: 1500,
+            },
+            {
+                src: '/images/talks/placeholders/photo-7.webp',
                 alt: 'Foto 6 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
+                width: 1600,
+                height: 1067,
+            },
+            {
+                src: '/images/talks/placeholders/photo-6.webp',
+                alt: 'Foto 7 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
+                width: 1200,
+                height: 1200,
+            },
+            {
+                src: '/images/talks/placeholders/photo-8.webp',
+                alt: 'Foto 8 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
+                width: 1000,
+                height: 1400,
+            },
+            {
+                src: '/images/talks/placeholders/photo-4.webp',
+                alt: 'Foto 9 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
+                width: 1600,
+                height: 900,
+            },
+            {
+                src: '/images/talks/placeholders/photo-1.webp',
+                alt: 'Foto 10 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
+                width: 1600,
+                height: 1067,
+            },
+            {
+                src: '/images/talks/placeholders/photo-2.webp',
+                alt: 'Foto 11 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
+                width: 1067,
+                height: 1600,
             },
         ],
         repositoryUrl: 'https://github.com/arturbomtempo-dev/react-app-workshop',
@@ -150,20 +224,46 @@ export const TALKS_ES: Talk[] = [
         image: '/images/talks/devfest-bh-2024.webp',
         gallery: [
             {
-                src: '/images/talks/placeholders/photo-6.webp',
+                src: '/images/talks/placeholders/photo-7.webp',
                 alt: 'Foto 1 de DevFest Belo Horizonte 2024',
+                width: 1600,
+                height: 1067,
+            },
+            {
+                src: '/images/talks/placeholders/photo-8.webp',
+                alt: 'Foto 2 de DevFest Belo Horizonte 2024',
+                width: 1000,
+                height: 1400,
             },
             {
                 src: '/images/talks/placeholders/photo-3.webp',
-                alt: 'Foto 2 de DevFest Belo Horizonte 2024',
+                alt: 'Foto 3 de DevFest Belo Horizonte 2024',
+                width: 1400,
+                height: 1400,
             },
             {
-                src: '/images/talks/placeholders/photo-2.webp',
-                alt: 'Foto 3 de DevFest Belo Horizonte 2024',
+                src: '/images/talks/placeholders/photo-4.webp',
+                alt: 'Foto 4 de DevFest Belo Horizonte 2024',
+                width: 1600,
+                height: 900,
+            },
+            {
+                src: '/images/talks/placeholders/photo-6.webp',
+                alt: 'Foto 5 de DevFest Belo Horizonte 2024',
+                width: 1200,
+                height: 1200,
+            },
+            {
+                src: '/images/talks/placeholders/photo-1.webp',
+                alt: 'Foto 6 de DevFest Belo Horizonte 2024',
+                width: 1600,
+                height: 1067,
             },
             {
                 src: '/images/talks/placeholders/photo-5.webp',
-                alt: 'Foto 4 de DevFest Belo Horizonte 2024',
+                alt: 'Foto 7 de DevFest Belo Horizonte 2024',
+                width: 1000,
+                height: 1500,
             },
         ],
         eventUrl: 'https://gdgbh.com.br/',
@@ -183,9 +283,18 @@ export const TALKS_ES: Talk[] = [
         topics: ['Mentoría', 'Back-end', 'Front-end', 'Buenas Prácticas'],
         image: '/images/talks/webtech-network-formacoes.webp',
         gallery: [
-            { src: '/images/talks/placeholders/photo-4.webp', alt: 'Foto 1 de WebTech Network' },
-            { src: '/images/talks/placeholders/photo-5.webp', alt: 'Foto 2 de WebTech Network' },
-            { src: '/images/talks/placeholders/photo-1.webp', alt: 'Foto 3 de WebTech Network' },
+            {
+                src: '/images/talks/placeholders/photo-4.webp',
+                alt: 'Foto 1 de WebTech Network',
+                width: 1600,
+                height: 900,
+            },
+            {
+                src: '/images/talks/placeholders/photo-1.webp',
+                alt: 'Foto 2 de WebTech Network',
+                width: 1600,
+                height: 1067,
+            },
         ],
     },
 ];

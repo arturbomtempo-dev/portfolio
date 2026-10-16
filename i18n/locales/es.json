@@ -143,7 +143,12 @@
             "title": "Fotos de {event}",
             "previous": "Foto anterior",
             "next": "Foto siguiente",
-            "counter": "{index} de {total}"
+            "counter": "{index} de {total}",
+            "close": "Cerrar visor",
+            "zoomIn": "Ampliar foto",
+            "zoomOut": "Reducir zoom",
+            "thumbnails": "Miniaturas de las fotos",
+            "showPhoto": "Ver foto {index}"
         },
         "pagination": {
             "label": "Navegación entre charlas",
@@ -156,7 +161,8 @@
             },
             "title": "Charla no encontrada",
             "message": "La charla que buscas no existe o fue eliminada."
-        }
+        },
+        "morePhotos": "Ver {count} fotos más"
     },
     "blackbox": {
         "usage": {

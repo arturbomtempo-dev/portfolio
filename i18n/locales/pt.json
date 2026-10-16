@@ -143,7 +143,12 @@
             "title": "Fotos de {event}",
             "previous": "Foto anterior",
             "next": "Próxima foto",
-            "counter": "{index} de {total}"
+            "counter": "{index} de {total}",
+            "close": "Fechar visualizador",
+            "zoomIn": "Ampliar foto",
+            "zoomOut": "Reduzir zoom",
+            "thumbnails": "Miniaturas das fotos",
+            "showPhoto": "Ver foto {index}"
         },
         "pagination": {
             "label": "Navegação entre palestras",
@@ -156,7 +161,8 @@
             },
             "title": "Palestra não encontrada",
             "message": "A palestra que você está procurando não existe ou foi removida."
-        }
+        },
+        "morePhotos": "Ver mais {count} fotos"
     },
     "blackbox": {
         "usage": {
