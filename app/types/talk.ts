@@ -13,16 +13,13 @@ export interface Talk {
     id: string;
     type: TalkType;
     title: string;
-    eventName: string;
+    eventName?: string;
     location: string;
     date: string;
+    endDate?: string;
     description: string;
     fullDescription: string;
     topics: string[];
     image: string;
     gallery: TalkPhoto[];
-    eventUrl?: string;
-    slidesUrl?: string;
-    recordingUrl?: string;
-    repositoryUrl?: string;
 }

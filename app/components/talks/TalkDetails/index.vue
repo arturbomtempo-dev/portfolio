@@ -1,16 +1,6 @@
 <script setup lang="ts">
-import { CalendarDays, CirclePlay, ExternalLink, MapPin, Presentation } from '@lucide/vue';
-import { IconBrandGithub } from '@tabler/icons-vue';
-import type { Component } from 'vue';
+import { CalendarDays, MapPin } from '@lucide/vue';
 import type { Talk } from '~/types/talk';
-
-type TalkLinkKind = 'talk' | 'recording' | 'slides' | 'repository';
-
-interface TalkLink {
-    kind: TalkLinkKind;
-    url: string;
-    icon: Component;
-}
 
 interface Props {
     talk: Talk;
@@ -31,19 +21,8 @@ const { t, localeProperties } = useI18n();
 const localePath = useLocalePath();
 
 const formattedDate = computed(() =>
-    formatLongDate(props.talk.date, localeProperties.value.language ?? 'pt-BR')
+    formatTalkDate(props.talk.date, props.talk.endDate, localeProperties.value.language ?? 'pt-BR')
 );
-
-const links = computed<TalkLink[]>(() => {
-    const candidates: { kind: TalkLinkKind; url?: string; icon: Component }[] = [
-        { kind: 'talk', url: props.talk.eventUrl, icon: ExternalLink },
-        { kind: 'recording', url: props.talk.recordingUrl, icon: CirclePlay },
-        { kind: 'slides', url: props.talk.slidesUrl, icon: Presentation },
-        { kind: 'repository', url: props.talk.repositoryUrl, icon: IconBrandGithub },
-    ];
-
-    return candidates.filter((link): link is TalkLink => Boolean(link.url));
-});
 </script>
 
 <template>
@@ -67,8 +46,14 @@ const links = computed<TalkLink[]>(() => {
                 </span>
             </div>
 
-            <h1 class="glow-text mb-2 text-3xl font-bold sm:text-4xl">{{ props.talk.title }}</h1>
-            <p class="mb-8 text-lg text-muted-foreground">{{ props.talk.eventName }}</p>
+            <header class="mb-8">
+                <h1 class="glow-text mb-2 text-3xl font-bold sm:text-4xl">
+                    {{ props.talk.title }}
+                </h1>
+                <p v-if="props.talk.eventName" class="text-lg text-muted-foreground">
+                    {{ props.talk.eventName }}
+                </p>
+            </header>
 
             <div
                 class="relative mb-8 aspect-video overflow-hidden rounded-xl border border-border/50"
@@ -83,20 +68,6 @@ const links = computed<TalkLink[]>(() => {
                     fetchpriority="high"
                     class="size-full object-cover"
                 />
-            </div>
-
-            <div v-if="links.length" class="mb-8 flex flex-wrap gap-3">
-                <UiBaseButton
-                    v-for="(link, index) in links"
-                    :key="link.kind"
-                    :to="link.url"
-                    target="_blank"
-                    :variant="index === 0 ? 'primary' : 'outline-primary'"
-                    class="gap-2"
-                >
-                    <component :is="link.icon" class="size-4" />
-                    {{ t(`talkDetails.links.${link.kind}`) }}
-                </UiBaseButton>
             </div>
 
             <section class="mb-8">
@@ -118,7 +89,7 @@ const links = computed<TalkLink[]>(() => {
             <TalksTalkGallery
                 v-if="props.talk.gallery.length"
                 :photos="props.talk.gallery"
-                :event-name="props.talk.eventName"
+                :event-name="props.talk.eventName ?? props.talk.title"
             />
 
             <TalksTalkPagination

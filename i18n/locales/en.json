@@ -133,12 +133,6 @@
         "topicsTitle": "Topics covered",
         "galleryTitle": "Photos",
         "openPhoto": "Open photo {index} of {total}",
-        "links": {
-            "event": "Event website",
-            "slides": "View slides",
-            "recording": "Watch recording",
-            "repository": "View code"
-        },
         "lightbox": {
             "title": "Photos from {event}",
             "previous": "Previous photo",

@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const THUMBNAIL_WIDTH_IN_PX = 640;
 const THUMBNAIL_HEIGHT_IN_PX = 360;
-const THUMBNAIL_SIZES = 'md:90vw lg:288px';
+const THUMBNAIL_SIZES = 'md:90vw lg:320px';
 const VISIBLE_TOPICS_COUNT = 3;
 
 const { t } = useI18n();
@@ -35,7 +35,7 @@ const visibleTopics = computed(() => props.talk.topics.slice(0, VISIBLE_TOPICS_C
         "
     >
         <div
-            class="relative aspect-video shrink-0 overflow-hidden rounded-md lg:aspect-auto lg:min-h-48 lg:w-72"
+            class="relative aspect-video shrink-0 overflow-hidden rounded-md lg:w-80 lg:self-center"
         >
             <NuxtImg
                 :src="props.talk.image"
@@ -51,7 +51,9 @@ const visibleTopics = computed(() => props.talk.topics.slice(0, VISIBLE_TOPICS_C
             <TalksTalkTypeBadge :type="props.talk.type" class="absolute top-3 left-3" />
         </div>
         <div class="flex min-w-0 flex-1 flex-col">
-            <p class="mb-1 text-sm font-medium text-primary">{{ props.talk.eventName }}</p>
+            <p v-if="props.talk.eventName" class="mb-1 text-sm font-medium text-primary">
+                {{ props.talk.eventName }}
+            </p>
             <div class="mb-2 flex items-start justify-between gap-2">
                 <h3 class="text-xl font-semibold transition-colors group-hover:text-primary">
                     <NuxtLink

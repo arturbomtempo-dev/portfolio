@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<Props>(), {
 const { localeProperties } = useI18n();
 
 const formattedDate = computed(() =>
-    formatLongDate(props.talk.date, localeProperties.value.language ?? 'pt-BR')
+    formatTalkDate(props.talk.date, props.talk.endDate, localeProperties.value.language ?? 'pt-BR')
 );
 </script>
 
