@@ -1,6 +1,6 @@
-import type { SpeakingEvent } from '~/types/event';
+import type { Talk } from '~/types/talk';
 
-export const EVENTS_ES: SpeakingEvent[] = [
+export const TALKS_ES: Talk[] = [
     {
         id: 'io-extended-bh-2025',
         type: 'talk',
@@ -13,22 +13,22 @@ export const EVENTS_ES: SpeakingEvent[] = [
         fullDescription:
             'En Google I/O Extended Belo Horizonte presenté un panorama de las principales novedades anunciadas por Google para el desarrollo web, con foco en lo que ya se puede aplicar en el día a día de quien construye aplicaciones modernas.\n\nLa charla combinó contexto, demostraciones en vivo y recomendaciones prácticas para que cada participante saliera con próximos pasos claros.\n\nPrincipales temas abordados:\n- Nuevas APIs de la plataforma web y su soporte en los navegadores\n- Herramientas de rendimiento y las métricas Core Web Vitals\n- Funciones de inteligencia artificial integradas en el navegador\n- Cómo adoptar las novedades de forma gradual y segura',
         topics: ['Web', 'Rendimiento', 'Google I/O', 'Inteligencia Artificial'],
-        image: '/images/events/io-extended-bh-2025.webp',
+        image: '/images/talks/io-extended-bh-2025.webp',
         gallery: [
             {
-                src: '/images/events/placeholders/photo-1.webp',
+                src: '/images/talks/placeholders/photo-1.webp',
                 alt: 'Foto 1 de Google I/O Extended Belo Horizonte 2025',
             },
             {
-                src: '/images/events/placeholders/photo-2.webp',
+                src: '/images/talks/placeholders/photo-2.webp',
                 alt: 'Foto 2 de Google I/O Extended Belo Horizonte 2025',
             },
             {
-                src: '/images/events/placeholders/photo-3.webp',
+                src: '/images/talks/placeholders/photo-3.webp',
                 alt: 'Foto 3 de Google I/O Extended Belo Horizonte 2025',
             },
             {
-                src: '/images/events/placeholders/photo-4.webp',
+                src: '/images/talks/placeholders/photo-4.webp',
                 alt: 'Foto 4 de Google I/O Extended Belo Horizonte 2025',
             },
         ],
@@ -46,18 +46,18 @@ export const EVENTS_ES: SpeakingEvent[] = [
         fullDescription:
             'Creé un curso gratuito de JavaScript para principiantes, publicado en YouTube, con el objetivo de hacer que el primer contacto con la programación sea más simple, práctico y acogedor.\n\nCada clase combina explicaciones conceptuales con ejercicios guiados, para que los alumnos practiquen desde el primer momento.\n\nPrincipales temas abordados:\n- Variables, tipos de datos y operadores\n- Estructuras condicionales y de repetición\n- Funciones, arrays y objetos\n- Manipulación del DOM con proyectos prácticos',
         topics: ['JavaScript', 'Lógica de Programación', 'Front-end', 'Principiantes'],
-        image: '/images/events/curso-javascript-para-iniciantes.webp',
+        image: '/images/talks/curso-javascript-para-iniciantes.webp',
         gallery: [
             {
-                src: '/images/events/placeholders/photo-5.webp',
+                src: '/images/talks/placeholders/photo-5.webp',
                 alt: 'Foto 1 de Canal de Artur Bomtempo en YouTube',
             },
             {
-                src: '/images/events/placeholders/photo-6.webp',
+                src: '/images/talks/placeholders/photo-6.webp',
                 alt: 'Foto 2 de Canal de Artur Bomtempo en YouTube',
             },
             {
-                src: '/images/events/placeholders/photo-1.webp',
+                src: '/images/talks/placeholders/photo-1.webp',
                 alt: 'Foto 3 de Canal de Artur Bomtempo en YouTube',
             },
         ],
@@ -76,18 +76,18 @@ export const EVENTS_ES: SpeakingEvent[] = [
         fullDescription:
             'Conduje una serie de clases en vivo sobre Programación Orientada a Objetos, pensada para estudiantes que cursaban la asignatura en la universidad y querían reforzar los conceptos con práctica.\n\nLas clases tuvieron espacio abierto para preguntas, lo que permitió adaptar los ejemplos a las principales dudas del grupo.\n\nPrincipales temas abordados:\n- Clases, objetos y encapsulamiento\n- Herencia y polimorfismo\n- Interfaces y clases abstractas\n- Buenas prácticas de modelado orientado a objetos',
         topics: ['Java', 'Orientación a Objetos', 'Buenas Prácticas'],
-        image: '/images/events/lives-programacao-orientada-a-objetos.webp',
+        image: '/images/talks/lives-programacao-orientada-a-objetos.webp',
         gallery: [
             {
-                src: '/images/events/placeholders/photo-2.webp',
+                src: '/images/talks/placeholders/photo-2.webp',
                 alt: 'Foto 1 de Canal de Artur Bomtempo en YouTube',
             },
             {
-                src: '/images/events/placeholders/photo-4.webp',
+                src: '/images/talks/placeholders/photo-4.webp',
                 alt: 'Foto 2 de Canal de Artur Bomtempo en YouTube',
             },
             {
-                src: '/images/events/placeholders/photo-6.webp',
+                src: '/images/talks/placeholders/photo-6.webp',
                 alt: 'Foto 3 de Canal de Artur Bomtempo en YouTube',
             },
         ],
@@ -106,30 +106,30 @@ export const EVENTS_ES: SpeakingEvent[] = [
         fullDescription:
             'Impartí un taller práctico de React durante la Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas, dirigido a alumnos principiantes que querían aprender los fundamentos del desarrollo front-end moderno.\n\nA lo largo del taller, los participantes construyeron, paso a paso, una aplicación completa en React que consume la Studio Ghibli API para mostrar una colección de películas, uniendo teoría y práctica en un ejemplo real y atractivo.\n\nPrincipales temas abordados:\n- Fundamentos de React y componentización\n- Consumo de APIs externas con Axios\n- Enrutamiento con React Router DOM\n- Buenas prácticas de organización de proyectos para principiantes',
         topics: ['React', 'TypeScript', 'APIs', 'Front-end'],
-        image: '/images/events/escola-de-ferias-puc-minas-2025.webp',
+        image: '/images/talks/escola-de-ferias-puc-minas-2025.webp',
         gallery: [
             {
-                src: '/images/events/placeholders/photo-3.webp',
+                src: '/images/talks/placeholders/photo-3.webp',
                 alt: 'Foto 1 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
             },
             {
-                src: '/images/events/placeholders/photo-1.webp',
+                src: '/images/talks/placeholders/photo-1.webp',
                 alt: 'Foto 2 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
             },
             {
-                src: '/images/events/placeholders/photo-5.webp',
+                src: '/images/talks/placeholders/photo-5.webp',
                 alt: 'Foto 3 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
             },
             {
-                src: '/images/events/placeholders/photo-2.webp',
+                src: '/images/talks/placeholders/photo-2.webp',
                 alt: 'Foto 4 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
             },
             {
-                src: '/images/events/placeholders/photo-6.webp',
+                src: '/images/talks/placeholders/photo-6.webp',
                 alt: 'Foto 5 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
             },
             {
-                src: '/images/events/placeholders/photo-4.webp',
+                src: '/images/talks/placeholders/photo-4.webp',
                 alt: 'Foto 6 de Escuela de Vacaciones de Ciencias de la Computación de la PUC Minas',
             },
         ],
@@ -147,22 +147,22 @@ export const EVENTS_ES: SpeakingEvent[] = [
         fullDescription:
             'En DevFest Belo Horizonte 2024 mostré cómo incorporar la accesibilidad al proceso de desarrollo de interfaces en React, tratándola como parte de la calidad del producto y no como una etapa final.\n\nLa presentación incluyó ejemplos de componentes reales, errores comunes y herramientas que ayudan a validar la accesibilidad de forma continua.\n\nPrincipales temas abordados:\n- HTML semántico y roles ARIA\n- Navegación por teclado y gestión del foco\n- Contraste, tipografía y estados visuales\n- Pruebas automatizadas de accesibilidad',
         topics: ['React', 'Accesibilidad', 'Front-end', 'UX'],
-        image: '/images/events/devfest-bh-2024.webp',
+        image: '/images/talks/devfest-bh-2024.webp',
         gallery: [
             {
-                src: '/images/events/placeholders/photo-6.webp',
+                src: '/images/talks/placeholders/photo-6.webp',
                 alt: 'Foto 1 de DevFest Belo Horizonte 2024',
             },
             {
-                src: '/images/events/placeholders/photo-3.webp',
+                src: '/images/talks/placeholders/photo-3.webp',
                 alt: 'Foto 2 de DevFest Belo Horizonte 2024',
             },
             {
-                src: '/images/events/placeholders/photo-2.webp',
+                src: '/images/talks/placeholders/photo-2.webp',
                 alt: 'Foto 3 de DevFest Belo Horizonte 2024',
             },
             {
-                src: '/images/events/placeholders/photo-5.webp',
+                src: '/images/talks/placeholders/photo-5.webp',
                 alt: 'Foto 4 de DevFest Belo Horizonte 2024',
             },
         ],
@@ -181,11 +181,11 @@ export const EVENTS_ES: SpeakingEvent[] = [
         fullDescription:
             'Como Chapter Lead de WebTech Network, conduzco encuentros, talleres y mentorías técnicas orientados a la formación de nuevos desarrolladores dentro de la comunidad.\n\nLos encuentros abarcan desde fundamentos de programación hasta temas más avanzados de back-end, front-end, bases de datos y control de versiones, siempre con foco en contenido práctico y aplicable.\n\nPrincipales temas abordados:\n- Fundamentos de back-end y front-end\n- Bases de datos y control de versiones con Git\n- Buenas prácticas de desarrollo y arquitectura de software\n- Orientación técnica en proyectos de la comunidad',
         topics: ['Mentoría', 'Back-end', 'Front-end', 'Buenas Prácticas'],
-        image: '/images/events/webtech-network-formacoes.webp',
+        image: '/images/talks/webtech-network-formacoes.webp',
         gallery: [
-            { src: '/images/events/placeholders/photo-4.webp', alt: 'Foto 1 de WebTech Network' },
-            { src: '/images/events/placeholders/photo-5.webp', alt: 'Foto 2 de WebTech Network' },
-            { src: '/images/events/placeholders/photo-1.webp', alt: 'Foto 3 de WebTech Network' },
+            { src: '/images/talks/placeholders/photo-4.webp', alt: 'Foto 1 de WebTech Network' },
+            { src: '/images/talks/placeholders/photo-5.webp', alt: 'Foto 2 de WebTech Network' },
+            { src: '/images/talks/placeholders/photo-1.webp', alt: 'Foto 3 de WebTech Network' },
         ],
     },
 ];

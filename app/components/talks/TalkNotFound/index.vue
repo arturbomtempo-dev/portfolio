@@ -11,14 +11,14 @@ const route = useRoute();
 <template>
     <UiErrorState
         :status-code="NOT_FOUND_STATUS_CODE"
-        :title="t('eventDetails.notFound.title')"
-        :description="t('eventDetails.notFound.message')"
+        :title="t('talkDetails.notFound.title')"
+        :description="t('talkDetails.notFound.message')"
         :requested-path="route.path"
     >
         <template #actions>
-            <UiBaseButton :to="localePath('/events')" class="group">
+            <UiBaseButton :to="localePath('/talks')" class="group">
                 <ArrowLeft class="transition-transform group-hover:-translate-x-1" />
-                {{ t('eventDetails.backButton') }}
+                {{ t('talkDetails.backButton') }}
             </UiBaseButton>
             <UiBaseButton :to="localePath('/')" variant="outline-primary">
                 <House />

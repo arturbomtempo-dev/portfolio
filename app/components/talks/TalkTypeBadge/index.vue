@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue';
-import type { EventType } from '~/types/event';
+import type { TalkType } from '~/types/talk';
 
 interface Props {
-    type: EventType;
+    type: TalkType;
     class?: HTMLAttributes['class'];
 }
 
@@ -23,7 +23,7 @@ const { t } = useI18n();
             )
         "
     >
-        <EventsEventTypeIcon :type="props.type" class="size-3.5" />
-        {{ t(`events.types.${props.type}`) }}
+        <TalksTalkTypeIcon :type="props.type" class="size-3.5" />
+        {{ t(`talks.types.${props.type}`) }}
     </span>
 </template>

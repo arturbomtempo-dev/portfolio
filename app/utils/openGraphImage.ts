@@ -9,6 +9,6 @@ export function getProjectOpenGraphImagePath(projectId: string) {
     return `/og/projects/${projectId}.jpg`;
 }
 
-export function getEventOpenGraphImagePath(eventId: string) {
-    return `/og/events/${eventId}.jpg`;
+export function getTalkOpenGraphImagePath(talkId: string) {
+    return `/og/talks/${talkId}.jpg`;
 }

@@ -14,7 +14,7 @@
         "home": "Inicio",
         "about": "Acerca de",
         "projects": "Proyectos",
-        "events": "Eventos",
+        "talks": "Charlas",
         "contents": "Contenidos",
         "contact": "Contacto",
         "blackbox": "BLACKBOX"
@@ -99,16 +99,16 @@
             "message": "El proyecto que buscas no existe o ha sido eliminado."
         }
     },
-    "events": {
+    "talks": {
         "seo": {
-            "title": "Eventos {'|'} Artur Bomtempo",
-            "description": "Charlas, talleres y cursos en los que compartí conocimiento con comunidades, empresas e instituciones educativas.",
-            "ogTitle": "Eventos {'|'} Artur Bomtempo",
-            "ogDescription": "Charlas, talleres y cursos en los que compartí conocimiento con comunidades, empresas e instituciones educativas."
+            "title": "Charlas {'|'} Artur Bomtempo",
+            "description": "Charlas, talleres y cursos que conduje para comunidades, empresas e instituciones educativas.",
+            "ogTitle": "Charlas {'|'} Artur Bomtempo",
+            "ogDescription": "Charlas, talleres y cursos que conduje para comunidades, empresas e instituciones educativas."
         },
-        "title": "Eventos",
-        "description": "Charlas, talleres y cursos en los que compartí conocimiento con comunidades, empresas e instituciones educativas.",
-        "filtersLabel": "Filtrar eventos por tipo",
+        "title": "Charlas",
+        "description": "Charlas, talleres y cursos que conduje para comunidades, empresas e instituciones educativas.",
+        "filtersLabel": "Filtrar charlas por tipo",
         "filters": {
             "all": "Todos",
             "talk": "Charlas",
@@ -122,14 +122,14 @@
         },
         "viewDetails": "Ver detalles",
         "photos": "Sin fotos | 1 foto | {count} fotos",
-        "empty": "No se encontraron eventos para este filtro."
+        "empty": "No se encontraron charlas para este filtro."
     },
-    "eventDetails": {
+    "talkDetails": {
         "seo": {
             "title": "{title} {'|'} Artur Bomtempo"
         },
-        "backButton": "Volver a Eventos",
-        "aboutTitle": "Sobre el evento",
+        "backButton": "Volver a Charlas",
+        "aboutTitle": "Sobre la charla",
         "topicsTitle": "Temas abordados",
         "galleryTitle": "Fotos",
         "openPhoto": "Abrir foto {index} de {total}",
@@ -146,16 +146,16 @@
             "counter": "{index} de {total}"
         },
         "pagination": {
-            "label": "Navegación entre eventos",
-            "newer": "Evento más reciente",
-            "older": "Evento anterior"
+            "label": "Navegación entre charlas",
+            "newer": "Charla más reciente",
+            "older": "Charla anterior"
         },
         "notFound": {
             "seo": {
-                "title": "Evento no encontrado {'|'} Artur Bomtempo"
+                "title": "Charla no encontrada {'|'} Artur Bomtempo"
             },
-            "title": "Evento no encontrado",
-            "message": "El evento que buscas no existe o fue eliminado."
+            "title": "Charla no encontrada",
+            "message": "La charla que buscas no existe o fue eliminada."
         }
     },
     "blackbox": {

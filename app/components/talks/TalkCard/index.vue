@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ArrowUpRight, Images, MapPin } from '@lucide/vue';
 import type { HTMLAttributes } from 'vue';
-import type { SpeakingEvent } from '~/types/event';
+import type { Talk } from '~/types/talk';
 
 interface Props {
-    event: SpeakingEvent;
+    talk: Talk;
     to: string;
     isAboveTheFold?: boolean;
     class?: HTMLAttributes['class'];
@@ -22,7 +22,7 @@ const VISIBLE_TOPICS_COUNT = 3;
 
 const { t } = useI18n();
 
-const visibleTopics = computed(() => props.event.topics.slice(0, VISIBLE_TOPICS_COUNT));
+const visibleTopics = computed(() => props.talk.topics.slice(0, VISIBLE_TOPICS_COUNT));
 </script>
 
 <template>
@@ -38,8 +38,8 @@ const visibleTopics = computed(() => props.event.topics.slice(0, VISIBLE_TOPICS_
             class="relative aspect-video shrink-0 overflow-hidden rounded-md lg:aspect-auto lg:min-h-48 lg:w-72"
         >
             <NuxtImg
-                :src="props.event.image"
-                :alt="props.event.title"
+                :src="props.talk.image"
+                :alt="props.talk.title"
                 :width="THUMBNAIL_WIDTH_IN_PX"
                 :height="THUMBNAIL_HEIGHT_IN_PX"
                 :sizes="THUMBNAIL_SIZES"
@@ -48,17 +48,17 @@ const visibleTopics = computed(() => props.event.topics.slice(0, VISIBLE_TOPICS_
                 decoding="async"
                 class="absolute inset-0 size-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
-            <EventsEventTypeBadge :type="props.event.type" class="absolute top-3 left-3" />
+            <TalksTalkTypeBadge :type="props.talk.type" class="absolute top-3 left-3" />
         </div>
         <div class="flex min-w-0 flex-1 flex-col">
-            <p class="mb-1 text-sm font-medium text-primary">{{ props.event.eventName }}</p>
+            <p class="mb-1 text-sm font-medium text-primary">{{ props.talk.eventName }}</p>
             <div class="mb-2 flex items-start justify-between gap-2">
                 <h3 class="text-xl font-semibold transition-colors group-hover:text-primary">
                     <NuxtLink
                         :to="props.to"
                         class="block w-full text-left after:absolute after:inset-0 after:rounded-lg focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-ring"
                     >
-                        {{ props.event.title }}
+                        {{ props.talk.title }}
                     </NuxtLink>
                 </h3>
                 <ArrowUpRight
@@ -66,7 +66,7 @@ const visibleTopics = computed(() => props.event.topics.slice(0, VISIBLE_TOPICS_
                 />
             </div>
             <p class="mb-4 line-clamp-2 text-sm text-muted-foreground">
-                {{ props.event.description }}
+                {{ props.talk.description }}
             </p>
             <div class="mb-4 flex flex-wrap gap-2">
                 <UiTechBadge v-for="topic in visibleTopics" :key="topic" class="text-xs">
@@ -78,11 +78,11 @@ const visibleTopics = computed(() => props.event.topics.slice(0, VISIBLE_TOPICS_
             >
                 <span class="flex items-center gap-1.5">
                     <MapPin class="size-4 shrink-0" />
-                    {{ props.event.location }}
+                    {{ props.talk.location }}
                 </span>
-                <span v-if="props.event.gallery.length" class="flex items-center gap-1.5">
+                <span v-if="props.talk.gallery.length" class="flex items-center gap-1.5">
                     <Images class="size-4 shrink-0" />
-                    {{ t('events.photos', props.event.gallery.length) }}
+                    {{ t('talks.photos', props.talk.gallery.length) }}
                 </span>
             </div>
         </div>

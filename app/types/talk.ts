@@ -1,15 +1,15 @@
-export type EventType = 'talk' | 'workshop' | 'course';
+export type TalkType = 'talk' | 'workshop' | 'course';
 
-export type EventFilter = 'all' | EventType;
+export type TalkFilter = 'all' | TalkType;
 
-export interface EventPhoto {
+export interface TalkPhoto {
     src: string;
     alt: string;
 }
 
-export interface SpeakingEvent {
+export interface Talk {
     id: string;
-    type: EventType;
+    type: TalkType;
     title: string;
     eventName: string;
     location: string;
@@ -18,7 +18,7 @@ export interface SpeakingEvent {
     fullDescription: string;
     topics: string[];
     image: string;
-    gallery: EventPhoto[];
+    gallery: TalkPhoto[];
     eventUrl?: string;
     slidesUrl?: string;
     recordingUrl?: string;

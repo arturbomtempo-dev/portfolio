@@ -61,7 +61,7 @@ It is also a professional reference in itself: a small but complete production c
 - **Three languages:** Portuguese (default), English and Spanish, each one with its own URL (`/`, `/en`, `/es`), translated metadata and `hreflang` alternates. Switching languages keeps the current page and scroll position.
 - **Dark and light themes:** follows the operating system by default, remembers the visitor's choice and never flashes the wrong theme on load.
 - **Projects with detail pages:** every project has its own route (`/projects/<id>`) with cover image, description, technologies, links and a dedicated social preview image.
-- **Events timeline:** talks, workshops and courses on a vertical timeline grouped by year, with filters in the URL and a detail page per event with links, topics and a photo gallery with a lightbox.
+- **Talks:** talks, workshops and courses on a vertical timeline grouped by year, with filters in the URL and a detail page per talk with links, topics and a photo gallery with a lightbox.
 - **Content hub:** articles, videos and newsletters with filters stored in the URL (`/contents?type=video`), so a filtered view can be shared.
 - **About page:** achievements, technologies, a live GitHub contribution graph, career timeline and a testimonials carousel.
 - **BLACKBOX:** a hidden item in the main navigation opens a CTF-style incident investigation in a realistic terminal: a virtual file system, logs to correlate, a tampered JWT to analyze, progressive hints, saved progress and a final skills report, in the three languages.
@@ -213,7 +213,7 @@ After each deploy, check one page in each language, a project page, a 404 page a
 │   │   ├── about/               # About page sections (achievements, timeline, testimonials)
 │   │   ├── contact/             # Contact form and social links
 │   │   ├── contents/            # Content cards and listing
-│   │   ├── events/              # Events timeline, cards, details and photo gallery
+│   │   ├── talks/               # Talks timeline, cards, details and photo gallery
 │   │   ├── home/                # Home hero section
 │   │   ├── layout/              # Header, footer, theme toggle, language selector, toaster
 │   │   ├── projects/            # Project cards, grid and details

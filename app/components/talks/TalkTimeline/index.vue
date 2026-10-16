@@ -1,34 +1,34 @@
 <script setup lang="ts">
-import type { EventFilter, SpeakingEvent } from '~/types/event';
+import type { TalkFilter, Talk } from '~/types/talk';
 
-interface EventYearGroup {
+interface TalkYearGroup {
     year: string;
-    events: SpeakingEvent[];
+    talks: Talk[];
 }
 
-const EVENT_FILTERS: EventFilter[] = ['all', 'talk', 'workshop', 'course'];
-const DEFAULT_FILTER: EventFilter = 'all';
+const TALK_FILTERS: TalkFilter[] = ['all', 'talk', 'workshop', 'course'];
+const DEFAULT_FILTER: TalkFilter = 'all';
 const FILTER_QUERY_KEY = 'type';
-const EVENTS_ABOVE_THE_FOLD = 2;
+const TALKS_ABOVE_THE_FOLD = 2;
 
 const { t } = useI18n();
 const route = useRoute();
 const localePath = useLocalePath();
-const events = useEventsContent();
+const talks = useTalksContent();
 
-function isEventFilter(value: unknown): value is EventFilter {
-    return EVENT_FILTERS.includes(value as EventFilter);
+function isTalkFilter(value: unknown): value is TalkFilter {
+    return TALK_FILTERS.includes(value as TalkFilter);
 }
 
-function getEventYear(event: SpeakingEvent) {
-    return event.date.slice(0, 4);
+function getTalkYear(talk: Talk) {
+    return talk.date.slice(0, 4);
 }
 
-const selectedFilter = computed<EventFilter>({
+const selectedFilter = computed<TalkFilter>({
     get: () => {
         const queryValue = route.query[FILTER_QUERY_KEY];
 
-        return isEventFilter(queryValue) ? queryValue : DEFAULT_FILTER;
+        return isTalkFilter(queryValue) ? queryValue : DEFAULT_FILTER;
     },
     set: (filter) => {
         const query = {
@@ -41,32 +41,32 @@ const selectedFilter = computed<EventFilter>({
 });
 
 const filterOptions = computed(() =>
-    EVENT_FILTERS.map((filter) => ({ value: filter, label: t(`events.filters.${filter}`) }))
+    TALK_FILTERS.map((filter) => ({ value: filter, label: t(`talks.filters.${filter}`) }))
 );
 
-const filteredEvents = computed(() =>
+const filteredTalks = computed(() =>
     selectedFilter.value === DEFAULT_FILTER
-        ? events.value
-        : events.value.filter((event) => event.type === selectedFilter.value)
+        ? talks.value
+        : talks.value.filter((talk) => talk.type === selectedFilter.value)
 );
 
-const yearGroups = computed<EventYearGroup[]>(() =>
-    filteredEvents.value.reduce<EventYearGroup[]>((groups, event) => {
-        const year = getEventYear(event);
+const yearGroups = computed<TalkYearGroup[]>(() =>
+    filteredTalks.value.reduce<TalkYearGroup[]>((groups, talk) => {
+        const year = getTalkYear(talk);
         const lastGroup = groups.at(-1);
 
         if (lastGroup?.year === year) {
-            lastGroup.events.push(event);
+            lastGroup.talks.push(talk);
         } else {
-            groups.push({ year, events: [event] });
+            groups.push({ year, talks: [talk] });
         }
 
         return groups;
     }, [])
 );
 
-const aboveTheFoldEventIds = computed(
-    () => new Set(filteredEvents.value.slice(0, EVENTS_ABOVE_THE_FOLD).map((event) => event.id))
+const aboveTheFoldTalkIds = computed(
+    () => new Set(filteredTalks.value.slice(0, TALKS_ABOVE_THE_FOLD).map((talk) => talk.id))
 );
 </script>
 
@@ -74,11 +74,11 @@ const aboveTheFoldEventIds = computed(
     <UiFilterTabs
         v-model="selectedFilter"
         :options="filterOptions"
-        :label="t('events.filtersLabel')"
+        :label="t('talks.filtersLabel')"
         class="mb-16 animate-fade-in"
     >
         <template #icon="{ value }">
-            <EventsEventTypeIcon v-if="value !== DEFAULT_FILTER" :type="value" class="mr-2" />
+            <TalksTalkTypeIcon v-if="value !== DEFAULT_FILTER" :type="value" class="mr-2" />
         </template>
     </UiFilterTabs>
 
@@ -91,25 +91,25 @@ const aboveTheFoldEventIds = computed(
             <section
                 v-for="group in yearGroups"
                 :key="group.year"
-                :aria-labelledby="`events-year-${group.year}`"
+                :aria-labelledby="`talks-year-${group.year}`"
             >
                 <h2
-                    :id="`events-year-${group.year}`"
+                    :id="`talks-year-${group.year}`"
                     class="relative z-10 mb-10 w-fit rounded-full border border-primary/40 bg-background px-4 py-1 text-base font-semibold text-primary shadow-glow-sm"
                 >
                     {{ group.year }}
                 </h2>
                 <ol class="space-y-12">
-                    <EventsEventTimelineItem
-                        v-for="event in group.events"
-                        :key="event.id"
-                        :event="event"
-                        :to="localePath(`/events/${event.id}`)"
-                        :is-above-the-fold="aboveTheFoldEventIds.has(event.id)"
+                    <TalksTalkTimelineItem
+                        v-for="talk in group.talks"
+                        :key="talk.id"
+                        :talk="talk"
+                        :to="localePath(`/talks/${talk.id}`)"
+                        :is-above-the-fold="aboveTheFoldTalkIds.has(talk.id)"
                     />
                 </ol>
             </section>
         </div>
     </div>
-    <p v-else class="animate-fade-in text-center text-muted-foreground">{{ t('events.empty') }}</p>
+    <p v-else class="animate-fade-in text-center text-muted-foreground">{{ t('talks.empty') }}</p>
 </template>

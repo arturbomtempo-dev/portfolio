@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { GraduationCap, Presentation, Users } from '@lucide/vue';
-import type { EventType } from '~/types/event';
+import type { TalkType } from '~/types/talk';
 
 interface Props {
-    type: EventType;
+    type: TalkType;
 }
 
 const props = defineProps<Props>();

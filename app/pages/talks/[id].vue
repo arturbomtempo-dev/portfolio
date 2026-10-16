@@ -4,56 +4,52 @@ const NOT_FOUND_STATUS_CODE = 404;
 const { t } = useI18n();
 const route = useRoute();
 const siteConfig = useSiteConfig();
-const events = useEventsContent();
+const talks = useTalksContent();
 
-const eventIndex = computed(() =>
-    events.value.findIndex((candidate) => candidate.id === String(route.params.id))
+const talkIndex = computed(() =>
+    talks.value.findIndex((candidate) => candidate.id === String(route.params.id))
 );
-const event = computed(() => events.value[eventIndex.value]);
-const newerEvent = computed(() =>
-    eventIndex.value > 0 ? events.value[eventIndex.value - 1] : undefined
+const talk = computed(() => talks.value[talkIndex.value]);
+const newerTalk = computed(() =>
+    talkIndex.value > 0 ? talks.value[talkIndex.value - 1] : undefined
 );
-const olderEvent = computed(() =>
-    eventIndex.value >= 0 ? events.value[eventIndex.value + 1] : undefined
+const olderTalk = computed(() =>
+    talkIndex.value >= 0 ? talks.value[talkIndex.value + 1] : undefined
 );
 
-if (!event.value) {
+if (!talk.value) {
     setResponseStatus(NOT_FOUND_STATUS_CODE);
 }
 
 const pageTitle = computed(() =>
-    event.value
-        ? t('eventDetails.seo.title', { title: event.value.title })
-        : t('eventDetails.notFound.seo.title')
+    talk.value
+        ? t('talkDetails.seo.title', { title: talk.value.title })
+        : t('talkDetails.notFound.seo.title')
 );
 
 useSeoMeta({
     title: () => pageTitle.value,
-    description: () => event.value?.description,
+    description: () => talk.value?.description,
     ogTitle: () => pageTitle.value,
-    ogDescription: () => event.value?.description,
+    ogDescription: () => talk.value?.description,
     ogImage: () =>
-        event.value ? `${siteConfig.url}${getEventOpenGraphImagePath(event.value.id)}` : undefined,
-    ogImageAlt: () => event.value?.title,
+        talk.value ? `${siteConfig.url}${getTalkOpenGraphImagePath(talk.value.id)}` : undefined,
+    ogImageAlt: () => talk.value?.title,
     ogType: 'article',
     twitterCard: 'summary_large_image',
-    robots: () => (event.value ? undefined : 'noindex, nofollow'),
+    robots: () => (talk.value ? undefined : 'noindex, nofollow'),
 });
 </script>
 
 <template>
-    <div v-if="event" class="min-h-screen px-4 py-20 sm:px-8">
+    <div v-if="talk" class="min-h-screen px-4 py-20 sm:px-8">
         <div class="mx-auto w-full max-w-4xl px-8">
-            <EventsEventDetails
-                :event="event"
-                :newer-event="newerEvent"
-                :older-event="olderEvent"
-            />
+            <TalksTalkDetails :talk="talk" :newer-talk="newerTalk" :older-talk="olderTalk" />
         </div>
     </div>
     <div v-else class="flex min-h-screen items-center justify-center px-6 py-20">
         <div class="mx-auto w-full max-w-2xl sm:px-8">
-            <EventsEventNotFound />
+            <TalksTalkNotFound />
         </div>
     </div>
 </template>

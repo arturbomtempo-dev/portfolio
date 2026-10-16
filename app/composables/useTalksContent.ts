@@ -1,21 +1,21 @@
-import { EVENTS_EN } from '~/data/events/en';
-import { EVENTS_ES } from '~/data/events/es';
-import { EVENTS_PT } from '~/data/events/pt';
-import type { SpeakingEvent } from '~/types/event';
+import { TALKS_EN } from '~/data/talks/en';
+import { TALKS_ES } from '~/data/talks/es';
+import { TALKS_PT } from '~/data/talks/pt';
+import type { Talk } from '~/types/talk';
 import type { LocaleCode } from '~/types/locale';
 
-const EVENTS_BY_LOCALE: Record<LocaleCode, SpeakingEvent[]> = {
-    pt: EVENTS_PT,
-    en: EVENTS_EN,
-    es: EVENTS_ES,
+const TALKS_BY_LOCALE: Record<LocaleCode, Talk[]> = {
+    pt: TALKS_PT,
+    en: TALKS_EN,
+    es: TALKS_ES,
 };
 
-function compareByMostRecentDate(first: SpeakingEvent, second: SpeakingEvent) {
+function compareByMostRecentDate(first: Talk, second: Talk) {
     return second.date.localeCompare(first.date);
 }
 
-export function useEventsContent() {
+export function useTalksContent() {
     const { locale } = useI18n();
 
-    return computed(() => [...EVENTS_BY_LOCALE[locale.value]].sort(compareByMostRecentDate));
+    return computed(() => [...TALKS_BY_LOCALE[locale.value]].sort(compareByMostRecentDate));
 }

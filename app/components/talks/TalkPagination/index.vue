@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { ArrowLeft, ArrowRight } from '@lucide/vue';
-import type { SpeakingEvent } from '~/types/event';
+import type { Talk } from '~/types/talk';
 
 interface Props {
-    newerEvent?: SpeakingEvent;
-    olderEvent?: SpeakingEvent;
+    newerTalk?: Talk;
+    olderTalk?: Talk;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-    newerEvent: undefined,
-    olderEvent: undefined,
+    newerTalk: undefined,
+    olderTalk: undefined,
 });
 
 const { t } = useI18n();
@@ -22,35 +22,35 @@ const LINK_CLASSES =
 
 <template>
     <nav
-        :aria-label="t('eventDetails.pagination.label')"
+        :aria-label="t('talkDetails.pagination.label')"
         class="mt-12 grid grid-cols-1 gap-4 border-t border-border/50 pt-8 sm:grid-cols-2"
     >
         <UiBaseCard
-            v-if="props.olderEvent"
+            v-if="props.olderTalk"
             :as="NuxtLink"
-            :to="localePath(`/events/${props.olderEvent.id}`)"
+            :to="localePath(`/talks/${props.olderTalk.id}`)"
             :class="LINK_CLASSES"
         >
             <span class="flex items-center gap-2 text-sm text-muted-foreground">
                 <ArrowLeft class="size-4 transition-transform group-hover:-translate-x-1" />
-                {{ t('eventDetails.pagination.older') }}
+                {{ t('talkDetails.pagination.older') }}
             </span>
             <span class="font-heading font-semibold transition-colors group-hover:text-primary">
-                {{ props.olderEvent.title }}
+                {{ props.olderTalk.title }}
             </span>
         </UiBaseCard>
         <UiBaseCard
-            v-if="props.newerEvent"
+            v-if="props.newerTalk"
             :as="NuxtLink"
-            :to="localePath(`/events/${props.newerEvent.id}`)"
+            :to="localePath(`/talks/${props.newerTalk.id}`)"
             :class="cn(LINK_CLASSES, 'items-end text-right sm:col-start-2')"
         >
             <span class="flex items-center gap-2 text-sm text-muted-foreground">
-                {{ t('eventDetails.pagination.newer') }}
+                {{ t('talkDetails.pagination.newer') }}
                 <ArrowRight class="size-4 transition-transform group-hover:translate-x-1" />
             </span>
             <span class="font-heading font-semibold transition-colors group-hover:text-primary">
-                {{ props.newerEvent.title }}
+                {{ props.newerTalk.title }}
             </span>
         </UiBaseCard>
     </nav>

@@ -14,7 +14,7 @@
         "home": "Home",
         "about": "About",
         "projects": "Projects",
-        "events": "Events",
+        "talks": "Talks",
         "contents": "Content",
         "contact": "Contact",
         "blackbox": "BLACKBOX"
@@ -99,16 +99,16 @@
             "message": "The project you are looking for does not exist or has been removed."
         }
     },
-    "events": {
+    "talks": {
         "seo": {
-            "title": "Events {'|'} Artur Bomtempo",
-            "description": "Talks, workshops and courses where I shared knowledge with communities, companies and educational institutions.",
-            "ogTitle": "Events {'|'} Artur Bomtempo",
-            "ogDescription": "Talks, workshops and courses where I shared knowledge with communities, companies and educational institutions."
+            "title": "Talks {'|'} Artur Bomtempo",
+            "description": "Talks, workshops and courses I led for communities, companies and educational institutions.",
+            "ogTitle": "Talks {'|'} Artur Bomtempo",
+            "ogDescription": "Talks, workshops and courses I led for communities, companies and educational institutions."
         },
-        "title": "Events",
-        "description": "Talks, workshops and courses where I shared knowledge with communities, companies and educational institutions.",
-        "filtersLabel": "Filter events by type",
+        "title": "Talks",
+        "description": "Talks, workshops and courses I led for communities, companies and educational institutions.",
+        "filtersLabel": "Filter talks by type",
         "filters": {
             "all": "All",
             "talk": "Talks",
@@ -122,14 +122,14 @@
         },
         "viewDetails": "View details",
         "photos": "No photos | 1 photo | {count} photos",
-        "empty": "No events found for this filter."
+        "empty": "No talks found for this filter."
     },
-    "eventDetails": {
+    "talkDetails": {
         "seo": {
             "title": "{title} {'|'} Artur Bomtempo"
         },
-        "backButton": "Back to Events",
-        "aboutTitle": "About the event",
+        "backButton": "Back to Talks",
+        "aboutTitle": "About the talk",
         "topicsTitle": "Topics covered",
         "galleryTitle": "Photos",
         "openPhoto": "Open photo {index} of {total}",
@@ -146,16 +146,16 @@
             "counter": "{index} of {total}"
         },
         "pagination": {
-            "label": "Event navigation",
-            "newer": "Newer event",
-            "older": "Older event"
+            "label": "Talk navigation",
+            "newer": "Newer talk",
+            "older": "Older talk"
         },
         "notFound": {
             "seo": {
-                "title": "Event not found {'|'} Artur Bomtempo"
+                "title": "Talk not found {'|'} Artur Bomtempo"
             },
-            "title": "Event not found",
-            "message": "The event you are looking for doesn't exist or has been removed."
+            "title": "Talk not found",
+            "message": "The talk you are looking for doesn't exist or has been removed."
         }
     },
     "blackbox": {

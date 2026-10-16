@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { Maximize2 } from '@lucide/vue';
-import type { EventPhoto } from '~/types/event';
+import type { TalkPhoto } from '~/types/talk';
 
 interface Props {
-    photos: EventPhoto[];
+    photos: TalkPhoto[];
     eventName: string;
 }
 
@@ -29,9 +29,9 @@ function openPhoto(index: number) {
 <template>
     <section>
         <div class="mb-3 flex items-baseline justify-between gap-4">
-            <h2 class="text-xl font-semibold">{{ t('eventDetails.galleryTitle') }}</h2>
+            <h2 class="text-xl font-semibold">{{ t('talkDetails.galleryTitle') }}</h2>
             <span class="text-sm text-muted-foreground">
-                {{ t('events.photos', props.photos.length) }}
+                {{ t('talks.photos', props.photos.length) }}
             </span>
         </div>
         <ul class="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
@@ -39,7 +39,7 @@ function openPhoto(index: number) {
                 <button
                     type="button"
                     :aria-label="
-                        t('eventDetails.openPhoto', {
+                        t('talkDetails.openPhoto', {
                             index: index + 1,
                             total: props.photos.length,
                         })
@@ -67,7 +67,7 @@ function openPhoto(index: number) {
             </li>
         </ul>
 
-        <LazyEventsPhotoLightbox
+        <LazyTalksPhotoLightbox
             v-if="hasOpenedLightbox"
             v-model:open="isLightboxOpen"
             v-model:index="selectedPhotoIndex"

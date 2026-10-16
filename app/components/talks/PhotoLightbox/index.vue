@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ArrowLeft, ArrowRight } from '@lucide/vue';
 import { DialogDescription, DialogTitle } from 'reka-ui';
-import type { EventPhoto } from '~/types/event';
+import type { TalkPhoto } from '~/types/talk';
 
 interface Props {
-    photos: EventPhoto[];
+    photos: TalkPhoto[];
     eventName: string;
 }
 
@@ -53,11 +53,11 @@ function handleKeyDown(event: KeyboardEvent) {
         <div class="flex flex-col gap-4" @keydown="handleKeyDown">
             <div class="pr-8">
                 <DialogTitle class="font-heading text-lg font-semibold">
-                    {{ t('eventDetails.lightbox.title', { event: props.eventName }) }}
+                    {{ t('talkDetails.lightbox.title', { event: props.eventName }) }}
                 </DialogTitle>
                 <DialogDescription class="text-sm text-muted-foreground">
                     {{
-                        t('eventDetails.lightbox.counter', {
+                        t('talkDetails.lightbox.counter', {
                             index: selectedIndex + 1,
                             total: props.photos.length,
                         })
@@ -84,7 +84,7 @@ function handleKeyDown(event: KeyboardEvent) {
                         @click="showPreviousPhoto"
                     >
                         <ArrowLeft />
-                        <span class="sr-only">{{ t('eventDetails.lightbox.previous') }}</span>
+                        <span class="sr-only">{{ t('talkDetails.lightbox.previous') }}</span>
                     </UiBaseButton>
                     <UiBaseButton
                         variant="outline-primary"
@@ -93,7 +93,7 @@ function handleKeyDown(event: KeyboardEvent) {
                         @click="showNextPhoto"
                     >
                         <ArrowRight />
-                        <span class="sr-only">{{ t('eventDetails.lightbox.next') }}</span>
+                        <span class="sr-only">{{ t('talkDetails.lightbox.next') }}</span>
                     </UiBaseButton>
                 </template>
             </div>
