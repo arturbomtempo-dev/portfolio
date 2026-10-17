@@ -22,7 +22,7 @@ const sections = computed(() => parseRichText(props.text));
                     <li v-for="item in block.items" :key="item" class="flex gap-3">
                         <span
                             aria-hidden="true"
-                            class="mt-2.5 size-1.5 shrink-0 rounded-full bg-primary ring-4 ring-primary/15"
+                            class="mt-2.5 size-1.5 shrink-0 rounded-full bg-primary"
                         />
                         <span>{{ item }}</span>
                     </li>
