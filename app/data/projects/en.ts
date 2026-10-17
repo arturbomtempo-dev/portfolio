@@ -387,29 +387,6 @@ export const PROJECTS_EN: Project[] = [
         githubUrl: 'https://github.com/arturbomtempo-dev/devfest-bh-website',
     },
     {
-        id: 'planner',
-        title: 'plann.er',
-        description:
-            "Complete travel itinerary platform developed during Rocketseat's NLW Journey.",
-        image: '/images/projects/planner.webp',
-        cardTechs: ['Node.js', 'React', 'TypeScript'],
-        fullDescription:
-            "Project developed during Rocketseat's NLW Journey event, with the goal of consolidating modern web development concepts, both on the front-end and back-end. The platform simulates a complete travel organization system, allowing management of participants, activities, and itinerary details.\n\nKey features:\n- Trip registration and creation of personalized invitations\n- Registration and listing of trip activities\n- Attendance confirmation and participant management\n- Detailed display of trip information\n- Structured API with validation, link-based authentication, and email sending\n- Modern, responsive interface that is easy to navigate\n\nThe project presents a solid set of core functionalities, with complete backend routes, and served as an in-depth study of web architecture, front-back integration, and best practices with TypeScript.",
-        allTechs: [
-            'Node.js',
-            'TypeScript',
-            'Fastify',
-            'Prisma',
-            'React',
-            'Axios',
-            'Tailwind CSS',
-            'Nodemailer',
-            'Day.js',
-            'Zod',
-        ],
-        githubUrl: 'https://github.com/arturbomtempo-dev/plann.er',
-    },
-    {
         id: 'craftapi',
         title: 'CraftAPI',
         description:
@@ -497,92 +474,6 @@ export const PROJECTS_EN: Project[] = [
         githubUrl: 'https://github.com/arturbomtempo-dev/craft-api',
     },
     {
-        id: 'in-kids',
-        title: 'I&N Kids',
-        description:
-            "Platform created to help parents reduce children's screen time and encourage offline activities.",
-        image: '/images/projects/in-kids.webp',
-        additionalPhotos: [
-            {
-                src: '/images/projects/in-kids/01.webp',
-                alt: 'Desktop version: About us page',
-                width: 1920,
-                height: 1080,
-            },
-            {
-                src: '/images/projects/in-kids/02.webp',
-                alt: 'Desktop version: About us page, team',
-                width: 1920,
-                height: 1080,
-            },
-            {
-                src: '/images/projects/in-kids/03.webp',
-                alt: 'Desktop version: contact page',
-                width: 1920,
-                height: 1080,
-            },
-            {
-                src: '/images/projects/in-kids/04.webp',
-                alt: 'Desktop version: sign-up page',
-                width: 1920,
-                height: 1080,
-            },
-            {
-                src: '/images/projects/in-kids/05.webp',
-                alt: 'Desktop version: login page',
-                width: 1920,
-                height: 1080,
-            },
-            {
-                src: '/images/projects/in-kids/06.webp',
-                alt: 'Mobile version: home page',
-                width: 1316,
-                height: 2718,
-            },
-            {
-                src: '/images/projects/in-kids/07.webp',
-                alt: 'Mobile version: About us page',
-                width: 1316,
-                height: 2718,
-            },
-            {
-                src: '/images/projects/in-kids/08.webp',
-                alt: 'Mobile version: contact page',
-                width: 1316,
-                height: 2718,
-            },
-            {
-                src: '/images/projects/in-kids/09.webp',
-                alt: 'Mobile version: sign-up page',
-                width: 1316,
-                height: 2718,
-            },
-            {
-                src: '/images/projects/in-kids/10.webp',
-                alt: 'Mobile version: login page',
-                width: 1316,
-                height: 2718,
-            },
-        ],
-        cardTechs: ['HTML', 'CSS', 'JavaScript'],
-        fullDescription:
-            "I&N Kids was developed during the first semester of college, focusing on initial front-end development learning. The platform aims to help parents find healthy and educational alternatives to reduce children's screen time, promoting offline activities and greater family interaction.\n\nKey features:\n- Content and guidance to reduce excessive device use\n- Offline activities designed for different age groups\n- Simple, intuitive, and accessible interface for parents and guardians\n- Encouragement of balance between technology and active life\n- Project built as a team as part of an interdisciplinary assignment\n\nAn important application for consolidating front-end fundamentals and good development practices at the beginning of the academic journey.",
-        allTechs: [
-            'HTML',
-            'CSS',
-            'JavaScript',
-            'Bootstrap',
-            'jQuery',
-            'Node.js',
-            'TypeScript',
-            'Express.js',
-            'MongoDB',
-            'Blip',
-        ],
-        liveUrl: 'https://iandn-kids.vercel.app/',
-        githubUrl: 'https://github.com/arturbomtempo-dev/iandn-kids',
-    },
-    {
         id: 'christmas-chat',
         title: 'Christmas Chat',
         description:
@@ -660,18 +551,6 @@ export const PROJECTS_EN: Project[] = [
         liveUrl:
             'https://artur-bomtempo-colen-4htrp.chat.blip.ai/?appKey=bmF0YWxpbmE6NzJiZGE3MDYtMmY3ZS00Y2NmLWFlMzItNzQ2NTBlMDZlOGNh',
         githubUrl: 'https://github.com/arturbomtempo-dev/christmas-chat',
-    },
-    {
-        id: 'netflix-homepage',
-        title: "Netflix's Homepage",
-        description: "Clone of Netflix's homepage developed to consolidate Front-end fundamentals.",
-        image: '/images/projects/netflix-homepage.webp',
-        cardTechs: ['Node.js'],
-        fullDescription:
-            "Project developed in a Digital Innovation One class with the goal of practicing essential Front-end concepts and introducing initial studies with Node.js. The application recreates Netflix's homepage, displaying lists of categorized movies.\n\nKey features:\n- Interface inspired by Netflix's original layout\n- Movie sections organized by categories\n- Responsive design compatible with different devices\n- Ideal structure for consolidating front-end knowledge and basic logic\n\nA simple yet fundamental project in the web development evolution process.",
-        allTechs: ['HTML', 'CSS', 'JavaScript', 'Node.js'],
-        liveUrl: 'https://netflix-artur.vercel.app/',
-        githubUrl: 'https://github.com/arturbomtempo-dev/netflix-clone',
     },
     {
         id: 'inverted-world',

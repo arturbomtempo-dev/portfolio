@@ -387,29 +387,6 @@ export const PROJECTS_ES: Project[] = [
         githubUrl: 'https://github.com/arturbomtempo-dev/devfest-bh-website',
     },
     {
-        id: 'planner',
-        title: 'plann.er',
-        description:
-            'Plataforma completa de itinerarios de viaje desarrollada durante el NLW Journey de Rocketseat.',
-        image: '/images/projects/planner.webp',
-        cardTechs: ['Node.js', 'React', 'TypeScript'],
-        fullDescription:
-            'Proyecto desarrollado durante el evento NLW Journey, de Rocketseat, con el objetivo de consolidar conceptos de desarrollo web moderno, tanto en el front-end como en el back-end. La plataforma simula un sistema completo de organización de viajes, permitiendo gestionar participantes, actividades y detalles del itinerario.\n\nCaracterísticas principales:\n- Registro de viajes y creación de invitaciones personalizadas\n- Registro y listado de actividades del viaje\n- Confirmación de presencia y gestión de participantes\n- Exhibición detallada de las informaciones del viaje\n- API estructurada con validación, autenticación por enlaces y envíos de email\n- Interfaz moderna, responsive y fácil de navegar\n\nEl proyecto presenta un conjunto sólido de funcionalidades core, con rutas backend completas, y sirvió como un estudio profundo de arquitectura web, integración front-back y buenas prácticas con TypeScript.',
-        allTechs: [
-            'Node.js',
-            'TypeScript',
-            'Fastify',
-            'Prisma',
-            'React',
-            'Axios',
-            'Tailwind CSS',
-            'Nodemailer',
-            'Day.js',
-            'Zod',
-        ],
-        githubUrl: 'https://github.com/arturbomtempo-dev/plann.er',
-    },
-    {
         id: 'craftapi',
         title: 'CraftAPI',
         description:
@@ -497,92 +474,6 @@ export const PROJECTS_ES: Project[] = [
         githubUrl: 'https://github.com/arturbomtempo-dev/craft-api',
     },
     {
-        id: 'in-kids',
-        title: 'I&N Kids',
-        description:
-            'Plataforma creada para ayudar a padres a reducir el tiempo de pantalla de los niños e incentivar actividades offline.',
-        image: '/images/projects/in-kids.webp',
-        additionalPhotos: [
-            {
-                src: '/images/projects/in-kids/01.webp',
-                alt: 'Versión de escritorio: página Sobre nosotros',
-                width: 1920,
-                height: 1080,
-            },
-            {
-                src: '/images/projects/in-kids/02.webp',
-                alt: 'Versión de escritorio: página Sobre nosotros, equipo',
-                width: 1920,
-                height: 1080,
-            },
-            {
-                src: '/images/projects/in-kids/03.webp',
-                alt: 'Versión de escritorio: página de contacto',
-                width: 1920,
-                height: 1080,
-            },
-            {
-                src: '/images/projects/in-kids/04.webp',
-                alt: 'Versión de escritorio: página de registro',
-                width: 1920,
-                height: 1080,
-            },
-            {
-                src: '/images/projects/in-kids/05.webp',
-                alt: 'Versión de escritorio: página de inicio de sesión',
-                width: 1920,
-                height: 1080,
-            },
-            {
-                src: '/images/projects/in-kids/06.webp',
-                alt: 'Versión móvil: página de inicio',
-                width: 1316,
-                height: 2718,
-            },
-            {
-                src: '/images/projects/in-kids/07.webp',
-                alt: 'Versión móvil: página Sobre nosotros',
-                width: 1316,
-                height: 2718,
-            },
-            {
-                src: '/images/projects/in-kids/08.webp',
-                alt: 'Versión móvil: página de contacto',
-                width: 1316,
-                height: 2718,
-            },
-            {
-                src: '/images/projects/in-kids/09.webp',
-                alt: 'Versión móvil: página de registro',
-                width: 1316,
-                height: 2718,
-            },
-            {
-                src: '/images/projects/in-kids/10.webp',
-                alt: 'Versión móvil: página de inicio de sesión',
-                width: 1316,
-                height: 2718,
-            },
-        ],
-        cardTechs: ['HTML', 'CSS', 'JavaScript'],
-        fullDescription:
-            'El I&N Kids fue desarrollado durante el primer período de la facultad, con enfoque en el aprendizaje inicial de desarrollo front-end. La plataforma tiene como objetivo auxiliar a padres a encontrar alternativas saludables y educativas para reducir el tiempo de pantalla de los niños, promoviendo actividades offline y mayor interacción familiar.\n\nCaracterísticas principales:\n- Contenidos y orientaciones para disminuir el uso excesivo de dispositivos\n- Actividades offline elaboradas para diferentes grupos de edad\n- Interfaz simple, intuitiva y accesible para padres y responsables\n- Incentivo al equilibrio entre tecnología y vida activa\n- Proyecto construido en equipo como parte de un trabajo interdisciplinar\n\nUna aplicación importante para consolidar fundamentos de front-end y buenas prácticas de desarrollo en el inicio de la trayectoria académica.',
-        allTechs: [
-            'HTML',
-            'CSS',
-            'JavaScript',
-            'Bootstrap',
-            'jQuery',
-            'Node.js',
-            'TypeScript',
-            'Express.js',
-            'MongoDB',
-            'Blip',
-        ],
-        liveUrl: 'https://iandn-kids.vercel.app/',
-        githubUrl: 'https://github.com/arturbomtempo-dev/iandn-kids',
-    },
-    {
         id: 'christmas-chat',
         title: 'Christmas Chat',
         description:
@@ -660,19 +551,6 @@ export const PROJECTS_ES: Project[] = [
         liveUrl:
             'https://artur-bomtempo-colen-4htrp.chat.blip.ai/?appKey=bmF0YWxpbmE6NzJiZGE3MDYtMmY3ZS00Y2NmLWFlMzItNzQ2NTBlMDZlOGNh',
         githubUrl: 'https://github.com/arturbomtempo-dev/christmas-chat',
-    },
-    {
-        id: 'netflix-homepage',
-        title: 'Página Inicial de Netflix',
-        description:
-            'Clon de la página inicial de Netflix desarrollado para consolidar fundamentos de Front-end.',
-        image: '/images/projects/netflix-homepage.webp',
-        cardTechs: ['Node.js'],
-        fullDescription:
-            'Proyecto desarrollado en una clase de Digital Innovation One con el objetivo de practicar conceptos esenciales de Front-end e introducir estudios iniciales con Node.js. La aplicación recrea la página inicial de Netflix, exhibiendo listas de películas categorizadas.\n\nCaracterísticas principales:\n- Interfaz inspirada en el layout original de Netflix\n- Secciones de películas organizadas por categorías\n- Diseño responsive y compatible con diferentes dispositivos\n- Estructura ideal para consolidar conocimientos de front-end y lógica básica\n\nUn proyecto simple, pero fundamental en el proceso de evolución en el desarrollo web.',
-        allTechs: ['HTML', 'CSS', 'JavaScript', 'Node.js'],
-        liveUrl: 'https://netflix-artur.vercel.app/',
-        githubUrl: 'https://github.com/arturbomtempo-dev/netflix-clone',
     },
     {
         id: 'inverted-world',
