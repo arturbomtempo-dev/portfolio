@@ -19,6 +19,10 @@ function parseIsoDate(isoDate: string) {
     return new Date(`${isMonthPrecision(isoDate) ? `${isoDate}-01` : isoDate}T00:00:00`);
 }
 
+function capitalizeFirstLetter(text: string, languageTag: string) {
+    return text.charAt(0).toLocaleUpperCase(languageTag) + text.slice(1);
+}
+
 export function formatTalkDate(
     startDate: string,
     endDate: string | undefined,
@@ -29,7 +33,9 @@ export function formatTalkDate(
         isMonthPrecision(startDate) ? MONTH_FORMAT_OPTIONS : DAY_FORMAT_OPTIONS
     );
 
-    return endDate
+    const formattedDate = endDate
         ? formatter.formatRange(parseIsoDate(startDate), parseIsoDate(endDate))
         : formatter.format(parseIsoDate(startDate));
+
+    return capitalizeFirstLetter(formattedDate, languageTag);
 }

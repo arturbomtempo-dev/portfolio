@@ -112,28 +112,28 @@ export const TALKS_PT: Talk[] = [
         image: '/images/talks/software-engineering-10-years-workshop/cover.webp',
         gallery: [
             {
-                src: '/images/talks/software-engineering-10-years-workshop/02.webp',
+                src: '/images/talks/software-engineering-10-years-workshop/01.webp',
                 alt: 'Foto 1 de 10 anos de Engenharia de Software da PUC Minas',
                 width: 2400,
                 height: 1800,
             },
             {
-                src: '/images/talks/software-engineering-10-years-workshop/03.webp',
+                src: '/images/talks/software-engineering-10-years-workshop/02.webp',
                 alt: 'Foto 2 de 10 anos de Engenharia de Software da PUC Minas',
                 width: 2400,
                 height: 1800,
             },
             {
-                src: '/images/talks/software-engineering-10-years-workshop/04.webp',
+                src: '/images/talks/software-engineering-10-years-workshop/03.webp',
                 alt: 'Foto 3 de 10 anos de Engenharia de Software da PUC Minas',
-                width: 960,
-                height: 960,
-            },
-            {
-                src: '/images/talks/software-engineering-10-years-workshop/01.webp',
-                alt: 'Foto 4 de 10 anos de Engenharia de Software da PUC Minas',
                 width: 2400,
                 height: 1800,
+            },
+            {
+                src: '/images/talks/software-engineering-10-years-workshop/04.webp',
+                alt: 'Foto 4 de 10 anos de Engenharia de Software da PUC Minas',
+                width: 960,
+                height: 960,
             },
         ],
     },
@@ -212,7 +212,7 @@ export const TALKS_PT: Talk[] = [
         title: 'Introdução ao Docker: da teoria à prática',
         eventName: 'dti digital',
         location: 'Online',
-        date: '2025-11',
+        date: '2025-12-16',
         description:
             'Knowledge Transfer na dti digital sobre Docker, da base teórica a exemplos práticos com Docker Compose.',
         fullDescription:
@@ -298,11 +298,11 @@ export const TALKS_PT: Talk[] = [
         eventName: 'Journey Backend · WebTech Network e LEVTY',
         location: 'Online',
         date: '2025-07',
-        endDate: '2025-08',
+        endDate: '2025-09',
         description:
             'Programa do WebTech Network em parceria com a LEVTY para impulsionar quem estava começando no back-end com Node.js e Express.',
         fullDescription:
-            'O Journey Backend foi um programa do WebTech Network em parceria com a LEVTY, criado para impulsionar a carreira de quem estava começando no desenvolvimento back-end com Node.js e Express. A abertura oficial reuniu mais de 200 pessoas simultaneamente.\n\nComo membro da Guilda Backend, acompanhei os participantes ao longo da jornada, tirando dúvidas, trocando experiências e preparando materiais de apoio para cada etapa do programa.\n\nPrincipais tópicos abordados:\n- Desenvolvimento back-end com Node.js\n- Criação de APIs com Express\n- Mentoria e suporte técnico aos participantes\n- Produção de materiais de apoio',
+            'O Journey Backend foi um programa do WebTech Network em parceria com a LEVTY, criado para impulsionar a carreira de quem estava começando no desenvolvimento back-end com Node.js e Express. O programa contou com mais de 500 inscritos, e a abertura oficial reuniu mais de 200 pessoas simultaneamente.\n\nComo membro da Guilda Backend, acompanhei os participantes ao longo da jornada, tirando dúvidas, trocando experiências e preparando materiais de apoio para cada etapa do programa.\n\nPrincipais tópicos abordados:\n- Desenvolvimento back-end com Node.js\n- Criação de APIs com Express\n- Mentoria e suporte técnico aos participantes\n- Produção de materiais de apoio',
         topics: ['Node.js', 'Express', 'Back-end', 'Mentoria'],
         image: '/images/talks/webtech-backend-journey/cover.webp',
         gallery: [
@@ -445,7 +445,7 @@ export const TALKS_PT: Talk[] = [
         title: 'Workshop de Pré-AEDS I',
         eventName: '17ª Escola de Férias de Ciência da Computação da PUC Minas',
         location: 'PUC Minas Coração Eucarístico',
-        date: '2024-07',
+        date: '2024-07-30',
         description:
             'Workshop de lógica de programação em C para quem estava prestes a cursar Algoritmos e Estruturas de Dados I.',
         fullDescription:
@@ -473,11 +473,12 @@ export const TALKS_PT: Talk[] = [
         title: 'Code Club: primeiros passos na programação para crianças',
         eventName: 'Code Club · Colégio Cotemig',
         location: 'Colégio Cotemig',
-        date: '2023-07',
+        date: '2023-04',
+        endDate: '2023-07',
         description:
-            'Ao longo de três meses, conduzi aulas de HTML, CSS, Scratch e Python para crianças que davam os primeiros passos na programação.',
+            'De abril a julho de 2023, conduzi aulas de HTML, CSS, Scratch e Python para crianças que davam os primeiros passos na programação.',
         fullDescription:
-            'O Code Club foi um projeto de ensino de programação para crianças no Colégio Cotemig, realizado ao longo de três meses e concluído em julho de 2023. Comecei como mentorado, preparando-me para apresentar conteúdos e atuar como monitor, e acabei assumindo a condução das aulas como professor, auxiliando a professora responsável pelo projeto.\n\nNesse papel, planejei e conduzi aulas pensadas para despertar a curiosidade das crianças, com atividades práticas e linguagem acessível, para que cada uma construísse uma base sólida de lógica e criatividade.\n\nPrincipais tópicos abordados:\n- Lógica de programação com Scratch\n- Estrutura de páginas web com HTML\n- Estilização com CSS\n- Primeiros programas em Python',
+            'A 8ª edição do Code Club no Colégio Cotemig foi um projeto de ensino de programação para crianças, realizado de abril a julho de 2023. Comecei como mentorado, preparando-me para apresentar conteúdos e atuar como monitor, e acabei assumindo a condução das aulas como professor, auxiliando a professora responsável pelo projeto.\n\nNesse papel, planejei e conduzi aulas pensadas para despertar a curiosidade das crianças, com atividades práticas e linguagem acessível, para que cada uma construísse uma base sólida de lógica e criatividade.\n\nPrincipais tópicos abordados:\n- Lógica de programação com Scratch\n- Estrutura de páginas web com HTML\n- Estilização com CSS\n- Primeiros programas em Python',
         topics: ['Scratch', 'HTML', 'CSS', 'Python', 'Ensino de programação'],
         image: '/images/talks/cotemig-code-club/cover.webp',
         gallery: [

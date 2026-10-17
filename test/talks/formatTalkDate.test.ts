@@ -12,8 +12,14 @@ describe('talk date formatting', () => {
     });
 
     it('formats a month without inventing a day', () => {
-        expect(formatTalkDate('2023-07', undefined, 'pt-BR')).toBe('julho de 2023');
-        expect(formatTalkDate('2023-07', undefined, 'es-ES')).toBe('julio de 2023');
+        expect(formatTalkDate('2023-07', undefined, 'pt-BR')).toBe('Julho de 2023');
+        expect(formatTalkDate('2023-07', undefined, 'es-ES')).toBe('Julio de 2023');
+    });
+
+    it('capitalizes the first letter of month ranges', () => {
+        expect(normalizeSpaces(formatTalkDate('2023-04', '2023-07', 'pt-BR'))).toBe(
+            'Abril – julho de 2023'
+        );
     });
 
     it('formats day and month ranges', () => {

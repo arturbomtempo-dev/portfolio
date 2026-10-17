@@ -10,8 +10,12 @@ const TALKS_BY_LOCALE: Record<LocaleCode, Talk[]> = {
     es: TALKS_ES,
 };
 
+function getLatestDate(talk: Talk) {
+    return talk.endDate ?? talk.date;
+}
+
 function compareByMostRecentDate(first: Talk, second: Talk) {
-    return second.date.localeCompare(first.date);
+    return getLatestDate(second).localeCompare(getLatestDate(first));
 }
 
 export function useTalksContent() {
