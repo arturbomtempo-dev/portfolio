@@ -146,6 +146,86 @@ export const PROJECTS_ES: Project[] = [
         description:
             'Sitio oficial del Google Developers Group Belo Horizonte, presentando eventos, charlas e informaciones de la comunidad.',
         image: '/images/projects/gdg-bh-2025.webp',
+        additionalPhotos: [
+            {
+                src: '/images/projects/gdg-bh-2025/01.webp',
+                alt: 'Versión de escritorio: página de inicio, sección Nosso impacto',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/gdg-bh-2025/02.webp',
+                alt: 'Versión de escritorio: página de inicio, equipo de organizadores',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/gdg-bh-2025/03.webp',
+                alt: 'Versión de escritorio: página de inicio, sección Sobre o GDG',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/gdg-bh-2025/04.webp',
+                alt: 'Versión de escritorio: página de inicio, marcas que apoyan y patrocinio',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/gdg-bh-2025/05.webp',
+                alt: 'Versión de escritorio: página de inicio, sección Compartilhe suas Ideias',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/gdg-bh-2025/06.webp',
+                alt: 'Versión de escritorio: página del DevFest 2026',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/gdg-bh-2025/07.webp',
+                alt: 'Versión de escritorio: página del DevFest 2026, ponentes',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/gdg-bh-2025/08.webp',
+                alt: 'Versión de escritorio: página del DevFest 2026, agenda',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/gdg-bh-2025/09.webp',
+                alt: 'Versión móvil: página de inicio',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/gdg-bh-2025/10.webp',
+                alt: 'Versión móvil: sección Nosso impacto',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/gdg-bh-2025/11.webp',
+                alt: 'Versión móvil: equipo de organizadores',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/gdg-bh-2025/12.webp',
+                alt: 'Versión móvil: página del DevFest 2026',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/gdg-bh-2025/13.webp',
+                alt: 'Versión móvil: agenda del DevFest 2026',
+                width: 1316,
+                height: 2718,
+            },
+        ],
         cardTechs: ['React', 'TypeScript'],
         fullDescription:
             'Este proyecto consiste en el desarrollo del nuevo sitio oficial del Google Developers Group (GDG) Belo Horizonte para el año 2025. La plataforma presenta los eventos de la comunidad, charlas anteriores, informaciones institucionales y contenidos sobre la organización, ofreciendo una experiencia moderna y accesible para desarrolladores interesados en el ecosistema del GDG.\n\nMi contribución estuvo directamente vinculada al desarrollo del front-end, garantizando una interfaz clara, responsive y alineada con la identidad visual de la comunidad.\n\nCaracterísticas principales:\n- Página oficial con informaciones actualizadas sobre el GDG Belo Horizonte\n- Sección dedicada a eventos y encuentros de la comunidad\n- Histórico de charlas y contenidos ya presentados\n- Interfaz moderna y responsive basada en componentes reutilizables\n- Estructura pensada para destacar informaciones relevantes y facilitar la navegación\n\nUn proyecto desarrollado en colaboración para fortalecer la presencia digital de una de las principales comunidades de tecnología de la región.',
@@ -172,6 +252,62 @@ export const PROJECTS_ES: Project[] = [
         description:
             'Aplicación desarrollada como proyecto didáctico para enseñar React durante la Escuela de Vacaciones de PUC Minas.',
         image: '/images/projects/studio-ghibli-api.webp',
+        additionalPhotos: [
+            {
+                src: '/images/projects/studio-ghibli-api/01.webp',
+                alt: 'Versión de escritorio: página de inicio, directores',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/studio-ghibli-api/02.webp',
+                alt: 'Versión de escritorio: página de inicio, películas',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/studio-ghibli-api/03.webp',
+                alt: 'Versión de escritorio: listado de películas',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/studio-ghibli-api/04.webp',
+                alt: 'Versión de escritorio: detalles de una película',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/studio-ghibli-api/05.webp',
+                alt: 'Versión móvil: página de inicio',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/studio-ghibli-api/06.webp',
+                alt: 'Versión móvil: directores',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/studio-ghibli-api/07.webp',
+                alt: 'Versión móvil: películas',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/studio-ghibli-api/08.webp',
+                alt: 'Versión móvil: listado de películas',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/studio-ghibli-api/09.webp',
+                alt: 'Versión móvil: detalles de una película',
+                width: 1316,
+                height: 2718,
+            },
+        ],
         cardTechs: ['React', 'TypeScript'],
         fullDescription:
             'Proyecto desarrollado para la Escuela de Vacaciones de Ciencias de la Computación de PUC Minas, en 2025, con el objetivo de enseñar a estudiantes principiantes a construir aplicaciones completas en React. La aplicación consume datos de la Studio Ghibli API para exhibir una colección de películas, ofreciendo una experiencia práctica y guiada sobre desarrollo front-end moderno.\n\nCaracterísticas principales:\n- Listado de las películas de Studio Ghibli con informaciones generales\n- Navegación fluida entre páginas y secciones de la aplicación\n- Interfaz organizada, responsive y fácil de entender para principiantes\n- Proyecto utilizado como base para enseñar fundamentos esenciales de React\n- Abordaje orientado a la práctica, con enfoque en construcción de componentes, rutas y consumo de APIs\n\nUn proyecto con propósito educacional, creado para facilitar el aprendizaje de desarrollo web moderno a través de un ejemplo real y envolvente.',
@@ -193,6 +329,56 @@ export const PROJECTS_ES: Project[] = [
         description:
             'Sitio oficial desarrollado para el mayor evento de tecnología de Belo Horizonte, promovido por el Google Developers Group.',
         image: '/images/projects/devfest-bh-2024.webp',
+        additionalPhotos: [
+            {
+                src: '/images/projects/devfest-bh-2024/01.webp',
+                alt: 'Versión de escritorio: página de inicio, secciones Qué es el DevFest y ponentes',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/devfest-bh-2024/02.webp',
+                alt: 'Versión de escritorio: página de inicio, patrocinadores y apoyos',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/devfest-bh-2024/03.webp',
+                alt: 'Versión de escritorio: página de inicio, media kit y canales',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/devfest-bh-2024/04.webp',
+                alt: 'Versión de escritorio: programación',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/devfest-bh-2024/05.webp',
+                alt: 'Versión móvil: página de inicio',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/devfest-bh-2024/06.webp',
+                alt: 'Versión móvil: sección Qué es el DevFest',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/devfest-bh-2024/07.webp',
+                alt: 'Versión móvil: media kit',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/devfest-bh-2024/08.webp',
+                alt: 'Versión móvil: programación',
+                width: 1316,
+                height: 2718,
+            },
+        ],
         cardTechs: ['Next.js', 'TypeScript'],
         fullDescription:
             'Plataforma desarrollada por mí y parte del equipo WebTech Network para el Google Developers Group Belo Horizonte, sirviendo como el sitio oficial del DevFest BH 2024, el mayor evento de tecnología de la ciudad. El objetivo fue crear una experiencia completa para participantes, con informaciones, agenda, ubicación, socios y enlace de inscripción.\n\nCaracterísticas principales:\n- Página oficial del evento con identidad visual propia y contenido actualizado\n- Acceso a la página de inscripción y direccionamiento al sistema de acreditación\n- Exhibición de programación completa, charlas y pistas del evento\n- Secciones dedicadas para patrocinadores, media kit e informaciones institucionales\n- Cuenta regresiva dinámica e informaciones esenciales para participantes\n- Interfaz responsive, rápida y optimizada para SEO\n- Desarrollado en colaboración con equipo multidisciplinar de WebTech Network\n\nUn proyecto de gran impacto, entregado en sociedad con el GDG BH, con enfoque en calidad, rendimiento y experiencia del usuario.',
@@ -229,6 +415,80 @@ export const PROJECTS_ES: Project[] = [
         description:
             'Aplicación creada para listar mobs, ítems y minerales de Minecraft consumiendo una API propia.',
         image: '/images/projects/craftapi.webp',
+        additionalPhotos: [
+            {
+                src: '/images/projects/craftapi/01.webp',
+                alt: 'Versión de escritorio: página de inicio, desarrolladores',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/craftapi/02.webp',
+                alt: 'Versión de escritorio: listado de mobs',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/craftapi/03.webp',
+                alt: 'Versión de escritorio: detalles de un mob',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/craftapi/04.webp',
+                alt: 'Versión de escritorio: listado de equipamientos',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/craftapi/05.webp',
+                alt: 'Versión de escritorio: detalles de un equipamiento',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/craftapi/06.webp',
+                alt: 'Versión de escritorio: listado de minerales',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/craftapi/07.webp',
+                alt: 'Versión de escritorio: detalles de un mineral',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/craftapi/08.webp',
+                alt: 'Versión móvil: página de inicio',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/craftapi/09.webp',
+                alt: 'Versión móvil: listado de mobs',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/craftapi/10.webp',
+                alt: 'Versión móvil: detalles de un mob',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/craftapi/11.webp',
+                alt: 'Versión móvil: listado de equipamientos',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/craftapi/12.webp',
+                alt: 'Versión móvil: listado de minerales',
+                width: 1316,
+                height: 2718,
+            },
+        ],
         cardTechs: ['React', 'Node.js'],
         fullDescription:
             'Proyecto desarrollado en la disciplina de Frameworks del curso técnico de desarrollo web y móvil, con enfoque en consolidar los estudios sobre React Hooks y consumo de APIs. La aplicación exhibe informaciones detalladas sobre mobs, equipamientos y minerales de Minecraft, utilizando una API desarrollada por la propia dupla responsable del proyecto.\n\nCaracterísticas principales:\n- Listado completo de mobs, ítems y minerales de Minecraft\n- Exhibición de detalles al seleccionar cada elemento\n- Integración directa con una API propia construida exclusivamente para el proyecto\n- Interfaz responsive y organizada para facilitar la navegación\n- Proyecto creado en dupla, uniendo front-end y back-end en un ecosistema unificado\n\nUn proyecto esencial para reforzar prácticas de React, lógica de consumo de APIs y desarrollo colaborativo.',
@@ -242,6 +502,68 @@ export const PROJECTS_ES: Project[] = [
         description:
             'Plataforma creada para ayudar a padres a reducir el tiempo de pantalla de los niños e incentivar actividades offline.',
         image: '/images/projects/in-kids.webp',
+        additionalPhotos: [
+            {
+                src: '/images/projects/in-kids/01.webp',
+                alt: 'Versión de escritorio: página Sobre nosotros',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/in-kids/02.webp',
+                alt: 'Versión de escritorio: página Sobre nosotros, equipo',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/in-kids/03.webp',
+                alt: 'Versión de escritorio: página de contacto',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/in-kids/04.webp',
+                alt: 'Versión de escritorio: página de registro',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/in-kids/05.webp',
+                alt: 'Versión de escritorio: página de inicio de sesión',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/in-kids/06.webp',
+                alt: 'Versión móvil: página de inicio',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/in-kids/07.webp',
+                alt: 'Versión móvil: página Sobre nosotros',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/in-kids/08.webp',
+                alt: 'Versión móvil: página de contacto',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/in-kids/09.webp',
+                alt: 'Versión móvil: página de registro',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/in-kids/10.webp',
+                alt: 'Versión móvil: página de inicio de sesión',
+                width: 1316,
+                height: 2718,
+            },
+        ],
         cardTechs: ['HTML', 'CSS', 'JavaScript'],
         fullDescription:
             'El I&N Kids fue desarrollado durante el primer período de la facultad, con enfoque en el aprendizaje inicial de desarrollo front-end. La plataforma tiene como objetivo auxiliar a padres a encontrar alternativas saludables y educativas para reducir el tiempo de pantalla de los niños, promoviendo actividades offline y mayor interacción familiar.\n\nCaracterísticas principales:\n- Contenidos y orientaciones para disminuir el uso excesivo de dispositivos\n- Actividades offline elaboradas para diferentes grupos de edad\n- Interfaz simple, intuitiva y accesible para padres y responsables\n- Incentivo al equilibrio entre tecnología y vida activa\n- Proyecto construido en equipo como parte de un trabajo interdisciplinar\n\nUna aplicación importante para consolidar fundamentos de front-end y buenas prácticas de desarrollo en el inicio de la trayectoria académica.',
@@ -266,6 +588,62 @@ export const PROJECTS_ES: Project[] = [
         description:
             'Chatbot y sitio web interactivo creado para compartir mensajes de Navidad y Año Nuevo de forma personalizada.',
         image: '/images/projects/christmas-chat.webp',
+        additionalPhotos: [
+            {
+                src: '/images/projects/christmas-chat/01.webp',
+                alt: 'Versión de escritorio: sitio de Navidad generado por el chat, inicio',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/christmas-chat/02.webp',
+                alt: 'Versión de escritorio: sitio de Navidad generado por el chat, deseos',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/christmas-chat/03.webp',
+                alt: 'Versión de escritorio: sitio de Navidad generado por el chat, mensaje',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/christmas-chat/04.webp',
+                alt: 'Versión de escritorio: sitio de Navidad generado por el chat, acciones',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/christmas-chat/05.webp',
+                alt: 'Versión de escritorio: sitio de Navidad generado por el chat, tema oscuro',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/christmas-chat/06.webp',
+                alt: 'Versión móvil: sitio de Navidad generado por el chat, inicio',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/christmas-chat/07.webp',
+                alt: 'Versión móvil: sitio de Navidad generado por el chat, deseos',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/christmas-chat/08.webp',
+                alt: 'Versión móvil: sitio de Navidad generado por el chat, mensaje',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/christmas-chat/09.webp',
+                alt: 'Versión móvil: sitio de Navidad generado por el chat, acciones',
+                width: 1316,
+                height: 2718,
+            },
+        ],
         cardTechs: ['TypeScript', 'Node.js', 'Blip'],
         fullDescription:
             'Proyecto desarrollado para permitir el compartir mensajes navideños de manera interactiva, combinando un chatbot con un sitio temático. Cada usuario accede al contenido por medio de un código único, que recupera sus datos en la API y exhibe una página personalizada.\n\nCaracterísticas principales:\n- Chatbot interactivo con opciones temáticas y contenido festivo\n- Página personalizada generada a partir de un código proporcionado por el usuario\n- Flujos conversacionales que incluyen quiz, playlist y envío de mensajes\n- Integración completa entre chatbot, API y sitio principal\n- Experiencia pensada para ser divertida, intuitiva y accesible\n\nUn proyecto marcante que unió creación de interfaces, lógica de APIs y diseño de experiencias conversacionales.',
@@ -302,6 +680,80 @@ export const PROJECTS_ES: Project[] = [
         description:
             'Landing page temática inspirada en la 4ª temporada de Stranger Things, creada durante la Front-end Week de DIO.',
         image: '/images/projects/inverted-world.webp',
+        additionalPhotos: [
+            {
+                src: '/images/projects/inverted-world/01.webp',
+                alt: 'Versión de escritorio: página de inicio en el Mundo del Revés',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/inverted-world/02.webp',
+                alt: 'Versión de escritorio: sección O Mundo Invertido',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/inverted-world/03.webp',
+                alt: 'Versión de escritorio: sección Stranger Things vol. 4, con el tráiler',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/inverted-world/04.webp',
+                alt: 'Versión de escritorio: galería de la serie',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/inverted-world/05.webp',
+                alt: 'Versión de escritorio: formulario del Club Dungeons & Dragons',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/inverted-world/06.webp',
+                alt: 'Versión de escritorio: formulario en el Mundo del Revés',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/inverted-world/07.webp',
+                alt: 'Versión móvil: página de inicio',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/inverted-world/08.webp',
+                alt: 'Versión móvil: página de inicio en el Mundo del Revés',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/inverted-world/09.webp',
+                alt: 'Versión móvil: sección O Mundo Invertido',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/inverted-world/10.webp',
+                alt: 'Versión móvil: sección Stranger Things vol. 4',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/inverted-world/11.webp',
+                alt: 'Versión móvil: galería de la serie',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/inverted-world/12.webp',
+                alt: 'Versión móvil: formulario del Club Dungeons & Dragons',
+                width: 1316,
+                height: 2718,
+            },
+        ],
         cardTechs: ['JavaScript'],
         fullDescription:
             'Proyecto desarrollado durante la Front-end Week de Digital Innovation One, con el objetivo de crear una landing page temática sobre la 4ª temporada de Stranger Things y reforzar conceptos fundamentales de HTML, CSS y JavaScript.\n\nCaracterísticas principales:\n- Página dedicada al universo de la serie, con enfoque en el Mundo Invertido\n- Contenido presentado de forma visualmente atractiva y responsive\n- Formulario integrado a una base de datos para almacenamiento de mensajes\n- Animaciones y secciones interactivas que enriquecen la navegación\n\nUn proyecto ideal para mejorar conocimientos de front-end e integración básica con servicios externos.',
@@ -315,6 +767,50 @@ export const PROJECTS_ES: Project[] = [
         description:
             'Sitio interactivo creado para transmitir el significado de la Navidad de forma ligera y envolvente.',
         image: '/images/projects/christmas-website.webp',
+        additionalPhotos: [
+            {
+                src: '/images/projects/christmas-website/01.webp',
+                alt: 'Versión de escritorio: sección Significado',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/christmas-website/02.webp',
+                alt: 'Versión de escritorio: sección Ações',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/christmas-website/03.webp',
+                alt: 'Versión de escritorio: sección Celebre',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/christmas-website/04.webp',
+                alt: 'Versión móvil: página de inicio',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/christmas-website/05.webp',
+                alt: 'Versión móvil: sección Significado',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/christmas-website/06.webp',
+                alt: 'Versión móvil: sección Ações',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/christmas-website/07.webp',
+                alt: 'Versión móvil: sección Celebre',
+                width: 1316,
+                height: 2718,
+            },
+        ],
         cardTechs: ['JavaScript'],
         fullDescription:
             'Proyecto desarrollado con el objetivo de crear una página temática e interactiva para compartir el significado de la Navidad de forma creativa.\n\nCaracterísticas principales:\n- Layout temático con animaciones suaves y efectos de scroll\n- Secciones informativas presentadas de manera envolvente\n- Efectos visuales que enriquecen la experiencia del usuario\n- Navegación simple, intuitiva y responsive\n\nUn proyecto enfocado en mejorar habilidades de front-end, animaciones y construcción de interfaces más dinámicas.',
