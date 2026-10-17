@@ -142,7 +142,7 @@ export const PROJECTS_PT: Project[] = [
     },
     {
         id: 'gdg-bh-2025',
-        title: 'GDG Belo Horizonte 2025 Website',
+        title: 'Site do GDG Belo Horizonte 2025',
         description:
             'Site oficial do Google Developers Group Belo Horizonte, apresentando eventos, palestras e informações da comunidade.',
         image: '/images/projects/gdg-bh-2025.webp',
@@ -248,7 +248,7 @@ export const PROJECTS_PT: Project[] = [
     },
     {
         id: 'studio-ghibli-api',
-        title: 'Studio Ghibli API React App',
+        title: 'Aplicação React da API do Studio Ghibli',
         description:
             'Aplicação desenvolvida como projeto didático para ensinar React durante a Escola de Férias da PUC Minas.',
         image: '/images/projects/studio-ghibli-api.webp',
@@ -313,7 +313,7 @@ export const PROJECTS_PT: Project[] = [
     },
     {
         id: 'devfest-bh-2024',
-        title: 'DevFest BH 2024 Website',
+        title: 'Site do DevFest BH 2024',
         description:
             'Site oficial desenvolvido para o maior evento de tecnologia de Belo Horizonte, promovido pelo Google Developers Group.',
         image: '/images/projects/devfest-bh-2024.webp',
@@ -463,7 +463,7 @@ export const PROJECTS_PT: Project[] = [
     },
     {
         id: 'christmas-chat',
-        title: 'Christmas Chat',
+        title: 'Chat de Natal',
         description:
             'Chatbot e website interativo criado para compartilhar mensagens de Natal e Ano Novo de forma personalizada.',
         image: '/images/projects/christmas-chat.webp',
@@ -542,7 +542,7 @@ export const PROJECTS_PT: Project[] = [
     },
     {
         id: 'inverted-world',
-        title: 'Inverted World Landing Page',
+        title: 'Landing Page do Mundo Invertido',
         description:
             'Landing page temática inspirada na 4ª temporada de Stranger Things, criada durante a Front-end Week da DIO.',
         image: '/images/projects/inverted-world.webp',
@@ -629,7 +629,7 @@ export const PROJECTS_PT: Project[] = [
     },
     {
         id: 'christmas-website',
-        title: 'Christmas Website',
+        title: 'Site de Natal',
         description:
             'Site interativo criado para transmitir o significado do Natal de forma leve e envolvente.',
         image: '/images/projects/christmas-website.webp',
@@ -686,7 +686,7 @@ export const PROJECTS_PT: Project[] = [
     },
     {
         id: 'goodtimegpt',
-        title: 'ChatGPT Clone',
+        title: 'Clone do ChatGPT',
         description:
             'Clone funcional do ChatGPT construído para estudo de desenvolvimento web e integração com APIs de IA.',
         image: '/images/projects/goodtimegpt.webp',

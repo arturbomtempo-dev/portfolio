@@ -463,7 +463,7 @@ export const PROJECTS_ES: Project[] = [
     },
     {
         id: 'christmas-chat',
-        title: 'Christmas Chat',
+        title: 'Chat de Navidad',
         description:
             'Chatbot y sitio web interactivo creado para compartir mensajes de Navidad y Año Nuevo de forma personalizada.',
         image: '/images/projects/christmas-chat.webp',
