@@ -27,7 +27,7 @@ const formattedDate = computed(() =>
 
 <template>
     <article>
-        <UiBackLink :to="localePath('/talks')" class="mb-8">
+        <UiBackLink :to="localePath('/talks')" should-return-to-previous-page class="mb-8">
             {{ t('talkDetails.backButton') }}
         </UiBackLink>
 
