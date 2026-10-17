@@ -159,7 +159,7 @@ watch(isViewerOpen, (isOpen) => {
                             'relative select-none motion-safe:animate-in motion-safe:fade-in-0 motion-safe:duration-300',
                             selectedPhotoFit === 'cover'
                                 ? 'size-full object-cover'
-                                : 'h-full w-auto max-w-full rounded-md object-contain shadow-2xl shadow-black/40 sm:rounded-lg'
+                                : 'h-full w-auto max-w-full rounded-md object-contain drop-shadow-xl sm:rounded-lg'
                         )
                     "
                 />

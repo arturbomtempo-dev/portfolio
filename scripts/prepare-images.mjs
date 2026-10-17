@@ -2,12 +2,14 @@ import { existsSync } from 'node:fs';
 import { mkdir, readdir, rm } from 'node:fs/promises';
 import { extname, join, parse } from 'node:path';
 import sharp from 'sharp';
+import { framePhoneScreenshot } from './phoneFrame.mjs';
 
 const IMAGES_DIRECTORY = 'public/images';
 const PROJECT_IMAGES_DIRECTORY = join(IMAGES_DIRECTORY, 'projects');
 const PROJECT_OPEN_GRAPH_DIRECTORY = 'public/og/projects';
 const CONVERTIBLE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.gif', '.avif', '.tiff']);
 const WEBP_QUALITY = 88;
+const PHONE_SCREENSHOT_PATTERN = /\.phone\.(png|jpe?g|webp)$/i;
 const OPEN_GRAPH_SIZE = { width: 1200, height: 630 };
 const OPEN_GRAPH_QUALITY = 85;
 const DEFAULT_MAX_WIDTH_IN_PX = 1920;
@@ -20,6 +22,17 @@ const MAX_WIDTH_BY_FOLDER_IN_PX = {
     talks: 2400,
 };
 
+async function convertPhoneScreenshot(directory, file) {
+    const source = join(directory, file);
+    const target = join(directory, `${file.replace(PHONE_SCREENSHOT_PATTERN, '')}.webp`);
+
+    await sharp(await framePhoneScreenshot(source))
+        .webp({ quality: WEBP_QUALITY, alphaQuality: 100, effort: 6 })
+        .toFile(target);
+    await rm(source);
+    console.log(`framed ${source} -> ${target}`);
+}
+
 async function convertImagesToWebp(directory, maxWidth) {
     const entries = await readdir(directory, { withFileTypes: true });
 
@@ -28,6 +41,11 @@ async function convertImagesToWebp(directory, maxWidth) {
 
         if (entry.isDirectory()) {
             await convertImagesToWebp(source, maxWidth);
+            continue;
+        }
+
+        if (PHONE_SCREENSHOT_PATTERN.test(entry.name)) {
+            await convertPhoneScreenshot(directory, entry.name);
             continue;
         }
 
