@@ -82,7 +82,7 @@ const visibleTopics = computed(() => props.talk.topics.slice(0, VISIBLE_TOPICS_C
                     <MapPin class="size-4 shrink-0" />
                     {{ props.talk.location }}
                 </span>
-                <span v-if="props.talk.gallery.length" class="flex items-center gap-1.5">
+                <span v-if="hasPhotoGallery(props.talk)" class="flex items-center gap-1.5">
                     <Images class="size-4 shrink-0" />
                     {{ t('talks.photos', props.talk.gallery.length) }}
                 </span>

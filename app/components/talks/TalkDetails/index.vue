@@ -87,7 +87,7 @@ const formattedDate = computed(() =>
             </section>
 
             <TalksTalkGallery
-                v-if="props.talk.gallery.length"
+                v-if="hasPhotoGallery(props.talk)"
                 :photos="props.talk.gallery"
                 :event-name="props.talk.eventName ?? props.talk.title"
             />

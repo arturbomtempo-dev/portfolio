@@ -388,7 +388,7 @@ export const TALKS_EN: Talk[] = [
         description:
             'A workshop at DevFest Belo Horizonte 2024, one of the largest technology events in the city, on the fundamentals of React.js and Next.js.',
         fullDescription:
-            'At DevFest Belo Horizonte 2024, one of the largest technology events in Belo Horizonte, I led a workshop on the fundamental concepts of React.js and Next.js.\n\nParticipants explored how these frameworks complement each other and how to use them to build fast, well-organized and efficient websites.\n\nMain topics covered:\n- Componentization and props in React.js\n- Routing and the strengths of Next.js\n- Building websites with React.js and Next.js',
+            'At DevFest Belo Horizonte 2024, one of the largest technology events in Belo Horizonte, I led a workshop on the fundamental concepts of React.js and Next.js together with Mariana Almeida, Nilson Deon and Alice Salin, all members of WebTech Network, like me.\n\nParticipants explored how these frameworks complement each other and how to use them to build fast, well-organized and efficient websites.\n\nMain topics covered:\n- Componentization and props in React.js\n- Routing and the strengths of Next.js\n- Building websites with React.js and Next.js',
         topics: ['React.js', 'Next.js', 'Front-end'],
         image: '/images/talks/devfest-bh-2024/cover.webp',
         gallery: [
@@ -415,7 +415,7 @@ export const TALKS_EN: Talk[] = [
         description:
             'A hands-on lab in which participants built a full stack application with Java, Spring Boot and Spring MVC.',
         fullDescription:
-            'I led a hands-on lab focused on Java with Spring Boot and Spring MVC, in which participants built a complete full stack application step by step.\n\nThe workshop covered every layer of a web application, from the project structure and the creation of the APIs to the user interface and data persistence, always focusing on good practices.\n\nMain topics covered:\n- Spring Boot MVC fundamentals and structure\n- Building and integrating RESTful APIs\n- Implementing an interactive front-end\n- Database integration and persistence',
+            'Together with Pedro Félix, I led a hands-on lab focused on Java with Spring Boot and Spring MVC, in which participants built a complete full stack application step by step.\n\nThe workshop covered every layer of a web application, from the project structure and the creation of the APIs to the user interface and data persistence, always focusing on good practices.\n\nMain topics covered:\n- Spring Boot MVC fundamentals and structure\n- Building and integrating RESTful APIs\n- Implementing an interactive front-end\n- Database integration and persistence',
         topics: ['Java', 'Spring Boot', 'Spring MVC', 'REST APIs', 'Full Stack'],
         image: '/images/talks/spring-mvc-full-stack-workshop/cover.webp',
         gallery: [

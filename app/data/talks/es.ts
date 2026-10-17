@@ -388,7 +388,7 @@ export const TALKS_ES: Talk[] = [
         description:
             'Taller en DevFest Belo Horizonte 2024, uno de los mayores eventos de tecnología de la ciudad, sobre los fundamentos de React.js y Next.js.',
         fullDescription:
-            'En DevFest Belo Horizonte 2024, uno de los mayores eventos de tecnología de Belo Horizonte, conduje un taller sobre los conceptos fundamentales de React.js y Next.js.\n\nLos participantes exploraron cómo se complementan estos frameworks y cómo utilizarlos para construir sitios web rápidos, bien organizados y eficientes.\n\nPrincipales temas abordados:\n- Componentización y props en React.js\n- Rutas y diferenciales de Next.js\n- Construcción de sitios web con React.js y Next.js',
+            'En DevFest Belo Horizonte 2024, uno de los mayores eventos de tecnología de Belo Horizonte, conduje, junto con Mariana Almeida, Nilson Deon y Alice Salin, todos miembros de WebTech Network al igual que yo, un taller sobre los conceptos fundamentales de React.js y Next.js.\n\nLos participantes exploraron cómo se complementan estos frameworks y cómo utilizarlos para construir sitios web rápidos, bien organizados y eficientes.\n\nPrincipales temas abordados:\n- Componentización y props en React.js\n- Rutas y diferenciales de Next.js\n- Construcción de sitios web con React.js y Next.js',
         topics: ['React.js', 'Next.js', 'Front-end'],
         image: '/images/talks/devfest-bh-2024/cover.webp',
         gallery: [
@@ -415,7 +415,7 @@ export const TALKS_ES: Talk[] = [
         description:
             'Laboratorio práctico en el que los participantes desarrollaron una aplicación full stack con Java, Spring Boot y Spring MVC.',
         fullDescription:
-            'Conduje un laboratorio práctico centrado en Java con Spring Boot y Spring MVC, en el que los participantes desarrollaron, paso a paso, una aplicación full stack completa.\n\nEl taller recorrió todas las capas de una aplicación web, desde la estructura del proyecto y la creación de las APIs hasta la interfaz de usuario y la persistencia de los datos, siempre con foco en buenas prácticas.\n\nPrincipales temas abordados:\n- Fundamentos y estructura de Spring Boot MVC\n- Creación e integración de APIs RESTful\n- Implementación de un front-end interactivo\n- Integración con bases de datos y persistencia',
+            'Conduje, junto con Pedro Félix, un laboratorio práctico centrado en Java con Spring Boot y Spring MVC, en el que los participantes desarrollaron, paso a paso, una aplicación full stack completa.\n\nEl taller recorrió todas las capas de una aplicación web, desde la estructura del proyecto y la creación de las APIs hasta la interfaz de usuario y la persistencia de los datos, siempre con foco en buenas prácticas.\n\nPrincipales temas abordados:\n- Fundamentos y estructura de Spring Boot MVC\n- Creación e integración de APIs RESTful\n- Implementación de un front-end interactivo\n- Integración con bases de datos y persistencia',
         topics: ['Java', 'Spring Boot', 'Spring MVC', 'APIs REST', 'Full Stack'],
         image: '/images/talks/spring-mvc-full-stack-workshop/cover.webp',
         gallery: [
