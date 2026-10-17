@@ -91,6 +91,14 @@
         "viewCode": "Ver Código",
         "aboutTitle": "Sobre o Projeto",
         "technologiesTitle": "Tecnologias Utilizadas",
+        "gallery": {
+            "label": "Fotos do projeto",
+            "counter": "{index} / {total}",
+            "showPhoto": "Mostrar foto {index} de {total}",
+            "openViewer": "Ampliar foto {index} de {total}",
+            "morePhotos": "Ver mais {count} fotos"
+        },
+        "lightboxTitle": "Fotos de {title}",
         "notFound": {
             "seo": {
                 "title": "Projeto não encontrado {'|'} Artur Bomtempo"
@@ -133,17 +141,6 @@
         "topicsTitle": "Temas abordados",
         "galleryTitle": "Fotos",
         "openPhoto": "Abrir foto {index} de {total}",
-        "lightbox": {
-            "title": "Fotos de {event}",
-            "previous": "Foto anterior",
-            "next": "Próxima foto",
-            "counter": "{index} de {total}",
-            "close": "Fechar visualizador",
-            "zoomIn": "Ampliar foto",
-            "zoomOut": "Reduzir zoom",
-            "thumbnails": "Miniaturas das fotos",
-            "showPhoto": "Ver foto {index}"
-        },
         "pagination": {
             "label": "Navegação entre palestras",
             "newer": "Palestra mais recente",
@@ -156,7 +153,18 @@
             "title": "Palestra não encontrada",
             "message": "A palestra que você está procurando não existe ou foi removida."
         },
-        "morePhotos": "Ver mais {count} fotos"
+        "morePhotos": "Ver mais {count} fotos",
+        "lightboxTitle": "Fotos de {title}"
+    },
+    "photoLightbox": {
+        "previous": "Foto anterior",
+        "next": "Próxima foto",
+        "counter": "{index} de {total}",
+        "close": "Fechar visualizador",
+        "zoomIn": "Ampliar foto",
+        "zoomOut": "Reduzir zoom",
+        "thumbnails": "Miniaturas das fotos",
+        "showPhoto": "Ver foto {index}"
     },
     "blackbox": {
         "usage": {

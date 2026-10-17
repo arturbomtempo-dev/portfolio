@@ -9,11 +9,11 @@ import {
     DialogRoot,
     DialogTitle,
 } from 'reka-ui';
-import type { TalkPhoto } from '~/types/talk';
+import type { Photo } from '~/types/photo';
 
 interface Props {
-    photos: TalkPhoto[];
-    eventName: string;
+    photos: Photo[];
+    title: string;
 }
 
 const props = defineProps<Props>();
@@ -24,7 +24,6 @@ const selectedIndex = defineModel<number>('index', { required: true });
 const PHOTO_SIZES = 'md:100vw lg:1280px';
 const THUMBNAIL_WIDTH_IN_PX = 96;
 const THUMBNAIL_HEIGHT_IN_PX = 64;
-const SWIPE_THRESHOLD_IN_PX = 50;
 const CENTERED_ORIGIN = '50% 50%';
 const PERCENT = 100;
 
@@ -34,13 +33,11 @@ const thumbnailRefs = useTemplateRef<HTMLButtonElement[]>('thumbnails');
 const isZoomed = ref(false);
 const zoomOrigin = ref(CENTERED_ORIGIN);
 
-let swipeStartX: number | undefined;
-
 const selectedPhoto = computed(() => props.photos[selectedIndex.value]);
 const hasMultiplePhotos = computed(() => props.photos.length > 1);
 
 const counter = computed(() =>
-    t('talkDetails.lightbox.counter', {
+    t('photoLightbox.counter', {
         index: selectedIndex.value + 1,
         total: props.photos.length,
     })
@@ -68,6 +65,12 @@ function showNextPhoto() {
     showPhoto(selectedIndex.value + 1);
 }
 
+const { startSwipe, finishSwipe, cancelSwipe, isSwipeClick } = useHorizontalSwipe({
+    onSwipeLeft: showNextPhoto,
+    onSwipeRight: showPreviousPhoto,
+    isEnabled: () => !isZoomed.value,
+});
+
 function getOriginFromPointer(event: PointerEvent | MouseEvent) {
     if (!(event.currentTarget instanceof HTMLElement)) {
         return CENTERED_ORIGIN;
@@ -81,6 +84,10 @@ function getOriginFromPointer(event: PointerEvent | MouseEvent) {
 }
 
 function toggleZoom(event?: MouseEvent) {
+    if (isSwipeClick()) {
+        return;
+    }
+
     if (isZoomed.value) {
         resetZoom();
         return;
@@ -94,34 +101,6 @@ function followPointer(event: PointerEvent) {
     if (isZoomed.value) {
         zoomOrigin.value = getOriginFromPointer(event);
     }
-}
-
-function startSwipe(event: PointerEvent) {
-    swipeStartX = !isZoomed.value && event.pointerType !== 'mouse' ? event.clientX : undefined;
-}
-
-function finishSwipe(event: PointerEvent) {
-    if (swipeStartX === undefined) {
-        return;
-    }
-
-    const distance = event.clientX - swipeStartX;
-
-    swipeStartX = undefined;
-
-    if (Math.abs(distance) < SWIPE_THRESHOLD_IN_PX) {
-        return;
-    }
-
-    if (distance > 0) {
-        showPreviousPhoto();
-    } else {
-        showNextPhoto();
-    }
-}
-
-function cancelSwipe() {
-    swipeStartX = undefined;
 }
 
 function handleKeyDown(event: KeyboardEvent) {
@@ -160,7 +139,7 @@ watch(isOpen, (isNowOpen) => {
                 <header class="flex items-center gap-2 px-4 py-3 sm:px-6">
                     <div class="min-w-0 flex-1">
                         <DialogTitle class="truncate font-heading text-base font-semibold">
-                            {{ t('talkDetails.lightbox.title', { event: props.eventName }) }}
+                            {{ props.title }}
                         </DialogTitle>
                         <DialogDescription class="text-sm text-white/70 tabular-nums">
                             {{ counter }}
@@ -169,9 +148,7 @@ watch(isOpen, (isNowOpen) => {
                     <button
                         type="button"
                         :aria-label="
-                            isZoomed
-                                ? t('talkDetails.lightbox.zoomOut')
-                                : t('talkDetails.lightbox.zoomIn')
+                            isZoomed ? t('photoLightbox.zoomOut') : t('photoLightbox.zoomIn')
                         "
                         :aria-pressed="isZoomed"
                         :class="TOOLBAR_BUTTON_CLASSES"
@@ -181,7 +158,7 @@ watch(isOpen, (isNowOpen) => {
                         <ZoomIn v-else class="size-5" />
                     </button>
                     <DialogClose
-                        :aria-label="t('talkDetails.lightbox.close')"
+                        :aria-label="t('photoLightbox.close')"
                         :class="TOOLBAR_BUTTON_CLASSES"
                     >
                         <X class="size-5" />
@@ -197,7 +174,7 @@ watch(isOpen, (isNowOpen) => {
                     <button
                         v-if="hasMultiplePhotos"
                         type="button"
-                        :aria-label="t('talkDetails.lightbox.previous')"
+                        :aria-label="t('photoLightbox.previous')"
                         :class="cn(NAVIGATION_BUTTON_CLASSES, 'left-4')"
                         @click="showPreviousPhoto"
                     >
@@ -236,7 +213,7 @@ watch(isOpen, (isNowOpen) => {
                     <button
                         v-if="hasMultiplePhotos"
                         type="button"
-                        :aria-label="t('talkDetails.lightbox.next')"
+                        :aria-label="t('photoLightbox.next')"
                         :class="cn(NAVIGATION_BUTTON_CLASSES, 'right-4')"
                         @click="showNextPhoto"
                     >
@@ -247,7 +224,7 @@ watch(isOpen, (isNowOpen) => {
                 <div
                     v-if="hasMultiplePhotos"
                     role="group"
-                    :aria-label="t('talkDetails.lightbox.thumbnails')"
+                    :aria-label="t('photoLightbox.thumbnails')"
                     class="flex shrink-0 gap-2 overflow-x-auto px-4 py-4 scrollbar-none sm:justify-center sm:px-6"
                 >
                     <button
@@ -255,7 +232,7 @@ watch(isOpen, (isNowOpen) => {
                         :key="`${photo.src}-${index}`"
                         ref="thumbnails"
                         type="button"
-                        :aria-label="t('talkDetails.lightbox.showPhoto', { index: index + 1 })"
+                        :aria-label="t('photoLightbox.showPhoto', { index: index + 1 })"
                         :aria-current="index === selectedIndex ? 'true' : undefined"
                         :class="
                             cn(

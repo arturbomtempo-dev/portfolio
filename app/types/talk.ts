@@ -1,13 +1,8 @@
+import type { Photo } from '~/types/photo';
+
 export type TalkType = 'talk' | 'workshop' | 'course';
 
 export type TalkFilter = 'all' | TalkType;
-
-export interface TalkPhoto {
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-}
 
 export interface Talk {
     id: string;
@@ -21,5 +16,5 @@ export interface Talk {
     fullDescription: string;
     topics: string[];
     image: string;
-    gallery: TalkPhoto[];
+    gallery: Photo[];
 }

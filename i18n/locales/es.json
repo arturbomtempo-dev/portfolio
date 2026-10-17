@@ -91,6 +91,14 @@
         "viewCode": "Ver Código",
         "aboutTitle": "Acerca del Proyecto",
         "technologiesTitle": "Tecnologías Utilizadas",
+        "gallery": {
+            "label": "Fotos del proyecto",
+            "counter": "{index} / {total}",
+            "showPhoto": "Mostrar foto {index} de {total}",
+            "openViewer": "Ampliar foto {index} de {total}",
+            "morePhotos": "Ver {count} fotos más"
+        },
+        "lightboxTitle": "Fotos de {title}",
         "notFound": {
             "seo": {
                 "title": "Proyecto no encontrado {'|'} Artur Bomtempo"
@@ -133,17 +141,6 @@
         "topicsTitle": "Temas abordados",
         "galleryTitle": "Fotos",
         "openPhoto": "Abrir foto {index} de {total}",
-        "lightbox": {
-            "title": "Fotos de {event}",
-            "previous": "Foto anterior",
-            "next": "Foto siguiente",
-            "counter": "{index} de {total}",
-            "close": "Cerrar visor",
-            "zoomIn": "Ampliar foto",
-            "zoomOut": "Reducir zoom",
-            "thumbnails": "Miniaturas de las fotos",
-            "showPhoto": "Ver foto {index}"
-        },
         "pagination": {
             "label": "Navegación entre charlas",
             "newer": "Charla más reciente",
@@ -156,7 +153,18 @@
             "title": "Charla no encontrada",
             "message": "La charla que buscas no existe o fue eliminada."
         },
-        "morePhotos": "Ver {count} fotos más"
+        "morePhotos": "Ver {count} fotos más",
+        "lightboxTitle": "Fotos de {title}"
+    },
+    "photoLightbox": {
+        "previous": "Foto anterior",
+        "next": "Foto siguiente",
+        "counter": "{index} de {total}",
+        "close": "Cerrar visor",
+        "zoomIn": "Ampliar foto",
+        "zoomOut": "Reducir zoom",
+        "thumbnails": "Miniaturas de las fotos",
+        "showPhoto": "Ver foto {index}"
     },
     "blackbox": {
         "usage": {

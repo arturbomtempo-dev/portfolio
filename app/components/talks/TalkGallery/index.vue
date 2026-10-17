@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { Maximize2 } from '@lucide/vue';
-import type { TalkPhoto } from '~/types/talk';
+import type { Photo } from '~/types/photo';
 import type { MosaicShape } from '~/utils/photoMosaic';
 
 interface Props {
-    photos: TalkPhoto[];
+    photos: Photo[];
     eventName: string;
 }
 
@@ -130,12 +130,12 @@ function getTileLabel(position: number, hasHiddenPhotosOverlay: boolean) {
             </li>
         </ul>
 
-        <LazyTalksPhotoLightbox
+        <LazyUiPhotoLightbox
             v-if="hasOpenedLightbox"
             v-model:open="isLightboxOpen"
             v-model:index="selectedPhotoIndex"
             :photos="orderedPhotos"
-            :event-name="props.eventName"
+            :title="t('talkDetails.lightboxTitle', { title: props.eventName })"
         />
     </section>
 </template>

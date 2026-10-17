@@ -91,6 +91,14 @@
         "viewCode": "View Code",
         "aboutTitle": "About the Project",
         "technologiesTitle": "Technologies Used",
+        "gallery": {
+            "label": "Project photos",
+            "counter": "{index} / {total}",
+            "showPhoto": "Show photo {index} of {total}",
+            "openViewer": "Enlarge photo {index} of {total}",
+            "morePhotos": "View {count} more photos"
+        },
+        "lightboxTitle": "Photos of {title}",
         "notFound": {
             "seo": {
                 "title": "Project not found {'|'} Artur Bomtempo"
@@ -133,17 +141,6 @@
         "topicsTitle": "Topics covered",
         "galleryTitle": "Photos",
         "openPhoto": "Open photo {index} of {total}",
-        "lightbox": {
-            "title": "Photos from {event}",
-            "previous": "Previous photo",
-            "next": "Next photo",
-            "counter": "{index} of {total}",
-            "close": "Close viewer",
-            "zoomIn": "Zoom in",
-            "zoomOut": "Zoom out",
-            "thumbnails": "Photo thumbnails",
-            "showPhoto": "Show photo {index}"
-        },
         "pagination": {
             "label": "Talk navigation",
             "newer": "Newer talk",
@@ -156,7 +153,18 @@
             "title": "Talk not found",
             "message": "The talk you are looking for doesn't exist or has been removed."
         },
-        "morePhotos": "View {count} more photos"
+        "morePhotos": "View {count} more photos",
+        "lightboxTitle": "Photos from {title}"
+    },
+    "photoLightbox": {
+        "previous": "Previous photo",
+        "next": "Next photo",
+        "counter": "{index} of {total}",
+        "close": "Close viewer",
+        "zoomIn": "Zoom in",
+        "zoomOut": "Zoom out",
+        "thumbnails": "Photo thumbnails",
+        "showPhoto": "Show photo {index}"
     },
     "blackbox": {
         "usage": {

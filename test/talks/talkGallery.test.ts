@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import type { Talk, TalkPhoto } from '~/types/talk';
+import type { Photo } from '~/types/photo';
+import type { Talk } from '~/types/talk';
 import { hasPhotoGallery } from '~/utils/talkGallery';
 
-function createPhoto(index: number): TalkPhoto {
+function createPhoto(index: number): Photo {
     return { src: `/images/talks/example/0${index}.webp`, alt: '', width: 1600, height: 900 };
 }
 

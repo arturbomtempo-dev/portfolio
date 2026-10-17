@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ExternalLink } from '@lucide/vue';
 import { IconBrandGithub } from '@tabler/icons-vue';
+import type { Photo } from '~/types/photo';
 import type { Project } from '~/types/project';
 
 interface Props {
@@ -17,6 +18,15 @@ const { t } = useI18n();
 const localePath = useLocalePath();
 
 const hasLinks = computed(() => Boolean(props.project.liveUrl || props.project.githubUrl));
+
+const coverPhoto = computed<Photo>(() => ({
+    src: props.project.image,
+    alt: props.project.title,
+    width: COVER_WIDTH_IN_PX,
+    height: COVER_HEIGHT_IN_PX,
+}));
+
+const photos = computed(() => [coverPhoto.value, ...(props.project.additionalPhotos ?? [])]);
 </script>
 
 <template>
@@ -29,7 +39,13 @@ const hasLinks = computed(() => Boolean(props.project.liveUrl || props.project.g
             <h1 class="glow-text mb-2 text-3xl font-bold sm:text-4xl">{{ props.project.title }}</h1>
             <p class="mb-8 text-lg text-muted-foreground">{{ props.project.description }}</p>
 
+            <ProjectsProjectGallery
+                v-if="props.project.additionalPhotos?.length"
+                :photos="photos"
+                :title="props.project.title"
+            />
             <div
+                v-else
                 class="relative mb-8 aspect-video overflow-hidden rounded-xl border border-border/50"
             >
                 <NuxtImg
