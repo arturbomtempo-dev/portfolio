@@ -84,9 +84,7 @@ const photos = computed(() => [coverPhoto.value, ...(props.project.additionalPho
 
             <section class="mb-8">
                 <h2 class="mb-3 text-xl font-semibold">{{ t('projectDetails.aboutTitle') }}</h2>
-                <p class="leading-relaxed whitespace-pre-line text-foreground/90">
-                    {{ props.project.fullDescription }}
-                </p>
+                <UiRichText :text="props.project.fullDescription" />
             </section>
 
             <section>

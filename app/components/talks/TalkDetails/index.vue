@@ -72,9 +72,7 @@ const formattedDate = computed(() =>
 
             <section class="mb-8">
                 <h2 class="mb-3 text-xl font-semibold">{{ t('talkDetails.aboutTitle') }}</h2>
-                <p class="leading-relaxed whitespace-pre-line text-foreground/90">
-                    {{ props.talk.fullDescription }}
-                </p>
+                <UiRichText :text="props.talk.fullDescription" />
             </section>
 
             <section class="mb-8">
