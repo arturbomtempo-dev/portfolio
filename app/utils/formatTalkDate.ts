@@ -1,3 +1,5 @@
+import { normalizeSpaces } from '~/utils/normalizeSpaces';
+
 const MONTH_PRECISION_LENGTH = 7;
 
 const DAY_FORMAT_OPTIONS: Intl.DateTimeFormatOptions = {
@@ -37,5 +39,5 @@ export function formatTalkDate(
         ? formatter.formatRange(parseIsoDate(startDate), parseIsoDate(endDate))
         : formatter.format(parseIsoDate(startDate));
 
-    return capitalizeFirstLetter(formattedDate, languageTag);
+    return capitalizeFirstLetter(normalizeSpaces(formattedDate), languageTag);
 }

@@ -31,3 +31,12 @@ describe('talk date formatting', () => {
         );
     });
 });
+
+describe('formatTalkDate spacing', () => {
+    it('always uses regular spaces, so server and browser render the same text', () => {
+        const formatted = formatTalkDate('2025-07-30', '2025-07-31', 'pt-BR');
+
+        expect(formatted).not.toMatch(/[   ]/);
+        expect(formatted).toBe('30 – 31 de julho de 2025');
+    });
+});

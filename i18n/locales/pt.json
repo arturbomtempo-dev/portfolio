@@ -43,9 +43,9 @@
     "about": {
         "seo": {
             "title": "Sobre Mim {'|'} Artur Bomtempo",
-            "description": "Sou um desenvolvedor apaixonado por criar soluções inovadoras e eficientes. Com mais de {years} anos de experiência, tenho me dedicado a construir aplicações web e mobile que fazem a diferença na vida das pessoas. Meu foco é sempre entregar código limpo, escalável e que atenda às necessidades reais dos usuários.",
+            "description": "Engenheiro de Software com mais de {years} anos de experiência, criando aplicações web com código limpo, escalável e focado nas necessidades reais das pessoas.",
             "ogTitle": "Sobre Mim {'|'} Artur Bomtempo",
-            "ogDescription": "Sou um desenvolvedor apaixonado por criar soluções inovadoras e eficientes. Com mais de {years} anos de experiência, tenho me dedicado a construir aplicações web e mobile que fazem a diferença na vida das pessoas. Meu foco é sempre entregar código limpo, escalável e que atenda às necessidades reais dos usuários."
+            "ogDescription": "Engenheiro de Software com mais de {years} anos de experiência, criando aplicações web com código limpo, escalável e focado nas necessidades reais das pessoas."
         },
         "title": "Sobre Mim",
         "description": "Sou um desenvolvedor apaixonado por criar soluções inovadoras e eficientes. Com mais de {years} anos de experiência, tenho me dedicado a construir aplicações web e mobile que fazem a diferença na vida das pessoas. Meu foco é sempre entregar código limpo, escalável e que atenda às necessidades reais dos usuários.",

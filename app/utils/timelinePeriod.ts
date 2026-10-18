@@ -1,3 +1,5 @@
+import { normalizeSpaces } from '~/utils/normalizeSpaces';
+
 export interface TimelinePeriod {
     startDate: string;
     endDate?: string;
@@ -11,8 +13,8 @@ function parseYearMonth(yearMonth: string) {
 }
 
 export function formatYearMonth(yearMonth: string, languageTag: string) {
-    return new Intl.DateTimeFormat(languageTag, MONTH_FORMAT_OPTIONS).format(
-        parseYearMonth(yearMonth)
+    return normalizeSpaces(
+        new Intl.DateTimeFormat(languageTag, MONTH_FORMAT_OPTIONS).format(parseYearMonth(yearMonth))
     );
 }
 

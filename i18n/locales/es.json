@@ -43,9 +43,9 @@
     "about": {
         "seo": {
             "title": "Acerca de Mí {'|'} Artur Bomtempo",
-            "description": "Soy un desarrollador apasionado por crear soluciones innovadoras y eficientes. Con más de {years} años de experiencia, me he dedicado a construir aplicaciones web y móviles que marcan la diferencia en la vida de las personas. Mi enfoque es siempre entregar código limpio, escalable y que satisfaga las necesidades reales de los usuarios.",
+            "description": "Ingeniero de Software con más de {years} años de experiencia, creando aplicaciones web con código limpio, escalable y enfocado en las necesidades reales de las personas.",
             "ogTitle": "Acerca de Mí {'|'} Artur Bomtempo",
-            "ogDescription": "Soy un desarrollador apasionado por crear soluciones innovadoras y eficientes. Con más de {years} años de experiencia, me he dedicado a construir aplicaciones web y móviles que marcan la diferencia en la vida de las personas. Mi enfoque es siempre entregar código limpio, escalable y que satisfaga las necesidades reales de los usuarios."
+            "ogDescription": "Ingeniero de Software con más de {years} años de experiencia, creando aplicaciones web con código limpio, escalable y enfocado en las necesidades reales de las personas."
         },
         "title": "Acerca de Mí",
         "description": "Soy un desarrollador apasionado por crear soluciones innovadoras y eficientes. Con más de {years} años de experiencia, me he dedicado a construir aplicaciones web y móviles que marcan la diferencia en la vida de las personas. Mi enfoque es siempre entregar código limpio, escalable y que satisfaga las necesidades reales de los usuarios.",

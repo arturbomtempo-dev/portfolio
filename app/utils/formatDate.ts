@@ -1,3 +1,5 @@
+import { normalizeSpaces } from '~/utils/normalizeSpaces';
+
 const DATE_FORMAT_OPTIONS: Intl.DateTimeFormatOptions = {
     year: 'numeric',
     month: '2-digit',
@@ -5,7 +7,9 @@ const DATE_FORMAT_OPTIONS: Intl.DateTimeFormatOptions = {
 };
 
 export function formatDate(isoDate: string, languageTag: string) {
-    return new Intl.DateTimeFormat(languageTag, DATE_FORMAT_OPTIONS).format(
-        new Date(`${isoDate}T00:00:00`)
+    return normalizeSpaces(
+        new Intl.DateTimeFormat(languageTag, DATE_FORMAT_OPTIONS).format(
+            new Date(`${isoDate}T00:00:00`)
+        )
     );
 }

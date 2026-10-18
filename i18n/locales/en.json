@@ -43,9 +43,9 @@
     "about": {
         "seo": {
             "title": "About Me {'|'} Artur Bomtempo",
-            "description": "I am a developer passionate about creating innovative and efficient solutions. With over {years} years of experience, I have been dedicated to building web and mobile applications that make a difference in people's lives. My focus is always on delivering clean, scalable code that meets users' real needs.",
+            "description": "Software Engineer with over {years} years of experience, building web applications with clean, scalable code focused on the real needs of the people who use them.",
             "ogTitle": "About Me {'|'} Artur Bomtempo",
-            "ogDescription": "I am a developer passionate about creating innovative and efficient solutions. With over {years} years of experience, I have been dedicated to building web and mobile applications that make a difference in people's lives. My focus is always on delivering clean, scalable code that meets users' real needs."
+            "ogDescription": "Software Engineer with over {years} years of experience, building web applications with clean, scalable code focused on the real needs of the people who use them."
         },
         "title": "About Me",
         "description": "I am a developer passionate about creating innovative and efficient solutions. With over {years} years of experience, I have been dedicated to building web and mobile applications that make a difference in people's lives. My focus is always on delivering clean, scalable code that meets users' real needs.",
