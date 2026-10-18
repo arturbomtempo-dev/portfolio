@@ -252,7 +252,7 @@ export function createAboutContentPt(yearsOfExperience: number, talkCount: numbe
                     title: 'Técnico em Informática',
                     institution: 'Colégio Cotemig',
                     description:
-                        'Formação técnica focada no desenvolvimento prático de aplicações webe mobile, com aprofundamento em lógica de programação e fundamentos de computação.',
+                        'Formação técnica focada no desenvolvimento prático de aplicações web e mobile, com aprofundamento em lógica de programação e fundamentos de computação.',
                     activities: [
                         'Lógica de Programação em C#',
                         'Desenvolvimento Web com HTML, CSS e JavaScript',
@@ -264,7 +264,21 @@ export function createAboutContentPt(yearsOfExperience: number, talkCount: numbe
             ],
             professional: [
                 {
-                    year: '2025 - o momento',
+                    year: '2026 - o momento',
+                    title: 'Software Engineer Intern',
+                    company: 'Hotmart',
+                    description:
+                        'Como Software Engineer Intern, atuo no desenvolvimento de soluções de software, participando das diferentes etapas do ciclo de desenvolvimento, desde o entendimento e a análise de requisitos até a modelagem, implementação e manutenção de sistemas. A experiência envolve a aplicação de boas práticas de engenharia de software, buscando desenvolver soluções eficientes, escaláveis e alinhadas às necessidades do negócio.',
+                    activities: [
+                        'Entendimento e análise de requisitos junto ao time',
+                        'Modelagem e implementação de novas funcionalidades',
+                        'Manutenção e evolução de sistemas em produção',
+                        'Aplicação de boas práticas de engenharia de software',
+                        'Desenvolvimento de soluções eficientes, escaláveis e alinhadas ao negócio',
+                    ],
+                },
+                {
+                    year: '2025 - 2026',
                     title: 'Software Developer',
                     company: 'dti digital',
                     description:

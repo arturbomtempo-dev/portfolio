@@ -264,7 +264,21 @@ export function createAboutContentEn(yearsOfExperience: number, talkCount: numbe
             ],
             professional: [
                 {
-                    year: '2025 - present',
+                    year: '2026 - present',
+                    title: 'Software Engineer Intern',
+                    company: 'Hotmart',
+                    description:
+                        'As a Software Engineer Intern, I work on developing software solutions, taking part in the different stages of the development cycle, from understanding and analyzing requirements to modeling, implementing, and maintaining systems. The experience involves applying software engineering best practices to build efficient, scalable solutions aligned with business needs.',
+                    activities: [
+                        'Understanding and analyzing requirements with the team',
+                        'Modeling and implementing new features',
+                        'Maintaining and evolving systems in production',
+                        'Applying software engineering best practices',
+                        'Building efficient, scalable solutions aligned with the business',
+                    ],
+                },
+                {
+                    year: '2025 - 2026',
                     title: 'Software Developer',
                     company: 'dti digital',
                     description:

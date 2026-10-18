@@ -264,7 +264,21 @@ export function createAboutContentEs(yearsOfExperience: number, talkCount: numbe
             ],
             professional: [
                 {
-                    year: '2025 - presente',
+                    year: '2026 - presente',
+                    title: 'Pasante de Ingeniería de Software',
+                    company: 'Hotmart',
+                    description:
+                        'Como Pasante de Ingeniería de Software, trabajo en el desarrollo de soluciones de software, participando en las diferentes etapas del ciclo de desarrollo, desde la comprensión y el análisis de requisitos hasta el modelado, la implementación y el mantenimiento de sistemas. La experiencia implica aplicar buenas prácticas de ingeniería de software, buscando desarrollar soluciones eficientes, escalables y alineadas con las necesidades del negocio.',
+                    activities: [
+                        'Comprensión y análisis de requisitos junto al equipo',
+                        'Modelado e implementación de nuevas funcionalidades',
+                        'Mantenimiento y evolución de sistemas en producción',
+                        'Aplicación de buenas prácticas de ingeniería de software',
+                        'Desarrollo de soluciones eficientes, escalables y alineadas con el negocio',
+                    ],
+                },
+                {
+                    year: '2025 - 2026',
                     title: 'Desarrollador de Software',
                     company: 'dti digital',
                     description:
