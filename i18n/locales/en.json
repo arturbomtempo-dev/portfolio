@@ -31,7 +31,7 @@
             "title": "Artur Bomtempo {'|'} Portfolio",
             "description": "Software Developer passionate about building innovative and efficient solutions. Portfolio with projects, educational content and professional experience.",
             "ogTitle": "Artur Bomtempo {'|'} Portfolio - Full Stack Developer",
-            "ogDescription": "Software Developer with over 4 years of experience. Specialized in modern web development with React, Node.js, Java and Spring Boot."
+            "ogDescription": "Software Developer with over {years} years of experience. Specialized in modern web development with React, Node.js, Java and Spring Boot."
         },
         "avatarAlt": "Profile photo of Artur Bomtempo Colen",
         "greeting": "I am",
@@ -43,12 +43,12 @@
     "about": {
         "seo": {
             "title": "About Me {'|'} Artur Bomtempo",
-            "description": "I am a developer passionate about creating innovative and efficient solutions. With over 4 years of experience, I have been dedicated to building web and mobile applications that make a difference in people's lives. My focus is always on delivering clean, scalable code that meets users' real needs.",
+            "description": "I am a developer passionate about creating innovative and efficient solutions. With over {years} years of experience, I have been dedicated to building web and mobile applications that make a difference in people's lives. My focus is always on delivering clean, scalable code that meets users' real needs.",
             "ogTitle": "About Me {'|'} Artur Bomtempo",
-            "ogDescription": "I am a developer passionate about creating innovative and efficient solutions. With over 4 years of experience, I have been dedicated to building web and mobile applications that make a difference in people's lives. My focus is always on delivering clean, scalable code that meets users' real needs."
+            "ogDescription": "I am a developer passionate about creating innovative and efficient solutions. With over {years} years of experience, I have been dedicated to building web and mobile applications that make a difference in people's lives. My focus is always on delivering clean, scalable code that meets users' real needs."
         },
         "title": "About Me",
-        "description": "I am a developer passionate about creating innovative and efficient solutions. With over 4 years of experience, I have been dedicated to building web and mobile applications that make a difference in people's lives. My focus is always on delivering clean, scalable code that meets users' real needs.",
+        "description": "I am a developer passionate about creating innovative and efficient solutions. With over {years} years of experience, I have been dedicated to building web and mobile applications that make a difference in people's lives. My focus is always on delivering clean, scalable code that meets users' real needs.",
         "technologiesTitle": "Technologies",
         "github": {
             "title": "GitHub Activity",

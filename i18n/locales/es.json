@@ -31,7 +31,7 @@
             "title": "Artur Bomtempo {'|'} Portafolio",
             "description": "Desarrollador de Software apasionado por crear soluciones innovadoras y eficientes. Portafolio con proyectos, contenidos educativos y experiencias profesionales.",
             "ogTitle": "Artur Bomtempo {'|'} Portafolio - Desarrollador Full Stack",
-            "ogDescription": "Desarrollador de Software con más de 4 años de experiencia. Especializado en desarrollo web moderno con React, Node.js, Java y Spring Boot."
+            "ogDescription": "Desarrollador de Software con más de {years} años de experiencia. Especializado en desarrollo web moderno con React, Node.js, Java y Spring Boot."
         },
         "avatarAlt": "Foto de perfil de Artur Bomtempo Colen",
         "greeting": "Soy",
@@ -43,12 +43,12 @@
     "about": {
         "seo": {
             "title": "Acerca de Mí {'|'} Artur Bomtempo",
-            "description": "Soy un desarrollador apasionado por crear soluciones innovadoras y eficientes. Con más de 4 años de experiencia, me he dedicado a construir aplicaciones web y móviles que marcan la diferencia en la vida de las personas. Mi enfoque es siempre entregar código limpio, escalable y que satisfaga las necesidades reales de los usuarios.",
+            "description": "Soy un desarrollador apasionado por crear soluciones innovadoras y eficientes. Con más de {years} años de experiencia, me he dedicado a construir aplicaciones web y móviles que marcan la diferencia en la vida de las personas. Mi enfoque es siempre entregar código limpio, escalable y que satisfaga las necesidades reales de los usuarios.",
             "ogTitle": "Acerca de Mí {'|'} Artur Bomtempo",
-            "ogDescription": "Soy un desarrollador apasionado por crear soluciones innovadoras y eficientes. Con más de 4 años de experiencia, me he dedicado a construir aplicaciones web y móviles que marcan la diferencia en la vida de las personas. Mi enfoque es siempre entregar código limpio, escalable y que satisfaga las necesidades reales de los usuarios."
+            "ogDescription": "Soy un desarrollador apasionado por crear soluciones innovadoras y eficientes. Con más de {years} años de experiencia, me he dedicado a construir aplicaciones web y móviles que marcan la diferencia en la vida de las personas. Mi enfoque es siempre entregar código limpio, escalable y que satisfaga las necesidades reales de los usuarios."
         },
         "title": "Acerca de Mí",
-        "description": "Soy un desarrollador apasionado por crear soluciones innovadoras y eficientes. Con más de 4 años de experiencia, me he dedicado a construir aplicaciones web y móviles que marcan la diferencia en la vida de las personas. Mi enfoque es siempre entregar código limpio, escalable y que satisfaga las necesidades reales de los usuarios.",
+        "description": "Soy un desarrollador apasionado por crear soluciones innovadoras y eficientes. Con más de {years} años de experiencia, me he dedicado a construir aplicaciones web y móviles que marcan la diferencia en la vida de las personas. Mi enfoque es siempre entregar código limpio, escalable y que satisfaga las necesidades reales de los usuarios.",
         "technologiesTitle": "Tecnologías",
         "github": {
             "title": "Actividad en GitHub",

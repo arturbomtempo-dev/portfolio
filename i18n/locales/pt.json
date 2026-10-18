@@ -31,7 +31,7 @@
             "title": "Artur Bomtempo {'|'} Portfólio",
             "description": "Desenvolvedor de Software apaixonado por criar soluções inovadoras e eficientes. Portfólio com projetos, conteúdos educacionais e experiências profissionais.",
             "ogTitle": "Artur Bomtempo {'|'} Portfólio - Desenvolvedor Full Stack",
-            "ogDescription": "Desenvolvedor de Software com mais de 4 anos de experiência. Especializado em desenvolvimento web moderno com React, Node.js, Java e Spring Boot."
+            "ogDescription": "Desenvolvedor de Software com mais de {years} anos de experiência. Especializado em desenvolvimento web moderno com React, Node.js, Java e Spring Boot."
         },
         "avatarAlt": "Foto de perfil de Artur Bomtempo Colen",
         "greeting": "Eu sou",
@@ -43,12 +43,12 @@
     "about": {
         "seo": {
             "title": "Sobre Mim {'|'} Artur Bomtempo",
-            "description": "Sou um desenvolvedor apaixonado por criar soluções inovadoras e eficientes. Com mais de 4 anos de experiência, tenho me dedicado a construir aplicações web e mobile que fazem a diferença na vida das pessoas. Meu foco é sempre entregar código limpo, escalável e que atenda às necessidades reais dos usuários.",
+            "description": "Sou um desenvolvedor apaixonado por criar soluções inovadoras e eficientes. Com mais de {years} anos de experiência, tenho me dedicado a construir aplicações web e mobile que fazem a diferença na vida das pessoas. Meu foco é sempre entregar código limpo, escalável e que atenda às necessidades reais dos usuários.",
             "ogTitle": "Sobre Mim {'|'} Artur Bomtempo",
-            "ogDescription": "Sou um desenvolvedor apaixonado por criar soluções inovadoras e eficientes. Com mais de 4 anos de experiência, tenho me dedicado a construir aplicações web e mobile que fazem a diferença na vida das pessoas. Meu foco é sempre entregar código limpo, escalável e que atenda às necessidades reais dos usuários."
+            "ogDescription": "Sou um desenvolvedor apaixonado por criar soluções inovadoras e eficientes. Com mais de {years} anos de experiência, tenho me dedicado a construir aplicações web e mobile que fazem a diferença na vida das pessoas. Meu foco é sempre entregar código limpo, escalável e que atenda às necessidades reais dos usuários."
         },
         "title": "Sobre Mim",
-        "description": "Sou um desenvolvedor apaixonado por criar soluções inovadoras e eficientes. Com mais de 4 anos de experiência, tenho me dedicado a construir aplicações web e mobile que fazem a diferença na vida das pessoas. Meu foco é sempre entregar código limpo, escalável e que atenda às necessidades reais dos usuários.",
+        "description": "Sou um desenvolvedor apaixonado por criar soluções inovadoras e eficientes. Com mais de {years} anos de experiência, tenho me dedicado a construir aplicações web e mobile que fazem a diferença na vida das pessoas. Meu foco é sempre entregar código limpo, escalável e que atenda às necessidades reais dos usuários.",
         "technologiesTitle": "Tecnologias",
         "github": {
             "title": "Atividade no GitHub",
