@@ -103,6 +103,36 @@ export function createAboutContentEn(yearsOfExperience: number, talkCount: numbe
         ],
         testimonials: [
             {
+                name: 'João Paulo Aramuni',
+                role: 'Professor at PUC Minas',
+                image: '/images/testimonials/joao-paulo-aramuni.webp',
+                text: 'Artur was my student in the Software Design and Software Development Lab courses, standing out as one of the most proactive and distinctive students in the class. From the start, he showed above-average curiosity, technical maturity, and a highly collaborative attitude [...]. Outside the classroom, his résumé is impressive: he works as Chapter Lead at WebTech PUC Minas, creates content for developers, and speaks at tech events [...]. He is a rare talent in the making, with enormous potential to stand out quickly in technology.',
+            },
+            {
+                name: 'Eduardo Michetti',
+                role: 'Software Developer at dti digital | MRV',
+                image: '/images/testimonials/eduardo-michetti.webp',
+                text: 'An excellent professional and person, who always approaches his tasks with great dedication and competence. He is always willing to share knowledge and equally open to learning and receiving feedback when needed.',
+            },
+            {
+                name: 'Sâmeck Zanela Costa',
+                role: 'Professor at Cotemig',
+                image: '/images/testimonials/sameck-zanela-costa.webp',
+                text: 'I had the pleasure of teaching Artur in the Databases course, and I recommend him with complete confidence. He always stood out for how quickly he absorbed complex concepts and for his strong drive to seek knowledge beyond the classroom. With a proactive, self-taught profile, he maintained excellent academic performance, consistently delivering above-average results [...]. He is a professional with enormous technical potential and a fast learning curve.',
+            },
+            {
+                name: 'Lucas Ricardo',
+                role: 'Squad Lead at dti digital | MRV',
+                image: '/images/testimonials/lucas-ricardo.webp',
+                text: 'An incredible rise in his development journey. Artur does a great job! He is very competent and professional.',
+            },
+            {
+                name: 'Vitor Hugo Marcelino Santos',
+                role: 'Software Developer at Squadra Digital | MRV',
+                image: '/images/testimonials/vitor-hugo-marcelino-santos.webp',
+                text: 'Artur is an excellent professional, always very committed and responsible, and he handles everything he is given.',
+            },
+            {
                 name: 'Hugo de Paula',
                 role: 'Professor at PUC Minas',
                 image: '/images/testimonials/hugo-de-paula.webp',

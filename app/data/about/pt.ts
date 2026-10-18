@@ -103,6 +103,36 @@ export function createAboutContentPt(yearsOfExperience: number, talkCount: numbe
         ],
         testimonials: [
             {
+                name: 'João Paulo Aramuni',
+                role: 'Professor na PUC Minas',
+                image: '/images/testimonials/joao-paulo-aramuni.webp',
+                text: 'O Artur foi meu aluno nas disciplinas de Projeto de Software e Laboratório de Desenvolvimento de Software, destacando-se como um dos estudantes mais proativos e diferenciados da turma. Desde o início, demonstrou curiosidade acima da média, maturidade técnica e uma postura altamente colaborativa [...]. Fora da sala de aula, seu currículo impressiona: atua como Chapter Lead no WebTech PUC Minas, produz conteúdo para desenvolvedores e participa como palestrante em eventos da área [...]. É um talento raro em formação, com enorme potencial para se destacar rapidamente na área de tecnologia.',
+            },
+            {
+                name: 'Eduardo Michetti',
+                role: 'Desenvolvedor de Software na dti digital | MRV',
+                image: '/images/testimonials/eduardo-michetti.webp',
+                text: 'Excelente profissional e pessoa, que sempre atua nas tarefas com muita dedicação e competência. Está sempre disposto a compartilhar conhecimento e igualmente receptivo a aprender e a receber contribuições quando necessário.',
+            },
+            {
+                name: 'Sâmeck Zanela Costa',
+                role: 'Professor no Cotemig',
+                image: '/images/testimonials/sameck-zanela-costa.webp',
+                text: 'Tive o prazer de ser professor do Artur na disciplina de Banco de Dados e o recomendo com total segurança. Ele sempre se destacou pela rapidez em absorver conceitos complexos e pelo forte engajamento em buscar conhecimento além da sala de aula. Com um perfil proativo e autodidata, manteve um desempenho acadêmico excelente, sempre entregando resultados acima da média [...]. É um profissional com enorme potencial técnico e uma curva de aprendizado acelerada.',
+            },
+            {
+                name: 'Lucas Ricardo',
+                role: 'Squad Lead na dti digital | MRV',
+                image: '/images/testimonials/lucas-ricardo.webp',
+                text: 'Uma ascensão incrível na trajetória de desenvolvimento. O Artur manda muito bem! É muito competente e profissional.',
+            },
+            {
+                name: 'Vitor Hugo Marcelino Santos',
+                role: 'Desenvolvedor de Software na Squadra Digital | MRV',
+                image: '/images/testimonials/vitor-hugo-marcelino-santos.webp',
+                text: 'O Artur é um excelente profissional, sempre muito comprometido e responsável, e dá conta de tudo o que lhe é proposto.',
+            },
+            {
                 name: 'Hugo de Paula',
                 role: 'Professor na PUC Minas',
                 image: '/images/testimonials/hugo-de-paula.webp',
