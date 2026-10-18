@@ -29,13 +29,13 @@
     "home": {
         "seo": {
             "title": "Artur Bomtempo {'|'} Portfólio",
-            "description": "Desenvolvedor de Software apaixonado por criar soluções inovadoras e eficientes. Portfólio com projetos, conteúdos educacionais e experiências profissionais.",
+            "description": "Engenheiro de Software apaixonado por criar soluções inovadoras e eficientes. Portfólio com projetos, conteúdos educacionais e experiências profissionais.",
             "ogTitle": "Artur Bomtempo {'|'} Portfólio - Desenvolvedor Full Stack",
-            "ogDescription": "Desenvolvedor de Software com mais de {years} anos de experiência. Especializado em desenvolvimento web moderno com React, Node.js, Java e Spring Boot."
+            "ogDescription": "Engenheiro de Software com mais de {years} anos de experiência. Especializado em desenvolvimento web moderno com React, Node.js, Java e Spring Boot."
         },
         "avatarAlt": "Foto de perfil de Artur Bomtempo Colen",
         "greeting": "Eu sou",
-        "role": "Desenvolvedor de Software",
+        "role": "Engenheiro de Software",
         "description": "Sempre tive o desejo de gerar impacto na vida das pessoas, e encontrei no desenvolvimento de software uma forma de transformar isso em realidade.",
         "aboutButton": "Sobre mim",
         "contactButton": "Entre em Contato"
@@ -413,6 +413,6 @@
         }
     },
     "seo": {
-        "ogImageAlt": "Artur Bomtempo, Desenvolvedor de Software"
+        "ogImageAlt": "Artur Bomtempo, Engenheiro de Software"
     }
 }
