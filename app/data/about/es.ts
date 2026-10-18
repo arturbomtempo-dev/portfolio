@@ -220,7 +220,7 @@ export function createAboutContentEs(yearsOfExperience: number, talkCount: numbe
         timeline: {
             education: [
                 {
-                    year: '2025 - presente',
+                    startDate: '2025-02',
                     title: 'Licenciatura en Ingeniería de Software',
                     institution: 'PUC Minas',
                     description:
@@ -235,7 +235,8 @@ export function createAboutContentEs(yearsOfExperience: number, talkCount: numbe
                     ],
                 },
                 {
-                    year: '2024',
+                    startDate: '2024-02',
+                    endDate: '2024-12',
                     title: 'Licenciatura en Ciencias de la Computación',
                     institution: 'PUC Minas',
                     description:
@@ -250,7 +251,8 @@ export function createAboutContentEs(yearsOfExperience: number, talkCount: numbe
                     ],
                 },
                 {
-                    year: '2021 - 2023',
+                    startDate: '2021-01',
+                    endDate: '2023-12',
                     title: 'Técnico en Informática',
                     institution: 'Colégio Cotemig',
                     description:
@@ -266,7 +268,7 @@ export function createAboutContentEs(yearsOfExperience: number, talkCount: numbe
             ],
             professional: [
                 {
-                    year: '2026 - presente',
+                    startDate: '2026-10',
                     title: 'Pasante de Ingeniería de Software',
                     company: 'Hotmart',
                     description:
@@ -280,7 +282,8 @@ export function createAboutContentEs(yearsOfExperience: number, talkCount: numbe
                     ],
                 },
                 {
-                    year: '2025 - 2026',
+                    startDate: '2025-09',
+                    endDate: '2026-09',
                     title: 'Desarrollador de Software',
                     company: 'dti digital',
                     description:
@@ -296,7 +299,7 @@ export function createAboutContentEs(yearsOfExperience: number, talkCount: numbe
                     ],
                 },
                 {
-                    year: '2024 - presente',
+                    startDate: '2024-06',
                     title: 'Chapter Lead & Desarrollador Full Stack',
                     company: 'WebTech Network',
                     description:
@@ -311,7 +314,7 @@ export function createAboutContentEs(yearsOfExperience: number, talkCount: numbe
                     ],
                 },
                 {
-                    year: '2024 - presente',
+                    startDate: '2024-08',
                     title: 'Monitor Académico',
                     company: 'PUC Minas',
                     description:
@@ -326,7 +329,8 @@ export function createAboutContentEs(yearsOfExperience: number, talkCount: numbe
                     ],
                 },
                 {
-                    year: '2024',
+                    startDate: '2024-08',
+                    endDate: '2024-12',
                     title: 'Desarrollador Full Stack',
                     company: 'PUCTec',
                     description:
@@ -340,7 +344,8 @@ export function createAboutContentEs(yearsOfExperience: number, talkCount: numbe
                     ],
                 },
                 {
-                    year: '2023-2024',
+                    startDate: '2023-08',
+                    endDate: '2024-10',
                     title: 'CXO & Desarrollador Full Stack',
                     company: 'QuickFood Technologies',
                     description:
@@ -355,7 +360,8 @@ export function createAboutContentEs(yearsOfExperience: number, talkCount: numbe
                     ],
                 },
                 {
-                    year: '2023-2024',
+                    startDate: '2023-04',
+                    endDate: '2024-02',
                     title: 'Desarrollador de Chatbot',
                     company: 'Wiv',
                     description:
@@ -369,7 +375,8 @@ export function createAboutContentEs(yearsOfExperience: number, talkCount: numbe
                     ],
                 },
                 {
-                    year: '2023',
+                    startDate: '2023-02',
+                    endDate: '2023-04',
                     title: 'Desarrollador Web',
                     company: 'Vidas Empreendimentos',
                     description:

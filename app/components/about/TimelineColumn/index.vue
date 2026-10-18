@@ -22,7 +22,7 @@ const emit = defineEmits<{
             <h2 class="text-2xl font-bold">{{ props.title }}</h2>
         </div>
         <ul class="space-y-6">
-            <li v-for="(entry, index) in props.entries" :key="`${entry.year}-${entry.title}`">
+            <li v-for="(entry, index) in props.entries" :key="`${entry.period}-${entry.title}`">
                 <AboutTimelineItem :entry="entry" @select="emit('select', index)" />
             </li>
         </ul>

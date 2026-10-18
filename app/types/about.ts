@@ -22,7 +22,8 @@ export interface Testimonial {
 }
 
 export interface Education {
-    year: string;
+    startDate: string;
+    endDate?: string;
     title: string;
     institution: string;
     description: string;
@@ -30,7 +31,8 @@ export interface Education {
 }
 
 export interface Experience {
-    year: string;
+    startDate: string;
+    endDate?: string;
     title: string;
     company: string;
     description: string;
@@ -50,7 +52,7 @@ export interface AboutContent {
 }
 
 export interface TimelineEntry {
-    year: string;
+    period: string;
     title: string;
     organization: string;
 }

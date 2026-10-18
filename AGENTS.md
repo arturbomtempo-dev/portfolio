@@ -399,6 +399,11 @@ useSeoMeta({
 - Dates are stored as ISO strings (`2025-11-18`) and displayed with `formatDate(date, localeProperties.language)` inside a `<time datetime>` element (talks use `formatTalkDate`, see [Talks timeline](#talks-timeline)).
 - Icons next to text that can wrap (titles) use `shrink-0`, so a long title never squeezes the icon.
 
+### About timeline
+
+- Education and professional entries store real periods as `startDate` and optional `endDate` in `YYYY-MM` (identical in the three locales); an entry without `endDate` is ongoing. `formatTimelinePeriod` (`app/utils/timelinePeriod.ts`) shows them with the abbreviated month of the locale (`jan. de 2021 – dez. de 2023`, `Jan 2021 – Present`) and the translated `about.present` label.
+- The order is computed, never written by hand: `sortTimelineByRecency` puts ongoing entries first (including ones whose end date is still in the future, such as a degree), and within each group the most recent start comes first. `test/ui/timelinePeriod.test.ts` covers the format and the order.
+
 ### Talks timeline
 
 - `/talks` ("Palestras" / "Talks" / "Charlas") lists the talks, workshops and courses the owner led on a vertical timeline, newest first (sorted by `useTalksContent()`), grouped by year with the year (`h2`) on the line and card titles as `h3`.

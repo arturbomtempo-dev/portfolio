@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Briefcase, GraduationCap, type LucideIcon } from '@lucide/vue';
 import type { TimelineEntry } from '~/types/about';
+import type { TimelinePeriod } from '~/utils/timelinePeriod';
 
 type TimelineKind = 'education' | 'experience';
 
@@ -14,26 +15,43 @@ const ICON_BY_KIND: Record<TimelineKind, LucideIcon> = {
     experience: Briefcase,
 };
 
-const { t } = useI18n();
+const { t, localeProperties } = useI18n();
 const content = useAboutContent();
+const currentYearMonth = useCurrentYearMonth();
 
 const selection = ref<TimelineSelection>({ kind: 'education', index: 0 });
 const isDialogOpen = ref(false);
 const hasOpenedDialog = ref(false);
 
+const sortedEducation = computed(() =>
+    sortTimelineByRecency(content.value.timeline.education, currentYearMonth.value)
+);
+
+const sortedProfessional = computed(() =>
+    sortTimelineByRecency(content.value.timeline.professional, currentYearMonth.value)
+);
+
+function formatPeriod(period: TimelinePeriod) {
+    return formatTimelinePeriod(
+        period,
+        localeProperties.value.language ?? 'pt-BR',
+        t('about.present')
+    );
+}
+
 const educationEntries = computed<TimelineEntry[]>(() =>
-    content.value.timeline.education.map(({ year, title, institution }) => ({
-        year,
-        title,
-        organization: institution,
+    sortedEducation.value.map((education) => ({
+        period: formatPeriod(education),
+        title: education.title,
+        organization: education.institution,
     }))
 );
 
 const experienceEntries = computed<TimelineEntry[]>(() =>
-    content.value.timeline.professional.map(({ year, title, company }) => ({
-        year,
-        title,
-        organization: company,
+    sortedProfessional.value.map((experience) => ({
+        period: formatPeriod(experience),
+        title: experience.title,
+        organization: experience.company,
     }))
 );
 
@@ -41,23 +59,25 @@ const selectedDetails = computed(() => {
     const { kind, index } = selection.value;
 
     if (kind === 'education') {
-        const education = content.value.timeline.education[index];
+        const education = sortedEducation.value[index];
 
         return (
             education && {
                 subtitle: education.institution,
                 listTitle: t('about.educationDetailsTitle'),
+                period: formatPeriod(education),
                 ...education,
             }
         );
     }
 
-    const experience = content.value.timeline.professional[index];
+    const experience = sortedProfessional.value[index];
 
     return (
         experience && {
             subtitle: experience.company,
             listTitle: t('about.experienceDetailsTitle'),
+            period: formatPeriod(experience),
             ...experience,
         }
     );
@@ -90,7 +110,7 @@ function openEntry(kind: TimelineKind, index: number) {
         v-if="hasOpenedDialog && selectedDetails"
         v-model:open="isDialogOpen"
         :icon="ICON_BY_KIND[selection.kind]"
-        :eyebrow="selectedDetails.year"
+        :eyebrow="selectedDetails.period"
         :title="selectedDetails.title"
         :subtitle="selectedDetails.subtitle"
         :description="selectedDetails.description"

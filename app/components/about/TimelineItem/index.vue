@@ -24,7 +24,7 @@ const emit = defineEmits<{
             aria-hidden="true"
             class="absolute top-4 left-0 size-4 -translate-x-1/2 rounded-full bg-primary shadow-glow-sm transition-transform group-hover:scale-125"
         />
-        <p class="mb-1 text-sm text-primary">{{ props.entry.year }}</p>
+        <p class="mb-1 text-sm text-primary">{{ props.entry.period }}</p>
         <h3 class="mb-1 text-lg font-semibold transition-colors group-hover:text-primary">
             <button
                 type="button"
