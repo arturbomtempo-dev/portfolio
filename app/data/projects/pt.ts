@@ -493,7 +493,7 @@ export const PROJECTS_PT: Project[] = [
             },
             {
                 src: '/images/projects/dev-resources/04.webp',
-                alt: 'Versão desktop: página Sobre Nós',
+                alt: 'Versão desktop: página Sobre Nós, com o perfil de Artur Bomtempo',
                 width: 1920,
                 height: 1080,
             },
@@ -535,7 +535,7 @@ export const PROJECTS_PT: Project[] = [
             },
             {
                 src: '/images/projects/dev-resources/11.webp',
-                alt: 'Versão para celular: página Sobre Nós',
+                alt: 'Versão para celular: página Sobre Nós, com o perfil de Artur Bomtempo',
                 width: 1316,
                 height: 2718,
             },

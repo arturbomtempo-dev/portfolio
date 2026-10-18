@@ -493,7 +493,7 @@ export const PROJECTS_ES: Project[] = [
             },
             {
                 src: '/images/projects/dev-resources/04.webp',
-                alt: 'Versión de escritorio: página Sobre Nosotros',
+                alt: 'Versión de escritorio: página Sobre Nosotros, con el perfil de Artur Bomtempo',
                 width: 1920,
                 height: 1080,
             },
@@ -535,7 +535,7 @@ export const PROJECTS_ES: Project[] = [
             },
             {
                 src: '/images/projects/dev-resources/11.webp',
-                alt: 'Versión móvil: página Sobre Nosotros',
+                alt: 'Versión móvil: página Sobre Nosotros, con el perfil de Artur Bomtempo',
                 width: 1316,
                 height: 2718,
             },
