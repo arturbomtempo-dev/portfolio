@@ -1,6 +1,6 @@
 # Portfolio Website
 
-The personal portfolio of **Artur Bomtempo**, a software developer. It presents his _background_, _projects_, _talks_ and _published content_, and it gives recruiters, companies and the developer community a direct way to **get in touch**. Built with **Nuxt 4**, **Vue 3** and **Tailwind CSS v4**, the site is fully **prerendered**, available in **Portuguese, English and Spanish**, and designed for _performance_, _accessibility_, _SEO_ and _security_ from the start.
+The personal portfolio of **Artur Bomtempo**, a software engineer. It presents his _background_, _projects_, _talks_ and _published content_, and it gives recruiters, companies and the developer community a direct way to **get in touch**. Built with **Nuxt 4**, **Vue 3** and **Tailwind CSS v4**, the site is fully **prerendered**, available in **Portuguese, English and Spanish**, and designed for _performance_, _accessibility_, _SEO_ and _security_ from the start.
 
 ---
 
@@ -48,7 +48,7 @@ The personal portfolio of **Artur Bomtempo**, a software developer. It presents 
 
 ## 📝 About the Project
 
-This repository holds the source code of Artur Bomtempo's personal website. It brings together, in a single place, his professional journey, the projects he has built, the talks he has given and the articles, videos and newsletters he publishes.
+This repository holds the source code of Artur Bomtempo's personal website. It brings together, in a single place, his professional journey, the projects he has built, the talks, workshops and courses he has led and the articles, videos and newsletters he publishes.
 
 The site started as a React and Vite single page application and was rewritten in **Nuxt 4** to solve the limits of client-side rendering. Every page is now delivered as ready HTML, which gives search engines and link previews complete content, makes the first load faster on mobile networks and gives each project its own shareable URL.
 
@@ -60,17 +60,17 @@ It is also a professional reference in itself: a small but complete production c
 
 - **Three languages:** Portuguese (default), English and Spanish, each one with its own URL (`/`, `/en`, `/es`), translated metadata and `hreflang` alternates. Switching languages keeps the current page and scroll position.
 - **Dark and light themes:** follows the operating system by default, remembers the visitor's choice and never flashes the wrong theme on load.
-- **Projects with detail pages:** every project has its own route (`/projects/<id>`) with cover image, description, technologies, links and a dedicated social preview image.
-- **Talks:** talks, workshops and courses on a vertical timeline grouped by year, with filters in the URL and a detail page per talk with its description, topics and a photo mosaic with a full-screen viewer.
+- **Projects with detail pages:** every project has its own route (`/projects/<id>`) with description, technologies, links, a dedicated social preview image and, when there are screenshots, a gallery: a large stage with arrows, swipe and a counter, a strip of thumbnails and a full-screen viewer. Phone screenshots are shown whole, inside an iPhone frame drawn at build time.
+- **Talks:** talks, workshops and courses on a vertical timeline grouped by year, with filters in the URL and a detail page per talk with its date, location, description, topics and a photo mosaic with a full-screen viewer (zoom, keyboard and swipe).
 - **Content hub:** articles, videos and newsletters with filters stored in the URL (`/contents?type=video`), so a filtered view can be shared.
-- **About page:** achievements, technologies, a live GitHub contribution graph, career timeline and a testimonials carousel.
-- **BLACKBOX:** a hidden item in the main navigation opens a CTF-style incident investigation in a realistic terminal: a virtual file system, logs to correlate, a tampered JWT to analyze, progressive hints, saved progress and a final skills report, in the three languages.
+- **About page:** achievements (with the years of experience and the number of talks computed automatically), technologies, a live GitHub contribution graph, an education and career timeline with month-precision periods ordered automatically, and a testimonials carousel.
+- **BLACKBOX:** the last item of the main navigation opens a CTF-style incident investigation in a realistic terminal: a virtual file system, logs to correlate, a tampered JWT to analyze, progressive hints, saved progress and a final skills report, in the three languages.
 - **Contact form:** validated with Zod in the visitor's language and delivered by e-mail through FormSubmit, with a honeypot field against spam.
-- **SEO:** prerendered HTML, canonical URLs, a sitemap per language, `robots.txt` and Open Graph images per language and per project.
+- **SEO:** prerendered HTML, canonical URLs, `hreflang` alternates, a sitemap per language, `robots.txt`, schema.org structured data (`Person` and `WebSite`) and Open Graph images per language, per project and per talk.
 - **Performance:** AVIF and WebP images in the exact size each screen needs, self-hosted fonts and components loaded only when they are needed.
 - **Accessibility:** semantic HTML, a logical heading order, keyboard navigation with visible focus and translated labels for screen readers.
-- **Security:** a strict Content Security Policy, HSTS and other security headers on every response.
-- **Custom error pages:** a translated 404 page with a real 404 status, also used for unknown projects.
+- **Security:** a strict Content Security Policy (no inline scripts or event handlers), HSTS and other security headers on every response.
+- **Custom error pages:** a translated 404 page with a real 404 status, also used for unknown projects and talks.
 
 ---
 
@@ -100,6 +100,7 @@ It is also a professional reference in itself: a small but complete production c
 - **Hosting:** [Vercel](https://vercel.com), with prerendered pages, image optimization and a São Paulo region function
 - **Contact form delivery:** [FormSubmit](https://formsubmit.co)
 - **Code quality:** Prettier, `vue-tsc` and Vitest
+- **Image pipeline:** [sharp](https://sharp.pixelplumbing.com), through the `images:prepare` script
 - **Package manager:** npm
 
 ---
@@ -110,7 +111,7 @@ The project follows the standard **Nuxt 4 directory structure**, with components
 
 Key decisions:
 
-- **Static first:** every page is prerendered at build time in the three languages. A small server function only handles URLs that do not exist, to answer with a translated 404 page and the correct status code.
+- **Static first:** every page is prerendered at build time in the three languages. Server functions only handle URLs that do not exist (a translated 404 with the correct status code) and the GitHub contribution graph, which is cached and refreshed every 6 hours.
 - **Interface text and content are separate layers:** interface messages (buttons, headings, labels) live in `i18n/locales/<locale>.json`, while portfolio content (projects, timeline, testimonials, articles) lives in typed TypeScript files in `app/data/<module>/<locale>.ts`. TypeScript guarantees that the three translations always have the same structure.
 - **Thin pages, focused components:** pages only set metadata and compose components. Each component lives in its own folder (`components/<module>/<ComponentName>/index.vue`), and generic building blocks live in `components/ui`.
 - **Configuration in one place:** headers, security rules and rendering rules are declared in `nuxt.config.ts`, and Nitro translates them into the Vercel routing configuration.
@@ -122,6 +123,8 @@ flowchart LR
     Edge -->|Images| Optimizer[Vercel Image Optimization<br/>AVIF and WebP]
     Edge -->|Unknown URL| Fallback[Server function<br/>translated 404]
     Static --> App[Vue app hydrates<br/>in the browser]
+    App -->|GitHub graph| Contributions[Cached server route<br/>refreshed every 6 hours]
+    Contributions --> GitHubAPI[GitHub Contributions API]
     App -->|Contact form| FormSubmit[FormSubmit API]
     FormSubmit -->|E-mail| Owner((Artur))
 ```
@@ -153,15 +156,16 @@ The site will be available at **http://localhost:3000**.
 
 ### Available Scripts
 
-| Command             | Description                                    |
-| :------------------ | :--------------------------------------------- |
-| `npm run dev`       | Starts the development server with hot reload. |
-| `npm run build`     | Builds and prerenders the site for production. |
-| `npm run generate`  | Generates a fully static version of the site.  |
-| `npm run preview`   | Serves the production build locally.           |
-| `npm run typecheck` | Checks the types of the whole project.         |
-| `npm run format`    | Formats every file with Prettier.              |
-| `npm test`          | Runs the unit tests (Vitest).                  |
+| Command                  | Description                                                                                       |
+| :----------------------- | :------------------------------------------------------------------------------------------------ |
+| `npm run dev`            | Starts the development server with hot reload.                                                    |
+| `npm run build`          | Builds and prerenders the site for production.                                                    |
+| `npm run generate`       | Generates a fully static version of the site.                                                     |
+| `npm run preview`        | Serves the production build locally.                                                              |
+| `npm run typecheck`      | Checks the types of the whole project.                                                            |
+| `npm run format`         | Formats every file with Prettier.                                                                 |
+| `npm test`               | Runs the unit tests (Vitest).                                                                     |
+| `npm run images:prepare` | Converts new images to WebP, frames phone screenshots and creates missing project preview images. |
 
 ### Environment Variables
 
@@ -227,11 +231,14 @@ After each deploy, check one page in each language, a project page, a 404 page a
 │   └── utils/                   # Pure helper functions
 ├── i18n/locales/                # Interface messages in pt, en and es
 ├── modules/                     # Local Nuxt modules for build-level fixes
-├── server/api/                  # Server route that proxies and caches the GitHub contribution graph
+├── scripts/                     # Image pipeline: WebP conversion, iPhone frame and preview images
+├── server/
+│   ├── api/                     # Proxies and caches the GitHub contribution graph
+│   └── plugins/                 # Cleans the rendered HTML for the Content Security Policy
 ├── shared/                      # Types and constants shared by the app and the server
 ├── public/
 │   ├── images/                  # Optimized WebP images used by the pages
-│   ├── og/                      # Social preview images per language and per project
+│   ├── og/                      # Social preview images per language, project and talk
 │   └── ...                      # Favicons and web app manifest
 ├── resources/                   # Screenshots used in this README
 ├── test/                        # Unit tests (Vitest)
@@ -246,15 +253,32 @@ After each deploy, check one page in each language, a project page, a 404 page a
 
 ### Desktop
 
-|                                       Home                                        |                                Home (light theme)                                |
-| :-------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: |
-|            <img src="resources/home.webp" alt="Home page" width="420">            | <img src="resources/home-light.webp" alt="Home page in light theme" width="420"> |
-|                                     **About**                                     |                                   **Projects**                                   |
-|           <img src="resources/about.webp" alt="About page" width="420">           |       <img src="resources/projects.webp" alt="Projects page" width="420">        |
-|                                **Project details**                                |                                   **Content**                                    |
-| <img src="resources/project-details.webp" alt="Project details page" width="420"> |        <img src="resources/contents.webp" alt="Content page" width="420">        |
-|                                    **Contact**                                    |                                                                                  |
-|         <img src="resources/contact.webp" alt="Contact page" width="420">         |                                                                                  |
+|                                                   Home                                                   |                                  Home (light theme)                                   |
+| :------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
+|                       <img src="resources/home.webp" alt="Home page" width="420">                        |   <img src="resources/home-light.webp" alt="Home page in light theme" width="420">    |
+|                                                **About**                                                 |                                     **Projects**                                      |
+|                      <img src="resources/about.webp" alt="About page" width="420">                       |          <img src="resources/projects.webp" alt="Projects page" width="420">          |
+|                                           **Project details**                                            |                                       **Talks**                                       |
+| <img src="resources/project-details.webp" alt="Project details page with its photo gallery" width="420"> |           <img src="resources/talks.webp" alt="Talks timeline" width="420">           |
+|                                             **Talk details**                                             |                                      **Content**                                      |
+|               <img src="resources/talk-details.webp" alt="Talk details page" width="420">                |          <img src="resources/contents.webp" alt="Content page" width="420">           |
+|                                               **Contact**                                                |                                     **BLACKBOX**                                      |
+|                    <img src="resources/contact.webp" alt="Contact page" width="420">                     | <img src="resources/blackbox.webp" alt="BLACKBOX investigation terminal" width="420"> |
+
+### Mobile
+
+|                                     Home                                      |                                       Projects                                        |                                      Talks                                      |
+| :---------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------: |
+| <img src="resources/mobile-home.webp" alt="Home page on mobile" height="520"> | <img src="resources/mobile-projects.webp" alt="Projects page on mobile" height="520"> | <img src="resources/mobile-talks.webp" alt="Talks page on mobile" height="520"> |
+
+-------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: |
+| <img src="resources/home.webp" alt="Home page" width="420"> | <img src="resources/home-light.webp" alt="Home page in light theme" width="420"> |
+| **About** | **Projects** |
+| <img src="resources/about.webp" alt="About page" width="420"> | <img src="resources/projects.webp" alt="Projects page" width="420"> |
+| **Project details** | **Content** |
+| <img src="resources/project-details.webp" alt="Project details page" width="420"> | <img src="resources/contents.webp" alt="Content page" width="420"> |
+| **Contact** | |
+| <img src="resources/contact.webp" alt="Contact page" width="420"> | |
 
 ### Mobile
 
@@ -275,7 +299,11 @@ npx prettier --check .
 npm run build
 ```
 
-The unit tests cover the BLACKBOX engine: the virtual file system, JWT decoding and verification, answer validation in the three languages, progress restoration and a complete playthrough, including the paths that must not complete a challenge.
+The unit tests cover the pure logic of the site:
+
+- **BLACKBOX engine:** the virtual file system, JWT decoding and verification, answer validation in the three languages, progress restoration and a complete playthrough, including the paths that must not complete a challenge.
+- **Galleries:** the talks mosaic (no holes in the grid for 1 to 16 photos), the project thumbnail strip and the rule that shows phone screenshots whole.
+- **Content formatting:** talk dates and ranges, timeline periods and their order, rich text lists, years of experience and the structured data.
 
 Before a release, the production build is also checked with Lighthouse (mobile and desktop) and with axe in both the dark and light themes.
 
