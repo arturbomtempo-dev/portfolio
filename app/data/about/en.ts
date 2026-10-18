@@ -2,7 +2,7 @@ import { Database, Palette, Presentation, Server, Smartphone, Trophy, Users } fr
 import type { AboutContent } from '~/types/about';
 import { CAREER_START_YEAR } from '~/utils/yearsOfExperience';
 
-export function createAboutContentEn(yearsOfExperience: number): AboutContent {
+export function createAboutContentEn(yearsOfExperience: number, talkCount: number): AboutContent {
     return {
         achievements: [
             {
@@ -23,12 +23,12 @@ export function createAboutContentEn(yearsOfExperience: number): AboutContent {
             },
             {
                 icon: Users,
-                title: `${yearsOfExperience}+  Years`,
+                title: `${yearsOfExperience}+ Years`,
                 description: 'Years of Experience',
                 fullDescription: `My journey in technology began in ${CAREER_START_YEAR}, and over these ${yearsOfExperience} years I have been accumulating valuable experiences in various areas of software development. I have worked with different technologies, methodologies, and teams, always seeking to deliver quality solutions and learn continuously.`,
                 details: [
                     'Full stack development experience with React and Node.js, as well as .NET, Spring Boot, Python, and Vue.js',
-                    'Work in startups and medium to large companies',
+                    'Experience in startups and medium and large companies',
                     'Experience with agile methodologies (Scrum, Kanban)',
                     'Experience in technical leadership and mentoring developers',
                     'Participation in projects from different segments and complexities',
@@ -36,7 +36,7 @@ export function createAboutContentEn(yearsOfExperience: number): AboutContent {
             },
             {
                 icon: Presentation,
-                title: '7+ Talks',
+                title: `${talkCount}+ Talks`,
                 description: 'Sharing knowledge and training new talents',
                 fullDescription:
                     'I have a great interest in teaching and knowledge sharing. Throughout my journey, I have given talks, workshops, and educational meetings at events of different sizes, always seeking to contribute to the training of new professionals and encourage the community to evolve together.',
@@ -44,6 +44,8 @@ export function createAboutContentEn(yearsOfExperience: number): AboutContent {
                     "Workshops for two consecutive years at DevFest BH, the city's largest technology event, promoted by Google Developers Group",
                     'Talks at PUC Minas Computer Science Summer School',
                     'Meetings and training sessions as Chapter Lead at WebTech Network',
+                    'Technical presentations at dti digital, in formats such as Techshot and Knowledge Transfer',
+                    'Talks and courses at institutions and events such as ASSPROM, World Creativity Day, and the 10 years of Software Engineering at PUC Minas',
                     'Backend Journey at WebTech Network in partnership with LEVTY, with over 500 participants',
                     'Volunteer teacher of HTML, CSS, Python, and Scratch at Code Club project',
                 ],

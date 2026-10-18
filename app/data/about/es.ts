@@ -2,7 +2,7 @@ import { Database, Palette, Presentation, Server, Smartphone, Trophy, Users } fr
 import type { AboutContent } from '~/types/about';
 import { CAREER_START_YEAR } from '~/utils/yearsOfExperience';
 
-export function createAboutContentEs(yearsOfExperience: number): AboutContent {
+export function createAboutContentEs(yearsOfExperience: number, talkCount: number): AboutContent {
     return {
         achievements: [
             {
@@ -23,12 +23,12 @@ export function createAboutContentEs(yearsOfExperience: number): AboutContent {
             },
             {
                 icon: Users,
-                title: `${yearsOfExperience}+  Años`,
+                title: `${yearsOfExperience}+ Años`,
                 description: 'Años de Experiencia',
                 fullDescription: `Mi trayectoria en la tecnología comenzó en ${CAREER_START_YEAR} y, a lo largo de estos ${yearsOfExperience} años, vengo acumulando experiencias valiosas en diversas áreas del desarrollo de software. Trabajé con diferentes tecnologías, metodologías y equipos, siempre buscando entregar soluciones de calidad y aprender continuamente.`,
                 details: [
                     'Experiencia en desarrollo full stack con React y Node.js, además de .NET, Spring Boot, Python y Vue.js',
-                    'Actuación en startups y empresas de mediano y gran porte',
+                    'Experiencia en startups y empresas de mediano y gran porte',
                     'Trabajo con metodologías ágiles (Scrum, Kanban)',
                     'Experiencia en liderazgo técnico y mentoría de desarrolladores',
                     'Participación en proyectos de diferentes segmentos y complejidades',
@@ -36,7 +36,7 @@ export function createAboutContentEs(yearsOfExperience: number): AboutContent {
             },
             {
                 icon: Presentation,
-                title: '7+ Charlas',
+                title: `${talkCount}+ Charlas`,
                 description: 'Compartiendo conocimiento y formando nuevos talentos',
                 fullDescription:
                     'Tengo gran interés por la enseñanza y el intercambio de conocimiento. A lo largo de mi trayectoria, dicté charlas, workshops y encuentros educativos en eventos de diferentes tamaños, siempre buscando contribuir con la formación de nuevos profesionales e incentivar a la comunidad a evolucionar en conjunto.',
@@ -44,6 +44,8 @@ export function createAboutContentEs(yearsOfExperience: number): AboutContent {
                     'Workshops por dos años consecutivos en DevFest BH, mayor evento de tecnología de la ciudad, promovido por Google Developers Group',
                     'Charlas en la Escuela de Vacaciones de Ciencias de la Computación de PUC Minas',
                     'Encuentros y formaciones como Chapter Lead en WebTech Network',
+                    'Presentaciones técnicas en dti digital, en formatos como Techshot y Knowledge Transfer',
+                    'Charlas y cursos en instituciones y eventos como ASSPROM, el World Creativity Day y los 10 años de Ingeniería de Software de la PUC Minas',
                     'Jornada Back-end del WebTech Network en asociación con LEVTY, con más de 500 inscriptos',
                     'Profesor voluntario de HTML, CSS, Python y Scratch en el proyecto Code Club',
                 ],
