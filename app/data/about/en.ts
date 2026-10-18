@@ -268,12 +268,15 @@ export function createAboutContentEn(yearsOfExperience: number, talkCount: numbe
                     title: 'Software Developer',
                     company: 'dti digital',
                     description:
-                        'Working on support and maintenance of corporate systems for the MRV client.',
+                        "I was part of Enterprise Inari, with MRV as the client. My main responsibility was supporting and maintaining the company's systems, with a focus on .NET on the back end and React.js on the front end. This experience was a valuable opportunity for learning and growth, allowing me to broaden my knowledge of modern software development technologies.",
                     activities: [
                         'Maintenance and evolution of applications with .NET on the backend',
                         'Implementation of features and fixes using React.js',
                         'Technical support for MRV systems within Enterprise Inari',
                         'Collaboration in an agile environment focused on quality and efficiency',
+                        'Presentation of a Techshot on Minimal APIs, building a .NET API from scratch for dti teams',
+                        'Delivery of a Knowledge Transfer session on Docker, from theory to practice',
+                        "Participation in Security Champions, learning about security in software projects and applying that knowledge to MRV's Parts Catalog project",
                     ],
                 },
                 {

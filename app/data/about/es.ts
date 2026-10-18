@@ -268,12 +268,15 @@ export function createAboutContentEs(yearsOfExperience: number, talkCount: numbe
                     title: 'Desarrollador de Software',
                     company: 'dti digital',
                     description:
-                        'Trabajo en soporte y mantenimiento de sistemas corporativos para el cliente MRV.',
+                        'Formé parte de la Enterprise Inari, con MRV como cliente. Mi principal responsabilidad era el soporte y el mantenimiento de los sistemas de la empresa, con foco en .NET en el back-end y React.js en el front-end. Esta experiencia fue una valiosa oportunidad de aprendizaje y evolución, que me permitió ampliar mis conocimientos en tecnologías modernas de desarrollo de software.',
                     activities: [
                         'Mantenimiento y evolución de aplicaciones con .NET en el backend',
                         'Implementación de funcionalidades y correcciones usando React.js',
                         'Soporte técnico a los sistemas de MRV dentro de Enterprise Inari',
                         'Colaboración en ambiente ágil con enfoque en calidad y eficiencia',
+                        'Presentación de un Techshot sobre Minimal APIs, construyendo una API .NET desde cero para los equipos de dti',
+                        'Conducción de un Knowledge Transfer sobre Docker, de la teoría a la práctica',
+                        'Participación en Security Champions, aprendiendo sobre seguridad en proyectos de software y aplicando esos conocimientos en el proyecto Catálogo de Piezas de MRV',
                     ],
                 },
                 {
