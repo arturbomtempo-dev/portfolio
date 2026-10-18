@@ -141,6 +141,259 @@ export const PROJECTS_ES: Project[] = [
         githubUrl: 'https://github.com/arturbomtempo-dev/portfolio',
     },
     {
+        id: 'gumball-api',
+        title: 'Gumball API',
+        description:
+            'API REST gratuita y abierta con personajes, lugares, episodios, canciones y juegos de El Increíble Mundo de Gumball.',
+        image: '/images/projects/gumball-api.webp',
+        additionalPhotos: [
+            {
+                src: '/images/projects/gumball-api/01.webp',
+                alt: 'Versión de escritorio: página de inicio, recursos de la API y primera petición',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/gumball-api/02.webp',
+                alt: 'Versión de escritorio: página de inicio, personajes de Elmore',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/gumball-api/03.webp',
+                alt: 'Versión de escritorio: documentación, introducción y URL base',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/gumball-api/04.webp',
+                alt: 'Versión de escritorio: documentación de los personajes',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/gumball-api/05.webp',
+                alt: 'Versión de escritorio: documentación, respuesta real de una petición de prueba',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/gumball-api/06.webp',
+                alt: 'Versión de escritorio: página de inicio en el tema oscuro',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/gumball-api/07.webp',
+                alt: 'Versión de escritorio: página de contacto',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/gumball-api/08.webp',
+                alt: 'Versión móvil: página de inicio',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/gumball-api/09.webp',
+                alt: 'Versión móvil: personajes de Elmore',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/gumball-api/10.webp',
+                alt: 'Versión móvil: documentación',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/gumball-api/11.webp',
+                alt: 'Versión móvil: página de inicio en el tema oscuro',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/gumball-api/12.webp',
+                alt: 'Versión móvil: página de contacto',
+                width: 1316,
+                height: 2718,
+            },
+        ],
+        cardTechs: ['NestJS', 'Next.js'],
+        fullDescription:
+            'Gumball API reúne en un solo lugar los datos de El Increíble Mundo de Gumball: personajes, lugares, episodios, temporadas, canciones, juegos y medios de la serie. La idea surgió de proyectos como la Rick and Morty API y la PokéAPI, que ofrecen fuentes de datos gratuitas y organizadas para sus universos. Es una API real y divertida para quien quiere practicar el consumo de APIs REST, con paginación y filtros, o construir apps, bots y sitios sobre Elmore.\n\nEl proyecto es un monorepo con dos despliegues en Vercel. La API se construyó con NestJS, Prisma y PostgreSQL en Supabase, organizada en un módulo por recurso, con pruebas unitarias y end-to-end en Vitest. El sitio, en Next.js, reúne la presentación, la documentación completa y una página de contacto, en portugués, inglés y español.\n\nCaracterísticas principales:\n- Siete recursos conectados: 245 personajes, 112 lugares, 305 episodios, 8 temporadas, 156 canciones, 81 juegos y 16 medios\n- Paginación, filtros, ordenación, búsqueda por id o slug y elementos aleatorios en todas las rutas\n- Acceso abierto, sin autenticación ni clave de API, con CORS habilitado\n- Seguridad en capas: solo rutas GET, límite de peticiones por IP y base de datos protegida por RLS\n- Documentación interactiva, con un panel para enviar peticiones reales en cada ruta\n- Sitio con temas claro y oscuro y formulario de contacto validado en el servidor\n\nUn proyecto personal que une el gusto por la serie con buenas prácticas de construcción y documentación de APIs.',
+        allTechs: [
+            'NestJS',
+            'Next.js',
+            'TypeScript',
+            'Prisma',
+            'PostgreSQL',
+            'Supabase',
+            'Tailwind CSS',
+            'Vitest',
+            'Vercel',
+        ],
+        liveUrl: 'https://gumball-api.vercel.app/',
+        githubUrl: 'https://github.com/arturbomtempo-dev/gumball-api',
+    },
+    {
+        id: 'graph-labs',
+        title: 'Graph Labs',
+        description:
+            'Laboratorio visual de teoría de grafos para dibujar grafos y seguir 17 algoritmos clásicos paso a paso.',
+        image: '/images/projects/graph-labs.webp',
+        additionalPhotos: [
+            {
+                src: '/images/projects/graph-labs/01.webp',
+                alt: 'Versión de escritorio: página de inicio, algoritmos en el orden de la asignatura',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/graph-labs/02.webp',
+                alt: 'Versión de escritorio: estudio, con el editor de grafos y los modelos listos',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/graph-labs/03.webp',
+                alt: 'Versión de escritorio: estudio, elección del algoritmo',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/graph-labs/04.webp',
+                alt: 'Versión de escritorio: estudio, Dijkstra ejecutado paso a paso',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/graph-labs/05.webp',
+                alt: 'Versión de escritorio: estudio, conclusión de Dijkstra',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/graph-labs/06.webp',
+                alt: 'Versión de escritorio: página de pseudocódigos de los algoritmos',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/graph-labs/07.webp',
+                alt: 'Versión de escritorio: página de documentación',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/graph-labs/08.webp',
+                alt: 'Versión de escritorio: página Acerca de',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/graph-labs/09.webp',
+                alt: 'Versión móvil: página de inicio',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/graph-labs/10.webp',
+                alt: 'Versión móvil: estudio',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/graph-labs/11.webp',
+                alt: 'Versión móvil: estudio, Dijkstra ejecutado paso a paso',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/graph-labs/12.webp',
+                alt: 'Versión móvil: página de pseudocódigos de los algoritmos',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/graph-labs/13.webp',
+                alt: 'Versión móvil: página Acerca de',
+                width: 1316,
+                height: 2718,
+            },
+        ],
+        cardTechs: ['React', 'TypeScript'],
+        fullDescription:
+            'Graph Labs es un laboratorio visual de teoría de grafos que creé para la monitoría de Teoría de Grafos del curso de Ingeniería de Software de la PUC Minas. En las tutorías, la duda casi nunca era sobre el enunciado de un algoritmo, sino sobre lo que ocurre en cada iteración. En la herramienta, el grafo se dibuja directamente en el canvas, el algoritmo se elige entre 17 métodos clásicos y la ejecución se sigue paso a paso, con las mismas tablas, colas y notaciones usadas en clase.\n\nTodo se ejecuta en el navegador, sin back-end, base de datos ni registro. Los algoritmos son módulos puros en TypeScript, separados de la interfaz en React, y cada ejecución genera la lista completa de pasos, que la interfaz solo recorre. Las páginas se prerenderizan en portugués, inglés y español, con metadatos propios para SEO.\n\nCaracterísticas principales:\n- Editor de grafos en el canvas, con aristas dirigidas o no, pesos opcionales y reorganización automática\n- 17 algoritmos de búsqueda, conectividad, grafos eulerianos, árbol generador mínimo, camino mínimo, flujo máximo, ordenación topológica, emparejamiento y coloración\n- Ejecución paso a paso, con reproducción automática de hasta 4× y la justificación de cada decisión\n- Validación de las restricciones de cada algoritmo antes de ejecutarlo\n- 12 grafos de ejemplo y una página de pseudocódigos con invariantes y errores comunes\n- Temas claro y oscuro, diseño responsive y el grafo guardado en el navegador\n\nUna herramienta creada para transformar el pseudocódigo estático en algo que se puede inspeccionar, pausar y repetir al ritmo de cada estudiante.',
+        allTechs: [
+            'React',
+            'TypeScript',
+            'Vite',
+            'Tailwind CSS',
+            'React Router',
+            'Lucide React',
+            'Vercel',
+        ],
+        liveUrl: 'https://www.graphlabs.arturbomtempo.dev/',
+        githubUrl: 'https://github.com/arturbomtempo-dev/graph-labs',
+    },
+    {
+        id: 'hello-bible',
+        title: 'Hello Bible',
+        description:
+            'Extensión para VS Code que muestra un versículo bíblico por día en la barra lateral, con favoritos y colores personalizables.',
+        image: '/images/projects/hello-bible.webp',
+        additionalPhotos: [
+            {
+                src: '/images/projects/hello-bible/01.webp',
+                alt: 'Versión de escritorio: página de la extensión en Visual Studio Marketplace',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/hello-bible/02.webp',
+                alt: 'Versión móvil: página de la extensión en Visual Studio Marketplace',
+                width: 1316,
+                height: 2718,
+            },
+        ],
+        cardTechs: ['TypeScript', 'VS Code API'],
+        fullDescription:
+            'Hello Bible es una extensión para Visual Studio Code que muestra un versículo bíblico por día, en un espacio discreto junto al árbol de archivos, sin quitar el foco del código. Creé el proyecto como una exploración práctica de la API de extensiones de VS Code: webview views, view containers, QuickPick y estado orientado a eventos.\n\nEl versículo del día se elige de forma determinista entre unos 50 pasajes seleccionados, con el cambio a medianoche en la zona horaria del propio ordenador, y el texto se obtiene en tiempo real, en portugués, de una API pública. La extensión está publicada en Visual Studio Marketplace.\n\nCaracterísticas principales:\n- Sección en el Explorer con el versículo del día, la referencia y la fecha\n- Favoritos sincronizados entre todas las pantallas, sin recargar\n- Panel propio en la Activity Bar con los versículos favoritos\n- Ocho colores de acento, aplicados en vivo en las dos pantallas\n- Comando en la Command Palette para ver el versículo como notificación\n- Colores derivados del tema de VS Code, con soporte para temas claros, oscuros y de alto contraste\n\nUn proyecto que une el estudio de la API de extensiones de VS Code con algo útil para tener abierto todos los días.',
+        allTechs: ['TypeScript', 'VS Code Extension API', 'Vitest', 'ESLint', 'Prettier'],
+        liveUrl:
+            'https://marketplace.visualstudio.com/items?itemName=arturbomtempo-dev.hello-bible',
+        githubUrl: 'https://github.com/arturbomtempo-dev/hello-bible',
+    },
+    {
+        id: 'docsbr',
+        title: 'docsbr',
+        description:
+            'Biblioteca TypeScript, sin dependencias, para validar, formatear y generar documentos brasileños como CPF y CNPJ.',
+        image: '/images/projects/docsbr.webp',
+        additionalPhotos: [
+            {
+                src: '/images/projects/docsbr/01.webp',
+                alt: 'Versión de escritorio: página del paquete en npm',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/docsbr/02.webp',
+                alt: 'Versión móvil: página del paquete en npm',
+                width: 1316,
+                height: 2718,
+            },
+        ],
+        cardTechs: ['TypeScript', 'Node.js'],
+        fullDescription:
+            'docsbr es una biblioteca TypeScript-first para la validación, el formateo y la generación de documentos brasileños. Trabajar con CPF y CNPJ exige implementar manualmente el algoritmo Mod-11, las máscaras de formato y la lógica de generación; la biblioteca reúne todas estas operaciones en una API mínima, predecible y coherente entre los módulos.\n\nEl paquete es ligero, no tiene dependencias externas y tiene soporte nativo para ESM, funcionando en Node.js 18 o superior, en bundlers modernos como Vite y esbuild y en el navegador. Está publicado en npm, con pruebas escritas en Vitest para todos los módulos.\n\nCaracterísticas principales:\n- Validación de CPF y CNPJ con el algoritmo Mod-11, fiel a las especificaciones de la Receita Federal de Brasil\n- Formateo y eliminación de máscara, aceptando valores con o sin puntuación\n- Generación aleatoria de documentos válidos, con o sin formato\n- Importación por namespace o por subruta, con soporte para tree-shaking\n- Tipado completo en TypeScript y ninguna dependencia externa\n\nUna biblioteca pensada para resolver de forma sencilla un problema común en el desarrollo de sistemas brasileños.',
+        allTechs: ['TypeScript', 'Node.js', 'Vitest', 'ESLint', 'Prettier', 'npm'],
+        liveUrl: 'https://www.npmjs.com/package/docsbr',
+        githubUrl: 'https://github.com/arturbomtempo-dev/docsbr',
+    },
+    {
         id: 'lumen-coin',
         title: 'Lumen Coin',
         description:
@@ -242,6 +495,48 @@ export const PROJECTS_ES: Project[] = [
             'Docker',
         ],
         githubUrl: 'https://github.com/arturbomtempo-dev/lumen-coin',
+    },
+    {
+        id: 'traduz-ai',
+        title: 'TraduzAí',
+        description:
+            'Traductor de documentos que convierte archivos PDF y TXT del inglés al portugués, manteniendo el formato original.',
+        image: '/images/projects/traduz-ai.webp',
+        additionalPhotos: [
+            {
+                src: '/images/projects/traduz-ai/01.webp',
+                alt: 'Versión de escritorio: archivo seleccionado para traducir',
+                width: 1920,
+                height: 1080,
+            },
+            {
+                src: '/images/projects/traduz-ai/02.webp',
+                alt: 'Versión móvil: página de inicio',
+                width: 1316,
+                height: 2718,
+            },
+            {
+                src: '/images/projects/traduz-ai/03.webp',
+                alt: 'Versión móvil: archivo seleccionado para traducir',
+                width: 1316,
+                height: 2718,
+            },
+        ],
+        cardTechs: ['Python', 'Django'],
+        fullDescription:
+            'TraduzAí es un traductor de documentos rápido que conserva el diseño original. Basta con subir un archivo PDF o TXT en inglés para recibir una versión completa en portugués, con el formato intacto y lista para descargar.\n\nEl back-end se desarrolló en Python con Django, usa PyMuPDF para leer y reconstruir los PDF y Google Translate, mediante la biblioteca deep-translator, para traducir el contenido por lotes. La aplicación está publicada en Render, servida con Gunicorn y WhiteNoise.\n\nCaracterísticas principales:\n- Traducción de PDF que conserva el diseño, las columnas y los estilos de fuente\n- Traducción de archivos TXT con vista previa instantánea\n- Motor de traducción por lotes, para procesar documentos largos con rapidez\n- Interfaz limpia y responsive, con carga por arrastrar y soltar\n- Descarga del archivo traducido con un clic\n\nUn proyecto que une el procesamiento de documentos y la traducción automática en una herramienta fácil de usar.',
+        allTechs: [
+            'Python',
+            'Django',
+            'PyMuPDF',
+            'Google Translate',
+            'HTML',
+            'CSS',
+            'JavaScript',
+            'Render',
+        ],
+        liveUrl: 'https://traduz-ai.onrender.com/',
+        githubUrl: 'https://github.com/arturbomtempo-dev/traduz-ai',
     },
     {
         id: 'dev-resources',
