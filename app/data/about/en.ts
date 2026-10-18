@@ -61,6 +61,8 @@ export function createAboutContentEn(yearsOfExperience: number, talkCount: numbe
                     'JavaScript',
                     'React.js',
                     'Next.js',
+                    'Vue.js',
+                    'Nuxt.js',
                     'Vite',
                     'Tailwind CSS',
                     'jQuery',
@@ -91,12 +93,12 @@ export function createAboutContentEn(yearsOfExperience: number, talkCount: numbe
             {
                 icon: Database,
                 title: 'Database',
-                techs: ['MySQL', 'PostgreSQL', 'SQLite', 'MongoDB'],
+                techs: ['MySQL', 'PostgreSQL', 'SQLite', 'MongoDB', 'Firebase', 'Supabase'],
             },
             {
                 icon: Smartphone,
                 title: 'Mobile',
-                techs: ['Swift', 'Kotlin'],
+                techs: ['Swift', 'Kotlin', 'React Native', 'Flutter'],
             },
         ],
         testimonials: [

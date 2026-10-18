@@ -61,6 +61,8 @@ export function createAboutContentPt(yearsOfExperience: number, talkCount: numbe
                     'JavaScript',
                     'React.js',
                     'Next.js',
+                    'Vue.js',
+                    'Nuxt.js',
                     'Vite',
                     'Tailwind CSS',
                     'jQuery',
@@ -91,12 +93,12 @@ export function createAboutContentPt(yearsOfExperience: number, talkCount: numbe
             {
                 icon: Database,
                 title: 'Banco de Dados',
-                techs: ['MySQL', 'PostgreSQL', 'SQLite', 'MongoDB'],
+                techs: ['MySQL', 'PostgreSQL', 'SQLite', 'MongoDB', 'Firebase', 'Supabase'],
             },
             {
                 icon: Smartphone,
                 title: 'Mobile',
-                techs: ['Swift', 'Kotlin'],
+                techs: ['Swift', 'Kotlin', 'React Native', 'Flutter'],
             },
         ],
         testimonials: [
