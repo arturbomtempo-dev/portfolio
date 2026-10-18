@@ -308,17 +308,18 @@ export function createAboutContentEn(yearsOfExperience: number, talkCount: numbe
                     ],
                 },
                 {
-                    year: '2025',
-                    title: 'Programming and Algorithms Monitor',
+                    year: '2024 - present',
+                    title: 'Teaching Assistant',
                     company: 'PUC Minas',
                     description:
-                        'Supporting students in learning Java, logic, OOP, and data structures, working as a monitor in the disciplines of Algorithms and Data Structures I and II and Modular Programming.',
+                        'I support Computer Science, Software Engineering, Computer Engineering, and Data Science students in Algorithms and Data Structures I and II, Web Interface Development, and Modular Programming. I am currently the teaching assistant for Graph Theory and Computability, creating support materials, video lessons, and a tool to visualize how graph algorithms run.',
                     activities: [
-                        'Guidance in Java and Object-Oriented Programming',
-                        'Assistance in logic, algorithms, and implementation in C and C++',
-                        'Support in data structures and sorting techniques',
-                        'Application of SOLID principles, Design Patterns, and testing with JUnit',
-                        'Monitoring exercises, projects, and clarifying doubts',
+                        'Current teaching assistantship in Graph Theory and Computability, with algorithms such as breadth-first and depth-first search and Dijkstra',
+                        'Programming logic, problem solving, and data structures such as lists, stacks, queues, and trees',
+                        'Object-oriented programming in Java, SOLID principles, modularization, and design patterns',
+                        'Web development with HTML, CSS, JavaScript, JSON, and AJAX, as well as unit testing',
+                        'Creation of Graph Labs, supplementary materials, and video lessons for YouTube',
+                        'Answering questions, guiding exercises, and supporting projects',
                     ],
                 },
                 {

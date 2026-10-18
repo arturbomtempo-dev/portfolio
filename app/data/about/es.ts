@@ -308,17 +308,18 @@ export function createAboutContentEs(yearsOfExperience: number, talkCount: numbe
                     ],
                 },
                 {
-                    year: '2025',
-                    title: 'Monitor de Programación y Algoritmos',
+                    year: '2024 - presente',
+                    title: 'Monitor Académico',
                     company: 'PUC Minas',
                     description:
-                        'Apoyo a estudiantes en el aprendizaje de Java, lógica, POO y estructuras de datos, actuando como monitor en las disciplinas de Algoritmos y Estructuras de Datos I y II y Programación Modular.',
+                        'Ayudo a estudiantes de Ciencias de la Computación, Ingeniería de Software, Ingeniería de la Computación y Ciencia de Datos en Algoritmos y Estructuras de Datos I y II, Desarrollo de Interfaces Web y Programación Modular. Actualmente, soy monitor de Teoría de Grafos y Computabilidad, desarrollando materiales de apoyo, clases en video y una herramienta para visualizar la ejecución de algoritmos de grafos.',
                     activities: [
-                        'Orientación en Java y Programación Orientada a Objetos',
-                        'Auxilio en lógica, algoritmos e implementación en C y C++',
-                        'Soporte en estructuras de datos y técnicas de ordenamiento',
-                        'Aplicación de principios SOLID, Design Patterns y pruebas con JUnit',
-                        'Acompañamiento de ejercicios, proyectos y aclaración de dudas',
+                        'Monitoría actual de Teoría de Grafos y Computabilidad, con algoritmos como búsqueda en anchura y en profundidad y Dijkstra',
+                        'Lógica de programación, resolución de problemas y estructuras de datos, como listas, pilas, colas y árboles',
+                        'Programación orientada a objetos en Java, principios SOLID, modularización y design patterns',
+                        'Desarrollo web con HTML, CSS, JavaScript, JSON y AJAX, además de pruebas unitarias',
+                        'Creación de Graph Labs, de materiales complementarios y de clases en video para YouTube',
+                        'Aclaración de dudas, orientación en ejercicios y apoyo en proyectos',
                     ],
                 },
                 {

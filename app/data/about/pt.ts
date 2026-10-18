@@ -308,17 +308,18 @@ export function createAboutContentPt(yearsOfExperience: number, talkCount: numbe
                     ],
                 },
                 {
-                    year: '2025',
-                    title: 'Monitor de Programação e Algoritmos',
+                    year: '2024 - o momento',
+                    title: 'Monitor Acadêmico',
                     company: 'PUC Minas',
                     description:
-                        'Apoio aos estudantes no aprendizado de Java, lógica, POO e estruturas de dados, atuando como monitor nas disciplinas de Algoritmos e Estruturas de Dados I e II e Programação Modular.',
+                        'Auxilio estudantes de Ciência da Computação, Engenharia de Software, Engenharia da Computação e Ciência de Dados em Algoritmos e Estruturas de Dados I e II, Desenvolvimento de Interfaces Web e Programação Modular. Atualmente, sou monitor de Teoria dos Grafos e Computabilidade, desenvolvendo materiais de apoio, aulas em vídeo e uma ferramenta para visualizar a execução de algoritmos de grafos.',
                     activities: [
-                        'Orientação em Java e Programação Orientada a Objetos',
-                        'Auxílio em lógica, algoritmos e implementação em C e C++',
-                        'Suporte em estruturas de dados e técnicas de ordenação',
-                        'Aplicação de princípios SOLID, Design Patterns e testes com JUnit',
-                        'Acompanhamento de exercícios, projetos e esclarecimento de dúvidas',
+                        'Monitoria atual de Teoria dos Grafos e Computabilidade, com algoritmos como buscas em largura e profundidade e Dijkstra',
+                        'Lógica de programação, resolução de problemas e estruturas de dados, como listas, pilhas, filas e árvores',
+                        'Programação orientada a objetos em Java, princípios SOLID, modularização e design patterns',
+                        'Desenvolvimento web com HTML, CSS, JavaScript, JSON e AJAX, além de testes unitários',
+                        'Criação do Graph Labs, de materiais complementares e de aulas em vídeo para o YouTube',
+                        'Esclarecimento de dúvidas, orientação em exercícios e apoio em projetos',
                     ],
                 },
                 {
