@@ -9,7 +9,14 @@ const localePath = useLocalePath();
 </script>
 
 <template>
-    <section class="flex min-h-screen items-center justify-center px-6 sm:px-8">
+    <section
+        class="relative isolate flex min-h-screen items-center justify-center overflow-hidden px-6 sm:px-8"
+    >
+        <div aria-hidden="true" class="absolute inset-0 -z-10">
+            <ClientOnly>
+                <LazyHomeCodeRainBackground />
+            </ClientOnly>
+        </div>
         <div class="mx-auto max-w-4xl animate-fade-in text-center">
             <div class="mb-8">
                 <div

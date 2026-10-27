@@ -60,6 +60,7 @@ It is also a professional reference in itself: a small but complete production c
 
 - **Three languages:** Portuguese (default), English and Spanish, each one with its own URL (`/`, `/en`, `/es`), translated metadata and `hreflang` alternates. Switching languages keeps the current page and scroll position.
 - **Dark and light themes:** follows the operating system by default, remembers the visitor's choice and never flashes the wrong theme on load.
+- **Animated home background:** real code snippets drift down behind the hero on a lightweight canvas, react to the mouse (they move aside and light up in the brand green), follow the dark and light themes, fade out behind the main text and pause when the page is not visible. It loads after the page, adds about 5 KB of JavaScript and stays still for visitors who prefer reduced motion.
 - **Projects with detail pages:** every project has its own route (`/projects/<id>`) with description, technologies, links, a dedicated social preview image and, when there are screenshots, a gallery: a large stage with arrows, swipe and a counter, a strip of thumbnails and a full-screen viewer. Phone screenshots are shown whole, inside an iPhone frame drawn at build time.
 - **Talks:** talks, workshops and courses on a vertical timeline grouped by year, with filters in the URL and a detail page per talk with its date, location, description, topics and a photo mosaic with a full-screen viewer (zoom, keyboard and swipe).
 - **Content hub:** articles, videos and newsletters with filters stored in the URL (`/contents?type=video`), so a filtered view can be shared.
@@ -304,6 +305,7 @@ The unit tests cover the pure logic of the site:
 - **BLACKBOX engine:** the virtual file system, JWT decoding and verification, answer validation in the three languages, progress restoration and a complete playthrough, including the paths that must not complete a challenge.
 - **Galleries:** the talks mosaic (no holes in the grid for 1 to 16 photos), the project thumbnail strip and the rule that shows phone screenshots whole.
 - **Content formatting:** talk dates and ranges, timeline periods and their order, rich text lists, years of experience and the structured data.
+- **Home background:** how many snippets fit each screen, their movement, the reaction to the mouse and the quieter area behind the main text.
 
 Before a release, the production build is also checked with Lighthouse (mobile and desktop) and with axe in both the dark and light themes.
 
