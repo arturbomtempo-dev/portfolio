@@ -16,6 +16,7 @@
         "projects": "Projects",
         "talks": "Talks",
         "contents": "Content",
+        "roadmap": "Roadmap",
         "contact": "Contact",
         "blackbox": "BLACKBOX"
     },
@@ -156,6 +157,55 @@
         },
         "morePhotos": "View {count} more photos",
         "lightboxTitle": "Photos from {title}"
+    },
+    "roadmap": {
+        "seo": {
+            "title": "Beginner Roadmap {'|'} Artur Bomtempo",
+            "description": "An interactive roadmap for people starting out in tech: front-end, back-end, mobile, DevOps, cybersecurity, data and AI, with study paths and best practices.",
+            "ogTitle": "Beginner Roadmap {'|'} Artur Bomtempo",
+            "ogDescription": "An interactive roadmap for people starting out in tech: front-end, back-end, mobile, DevOps, cybersecurity, data and AI, with study paths and best practices."
+        },
+        "title": "Roadmap for Beginners",
+        "description": "When I started programming, I often felt lost with so many fields and possible paths. I created this roadmap to help beginners understand what each field does, where to start and which path suits them best.",
+        "fundamentals": {
+            "title": "The starting point",
+            "description": "Before choosing a field, some knowledge is useful on any path."
+        },
+        "areas": {
+            "title": "Explore the fields",
+            "description": "Large companies usually split their teams into these fields. Pick one to see what it does, what the day to day looks like and where to start.",
+            "label": "Tech fields"
+        },
+        "area": {
+            "whatItDoes": "What it does",
+            "myth": "Much more than it seems",
+            "dailyWork": "Day to day",
+            "aiImpact": "What about artificial intelligence?",
+            "showPath": "View study path",
+            "hidePath": "Hide study path",
+            "pathTitle": "Study path",
+            "pathDescription": "A suggested order, not a rule. You do not need to master everything in one stage to move on.",
+            "step": "Stage {number}",
+            "chooseOne": "Pick a path",
+            "technologies": "Technologies"
+        },
+        "principles": {
+            "title": "Architecture and best practices",
+            "description": "Concepts that show up sooner or later in your career. You do not need to master them all now: understand the idea and come back when it makes sense.",
+            "showMore": "Learn more",
+            "showLess": "Show less",
+            "whenToLearn": "When to study",
+            "levelLabel": "Level: {level}",
+            "levels": {
+                "beginner": "Beginner",
+                "intermediate": "Intermediate",
+                "advanced": "Advanced"
+            }
+        },
+        "tips": {
+            "title": "Tips for the journey",
+            "description": "What I wish I had heard when I started."
+        }
     },
     "photoLightbox": {
         "previous": "Previous photo",

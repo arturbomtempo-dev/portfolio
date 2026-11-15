@@ -32,26 +32,26 @@ watch(
             <div class="flex h-16 items-center justify-between">
                 <NuxtLink
                     :to="localePath('/')"
-                    class="font-heading text-xl font-bold text-foreground transition-colors hover:text-primary"
+                    class="shrink-0 font-heading text-xl font-bold text-foreground transition-colors hover:text-primary"
                 >
                     <span class="glow-text">
                         {{ t('header.logo') }}<span class="text-primary">.</span>
                     </span>
                 </NuxtLink>
 
-                <div class="flex items-center gap-6">
+                <div class="flex items-center gap-4 xl:gap-6">
                     <nav :aria-label="t('header.mainNavigation')" class="hidden lg:block">
-                        <ul class="flex items-center gap-6">
+                        <ul class="flex items-center gap-4 xl:gap-6">
                             <li v-for="item in items" :key="item.to" class="flex">
                                 <NuxtLink
                                     :to="item.to"
                                     :data-active="item.isActive || undefined"
-                                    class="link-underline text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground data-active:text-foreground"
+                                    class="link-underline text-sm font-medium whitespace-nowrap text-muted-foreground transition-colors duration-200 hover:text-foreground data-active:text-foreground"
                                 >
                                     {{ item.label }}
                                 </NuxtLink>
                             </li>
-                            <li class="flex items-center gap-6">
+                            <li class="flex items-center gap-4 xl:gap-6">
                                 <span aria-hidden="true" class="h-4 w-px bg-border" />
                                 <LayoutBlackboxLink />
                             </li>

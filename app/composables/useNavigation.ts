@@ -6,6 +6,7 @@ const NAVIGATION_ROUTES = [
     { labelKey: 'nav.projects', path: '/projects', includesNestedRoutes: true },
     { labelKey: 'nav.talks', path: '/talks', includesNestedRoutes: true },
     { labelKey: 'nav.contents', path: '/contents', includesNestedRoutes: true },
+    { labelKey: 'nav.roadmap', path: '/roadmap', includesNestedRoutes: true },
     { labelKey: 'nav.contact', path: '/contact', includesNestedRoutes: true },
 ] as const;
 

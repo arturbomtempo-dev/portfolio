@@ -65,6 +65,7 @@ It is also a professional reference in itself: a small but complete production c
 - **Talks:** talks, workshops and courses on a vertical timeline grouped by year, with filters in the URL and a detail page per talk with its date, location, description, topics and a photo mosaic with a full-screen viewer (zoom, keyboard and swipe).
 - **Content hub:** articles, videos and newsletters with filters stored in the URL (`/contents?type=video`), so a filtered view can be shared.
 - **About page:** achievements (with the years of experience and the number of talks computed automatically), technologies, a live GitHub contribution graph, an education and career timeline with month-precision periods ordered automatically, and a testimonials carousel.
+- **Roadmap for beginners:** an interactive guide for people starting in software development: the fundamentals every area shares, ten areas (front-end, back-end, full stack, mobile, DBA, DevOps and cloud, cybersecurity, data and AI, QA and IT support) with what each one does, the day-to-day work, how AI is changing it and a step-by-step study path with modern technologies, plus an introduction to architectures and practices such as SOLID, TDD, DDD, hexagonal architecture and Spec-Driven Development. The selected area is kept in the URL (`/roadmap?area=mobile`), so it can be shared.
 - **BLACKBOX:** the last item of the main navigation opens a CTF-style incident investigation in a realistic terminal: a virtual file system, logs to correlate, a tampered JWT to analyze, progressive hints, saved progress and a final skills report, in the three languages.
 - **Contact form:** validated with Zod in the visitor's language and delivered by e-mail through FormSubmit, with a honeypot field against spam.
 - **SEO:** prerendered HTML, canonical URLs, `hreflang` alternates, a sitemap per language, `robots.txt`, schema.org structured data (`Person` and `WebSite`) and Open Graph images per language, per project and per talk.
@@ -222,6 +223,7 @@ After each deploy, check one page in each language, a project page, a 404 page a
 │   │   ├── home/                # Home hero section
 │   │   ├── layout/              # Header, footer, theme toggle, language selector, toaster
 │   │   ├── projects/            # Project cards, grid and details
+│   │   ├── roadmap/             # Roadmap areas, study paths, architectures and tips
 │   │   └── ui/                  # Generic building blocks (buttons, cards, dialogs, form fields)
 │   ├── composables/             # Shared logic (content per locale, forms, navigation)
 │   ├── data/                    # Portfolio content in pt, en and es
@@ -305,6 +307,7 @@ The unit tests cover the pure logic of the site:
 - **BLACKBOX engine:** the virtual file system, JWT decoding and verification, answer validation in the three languages, progress restoration and a complete playthrough, including the paths that must not complete a challenge.
 - **Galleries:** the talks mosaic (no holes in the grid for 1 to 16 photos), the project thumbnail strip and the rule that shows phone screenshots whole.
 - **Content formatting:** talk dates and ranges, timeline periods and their order, rich text lists, years of experience and the structured data.
+- **Roadmap:** every area, step, option, principle and tip has its text in the three languages, with no missing or extra entries.
 - **Home background:** how many snippets fit each screen, their movement, the reaction to the mouse and the quieter area behind the main text.
 
 Before a release, the production build is also checked with Lighthouse (mobile and desktop) and with axe in both the dark and light themes.

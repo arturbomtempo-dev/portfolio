@@ -16,6 +16,7 @@
         "projects": "Projetos",
         "talks": "Palestras",
         "contents": "Conteúdos",
+        "roadmap": "Roadmap",
         "contact": "Contato",
         "blackbox": "BLACKBOX"
     },
@@ -156,6 +157,55 @@
         },
         "morePhotos": "Ver mais {count} fotos",
         "lightboxTitle": "Fotos de {title}"
+    },
+    "roadmap": {
+        "seo": {
+            "title": "Roadmap para Iniciantes {'|'} Artur Bomtempo",
+            "description": "Roadmap interativo para quem está começando em tecnologia: front-end, back-end, mobile, DevOps, cibersegurança, dados e IA, com trilhas de estudo e boas práticas.",
+            "ogTitle": "Roadmap para Iniciantes {'|'} Artur Bomtempo",
+            "ogDescription": "Roadmap interativo para quem está começando em tecnologia: front-end, back-end, mobile, DevOps, cibersegurança, dados e IA, com trilhas de estudo e boas práticas."
+        },
+        "title": "Roadmap para quem está começando",
+        "description": "Quando comecei na programação, muitas vezes me senti perdido com tantas áreas e caminhos possíveis. Criei este roadmap para ajudar quem está começando a entender o que cada área faz, por onde começar e qual caminho combina mais com você.",
+        "fundamentals": {
+            "title": "O ponto de partida",
+            "description": "Antes de escolher uma área, alguns conhecimentos valem para qualquer caminho."
+        },
+        "areas": {
+            "title": "Explore as áreas",
+            "description": "Grandes empresas costumam dividir os times nessas áreas. Escolha uma para ver o que ela faz, como é o dia a dia e por onde começar.",
+            "label": "Áreas da tecnologia"
+        },
+        "area": {
+            "whatItDoes": "O que faz",
+            "myth": "Muito além do que parece",
+            "dailyWork": "No dia a dia",
+            "aiImpact": "E a inteligência artificial?",
+            "showPath": "Ver trilha de estudos",
+            "hidePath": "Ocultar trilha de estudos",
+            "pathTitle": "Trilha de estudos",
+            "pathDescription": "Uma ordem sugerida, não uma regra. Você não precisa dominar tudo de uma etapa para avançar.",
+            "step": "Etapa {number}",
+            "chooseOne": "Escolha um caminho",
+            "technologies": "Tecnologias"
+        },
+        "principles": {
+            "title": "Arquiteturas e boas práticas",
+            "description": "Conceitos que aparecem cedo ou tarde na carreira. Não é preciso dominar tudo agora: entenda a ideia e volte a eles quando fizer sentido.",
+            "showMore": "Saiba mais",
+            "showLess": "Mostrar menos",
+            "whenToLearn": "Quando estudar",
+            "levelLabel": "Nível: {level}",
+            "levels": {
+                "beginner": "Iniciante",
+                "intermediate": "Intermediário",
+                "advanced": "Avançado"
+            }
+        },
+        "tips": {
+            "title": "Dicas para a jornada",
+            "description": "O que eu gostaria de ter ouvido quando comecei."
+        }
     },
     "photoLightbox": {
         "previous": "Foto anterior",
