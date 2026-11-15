@@ -45,7 +45,7 @@ describe.each(COPIES)('roadmap copy (%s)', (_, copy) => {
     });
 
     it('never uses em dashes', () => {
-        expect(JSON.stringify(copy)).not.toContain('—');
+        expect(JSON.stringify(copy)).not.toContain('\u2014');
     });
 
     it('keeps the same number of tips in every language', () => {
